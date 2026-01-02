@@ -80,6 +80,9 @@
           "youtubetweak@dark495.me" = {
             install_url = moz "youtube-tweak";
           };
+          "Google_AI_Overviews_Blocker@zachbarnes.dev" = {
+            install_url = moz "hide-google-ai-overviews";
+          };
         };
       DisplayBookmarksToolbar = "never";
       DisableTelemetry = true;
@@ -95,6 +98,8 @@
         "media.ffmpeg.vaapi.enabled" = true;
         "gfx.webrender.all" = true;
         "media.hardware-video-decoding.force-enabled" = true;
+        "browser.translations.automaticallyPopup" = false;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
     };
