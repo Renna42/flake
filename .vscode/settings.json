@@ -1,4 +1,6 @@
 {
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "explorer.excludeGitIgnore": true,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "alejandra",
