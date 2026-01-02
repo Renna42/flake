@@ -20,6 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri.url = "github:sodiboo/niri-flake";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs: let
@@ -65,6 +66,7 @@
             ./hardwares/${hostname}.nix
             inputs.stylix.nixosModules.stylix
             inputs.niri.nixosModules.niri
+            inputs.hyprland.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
           ]
           ++ (lib.filesystem.listFilesRecursive usersDir);
