@@ -107,6 +107,11 @@
     enableFishIntegration = true;
   };
 
+  programs.carapace = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.bat.enable = true;
 
   programs.btop.enable = true;
