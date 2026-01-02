@@ -112,6 +112,13 @@
           "textDocument/documentLink"
         ];
         "nix.serverPath" = "nixd";
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = ["alejandra"];
+            };
+          };
+        };
         "prettier.tabWidth" = 2;
         "redhat.telemetry.enabled" = false;
         "search.smartCase" = true;

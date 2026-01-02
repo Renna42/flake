@@ -1,3 +1,23 @@
 {
-    "explorer.excludeGitIgnore": true
+  "explorer.excludeGitIgnore": true,
+  "nix.enableLanguageServer": true,
+  "nix.formatterPath": "alejandra",
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": {
+        "command": ["alejandra"]
+      },
+      "home-manager": {
+        "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.Mizuka.options.home-manager.users.type.getSubOptions []"
+      }
+    }
+  },
+  "nix.hiddenLanguageServerErrors": [
+    "textDocument/definition",
+    "textDocument/codeAction",
+    "textDocument/documentSymbol",
+    "textDocument/inlayHint",
+    "textDocument/documentLink"
+  ]
 }
