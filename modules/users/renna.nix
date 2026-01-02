@@ -45,5 +45,4 @@ in {
       ../home/base.nix
     ];
   };
-  nix.settings.trusted-users = [username];
 }
