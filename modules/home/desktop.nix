@@ -5,6 +5,7 @@
     ./apps/fcitx5
     ./apps/firefox
     ./apps/vscode
+    ./apps/kitty
     ./apps/develop.nix
     ./apps/shell-utils.nix
   ];
