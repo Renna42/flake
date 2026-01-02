@@ -5,6 +5,8 @@
   ...
 }: {
   nix = {
+    # Use Lix
+    package = pkgs.lixPackageSets.stable.lix;
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";
@@ -54,6 +56,8 @@
 
     daemonIOSchedClass = lib.mkDefault "idle";
     daemonCPUSchedPolicy = lib.mkDefault "idle";
+    
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   };
 
   # Use Lix
