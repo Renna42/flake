@@ -1,3 +1,6 @@
+inspect:
+    nix run github:bluskript/nix-inspect -- -p .
+
 build:
     nixos-rebuild build --flake . --sudo -v --log-format internal-json |& nom --json
 
@@ -9,9 +12,6 @@ boot:
 
 dryrun:
     nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
-
-drybuild:
-    nixos-rebuild dry-build --flake . --sudo -v --log-format internal-json |& nom --json
 
 gc:
     # remove all generations older than 7 days
