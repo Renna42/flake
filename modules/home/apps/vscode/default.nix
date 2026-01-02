@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscodium;
     mutableExtensionsDir = false;
     profiles.default = {
       userSettings = {
@@ -122,6 +122,7 @@
         "typescript.suggest.autoImports" = true;
         "typescript.updateImportsOnFileMove.enabled" = "always";
         "update.mode" = "none";
+        "vsicons.dontShowNewVersionMessage" = true;
         "workbench.colorCustomizations" = {
           "terminal.background" = "#00000000";
         };
@@ -179,9 +180,6 @@
         "ms-python.python"
         "ms-python.vscode-pylance"
         "ms-python.vscode-python-envs"
-        "ms-vscode-remote.remote-containers"
-        "ms-vscode-remote.remote-ssh"
-        "ms-vscode-remote.remote-ssh-edit"
         "ms-vscode.cmake-tools"
         "ms-vscode.hexeditor"
         "ms-vscode.makefile-tools"
