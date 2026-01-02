@@ -192,6 +192,7 @@
         "ms-vscode.vscode-typescript-next"
         "ms-vsliveshare.vsliveshare"
         "naumovs.color-highlight"
+        "nefrob.vscode-just-syntax"
         "oderwat.indent-rainbow"
         "qwtel.sqlite-viewer"
         "redhat.java"

@@ -11,5 +11,6 @@
 
     nixd
     alejandra
+    just
   ];
 }
