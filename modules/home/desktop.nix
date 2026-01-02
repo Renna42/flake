@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./stylix.nix
 
@@ -39,6 +43,8 @@
       "GDK_BACKEND" = "wayland";
       "XDG_SESSION_TYPE" = "wayland";
     };
+
+    file.".face.icon".source = ../../assets/${username}.png;
   };
 
   i18n.inputMethod = {
