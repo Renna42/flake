@@ -58,7 +58,7 @@
 
     daemonIOSchedClass = lib.mkDefault "idle";
     daemonCPUSchedPolicy = lib.mkDefault "idle";
-    
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   };
 }
