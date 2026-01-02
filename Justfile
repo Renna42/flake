@@ -10,7 +10,7 @@ boot:
 dryrun:
     nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
 
-dryrun:
+drybuild:
     nixos-rebuild dry-build --flake . --sudo -v --log-format internal-json |& nom --json
 
 gc:
