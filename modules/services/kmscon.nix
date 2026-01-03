@@ -13,6 +13,4 @@
     ];
     hwRender = true;
   };
-
-  stylix.targets.kmscon.colors.enable = false;
 }

@@ -169,7 +169,6 @@ in {
         "workbench.colorCustomizations" = {
           "terminal.background" = "#00000000";
         };
-        "workbench.colorTheme" = "Dainty – Material Theme Ocean";
         "workbench.iconTheme" = "vscode-icons";
         "workbench.productIconTheme" = "fluent-icons";
         "workbench.startupEditor" = "none";
@@ -180,7 +179,6 @@ in {
       extensions = pkgs.nix4vscode.forVscode [
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
-        "alexanderte.dainty-vscode"
         "astro-build.astro-vscode"
         "bradlc.vscode-tailwindcss"
         "christian-kohler.path-intellisense"
@@ -270,5 +268,4 @@ in {
       ];
     };
   };
-  stylix.targets.vscode.enable = false;
 }
