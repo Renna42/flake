@@ -25,7 +25,10 @@ in {
     shell = pkgs.fish;
     initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
   };
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
   home-manager = {
     sharedModules = [
       inputs.nix-index-database.homeModules.nix-index
