@@ -1,7 +1,43 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    # Simple workaround before next nixpkgs-unstable released
+    package = pkgs.vscodium.overrideAttrs rec {
+      plat =
+        {
+          x86_64-linux = "linux-x64";
+          x86_64-darwin = "darwin-x64";
+          aarch64-linux = "linux-arm64";
+          aarch64-darwin = "darwin-arm64";
+          armv7l-linux = "linux-armhf";
+        }.${
+          system
+        };
+
+      archive_fmt =
+        if pkgs.stdenv.hostPlatform.isDarwin
+        then "zip"
+        else "tar.gz";
+
+      hash =
+        {
+          x86_64-linux = "sha256-gqBxdd6Ww1nIXovixgsuIivLXn1LoZXN5NhK4bLmSng=";
+          x86_64-darwin = "sha256-al2RcKJ3KrNywnMYbhd493kyR6I0JUbCJHy1iTk4N4s=";
+          aarch64-linux = "sha256-32WP74IJYVIKuhmsMi0EFqjTlWAO4DgC24ptm3BqSpg=";
+          aarch64-darwin = "sha256-2hYTrkCNzVy6wXT+cGWkDEAy+g/KSkWsLltMSuSSBTk=";
+          armv7l-linux = "sha256-bNjc91zjVXnQ763GHmlVTNDD5ynlJhrtGR7Xzciq7tA=";
+        }.${
+          system
+        };
+
+      version = "1.107.18627";
+      src = pkgs.fetchurl {
+        url = "https://github.com/VSCodium/vscodium/releases/download/${version}/VSCodium-${plat}-${version}.${archive_fmt}";
+        inherit hash;
+      };
+    };
     mutableExtensionsDir = false;
     profiles.default = {
       userSettings = {
