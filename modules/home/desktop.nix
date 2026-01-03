@@ -30,10 +30,10 @@
       # enable native Wayland support for most Electron apps
       "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
       # fcitx5
-      GTK_IM_MODULE = "fcitx";
-      QT_IM_MODULE = "fcitx";
+      # GTK_IM_MODULE = "fcitx";
+      # QT_IM_MODULE = "fcitx";
+      # SDL_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
-      SDL_IM_MODULE = "fcitx";
       GLFW_IM_MODULE = "ibus"; # 有些程序通过 ibus 协议连接 fcitx
       # misc
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
