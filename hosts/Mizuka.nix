@@ -7,7 +7,7 @@
   imports = [
     ../modules/nixos
     ../modules/roles/desktop
-    ../modules/desktop/greetd.nix
+    ../modules/desktop/suites/hyprland.nix
     ../modules/desktop/suites/plasma.nix
     ../modules/hardware/nvidia.nix
     ../modules/hardware/intel-gfx.nix
