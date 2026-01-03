@@ -19,7 +19,6 @@
       url = "github:nix-community/nix4vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri.url = "github:sodiboo/niri-flake";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
@@ -58,14 +57,12 @@
                     ;
                 })
                 inputs.nix4vscode.overlays.default
-                inputs.niri.overlays.niri
               ];
               nixpkgs.config.allowUnfree = true;
             }
             ./hosts/${hostname}.nix
             ./hardwares/${hostname}.nix
             inputs.stylix.nixosModules.stylix
-            inputs.niri.nixosModules.niri
             inputs.hyprland.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
           ]
