@@ -1,10 +1,12 @@
+default: fmt switch
+
 inspect:
     nix run github:bluskript/nix-inspect -- -p .
 
 build:
     nixos-rebuild build --flake . --sudo -v --log-format internal-json |& nom --json
 
-switch: fmt
+switch:
     nixos-rebuild switch --flake . --sudo -v --log-format internal-json |& nom --json
 
 boot:
