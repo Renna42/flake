@@ -3,8 +3,8 @@
     enable = true;
     fonts = [
       {
-        name = "Maple Mono Normal NF";
-        package = pkgs.maple-mono.Normal-NF;
+        name = "Maple Mono Normal NF CN";
+        package = pkgs.maple-mono.Normal-NF-CN-unhinted;
       }
       {
         name = "Unifont";

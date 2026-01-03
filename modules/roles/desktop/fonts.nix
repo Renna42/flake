@@ -15,7 +15,7 @@
       liberation_ttf
       fira-code
       fira-code-symbols
-      maple-mono.Normal-NF
+      maple-mono.Normal-NF-CN-unhinted
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
     ];
@@ -27,7 +27,7 @@
       useEmbeddedBitmaps = true;
       defaultFonts = {
         monospace = lib.mkAfter [
-          "Maple Mono Normal NF"
+          "Maple Mono Normal NF CN"
           "Noto Color Emoji"
         ];
         sansSerif = lib.mkAfter [
