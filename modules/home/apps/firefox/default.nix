@@ -11,8 +11,7 @@
       "zh-CN"
     ];
     policies = {
-      AppAutoUpdate = false;
-      BackgroundAppUpdate = false;
+      DisableAppUpdate = true;
       ExtensionSettings = let
         moz = short: "https://addons.mozilla.org/firefox/downloads/latest/${short}/latest.xpi";
       in
@@ -85,14 +84,17 @@
           };
         };
       DisplayBookmarksToolbar = "never";
+      DisableFirefoxScreenshots = true;
       DisableTelemetry = true;
-      DisablePocket = true;
+      DisableFirefoxStudies = true;
+      DisableProfileImport = true;
+      DisableProfileRefresh = true;
+      DisableSetDesktopBackground = true;
       OfferToSaveLogins = false;
       NoDefaultBookmarks = true;
       PasswordManagerEnabled = false;
       Homepage.StartPage = "previous-session";
       Preferences = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "media.ffmpeg.vaapi.enabled" = true;
@@ -100,6 +102,13 @@
         "media.hardware-video-decoding.force-enabled" = true;
         "browser.translations.automaticallyPopup" = false;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "browser.search.separatePrivateDefault" = false;
+        "browser.search.separatePrivateDefault.ui.enabled" = true;
+        "dom.security.https_first" = true;
+      };
+      SearchEngines = {
+        "Default" = "Google";
+        "Remove" = ["百度"];
       };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
     };
@@ -107,15 +116,6 @@
       id = 0;
       isDefault = true;
       name = "Renna";
-      settings = {
-        "browser.search.separatePrivateDefault" = false;
-        "browser.search.separatePrivateDefault.ui.enabled" = true;
-        "dom.security.https_first" = true;
-      };
-      search = {
-        default = "google";
-        privateDefault = "ddg";
-      };
     };
   };
   stylix.targets.firefox.profileNames = [
