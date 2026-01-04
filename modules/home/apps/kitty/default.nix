@@ -10,5 +10,9 @@ _: {
       "left click" = "ungrabbed no-op";
       "ctrl+left click" = "grabbed,ungrabbed mouse_click_url";
     };
+
+    settings = {
+      "window_padding_width" = 10;
+    };
   };
 }
