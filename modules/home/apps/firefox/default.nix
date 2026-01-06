@@ -113,6 +113,14 @@
       SearchEngines = {
         "Default" = "Google";
         "Remove" = ["百度"];
+        "Add" = {
+          "Name" = "MyNixOS";
+          "URLTemplate" = "https://mynixos.com/search?q={searchTerms}";
+          "Method" = "GET";
+          "IconURL" = "https://mynixos.com/favicon.ico";
+          "Alias" = "mynixos";
+          "Description" = "MyNixOS";
+        };
       };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
     };
