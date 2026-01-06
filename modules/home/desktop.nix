@@ -6,6 +6,7 @@
   imports = [
     ./stylix.nix
 
+    ./hypr
     ./apps/fcitx5
     ./apps/firefox
     ./apps/vscode
@@ -41,6 +42,7 @@
       "QT_QPA_PLATFORM" = "wayland";
       "SDL_VIDEODRIVER" = "wayland";
       "GDK_BACKEND" = "wayland";
+      "CLUTTER_BACKEND" = "wayland";
       "XDG_SESSION_TYPE" = "wayland";
     };
 

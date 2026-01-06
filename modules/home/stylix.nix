@@ -10,7 +10,7 @@
     polarity = "dark";
     opacity.terminal = 0.8;
     image = "${assetsPath}/wallpapers/106096441_p7.png";
-    targets.qt.platform = "kde";
+    targets.qt.platform = "qtct";
     fonts = {
       sizes.terminal = 12;
       serif = {
