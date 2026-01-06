@@ -19,4 +19,6 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
+
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 }

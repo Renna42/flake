@@ -98,7 +98,10 @@
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "media.ffmpeg.vaapi.enabled" = true;
+        "media.rdd-ffmpeg.enabled" = true;
         "gfx.webrender.all" = true;
+        "gfx.x11-egl.force-enabled" = true;
+        "widget.dmabuf.force-enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
         "browser.translations.automaticallyPopup" = false;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
