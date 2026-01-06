@@ -97,6 +97,7 @@
       Preferences = {
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.quitShortcut.disabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
         "gfx.webrender.all" = true;
