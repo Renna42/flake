@@ -30,6 +30,9 @@
   # Source: https://discourse.nixos.org/t/slow-build-at-building-man-cache/52365
   documentation.man.generateCaches = false;
 
+  # Set hardware time to local
+  time.hardwareClockInLocalTime = true;
+
   environment.systemPackages = with pkgs; [
     xdg-user-dirs
   ];
