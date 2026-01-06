@@ -68,6 +68,8 @@
           ]
           ++ (lib.filesystem.listFilesRecursive usersDir);
       };
+
+    forAllSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
     nixosConfigurations = {
       Mizuka = makeNixosSystem {
@@ -75,6 +77,8 @@
         system = "x86_64-linux";
       };
     };
-    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter = forAllSystems (
+      system: inputs.nixpkgs.legacyPackages.${system}.alejandra
+    );
   };
 }
