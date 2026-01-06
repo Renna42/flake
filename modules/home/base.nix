@@ -7,8 +7,8 @@
     inherit username;
     homeDirectory = "/home/${username}";
     sessionVariables = {
-      LANG = "zh_CN.UTF-8";
-      LANGUAGE = "zh_CN:zh:ja_JP:ja:en_US:en";
+      LANG = "en_US.UTF-8";
+      LANGUAGE = "en_US:en:ja_JP:ja:zh_CN:zh";
     };
     stateVersion = "25.11";
   };
