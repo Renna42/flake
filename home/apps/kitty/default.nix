@@ -12,6 +12,7 @@ _: {
     };
 
     settings = {
+      "shell" = "fish";
       "window_padding_width" = 10;
     };
   };
