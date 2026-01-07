@@ -35,5 +35,15 @@
 
   networking.hostName = hostname;
 
+  izmn = {
+    homeManager = {
+      modules = [
+        ../home/linux-desktop.nix
+        ../home/apps/develop.nix
+        ../home/apps/shell-utils.nix
+      ];
+    };
+  };
+
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 }
