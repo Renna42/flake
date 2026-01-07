@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   hostname,
   ...
@@ -82,5 +83,6 @@
 
   services.tailscale.enable = true;
 
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
   system.stateVersion = 6;
 }
