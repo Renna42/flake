@@ -3,8 +3,6 @@
     # Use Lix
     package = pkgs.lixPackageSets.stable.lix;
     settings = {
-      gc.automatic = true;
-      optimise.automatic = true;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
       experimental-features = [
         "nix-command"
@@ -29,5 +27,7 @@
       # Disable the built-in flake registry to speed up evaluation
       flake-registry = "";
     };
+    gc.automatic = true;
+    optimise.automatic = true;
   };
 }
