@@ -45,7 +45,8 @@ in {
       inherit username;
     };
     users.${username}.imports = [
-      ../home/base.nix
+      ../../home/base.nix
     ];
   };
+  nix.settings.trusted-users = [username];
 }

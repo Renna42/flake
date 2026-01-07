@@ -6,7 +6,6 @@
   imports = [
     ./stylix.nix
 
-    ./hypr
     ./apps/fcitx5
     ./apps/firefox
     ./apps/vscode
@@ -46,7 +45,7 @@
       "XDG_SESSION_TYPE" = "wayland";
     };
 
-    file.".face.icon".source = ../../assets/${username}.png;
+    file.".face.icon".source = ../assets/${username}.png;
   };
 
   i18n.inputMethod = {

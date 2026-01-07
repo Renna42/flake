@@ -130,6 +130,7 @@
     style = ''
       * {
           text-shadow: none;
+          font-size: 14px;
       }
 
       window#waybar {

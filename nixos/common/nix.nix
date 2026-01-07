@@ -2,7 +2,6 @@
   inputs,
   lib,
   pkgs,
-  users,
   ...
 }: {
   nix = {
@@ -19,12 +18,10 @@
     };
     settings = {
       narinfo-cache-positive-ttl = 60 * 60 * 24;
-      trusted-users =
-        [
-          "root"
-          "@wheel"
-        ]
-        ++ users;
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
       experimental-features = [
         "nix-command"
         "flakes"

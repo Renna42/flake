@@ -1,14 +1,10 @@
-{
-  pkgs,
-  users,
-  ...
-}: {
+{pkgs, ...}: {
   security.sudo.enable = false;
   security.doas = {
     enable = true;
     extraRules = [
       {
-        inherit users;
+        users = ["renna"];
         keepEnv = true;
         noPass = true;
       }

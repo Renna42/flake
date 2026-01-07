@@ -5,18 +5,19 @@
   ...
 }: {
   imports = [
-    ../modules/nixos
-    ../modules/roles/desktop
-    ../modules/desktop/suites/hyprland.nix
-    ../modules/desktop/suites/plasma.nix
-    ../modules/hardware/nvidia.nix
-    ../modules/hardware/intel-gfx.nix
-    ../modules/hardware/bluetooth.nix
-    ../modules/hardware/tpm.nix
-    ../modules/hardware/xpad.nix
-    ../modules/services/kmscon.nix
-    ../modules/services/mdns.nix
-    ../modules/services/proxy.nix
+    ../nixos/common
+    ../nixos/roles/desktop
+    # ../nixos/gui/suites/hyprland.nix
+    ../nixos/gui/suites/plasma.nix
+    ../nixos/hardware/nvidia.nix
+    ../nixos/hardware/intel-gfx.nix
+    ../nixos/hardware/bluetooth.nix
+    ../nixos/hardware/tpm.nix
+    ../nixos/hardware/xpad.nix
+    ../nixos/services/kmscon.nix
+    ../nixos/services/mdns.nix
+    ../nixos/services/proxy.nix
+    ../nixos/users/renna.nix
   ];
   boot = {
     loader = {

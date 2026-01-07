@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../desktop/stylix.nix
+    ../../gui/stylix.nix
   ];
 
   networking = {

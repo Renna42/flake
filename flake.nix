@@ -25,10 +25,6 @@
   outputs = inputs: let
     inherit (inputs.nixpkgs) lib;
     assetsPath = ./assets;
-    usersDir = ./modules/users;
-    users = lib.mapAttrsToList (
-      name: type: lib.removeSuffix ".nix" name
-    ) (builtins.readDir usersDir);
     makeNixosSystem = {
       hostname,
       system,
@@ -38,35 +34,32 @@
         specialArgs = {
           inherit
             inputs
-            users
             assetsPath
             hostname
             ;
         };
-        modules =
-          [
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  inherit
-                    (prev.lixPackageSets.stable)
-                    nixpkgs-review
-                    nix-eval-jobs
-                    nix-fast-build
-                    colmena
-                    ;
-                })
-                inputs.nix4vscode.overlays.default
-              ];
-              nixpkgs.config.allowUnfree = true;
-            }
-            ./hosts/${hostname}.nix
-            ./hardwares/${hostname}.nix
-            inputs.stylix.nixosModules.stylix
-            inputs.hyprland.nixosModules.default
-            inputs.home-manager.nixosModules.home-manager
-          ]
-          ++ (lib.filesystem.listFilesRecursive usersDir);
+        modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                inherit
+                  (prev.lixPackageSets.stable)
+                  nixpkgs-review
+                  nix-eval-jobs
+                  nix-fast-build
+                  colmena
+                  ;
+              })
+              inputs.nix4vscode.overlays.default
+            ];
+            nixpkgs.config.allowUnfree = true;
+          }
+          ./hosts/${hostname}.nix
+          ./hardwares/${hostname}.nix
+          inputs.stylix.nixosModules.stylix
+          inputs.hyprland.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+        ];
       };
 
     forAllSystems = lib.genAttrs lib.systems.flakeExposed;
