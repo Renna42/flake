@@ -8,7 +8,7 @@
     homeDirectory = "/home/${username}";
     sessionVariables = {
       LANG = "en_US.UTF-8";
-      LANGUAGE = "en_US:en:ja_JP:ja:zh_CN:zh";
+      LANGUAGE = "en_US:en";
     };
     stateVersion = "25.11";
   };
