@@ -45,11 +45,9 @@
         ShowStatusBar = true; # show status bar
       };
 
-      universalaccess.reduceMotion = true;
-
       NSGlobalDomain = {
         "com.apple.keyboard.fnState" = true;
-        "com.apple.swipescrolldirection" = false;
+        "com.apple.swipescrolldirection" = true;
         ApplePressAndHoldEnabled = false;
         KeyRepeat = 2;
         InitialKeyRepeat = 25;
@@ -65,10 +63,7 @@
     startup.chime = false;
   };
 
-  security.pam.services.sudo_local = {
-    touchIdAuth = true;
-    watchIdAuth = true;
-  };
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
