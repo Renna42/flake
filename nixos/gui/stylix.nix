@@ -1,6 +1,10 @@
-{assetsPath, ...}: {
+{
+  assetsPath,
+  pkgs,
+  ...
+}: {
   stylix = {
     enable = true;
-    base16Scheme = "${assetsPath}/themes/onedark-dark-r.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
   };
 }

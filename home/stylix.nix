@@ -1,16 +1,16 @@
 {
   assetsPath,
+  lib,
   pkgs,
   osConfig,
+  system,
   ...
-}: {
-  stylix = {
+}: let
+  commonStylix = {
     enable = true;
-    base16Scheme = osConfig.stylix.base16Scheme;
     polarity = "dark";
-    opacity.terminal = 0.8;
+    opacity.terminal = 0.6;
     image = "${assetsPath}/wallpapers/106096441_p7.png";
-    targets.qt.platform = "kde";
     fonts = {
       sizes.terminal = 12;
       serif = {
@@ -31,4 +31,27 @@
       };
     };
   };
+  darwinStylix = lib.recursiveUpdate commonStylix {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
+    overlays.enable = false;
+    fonts.sizes = {
+      terminal = 9;
+      applications = 9;
+    };
+  };
+  linuxStylix = lib.recursiveUpdate commonStylix {
+    inherit (osConfig.stylix) base16Scheme;
+    targets.qt.platform = "kde";
+    icons = {
+      enable = true;
+      package = pkgs.fluent-icon-theme;
+      dark = "Fluent";
+      light = "Fluent";
+    };
+  };
+in {
+  stylix =
+    if system == "aarch64-darwin"
+    then darwinStylix
+    else linuxStylix;
 }
