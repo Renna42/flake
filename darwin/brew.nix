@@ -41,6 +41,7 @@ _: {
       "bitwarden"
       "karabiner-elements"
       "launchcontrol"
+      "mos"
     ];
   };
 }
