@@ -56,5 +56,11 @@ in {
     nix.settings.trusted-users = [username];
 
     system.primaryUser = username;
+
+    izmn.homeManager.modules = [
+      ../home/apps/develop.nix
+      ../home/apps/shell-utils.nix
+      ../home/darwin-desktop.nix
+    ];
   };
 }
