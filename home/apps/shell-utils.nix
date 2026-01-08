@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  system,
   ...
 }: {
   home.packages = with pkgs; [
@@ -153,7 +154,10 @@
     enable = true;
     enableFishIntegration = true;
     enableSshSupport = true;
-    pinentry.package = pkgs.pinentry-qt;
+    pinentry.package =
+      if system != "aarch64-darwin"
+      then pkgs.pinentry-qt
+      else pkgs.pinentry_mac;
   };
 
   home.file.".gnupg/dirmngr.conf".text =
