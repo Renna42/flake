@@ -1,4 +1,8 @@
-_: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.kitty = {
     enable = true;
     enableGitIntegration = true;
@@ -12,7 +16,7 @@ _: {
     };
 
     settings = {
-      "shell" = "fish";
+      "shell" = lib.getExe pkgs.fish;
       "window_padding_width" = 10;
     };
   };
