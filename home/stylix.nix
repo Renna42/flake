@@ -9,7 +9,7 @@
   commonStylix = {
     enable = true;
     polarity = "dark";
-    opacity.terminal = 0.6;
+    opacity.terminal = 0.7;
     image = "${assetsPath}/wallpapers/106096441_p7.png";
     fonts = {
       sizes.terminal = 12;
@@ -35,8 +35,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
     overlays.enable = false;
     fonts.sizes = {
-      terminal = 9;
-      applications = 9;
+      applications = 10;
     };
   };
   linuxStylix = lib.recursiveUpdate commonStylix {

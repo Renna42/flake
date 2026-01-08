@@ -28,11 +28,10 @@
       menuExtraClock.Show24Hour = true; # show 24 hour clock
       controlcenter.BatteryShowPercentage = true;
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
+      trackpad.Clicking = true;
 
       dock = {
-        autohide = false;
-        show-recents = false;
-        mineffect = "scale";
+        mineffect = "genie";
         launchanim = false;
       };
 
@@ -69,7 +68,10 @@
   # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
 
   environment.shells = with pkgs; [
     zsh
