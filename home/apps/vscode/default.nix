@@ -174,6 +174,7 @@
         "KevinRose.vsc-python-indent"
         "llvm-vs-code-extensions.vscode-clangd"
         "mathiasfrohlich.Kotlin"
+        "matthewpi.caddyfile-support"
         "mechatroner.rainbow-csv"
         "miguelsolorio.fluent-icons"
         "mikestead.dotenv"
@@ -227,7 +228,6 @@
         "xlthu.pangu-markdown"
         "xshrim.txt-syntax"
         "yzhang.markdown-all-in-one"
-        "zamerick.vscode-caddyfile-syntax"
         "zignd.html-css-class-completion"
       ];
     };
