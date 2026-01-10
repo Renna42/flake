@@ -15,6 +15,7 @@
 
   home = {
     packages = with pkgs; [
+      _64gram
       vlc
       siyuan
     ];
