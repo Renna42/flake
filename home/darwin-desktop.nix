@@ -11,7 +11,6 @@
     iina
     ice-bar
     notion-app
-    ayugram-desktop
     bitwarden-desktop
     maccy
     mos

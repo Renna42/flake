@@ -26,6 +26,7 @@ _: {
       "typora"
       "tailscale-app"
       "siyuan"
+      "ayugram"
       "gpg-suite"
       "element"
       "coteditor"
