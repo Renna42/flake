@@ -4,7 +4,12 @@
     corepack_24
     go
     uv
-    python313
+    (python313.withPackages (python-pkgs:
+      with python-pkgs; [
+        ipython
+        requests
+        httpx
+      ]))
 
     subversionClient
     mercurial
