@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   imports = [
     ./stylix.nix
 
@@ -6,4 +6,19 @@ _: {
     ./apps/firefox
     ./apps/kitty
   ];
+
+  home = {
+    packages = with pkgs; [
+      iina
+      ice-bar
+      notion-app
+      ayugram-desktop
+      bitwarden-desktop
+      maccy
+      keka
+      mos
+      localsend
+      imhex
+    ];
+  };
 }

@@ -18,32 +18,15 @@ _: {
     };
 
     taps = [];
-
     brews = [];
-
     casks = [
-      "firefox"
-      "google-chrome"
-      "kitty"
-      "vscodium"
       "font-fira-code-nerd-font"
       "font-maple-mono-nf-cn"
-      "maccy"
-      "dbeaver-community"
-      "jordanbaird-ice"
       "typora"
       "tailscale-app"
       "siyuan"
-      "notion"
-      "ayugram"
-      "bitwarden"
-      "mos"
       "gpg-suite"
-      "iina"
       "element"
-      "keka"
-      "localsend"
-      "imhex"
       "coteditor"
     ];
   };
