@@ -29,6 +29,8 @@ _: {
       "gpg-suite"
       "element"
       "coteditor"
+      "keka"
+      "kekaexternalhelper"
     ];
   };
 }

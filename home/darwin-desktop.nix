@@ -7,18 +7,15 @@
     ./apps/kitty
   ];
 
-  home = {
-    packages = with pkgs; [
-      iina
-      ice-bar
-      notion-app
-      ayugram-desktop
-      bitwarden-desktop
-      maccy
-      keka
-      mos
-      localsend
-      imhex
-    ];
-  };
+  home.packages = with pkgs; [
+    iina
+    ice-bar
+    notion-app
+    ayugram-desktop
+    bitwarden-desktop
+    maccy
+    mos
+    localsend
+    imhex
+  ];
 }
