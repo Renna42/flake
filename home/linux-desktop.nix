@@ -7,20 +7,15 @@
     ./stylix.nix
 
     ./apps/fcitx5
-    ./apps/firefox
-    ./apps/vscode
-    ./apps/kitty
+    ./apps/desktop.nix
     ./apps/develop.nix
     ./apps/shell-utils.nix
+    ./apps/game.nix
   ];
 
   home = {
     packages = with pkgs; [
-      dbeaver-bin
-      bitwarden-desktop
-      prismlauncher
       vlc
-      _64gram
       siyuan
     ];
     sessionVariables = {
