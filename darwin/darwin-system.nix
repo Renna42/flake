@@ -35,7 +35,7 @@
         show-recents = false; # do not show recent apps in dock
         mru-spaces = false; # do not automatically rearrange spaces based on most recent use.
         expose-group-apps = true; # Group windows by application
-        mineffect = "genie";
+        mineffect = "scale";
         launchanim = false;
       };
 
