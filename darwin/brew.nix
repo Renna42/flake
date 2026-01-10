@@ -33,7 +33,6 @@ _: {
       "keka"
       "kekaexternalhelper"
       "handbrake-app"
-      "wacom-tablet"
     ];
   };
 }

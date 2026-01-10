@@ -5,7 +5,6 @@
     ./apps/desktop.nix
     ./apps/develop.nix
     ./apps/shell-utils.nix
-    ./apps/game.nix
   ];
 
   home.packages = with pkgs; [

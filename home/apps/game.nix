@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # prismlauncher
+    prismlauncher
     osu-lazer-bin
   ];
 }
