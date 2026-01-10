@@ -28,9 +28,13 @@
       menuExtraClock.Show24Hour = true; # show 24 hour clock
       controlcenter.BatteryShowPercentage = true;
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
-      trackpad.Clicking = true;
 
       dock = {
+        orientation = "bottom";
+        autohide = true; # automatically hide and show the dock
+        show-recents = false; # do not show recent apps in dock
+        mru-spaces = false; # do not automatically rearrange spaces based on most recent use.
+        expose-group-apps = true; # Group windows by application
         mineffect = "genie";
         launchanim = false;
       };
@@ -44,12 +48,24 @@
         ShowStatusBar = true; # show status bar
       };
 
+      trackpad = {
+        Clicking = true; # enable tap to click
+        TrackpadRightClick = true; # enable two finger right click
+        TrackpadThreeFingerDrag = true; # enable three finger drag
+      };
+
       NSGlobalDomain = {
         "com.apple.keyboard.fnState" = true;
         "com.apple.swipescrolldirection" = true;
+        AppleInterfaceStyle = "Dark"; # dark mode
         ApplePressAndHoldEnabled = false;
         KeyRepeat = 2;
         InitialKeyRepeat = 25;
+
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
       };
     };
 
