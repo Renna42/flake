@@ -32,6 +32,7 @@ _: {
       "coteditor"
       "keka"
       "kekaexternalhelper"
+      "handbrake-app"
     ];
   };
 }
