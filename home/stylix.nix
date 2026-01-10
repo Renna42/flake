@@ -48,9 +48,15 @@
       light = "Fluent";
     };
   };
-in {
+in rec {
   stylix =
     if system == "aarch64-darwin"
     then darwinStylix
     else linuxStylix;
+
+  home.activation = lib.mkIf (system == "aarch64-darwin") {
+    "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      /usr/bin/osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"${stylix.image}\""
+    '';
+  };
 }
