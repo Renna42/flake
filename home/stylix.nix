@@ -10,7 +10,7 @@
     enable = true;
     polarity = "dark";
     opacity.terminal = 0.7;
-    image = "${assetsPath}/wallpapers/106096441_p7.png";
+    image = "${assetsPath}/wallpapers/129665127_p0.png";
     fonts = {
       sizes.terminal = 12;
       serif = {
