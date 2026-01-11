@@ -90,6 +90,7 @@
         };
         "com.apple.AdLib" = {
           allowApplePersonalizedAdvertising = false;
+          allowIdentifierForAdvertising = false;
         };
         # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
