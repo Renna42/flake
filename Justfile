@@ -4,14 +4,14 @@ inspect:
     nix run github:bluskript/nix-inspect -- -p .
 
 build:
-    nixos-rebuild build --flake . --sudo -v --log-format internal-json |& nom --json
+    nh os build .
 
 switch:
-    nixos-rebuild switch --flake . --sudo -v --log-format internal-json |& nom --json
+    nh os switch .
     nh home switch .
 
 boot:
-    nixos-rebuild boot --flake . --sudo -v -L
+    nh os boot .
 
 dryrun:
     nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
