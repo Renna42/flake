@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # Enable OpenTabletDriver
   hardware.opentabletdriver.enable = true;
 

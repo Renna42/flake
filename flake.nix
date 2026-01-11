@@ -94,6 +94,7 @@
             src = ./.;
             hooks = {
               alejandra.enable = true;
+              statix.enable = true;
             };
           };
         };
@@ -105,8 +106,9 @@
             alejandra
             nixd
             just
-            jq
             nh
+            nix-output-monitor
+            statix
           ];
           inherit (checks.pre-commit-check) shellHook;
           buildInputs = checks.pre-commit-check.enabledPackages;
