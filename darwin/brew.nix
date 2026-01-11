@@ -36,6 +36,7 @@ _: {
       "lulu"
       "stirling-pdf"
       "inkscape"
+      "reqable"
     ];
   };
 }

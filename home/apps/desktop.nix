@@ -10,5 +10,6 @@
     bitwarden-desktop
     imhex
     dbeaver-bin
+    tenacity
   ];
 }
