@@ -155,8 +155,7 @@
                         pkgs
                     );
                   })
-                  ./hosts/${hostname}.nix
-                  ./hardwares/${hostname}.nix
+                  ./nixos/configurations/${hostname}
                   inputs.stylix.nixosModules.stylix
                   inputs.hyprland.nixosModules.default
                   inputs.home-manager.nixosModules.home-manager

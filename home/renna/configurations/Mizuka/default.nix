@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ../../../base.nix
     ../../../stylix.nix
 
     ../../../apps/fcitx5

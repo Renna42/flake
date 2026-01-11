@@ -2,12 +2,12 @@
   assetsPath,
   lib,
   pkgs,
-  osConfig,
   system,
   ...
 }: let
   commonStylix = {
     enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
     polarity = "dark";
     opacity.terminal = 0.7;
     image = "${assetsPath}/wallpapers/129665127_p0.png";
@@ -32,14 +32,12 @@
     };
   };
   darwinStylix = lib.recursiveUpdate commonStylix {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
     overlays.enable = false;
     fonts.sizes = {
       applications = 10;
     };
   };
   linuxStylix = lib.recursiveUpdate commonStylix {
-    inherit (osConfig.stylix) base16Scheme;
     targets.qt.platform = "kde";
     icons = {
       enable = true;
