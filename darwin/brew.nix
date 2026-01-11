@@ -36,7 +36,6 @@ _: {
       "lulu"
       "stirling-pdf"
       "inkscape"
-      "wacom-tablet"
     ];
   };
 }
