@@ -29,6 +29,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-your-shell = {
+      url = "github:MercuryTechnologies/nix-your-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
 
     flake-compat = {
@@ -88,6 +92,7 @@
                 colmena
                 ;
             })
+            inputs.nix-your-shell.overlays.default
             inputs.nix4vscode.overlays.default
           ];
         };
