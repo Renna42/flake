@@ -29,10 +29,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-your-shell = {
-      url = "github:MercuryTechnologies/nix-your-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     direnv-instant = {
       url = "github:Mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -89,7 +85,6 @@
             allowUnfreePredicate = _: true;
           };
           overlays = [
-            inputs.nix-your-shell.overlays.default
             inputs.nix4vscode.overlays.default
           ];
         };

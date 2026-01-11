@@ -6,7 +6,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    nix-your-shell
+    any-nix-shell
     fastfetch
     nix-output-monitor # https://github.com/maralorn/nix-output-monitor
     dust
@@ -79,7 +79,7 @@
     );
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
-      nix-your-shell fish | source
+      any-nix-shell fish --info-right | source
     '';
   };
 
