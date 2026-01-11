@@ -29,10 +29,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    direnv-instant = {
-      url = "github:Mic92/direnv-instant";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -205,7 +201,6 @@
                       (./home/renna/configurations + "/${hostname}")
                       inputs.stylix.homeModules.stylix
                       inputs.nix-index-database.homeModules.nix-index
-                      inputs.direnv-instant.homeModules.direnv-instant
                     ];
                     extraSpecialArgs =
                       globalSpecialArgs
