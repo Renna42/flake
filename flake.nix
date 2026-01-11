@@ -69,12 +69,14 @@
       ...
     }: {
       imports = [
+        inputs.flake-parts.flakeModules.easyOverlay
         inputs.home-manager.flakeModules.home-manager
       ];
 
       systems = flake-utils.lib.defaultSystems;
       perSystem = {
         pkgs,
+        config,
         system,
         ...
       }: rec {
@@ -86,7 +88,12 @@
           };
           overlays = [
             inputs.nix4vscode.overlays.default
+            self.overlays.default
           ];
+        };
+
+        overlayAttrs = {
+          inherit (config.packages) misans-all;
         };
 
         checks = {
@@ -114,6 +121,7 @@
           buildInputs = checks.pre-commit-check.enabledPackages;
           EDITOR = "codium";
         };
+        packages = import ./packages {inherit pkgs;};
       };
 
       flake =
