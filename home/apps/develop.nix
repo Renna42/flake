@@ -17,5 +17,6 @@
     nixd
     alejandra
     just
+    devenv
   ];
 }
