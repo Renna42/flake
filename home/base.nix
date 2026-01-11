@@ -16,7 +16,7 @@ in {
       LANG = "en_US.UTF-8";
       LANGUAGE = "en_US:en";
     };
-    stateVersion = "25.11";
+    stateVersion = lib.mkDefault "25.11";
   };
   xdg.userDirs = lib.mkIf (system != "aarch64-darwin") {
     enable = true;
