@@ -1,6 +1,5 @@
 {
   lib,
-  outputs,
   username,
   system,
   ...
