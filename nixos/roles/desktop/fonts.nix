@@ -43,6 +43,61 @@
         ];
         emoji = ["Noto Color Emoji"];
       };
+      localConf = ''
+        <?xml version='1.0'?>
+        <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+        <fontconfig>
+          <!--
+            https://caniuse.com/extended-system-fonts
+            GitHub uses this for code blocks.
+          -->
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>ui-monospace</string>
+            </test>
+            <edit name="family" mode="assign" binding="same">
+              <string>monospace</string>
+            </edit>
+          </match>
+
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>ui-sans-serif</string>
+            </test>
+            <edit name="family" mode="assign" binding="same">
+              <string>sans-serif</string>
+            </edit>
+          </match>
+
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>ui-serif</string>
+            </test>
+            <edit name="family" mode="assign" binding="same">
+              <string>serif</string>
+            </edit>
+          </match>
+
+          <match target="pattern">
+            <test qual="any" name="family">
+              <string>-apple-system</string>
+            </test>
+            <edit name="family" mode="assign" binding="same">
+              <string>sans-serif</string>
+            </edit>
+          </match>
+
+          <!-- Make MiSans fallbacking to L3 -->
+          <alias>
+            <family>MiSans</family>
+            <prefer>
+            <family>MiSans</family>
+            <family>MiSans L3</family>
+            </prefer>
+          </alias>
+
+        </fontconfig>
+      '';
     };
     fontDir.enable = true;
   };
