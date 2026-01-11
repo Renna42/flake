@@ -33,6 +33,7 @@ _: {
       "keka"
       "kekaexternalhelper"
       "handbrake-app"
+      "lulu"
     ];
   };
 }
