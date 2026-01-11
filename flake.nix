@@ -33,9 +33,14 @@
       url = "github:MercuryTechnologies/nix-your-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    direnv-instant.url = "github:Mic92/direnv-instant";
-    hyprland.url = "github:hyprwm/Hyprland";
-
+    direnv-instant = {
+      url = "github:Mic92/direnv-instant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-compat = {
       url = "github:NixOS/flake-compat";
       flake = false;
