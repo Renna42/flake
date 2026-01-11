@@ -3,7 +3,8 @@ _: {
     ./darwin-system.nix
     ./nix.nix
     ./brew.nix
-    ./renna.nix
     ./settings.nix
+
+    ./renna.nix
   ];
 }

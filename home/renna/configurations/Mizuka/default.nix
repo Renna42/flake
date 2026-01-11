@@ -1,16 +1,17 @@
 {
+  assetsPath,
   pkgs,
   username,
   ...
 }: {
   imports = [
-    ./stylix.nix
+    ../../../stylix.nix
 
-    ./apps/fcitx5
-    ./apps/desktop.nix
-    ./apps/develop.nix
-    ./apps/shell-utils.nix
-    ./apps/game.nix
+    ../../../apps/fcitx5
+    ../../../apps/desktop.nix
+    ../../../apps/develop.nix
+    ../../../apps/shell-utils.nix
+    ../../../apps/game.nix
   ];
 
   home = {
@@ -41,7 +42,7 @@
       "XDG_SESSION_TYPE" = "wayland";
     };
 
-    file.".face.icon".source = ../assets/${username}.png;
+    file.".face.icon".source = "${assetsPath}/${username}.png";
   };
 
   i18n.inputMethod = {

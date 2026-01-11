@@ -1,8 +1,8 @@
 {
   lib,
+  outputs,
   username,
   system,
-  osConfig,
   ...
 }: let
   homeDirectory =
@@ -10,7 +10,6 @@
     then "/Users/${username}"
     else "/home/${username}";
 in {
-  imports = osConfig.izmn.homeManager.modules;
   programs.home-manager.enable = true;
   home = {
     inherit username homeDirectory;
