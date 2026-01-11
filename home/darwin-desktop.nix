@@ -7,11 +7,14 @@
     ./apps/shell-utils.nix
   ];
 
-  home.packages = with pkgs; [
-    iina
-    ice-bar
-    notion-app
-    maccy
-    mos
-  ];
+  home = {
+    packages = with pkgs; [
+      iina
+      ice-bar
+      notion-app
+      maccy
+      mos
+    ];
+    file."Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = ../assets/mdmdt.css;
+  };
 }
