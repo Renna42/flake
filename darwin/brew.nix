@@ -34,6 +34,9 @@ _: {
       "kekaexternalhelper"
       "handbrake-app"
       "lulu"
+      "stirling-pdf"
+      "inkscape"
+      "wacom-tablet"
     ];
   };
 }
