@@ -32,6 +32,7 @@
       push.autoSetupRemote = true;
       commit.gpgSign = true;
       tag.gpgSign = true;
+      alias.ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
     };
   };
 
