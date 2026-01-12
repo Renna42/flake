@@ -34,6 +34,7 @@ _: {
       "lulu"
       "inkscape"
       "reqable"
+      "mkvtoolnix"
     ];
   };
 }
