@@ -4,6 +4,7 @@
     ./vscode
     ./kitty
     ./idapro
+    ./yubikey
   ];
 
   home.packages = with pkgs; [
