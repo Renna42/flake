@@ -6,9 +6,8 @@ inspect:
 build:
     nh os build .
 
-switch:
+switch: && home-switch
     nh os switch .
-    nh home switch .
 
 boot:
     nh os boot .
@@ -16,8 +15,10 @@ boot:
 dryrun:
     nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
 
-darwin-switch:
+darwin-switch: && home-switch
     nh darwin switch .
+
+home-switch:
     nh home switch .
 
 gc:
