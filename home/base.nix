@@ -1,11 +1,11 @@
 {
   lib,
   username,
-  system,
+  platform,
   ...
 }: let
   homeDirectory =
-    if system == "aarch64-darwin"
+    if platform.isDarwin
     then "/Users/${username}"
     else "/home/${username}";
 in {
@@ -18,7 +18,7 @@ in {
     };
     stateVersion = "25.11";
   };
-  xdg.userDirs = lib.mkIf (system != "aarch64-darwin") {
+  xdg.userDirs = lib.mkIf platform.isLinux {
     enable = true;
     createDirectories = true;
   };

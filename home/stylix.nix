@@ -2,7 +2,7 @@
   assetsPath,
   lib,
   pkgs,
-  system,
+  platform,
   ...
 }: let
   commonStylix = {
@@ -48,13 +48,19 @@
   };
 in rec {
   stylix =
-    if system == "aarch64-darwin"
+    if platform.isDarwin
     then darwinStylix
     else linuxStylix;
 
-  home.activation = lib.mkIf (system == "aarch64-darwin") {
+  home.activation = lib.mkIf platform.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      /usr/bin/osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"${stylix.image}\""
+      /usr/bin/osascript <<EOF
+        tell application "System Events"
+          tell every desktop
+            set picture to "${stylix.image}"
+          end tell
+        end tell
+      EOF
     '';
   };
 }

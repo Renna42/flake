@@ -33,6 +33,10 @@
       url = "github:Mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +83,7 @@
         config,
         system,
         ...
-      }: rec {
+      }: {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
           config = {
@@ -92,6 +96,7 @@
           ];
         };
 
+        packages = import ./packages {inherit pkgs;};
         overlayAttrs = {
           inherit (config.packages) misans-all;
         };
@@ -117,11 +122,10 @@
             nix-output-monitor
             statix
           ];
-          inherit (checks.pre-commit-check) shellHook;
-          buildInputs = checks.pre-commit-check.enabledPackages;
+          inherit (config.checks.pre-commit-check) shellHook;
+          buildInputs = config.checks.pre-commit-check.enabledPackages;
           EDITOR = "codium";
         };
-        packages = import ./packages {inherit pkgs;};
       };
 
       flake =
@@ -169,6 +173,7 @@
                   inputs.stylix.nixosModules.stylix
                   inputs.hyprland.nixosModules.default
                   inputs.home-manager.nixosModules.home-manager
+                  inputs.sops-nix.nixosModules.sops
                 ];
               }
           );
@@ -194,6 +199,7 @@
                   })
                   ./darwin
                   inputs.home-manager.darwinModules.home-manager
+                  inputs.sops-nix.darwinModules.sops
                 ];
               }
           );
@@ -206,7 +212,9 @@
               username ? "renna",
               system ? "x86_64-linux",
               home-manager ? inputs.home-manager,
-            }: {
+            }: let
+              platform = nixpkgs.lib.systems.elaborate system;
+            in {
               "${username}@${hostname}" = withSystem system (
                 {pkgs, ...}:
                   home-manager.lib.homeManagerConfiguration {
@@ -216,16 +224,15 @@
                       inputs.stylix.homeModules.stylix
                       inputs.nix-index-database.homeModules.nix-index
                       inputs.direnv-instant.homeModules.direnv-instant
+                      inputs.sops-nix.homeManagerModules.sops
                     ];
                     extraSpecialArgs =
                       globalSpecialArgs
                       // {
                         inherit
-                          inputs
-                          outputs
                           username
                           hostname
-                          system
+                          platform
                           ;
                       };
                   }

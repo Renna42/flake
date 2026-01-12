@@ -11,7 +11,7 @@
     maintainers = [];
     platforms = lib.platforms.all;
   };
-  mkMisansFont = {
+  makeMisansFont = {
     name,
     url,
     hash,
@@ -100,13 +100,13 @@
     {
       name = "misans-khmer";
       url = "https://hyperos.mi.com/font-download/MiSans_Khmer.zip";
-      hash = "sha256-hR8F8X7P5egsUIhUaT9yrYSHzqwEgvbQj0gnEgKxw4k=";
+      hash = "sha256-v+SuL8RSax80uikxRC/xmuhftnqVYtkNq9AGVbjDPjI=";
     }
   ];
 
-  variantPkgs = map mkMisansFont variants;
+  variantPkgs = map makeMisansFont variants;
 in
-  lib.listToAttrs (map (pkg: {
+  builtins.listToAttrs (map (pkg: {
       inherit (pkg) name;
       value = pkg;
     })

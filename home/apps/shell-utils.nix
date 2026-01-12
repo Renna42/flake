@@ -2,7 +2,7 @@
   lib,
   config,
   pkgs,
-  system,
+  platform,
   ...
 }: {
   home.packages = with pkgs; [
@@ -162,7 +162,7 @@
     enableFishIntegration = true;
     enableSshSupport = true;
     pinentry.package =
-      if system != "aarch64-darwin"
+      if platform.isLinux
       then pkgs.pinentry-qt
       else pkgs.pinentry_mac;
   };

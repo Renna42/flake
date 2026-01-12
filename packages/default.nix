@@ -1,3 +1,4 @@
-{pkgs ? (import ../nixpkgs.nix) {}}: (
-  pkgs.callPackage ./misans {}
-)
+{pkgs ? (import ../nixpkgs.nix) {}}: let
+  misansFonts = pkgs.callPackage ./misans {};
+in
+  misansFonts
