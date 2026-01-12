@@ -3,6 +3,7 @@
     ./firefox
     ./vscode
     ./kitty
+    ./idapro
   ];
 
   home.packages = with pkgs; [
