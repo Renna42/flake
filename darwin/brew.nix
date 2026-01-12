@@ -21,8 +21,6 @@ _: {
     taps = [];
     brews = [];
     casks = [
-      "font-fira-code-nerd-font"
-      "font-maple-mono-nf-cn"
       "typora"
       "tailscale-app"
       "siyuan"
