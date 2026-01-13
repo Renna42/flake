@@ -14,6 +14,7 @@
     asciinema
     delta
     chroma
+    moor
   ];
 
   # Command-line Apps
