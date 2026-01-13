@@ -8,9 +8,6 @@ _: {
       cleanup = "zap";
       upgrade = true;
     };
-    caskArgs = {
-      no_quarantine = true;
-    };
 
     masApps = {
       WeChat = 836500024;
