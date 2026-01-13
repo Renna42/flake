@@ -25,9 +25,15 @@
 
     defaults = {
       smb.NetBIOSName = hostname;
-      menuExtraClock.Show24Hour = true; # show 24 hour clock
       controlcenter.BatteryShowPercentage = true;
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
+
+      menuExtraClock = {
+        Show24Hour = true; # show 24 hour clock
+        ShowDate = 1; # always show full date when space allows
+        ShowDayOfWeek = true; # show day with week
+        ShowSeconds = true; # show clock with second precision
+      };
 
       dock = {
         orientation = "bottom";
@@ -59,11 +65,17 @@
         "com.apple.swipescrolldirection" = true;
         AppleInterfaceStyle = "Dark"; # dark mode
         ApplePressAndHoldEnabled = false;
+        AppleICUForce24HourTime = true;
+        AppleMeasurementUnits = "Centimeters";
+        AppleTemperatureUnit = "Celsius";
+        AppleMetricUnits = 1;
+
         KeyRepeat = 2;
         InitialKeyRepeat = 25;
 
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+        NSDocumentSaveNewDocumentsToCloud = false;
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
       };
