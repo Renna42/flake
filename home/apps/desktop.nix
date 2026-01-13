@@ -13,5 +13,6 @@
     imhex
     dbeaver-bin
     tenacity
+    mediainfo
   ];
 }

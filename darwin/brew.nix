@@ -31,7 +31,8 @@ _: {
       "lulu"
       "inkscape"
       "reqable"
-      "mkvtoolnix"
+      "mkvtoolnix-app"
+      "mediainfo"
     ];
   };
 }
