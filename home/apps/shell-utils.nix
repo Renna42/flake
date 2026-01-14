@@ -121,6 +121,11 @@
     enableFishIntegration = true;
   };
 
+  programs.vivid = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.bat.enable = true;
 
   programs.btop.enable = true;
