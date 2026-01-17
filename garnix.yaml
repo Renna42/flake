@@ -1,7 +1,9 @@
 builds:
-    exclude: []
-    include:
-        - "*.x86_64-linux.*"
-        - defaultPackage.x86_64-linux
-        - nixosConfigurations.*
-    branch: main
+  exclude:
+    - packages.*.override
+    - packages.*.overrideDerivation
+  include:
+    - "*.x86_64-linux.*"
+    - defaultPackage.x86_64-linux
+    - nixosConfigurations.*
+  branch: main
