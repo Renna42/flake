@@ -19,7 +19,7 @@ darwin-switch: && home-switch
     nh darwin switch .
 
 home-switch:
-    nh home switch .
+    nh home switch . -b hm-bak
 
 gc:
     # remove all generations older than 7 days
