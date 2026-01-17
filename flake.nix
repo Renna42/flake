@@ -98,9 +98,23 @@
           ];
         };
 
-        packages = import ./packages {inherit pkgs;};
+        packages =
+          pkgs.lib.filterAttrs
+          (
+            pname: package:
+              if builtins.hasAttr "meta" package
+              then builtins.elem system package.meta.platforms
+              else true
+          )
+          (
+            pkgs.lib.packagesFromDirectoryRecursive {
+              inherit (pkgs) callPackage;
+              directory = ./packages;
+            }
+          );
+
         overlayAttrs = {
-          inherit (config.packages) misans-all;
+          flakePackages = self.packages;
         };
 
         checks = {

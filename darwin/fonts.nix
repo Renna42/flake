@@ -10,6 +10,7 @@
     maple-mono.Normal-NF-CN-unhinted
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
-    misans-all
+    flakePackages.misans
+    flakePackages.misans-l3
   ];
 }
