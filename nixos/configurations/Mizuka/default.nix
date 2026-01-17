@@ -21,6 +21,7 @@
     ../../services/kmscon.nix
     ../../services/mdns.nix
     ../../services/proxy.nix
+    ../../services/fprintd.nix
 
     ../../users/renna.nix
   ];
