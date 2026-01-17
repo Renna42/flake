@@ -30,5 +30,5 @@
     xdg-user-dirs
   ];
 
-  sops.age.keyFile = ["/home/renna/.config/sops/age/keys.txt"];
+  sops.age.keyFile = "/home/renna/.config/sops/age/keys.txt";
 }
