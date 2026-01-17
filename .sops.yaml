@@ -1,6 +1,7 @@
 keys:
   - &renna age1j7gucy8tyur7wtcqq9w6xs79sakutmuxcj59vjrxh2nawv8nuulsnladgm
   - &host_mizuka age1fvz050spxg5uweatm806kn3xt63ml6hc8ale3hzl9t8hqx852qnstlsm34
+  - &host_schwarzschild age1shrz0an8zs56u3z7stsaazt62c5lwf68e0gulkd2egz5dfnhqc0q40ccrz
 creation_rules:
   - path_regex: secrets/home.yaml$
     key_groups:
@@ -11,3 +12,4 @@ creation_rules:
       - age:
           - *renna
           - *host_mizuka
+          - *host_schwarzschild
