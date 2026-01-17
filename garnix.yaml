@@ -4,5 +4,4 @@ builds:
     - "*.x86_64-linux.*"
     - nixosConfigurations.*
     - darwinConfigurations.*
-    - homeConfigurations.*
   branch: main
