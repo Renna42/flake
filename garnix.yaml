@@ -1,6 +1,5 @@
 builds:
-  exclude:
-    - "packages.*.misans*"
+  exclude: []
   include:
     - "*.x86_64-linux.*"
     - nixosConfigurations.*
