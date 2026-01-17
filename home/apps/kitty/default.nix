@@ -8,6 +8,9 @@
     enableGitIntegration = true;
     shellIntegration = {
       enableFishIntegration = true;
+      # make kitty dont alias sudo to make doas works well
+      # ref: https://github.com/NixOS/nixpkgs/issues/260427#issuecomment-1758197272
+      mode = "no-sudo";
     };
 
     mouseBindings = {
