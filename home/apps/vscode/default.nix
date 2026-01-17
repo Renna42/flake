@@ -43,7 +43,7 @@
           "editor.defaultFormatter" = "redhat.vscode-yaml";
         };
         "[xml]" = {
-          "editor.defaultFormatter" = "DotJoshJohnson.xml";
+          "editor.defaultFormatter" = "redhat.vscode-xml";
         };
         "[dockercompose]" = {
           "editor.insertSpaces" = true;
