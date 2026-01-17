@@ -114,7 +114,7 @@
           );
 
         overlayAttrs = {
-          flakePackages = self.packages;
+          flakePackages = config.packages;
         };
 
         checks = {
