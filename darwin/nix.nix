@@ -1,8 +1,19 @@
 {
+  config,
   inputs,
   outputs,
+  secretsPath,
   ...
 }: {
+  sops = {
+    secrets.nix_access_tokens = {
+      sopsFile = "${secretsPath}/nix-daemon-auth.yaml";
+    };
+    templates."nix-github-tokens".content = ''
+      access-tokens = ${config.sops.placeholder.nix_access_tokens}
+    '';
+  };
+
   nix = {
     settings = {
       inherit (outputs.nix.settings) substituters;
@@ -23,4 +34,6 @@
 
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   };
+
+  environment.variables.SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
 }

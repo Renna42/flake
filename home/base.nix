@@ -2,6 +2,7 @@
   lib,
   username,
   platform,
+  secretsPath,
   ...
 }: let
   homeDirectory =
@@ -18,6 +19,12 @@ in {
     };
     stateVersion = "25.11";
   };
+
+  sops = {
+    age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt";
+    defaultSopsFile = "${secretsPath}/home.yaml";
+  };
+
   xdg.userDirs = lib.mkIf platform.isLinux {
     enable = true;
     createDirectories = true;

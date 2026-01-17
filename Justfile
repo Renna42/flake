@@ -30,3 +30,10 @@ gc:
 
 update:
     nix flake update
+
+
+scan-age-key target:
+    ssh {{ target }} cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
+
+updatekeys:
+    sops updatekeys secrets/* -y

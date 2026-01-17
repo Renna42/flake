@@ -29,4 +29,6 @@
   environment.systemPackages = with pkgs; [
     xdg-user-dirs
   ];
+
+  sops.age.keyFile = ["/home/renna/.config/sops/age/keys.txt"];
 }

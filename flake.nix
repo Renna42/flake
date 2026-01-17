@@ -56,12 +56,14 @@
   } @ inputs: let
     inherit (self) outputs;
     assetsPath = ./assets;
+    secretsPath = ./secrets;
 
     globalSpecialArgs = {
       inherit
         inputs
         outputs
         assetsPath
+        secretsPath
         ;
     };
     nixosMachines = ["Mizuka"];
@@ -121,10 +123,13 @@
             nh
             nix-output-monitor
             statix
+            ssh-to-age
+            openssh
+            sops
           ];
           inherit (config.checks.pre-commit-check) shellHook;
           buildInputs = config.checks.pre-commit-check.enabledPackages;
-          EDITOR = "codium";
+          EDITOR = "nano";
         };
       };
 
