@@ -152,6 +152,7 @@
               nixpkgs.lib.flatten [
                 mirrors
                 (cachix "nix-community")
+                "https://cache.garnix.io"
                 "https://cache.nixos.org"
                 (cachix "hyprland")
               ];
