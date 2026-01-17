@@ -4,12 +4,7 @@
   pkgs,
   platform,
   ...
-}: let
-  sshAuthSock =
-    if platform.isDarwin
-    then "${config.home.homeDirectory}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
-    else "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
-in {
+}: {
   home.packages = with pkgs; [
     any-nix-shell
     fastfetch
@@ -86,7 +81,7 @@ in {
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
-      export SSH_AUTH_SOCK="${sshAuthSock}"
+      export SSH_AUTH_SOCK=".bitwarden-ssh-agent.sock"
     '';
   };
 
