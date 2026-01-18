@@ -141,6 +141,8 @@
 
   services.tailscale.enable = true;
 
+  environment.variables.SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
+
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
   system.stateVersion = 6;
 }

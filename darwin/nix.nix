@@ -34,7 +34,9 @@
     optimise.automatic = true;
 
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  };
 
-  environment.variables.SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
+    extraOptions = ''
+      !include ${config.sops.templates."nix-github-tokens".path}
+    '';
+  };
 }
