@@ -49,6 +49,7 @@
 in rec {
   catppuccin = {
     flavor = "macchiato";
+    cache.enable = true;
   };
 
   stylix =

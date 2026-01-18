@@ -2,6 +2,8 @@
   config,
   inputs,
   outputs,
+  lib,
+  pkgs,
   secretsPath,
   ...
 }: {
@@ -15,6 +17,7 @@
   };
 
   nix = {
+    package = pkgs.nix;
     settings = {
       inherit (outputs.nix.settings) substituters;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
@@ -30,6 +33,17 @@
       # Disable the built-in flake registry to speed up evaluation
       flake-registry = "";
     };
+    # This is important. It locks nixpkgs registry used in nix shell
+    # to the same of flakes. Saves time.
+    registry =
+      {
+        pkgs.flake = inputs.self;
+      }
+      // lib.mapAttrs (_: flakes: {flake = flakes;}) inputs;
+
+    # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
+    channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
+
     gc.automatic = true;
     optimise.automatic = true;
 

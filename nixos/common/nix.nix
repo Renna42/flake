@@ -3,6 +3,7 @@
   inputs,
   outputs,
   lib,
+  pkgs,
   secretsPath,
   ...
 }: {
@@ -16,6 +17,7 @@
   };
 
   nix = {
+    package = pkgs.nix;
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";
@@ -62,9 +64,6 @@
 
     # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
     channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
-
-    daemonIOSchedClass = lib.mkDefault "idle";
-    daemonCPUSchedPolicy = lib.mkDefault "idle";
 
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
