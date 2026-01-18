@@ -134,7 +134,6 @@
         "workbench.colorCustomizations" = {
           "terminal.background" = "#00000000";
         };
-        "workbench.iconTheme" = "vscode-icons";
         "workbench.productIconTheme" = "fluent-icons";
         "workbench.startupEditor" = "none";
         "workbench.tree.enableStickyScroll" = true;
@@ -222,7 +221,6 @@
         "unifiedjs.vscode-mdx"
         "voldemortensen.rainbow-tags"
         "vscjava.vscode-maven"
-        "vscode-icons-team.vscode-icons"
         "Vue.volar"
         "WakaTime.vscode-wakatime"
         "wayou.vscode-todo-highlight"
@@ -233,4 +231,7 @@
       ];
     };
   };
+
+  stylix.targets.vscode.enable = false;
+  catppuccin.vscode.profiles."default".enable = true;
 }

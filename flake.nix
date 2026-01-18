@@ -31,6 +31,7 @@
     };
     git-hooks.url = "github:cachix/git-hooks.nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
+    catppuccin.url = "github:catppuccin/nix";
     hyprland.url = "github:hyprwm/Hyprland";
 
     flake-compat = {
@@ -234,6 +235,7 @@
                     modules = [
                       (./home/renna/configurations + "/${hostname}")
                       inputs.stylix.homeModules.stylix
+                      inputs.catppuccin.homeModules.catppuccin
                       inputs.nix-index-database.homeModules.nix-index
                       inputs.direnv-instant.homeModules.direnv-instant
                       inputs.sops-nix.homeManagerModules.sops

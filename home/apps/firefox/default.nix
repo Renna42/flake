@@ -109,6 +109,9 @@
         "browser.search.separatePrivateDefault" = false;
         "browser.search.separatePrivateDefault.ui.enabled" = true;
         "dom.security.https_first" = true;
+        "extensions.autoDisableScopes" = 0;
+        "extensions.update.autoUpdateDefault" = false;
+        "extensions.update.enabled" = false;
       };
       SearchEngines = {
         "Default" = "Google";

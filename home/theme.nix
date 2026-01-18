@@ -7,10 +7,10 @@
 }: let
   commonStylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
+    image = "${assetsPath}/wallpapers/132178898_p0.png";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     polarity = "dark";
-    opacity.terminal = 0.7;
-    image = "${assetsPath}/wallpapers/129665127_p0.png";
+    opacity.terminal = 0.8;
     fonts = {
       sizes.terminal = 12;
       serif = {
@@ -47,6 +47,10 @@
     };
   };
 in rec {
+  catppuccin = {
+    flavor = "macchiato";
+  };
+
   stylix =
     if platform.isDarwin
     then darwinStylix

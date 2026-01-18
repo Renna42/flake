@@ -5,7 +5,7 @@
 }: {
   imports = [
     ../../../base.nix
-    ../../../stylix.nix
+    ../../../theme.nix
 
     ../../../apps/desktop.nix
     ../../../apps/develop.nix
