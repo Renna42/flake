@@ -25,22 +25,14 @@
       url = "github:nix-community/nix4vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    direnv-instant = {
-      url = "github:Mic92/direnv-instant";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
-      url = "github:mic92/sops-nix";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    direnv-instant.url = "github:Mic92/direnv-instant";
+    hyprland.url = "github:hyprwm/Hyprland";
+
     flake-compat = {
       url = "github:NixOS/flake-compat";
       flake = false;
