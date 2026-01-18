@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../../../base.nix
+    ../../../nix.nix
     ../../../theme.nix
 
     ../../../apps/desktop.nix

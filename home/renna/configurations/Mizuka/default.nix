@@ -6,6 +6,7 @@
 }: {
   imports = [
     ../../../base.nix
+    ../../../nix.nix
     ../../../theme.nix
 
     ../../../apps/fcitx5
