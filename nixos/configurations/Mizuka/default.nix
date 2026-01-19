@@ -17,11 +17,13 @@
     ../../hardware/bluetooth.nix
     ../../hardware/tpm.nix
     ../../hardware/xpad.nix
+    ../../hardware/printer.nix
 
     ../../services/kmscon.nix
     ../../services/mdns.nix
     ../../services/proxy.nix
     ../../services/fprintd.nix
+    ../../services/printing.nix
 
     ../../users/renna.nix
   ];
