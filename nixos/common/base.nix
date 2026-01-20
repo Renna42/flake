@@ -9,6 +9,11 @@
     tldr
     lshw
     iw
+    inetutils
+    net-tools
+    pciutils
+    usbutils
+    pv
   ];
 
   boot.supportedFilesystems = [
