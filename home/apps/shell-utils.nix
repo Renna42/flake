@@ -81,7 +81,7 @@
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
-      export SSH_AUTH_SOCK=".bitwarden-ssh-agent.sock"
+      export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
     '';
   };
 
