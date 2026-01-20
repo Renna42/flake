@@ -17,7 +17,7 @@
     ../../hardware/bluetooth.nix
     ../../hardware/tpm.nix
     ../../hardware/xpad.nix
-    ../../hardware/printer.nix
+    ../../hardware/printers/epson_l8168.nix
 
     ../../services/kmscon.nix
     ../../services/mdns.nix

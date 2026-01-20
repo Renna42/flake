@@ -1,11 +1,15 @@
-_: {
+{pkgs, ...}: {
+  services.printing.drivers = [
+    pkgs.epson-escpr2
+  ];
+
   hardware.printers = {
     ensurePrinters = [
       {
         name = "EPSON_L8168";
         location = "Home";
-        deviceUri = "dnssd://EPSON%20L8168._ipp._tcp.local/?uuid=cfe92100-67c4-11d4-a45f-64c6d25cd34e";
-        model = "everywhere";
+        deviceUri = "lpd://10.22.0.200:515/PASSTHRU";
+        model = "epson-inkjet-printer-escpr2/Epson-L8160_Series-epson-escpr2-en.ppd";
         ppdOptions = {
           PageSize = "A4";
         };
