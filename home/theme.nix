@@ -12,7 +12,7 @@
     polarity = "dark";
     opacity.terminal = 0.8;
     fonts = {
-      sizes.terminal = 12;
+      sizes.terminal = 10;
       serif = {
         package = pkgs.noto-fonts-cjk-serif;
         name = "Noto Serif CJK SC";
