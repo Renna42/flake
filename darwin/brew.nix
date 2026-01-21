@@ -33,6 +33,7 @@ _: {
       "reqable"
       "mkvtoolnix-app"
       "mediainfo"
+      "jetbrains-toolbox"
     ];
   };
 }
