@@ -10,8 +10,8 @@ Licensed under [MIT License](./LICENSE)
 
 ## Credits
 
-[inclyc/flakes](https://github.com/inclyc/flakes): MIT License
-
-[AsterisMono/flake](https://github.com/AsterisMono/flake): MIT License
-
-[nix-community/stylix](https://github.com/nix-community/stylix): MIT License
+| Project                                                         | License     |
+| :-------------------------------------------------------------- | :---------- |
+| [inclyc/flakes](https://github.com/inclyc/flakes)               | MIT License |
+| [AsterisMono/flake](https://github.com/AsterisMono/flake)       | MIT License |
+| [nix-community/stylix](https://github.com/nix-community/stylix) | MIT License |
