@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   secretsPath,
   ...
@@ -14,6 +15,7 @@
   services.mihomo = {
     enable = true;
     tunMode = true;
+    webui = pkgs.flakePackages.zashboard;
     configFile = config.sops.secrets.mihomoConfig.path;
   };
 
