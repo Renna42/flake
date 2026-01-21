@@ -1,143 +1,149 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     mutableExtensionsDir = false;
     profiles.default = {
-      userSettings = {
-        "[css]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[html]" = {
-          "editor.defaultFormatter" = "vscode.html-language-features";
-        };
-        "[javascript]" = {
-          "editor.defaultFormatter" = "vscode.typescript-language-features";
-        };
-        "[javascriptreact]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[json]" = {
-          "editor.defaultFormatter" = "vscode.json-language-features";
-        };
-        "[jsonc]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[markdown]" = {
-          "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
-        };
-        "[python]" = {
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-          "editor.tabSize" = 4;
-        };
-        "[typescript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[typescriptreact]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[vue]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[yaml]" = {
-          "editor.defaultFormatter" = "redhat.vscode-yaml";
-        };
-        "[xml]" = {
-          "editor.defaultFormatter" = "redhat.vscode-xml";
-        };
-        "[dockercompose]" = {
-          "editor.insertSpaces" = true;
-          "editor.tabSize" = 2;
-          "editor.autoIndent" = "advanced";
-          "editor.quickSuggestions" = {
-            "other" = true;
-            "comments" = false;
-            "strings" = true;
+      userSettings =
+        {
+          "[css]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
-          "editor.defaultFormatter" = "redhat.vscode-yaml";
-        };
-        "[github-actions-workflow]" = {
-          "editor.defaultFormatter" = "redhat.vscode-yaml";
-        };
-        "debug.javascript.autoAttachFilter" = "disabled";
-        "diffEditor.ignoreTrimWhitespace" = false;
-        "editor.acceptSuggestionOnEnter" = "smart";
-        "editor.accessibilitySupport" = "off";
-        "editor.bracketPairColorization.enabled" = true;
-        "editor.guides.bracketPairs" = "active";
-        "editor.inlineSuggest.enabled" = true;
-        "editor.smoothScrolling" = false;
-        "editor.stickyScroll.enabled" = true;
-        "explorer.confirmDelete" = false;
-        "explorer.fileNesting.patterns" = {
-          "*.ts" = "\${capture}.js";
-          "*.js" = "\${capture}.js.map, \${capture}.min.js, \${capture}.d.ts";
-          "*.jsx" = "\${capture}.js";
-          "*.tsx" = "\${capture}.ts";
-          "tsconfig.json" = "tsconfig.*.json";
-          "package.json" = "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock";
-          "Cargo.toml" = "Cargo.lock";
-          "*.sqlite" = "\${capture}.\${extname}-*";
-          "*.db" = "\${capture}.\${extname}-*";
-          "*.sqlite3" = "\${capture}.\${extname}-*";
-          "*.db3" = "\${capture}.\${extname}-*";
-          "*.sdb" = "\${capture}.\${extname}-*";
-          "*.s3db" = "\${capture}.\${extname}-*";
-        };
-        "files.autoGuessEncoding" = true;
-        "files.autoSaveWhenNoErrors" = true;
-        "files.exclude" = {
-          "**/.classpath" = true;
-          "**/.project" = true;
-          "**/.settings" = true;
-          "**/.factorypath" = true;
-          "**/.DS_Store" = true;
-          "**/.direnv" = true;
-        };
-        "git.autoStash" = true;
-        "git.autofetch" = true;
-        "git.confirmSync" = false;
-        "git.enableSmartCommit" = true;
-        "git.replaceTagsWhenPull" = true;
-        "markdown.preview.breaks" = true;
-        "markdownlint.config" = {
-          MD026 = false;
-        };
-        "nix.enableLanguageServer" = true;
-        "nix.formatterPath" = "alejandra";
-        "nix.hiddenLanguageServerErrors" = [
-          "textDocument/definition"
-          "textDocument/codeAction"
-          "textDocument/documentSymbol"
-          "textDocument/inlayHint"
-          "textDocument/documentLink"
-        ];
-        "nix.serverPath" = "nixd";
-        "nix.serverSettings" = {
-          "nixd" = {
-            "formatting" = {
-              "command" = ["alejandra"];
+          "[html]" = {
+            "editor.defaultFormatter" = "vscode.html-language-features";
+          };
+          "[javascript]" = {
+            "editor.defaultFormatter" = "vscode.typescript-language-features";
+          };
+          "[javascriptreact]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[json]" = {
+            "editor.defaultFormatter" = "vscode.json-language-features";
+          };
+          "[jsonc]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[markdown]" = {
+            "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+          };
+          "[python]" = {
+            "editor.defaultFormatter" = "ms-python.black-formatter";
+            "editor.tabSize" = 4;
+          };
+          "[typescript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[typescriptreact]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[vue]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[yaml]" = {
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
+          "[xml]" = {
+            "editor.defaultFormatter" = "redhat.vscode-xml";
+          };
+          "[dockercompose]" = {
+            "editor.insertSpaces" = true;
+            "editor.tabSize" = 2;
+            "editor.autoIndent" = "advanced";
+            "editor.quickSuggestions" = {
+              "other" = true;
+              "comments" = false;
+              "strings" = true;
+            };
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
+          "[github-actions-workflow]" = {
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
+          "debug.javascript.autoAttachFilter" = "disabled";
+          "diffEditor.ignoreTrimWhitespace" = false;
+          "editor.acceptSuggestionOnEnter" = "smart";
+          "editor.accessibilitySupport" = "off";
+          "editor.bracketPairColorization.enabled" = true;
+          "editor.guides.bracketPairs" = "active";
+          "editor.inlineSuggest.enabled" = true;
+          "editor.smoothScrolling" = false;
+          "editor.stickyScroll.enabled" = true;
+          "explorer.confirmDelete" = false;
+          "explorer.fileNesting.patterns" = {
+            "*.ts" = "\${capture}.js";
+            "*.js" = "\${capture}.js.map, \${capture}.min.js, \${capture}.d.ts";
+            "*.jsx" = "\${capture}.js";
+            "*.tsx" = "\${capture}.ts";
+            "tsconfig.json" = "tsconfig.*.json";
+            "package.json" = "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock";
+            "Cargo.toml" = "Cargo.lock";
+            "*.sqlite" = "\${capture}.\${extname}-*";
+            "*.db" = "\${capture}.\${extname}-*";
+            "*.sqlite3" = "\${capture}.\${extname}-*";
+            "*.db3" = "\${capture}.\${extname}-*";
+            "*.sdb" = "\${capture}.\${extname}-*";
+            "*.s3db" = "\${capture}.\${extname}-*";
+          };
+          "files.autoGuessEncoding" = true;
+          "files.autoSaveWhenNoErrors" = true;
+          "files.exclude" = {
+            "**/.classpath" = true;
+            "**/.project" = true;
+            "**/.settings" = true;
+            "**/.factorypath" = true;
+            "**/.DS_Store" = true;
+            "**/.direnv" = true;
+          };
+          "git.autoStash" = true;
+          "git.autofetch" = true;
+          "git.confirmSync" = false;
+          "git.enableSmartCommit" = true;
+          "git.replaceTagsWhenPull" = true;
+          "markdown.preview.breaks" = true;
+          "markdownlint.config" = {
+            MD026 = false;
+          };
+          "nix.enableLanguageServer" = true;
+          "nix.formatterPath" = "alejandra";
+          "nix.hiddenLanguageServerErrors" = [
+            "textDocument/definition"
+            "textDocument/codeAction"
+            "textDocument/documentSymbol"
+            "textDocument/inlayHint"
+            "textDocument/documentLink"
+          ];
+          "nix.serverPath" = "nixd";
+          "nix.serverSettings" = {
+            "nixd" = {
+              "formatting" = {
+                "command" = ["alejandra"];
+              };
             };
           };
-        };
-        "prettier.tabWidth" = 2;
-        "redhat.telemetry.enabled" = false;
-        "search.smartCase" = true;
-        "security.workspace.trust.untrustedFiles" = "open";
-        "svelte.enable-ts-plugin" = true;
-        "typescript.locale" = "en";
-        "typescript.preferences.importModuleSpecifier" = "non-relative";
-        "typescript.suggest.autoImports" = true;
-        "typescript.updateImportsOnFileMove.enabled" = "always";
-        "update.mode" = "none";
-        "vsicons.dontShowNewVersionMessage" = true;
-        "workbench.colorCustomizations" = {
-          "terminal.background" = "#00000000";
-        };
-        "workbench.productIconTheme" = "fluent-icons";
-        "workbench.startupEditor" = "none";
-        "workbench.tree.enableStickyScroll" = true;
-      };
+          "prettier.tabWidth" = 2;
+          "redhat.telemetry.enabled" = false;
+          "search.smartCase" = true;
+          "security.workspace.trust.untrustedFiles" = "open";
+          "svelte.enable-ts-plugin" = true;
+          "typescript.locale" = "en";
+          "typescript.preferences.importModuleSpecifier" = "non-relative";
+          "typescript.suggest.autoImports" = true;
+          "typescript.updateImportsOnFileMove.enabled" = "always";
+          "update.mode" = "none";
+          "vsicons.dontShowNewVersionMessage" = true;
+          "workbench.colorCustomizations" = {
+            "terminal.background" = "#00000000";
+          };
+          "workbench.productIconTheme" = "fluent-icons";
+          "workbench.startupEditor" = "none";
+          "workbench.tree.enableStickyScroll" = true;
+        }
+        // import ./fonts.nix config.stylix.fonts;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = pkgs.nix4vscode.forVscode [
