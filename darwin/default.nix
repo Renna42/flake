@@ -5,6 +5,7 @@ _: {
     ./brew.nix
     ./settings.nix
     ./fonts.nix
+    ./proxy.nix
 
     ./renna.nix
   ];

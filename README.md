@@ -11,3 +11,5 @@ Licensed under [MIT License](./LICENSE)
 ## Credits
 
 [inclyc/flakes](https://github.com/inclyc/flakes): MIT License
+
+[AsterisMono/flake](https://github.com/AsterisMono/flake): MIT License
