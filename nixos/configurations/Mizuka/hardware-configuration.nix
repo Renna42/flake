@@ -35,6 +35,9 @@
       "compress=zstd"
       "noatime"
     ];
+
+    # To make sops-nix happy
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
