@@ -1,0 +1,196 @@
+{
+  "auto_install_extensions": {
+    "astro": true,
+    "biome": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "git-firefly": true,
+    "html": true,
+    "just": true,
+    "make": true,
+    "nix": true,
+    "toml": true,
+    "wakatime": true
+  },
+  "auto_update": false,
+  "base_keymap": "VSCode",
+  "collaboration_panel": {
+    "button": false
+  },
+  "colorize_brackets": true,
+  "cursor_blink": false,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "disable_ai": true,
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "git": {
+    "branch_picker": {
+      "show_author_name": true
+    },
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.addMissingImports.ts": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.ts": true,
+        "source.removeUnusedImports.ts": true
+      },
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "Nix": {
+      "formatter": {
+        "external": {
+          "command": "alejandra"
+        }
+      },
+      "language_servers": ["nixd", "!nil", "..."]
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.addMissingImports.ts": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.ts": true,
+        "source.removeUnusedImports.ts": true
+      },
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.addMissingImports.ts": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.ts": true,
+        "source.removeUnusedImports.ts": true
+      },
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "prettier": {
+        "allowed": false
+      }
+    }
+  },
+  "load_direnv": "shell_hook",
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
+    "eslint": {
+      "settings": {
+        "rulesCustomizations": [
+          {
+            "fixable": true,
+            "rule": "style/*",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "format/*",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-indent",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-spacing",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-spaces",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-order",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-dangle",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*-newline",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*quotes",
+            "severity": "off"
+          },
+          {
+            "fixable": true,
+            "rule": "*semi",
+            "severity": "off"
+          }
+        ]
+      }
+    },
+    "json-language-server": {
+      "settings": {
+        "json": {
+          "schemas": [
+            {
+              "fileMatch": ["package.json"],
+              "url": "https://www.schemastore.org/package"
+            }
+          ]
+        }
+      }
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemaStore": {
+            "enable": true
+          },
+          "completion": true
+        }
+      }
+    }
+  },
+  "project_panel": {
+    "hide_gitignore": true
+  },
+  "rounded_selection": false,
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "tabs": {
+    "git_status": true,
+    "show_diagnostics": "errors"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "cursor_shape": "bar",
+    "shell": {
+      "program": "fish"
+    }
+  },
+  "title_bar": {
+    "show_user_picture": false
+  }
+}
