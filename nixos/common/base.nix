@@ -14,6 +14,7 @@
     pciutils
     usbutils
     pv
+    dnsutils
   ];
 
   boot.supportedFilesystems = [
