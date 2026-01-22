@@ -34,6 +34,7 @@ _: {
       "mkvtoolnix-app"
       "mediainfo"
       "jetbrains-toolbox"
+      "karabiner-elements"
     ];
   };
 }
