@@ -6,7 +6,7 @@
     ./kitty
     ./idapro
     ./yubikey
-    ./wakatime
+    # ./wakatime
   ];
 
   home.packages = with pkgs; [
