@@ -169,13 +169,10 @@
   };
 
   services.gpg-agent = {
-    enable = true;
+    enable = platform.isLinux;
     enableFishIntegration = true;
     enableSshSupport = true;
-    pinentry.package =
-      if platform.isLinux
-      then pkgs.pinentry-qt
-      else pkgs.pinentry_mac;
+    pinentry.package = pkgs.pinentry-qt;
   };
 
   home.file.".gnupg/dirmngr.conf".text =
