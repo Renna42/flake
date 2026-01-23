@@ -240,4 +240,8 @@
 
   stylix.targets.vscode.enable = false;
   catppuccin.vscode.profiles."default".enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "codium -wn";
+  };
 }
