@@ -35,6 +35,7 @@ _: {
       "mediainfo"
       "jetbrains-toolbox"
       "karabiner-elements"
+      "firefox"
     ];
   };
 }

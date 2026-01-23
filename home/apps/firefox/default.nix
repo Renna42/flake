@@ -1,15 +1,15 @@
 {
   lib,
   pkgs,
+  platform,
   ...
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
-    languagePacks = [
-      "en-US"
-      "zh-CN"
-    ];
+    package =
+      if !platform.isDarwin
+      then pkgs.firefox
+      else null;
     policies = {
       DisableAppUpdate = true;
       ExtensionSettings = let
