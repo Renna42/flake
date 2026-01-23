@@ -26,7 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
-      url = "github:Mic92/sops-nix";
+      # Workaround for sops-nix on Darwin
+      # https://github.com/Mic92/sops-nix/issues/890
+      url = "github:Mic92/sops-nix?rev=d7593b87b0c1c33f9cfdd485a7fef081dd5362e7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git-hooks.url = "github:cachix/git-hooks.nix";
