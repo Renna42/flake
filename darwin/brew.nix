@@ -41,6 +41,8 @@ _: {
       "maccy"
       "mos@beta"
       "jordanbaird-ice"
+      "shottr"
+      "launchcontrol"
     ];
   };
 }
