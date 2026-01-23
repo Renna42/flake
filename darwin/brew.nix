@@ -36,6 +36,11 @@ _: {
       "jetbrains-toolbox"
       "karabiner-elements"
       "firefox"
+      "notion"
+      "iina"
+      "maccy"
+      "mos@beta"
+      "jordanbaird-ice"
     ];
   };
 }
