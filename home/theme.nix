@@ -1,5 +1,6 @@
 {
   assetsPath,
+  config,
   lib,
   pkgs,
   platform,
@@ -46,7 +47,7 @@
       light = "Fluent";
     };
   };
-in rec {
+in {
   catppuccin = {
     flavor = "macchiato";
     cache.enable = true;
@@ -62,7 +63,7 @@ in rec {
       /usr/bin/osascript <<EOF
         tell application "System Events"
           tell every desktop
-            set picture to "${stylix.image}"
+            set picture to "${config.stylix.image}"
           end tell
         end tell
       EOF
