@@ -76,9 +76,6 @@
           "cors-everywhere@spenibus" = {
             install_url = moz "cors-everywhere";
           };
-          "youtubetweak@dark495.me" = {
-            install_url = moz "youtube-tweak";
-          };
           "Google_AI_Overviews_Blocker@zachbarnes.dev" = {
             install_url = moz "hide-google-ai-overviews";
           };
