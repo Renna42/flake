@@ -43,6 +43,7 @@ _: {
       "jordanbaird-ice"
       "shottr"
       "launchcontrol"
+      "google-chrome"
     ];
   };
 }

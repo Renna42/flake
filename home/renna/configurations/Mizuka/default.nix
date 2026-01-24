@@ -10,6 +10,7 @@
     ../../../theme.nix
 
     ../../../apps/fcitx5
+    ../../../apps/chromium
     ../../../apps/desktop.nix
     ../../../apps/develop.nix
     ../../../apps/shell-utils.nix
