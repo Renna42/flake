@@ -65,6 +65,7 @@
             "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
           "claudeCode.disableLoginPrompt" = true;
+          "claudeCode.preferredLocation" = "panel";
           "debug.javascript.autoAttachFilter" = "disabled";
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.acceptSuggestionOnEnter" = "smart";
