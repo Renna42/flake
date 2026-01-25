@@ -32,6 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git-hooks.url = "github:cachix/git-hooks.nix";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -80,7 +81,9 @@
         config,
         system,
         ...
-      }: {
+      }: let
+        treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+      in {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
           config = {
@@ -96,7 +99,7 @@
         packages =
           pkgs.lib.filterAttrs
           (
-            pname: package:
+            _pname: package:
               if builtins.hasAttr "meta" package
               then builtins.elem system package.meta.platforms
               else true
@@ -116,12 +119,14 @@
           pre-commit-check = inputs.git-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
-              alejandra.enable = true;
-              statix.enable = true;
+              treefmt = {
+                enable = true;
+                packageOverrides.treefmt = treefmtEval.config.build.wrapper;
+              };
             };
           };
         };
-        formatter = pkgs.alejandra;
+        formatter = treefmtEval.config.build.wrapper;
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nix
