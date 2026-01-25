@@ -28,6 +28,12 @@
 
     ../../users/renna.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    ciel
+    squashfsTools
+  ];
+
   boot = {
     loader = {
       systemd-boot = {
@@ -44,5 +50,8 @@
 
   networking.hostName = hostname;
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt = {
+    emulatedSystems = ["aarch64-linux"];
+    preferStaticEmulators = true; # required to work with podman
+  };
 }
