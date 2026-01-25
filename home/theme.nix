@@ -23,8 +23,8 @@
         name = "Noto Sans CJK SC";
       };
       monospace = {
-        package = pkgs.maple-mono.Normal-NF;
-        name = "Maple Mono Normal NF";
+        package = pkgs.maple-mono.Normal-NF-CN-unhinted;
+        name = "Maple Mono Normal NF CN";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
