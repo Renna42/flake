@@ -13,7 +13,7 @@
           "expr": "(builtins.getFlake (builtins.toString ./.)).darwinConfigurations.Schwarzschild.options"
         },
         "home-manager": {
-          "expr": "(builtins.getFlake (builtins.toString ./.)).homeConfigurations.\"renna@Mizuka\".options"
+          "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.Mizuka.options.home-manager.users.type.getSubOptions []"
         }
       }
     }
