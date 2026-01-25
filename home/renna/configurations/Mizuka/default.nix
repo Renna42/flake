@@ -24,6 +24,7 @@
       siyuan
       mediainfo-gui
       kdePackages.kleopatra
+      podman-desktop
     ];
     sessionVariables = {
       "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
@@ -36,7 +37,7 @@
       # QT_IM_MODULE = "fcitx";
       # SDL_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
-      GLFW_IM_MODULE = "ibus"; # 有些程序通过 ibus 协议连接 fcitx
+      GLFW_IM_MODULE = "ibus";
       # misc
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
       "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
@@ -49,6 +50,11 @@
 
     file.".face.icon".source = "${assetsPath}/${username}.png";
   };
+
+  xdg.configFile."containers/registries.conf".text = ''
+    [registries.search]
+    registries = ['docker.io']
+  '';
 
   i18n.inputMethod = {
     enable = true;

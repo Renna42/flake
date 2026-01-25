@@ -24,6 +24,7 @@
     ../../services/proxy.nix
     ../../services/fprintd.nix
     ../../services/printing.nix
+    ../../services/podman.nix
 
     ../../users/renna.nix
   ];
