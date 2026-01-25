@@ -12,7 +12,7 @@
 }: let
   electron = electron_39;
 in
-  buildNpmPackage rec {
+  buildNpmPackage (finalAttrs: {
     pname = "openscreen";
     version = "1.1.0";
     nodejs = nodejs_22;
@@ -20,7 +20,7 @@ in
     src = fetchFromGitHub {
       owner = "siddharthvaddem";
       repo = "openscreen";
-      rev = "v${version}";
+      tag = "v${finalAttrs.version}";
       hash = "sha256-eneZ/2oCjIimlqGpwKGdxiPPsDTdaBOHpTUfWOQSD54=";
     };
 
@@ -93,21 +93,19 @@ in
     '';
 
     desktopItems = [
-      (
-        makeDesktopItem {
-          name = "openscreen";
-          desktopName = "OpenScreen";
-          comment = meta.description;
-          icon = "openscreen";
-          exec = "openscreen %u";
-          categories = [
-            "AudioVideo"
-            "Video"
-            "Utility"
-          ];
-          terminal = false;
-        }
-      )
+      (makeDesktopItem {
+        name = "openscreen";
+        desktopName = "OpenScreen";
+        comment = finalAttrs.meta.description;
+        icon = "openscreen";
+        exec = "openscreen %u";
+        categories = [
+          "AudioVideo"
+          "Video"
+          "Utility"
+        ];
+        terminal = false;
+      })
     ];
 
     passthru.updateScript = nix-update-script {};
@@ -119,4 +117,4 @@ in
       license = lib.licenses.mit;
       mainProgram = "openscreen";
     };
-  }
+  })
