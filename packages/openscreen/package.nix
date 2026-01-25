@@ -33,6 +33,10 @@ in
 
     env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
 
+    patches = [
+      ./electron-avoid-phantomjs.patch
+    ];
+
     buildPhase =
       ''
         runHook preBuild
@@ -68,7 +72,7 @@ in
 
       ${lib.optionalString stdenv.hostPlatform.isLinux ''
         mkdir -p $out/share/openscreen
-        cp -r dist/*-unpacked/{locales,resources{,.pak}} $out/share/openscreen
+        cp -r release/*/*-unpacked/{locales,resources{,.pak}} $out/share/openscreen
 
         makeWrapper ${lib.getExe electron} $out/bin/openscreen \
             --add-flags $out/share/openscreen/resources/app.asar \
@@ -76,7 +80,7 @@ in
             --set-default ELECTRON_IS_DEV 0 \
             --inherit-argv0
 
-        install -Dm644 icons/png/512x512.png $out/share/icons/hicolor/512x512/apps/openscreen.png
+        install -Dm644 icons/icons/png/512x512.png $out/share/icons/hicolor/512x512/apps/openscreen.png
       ''}
 
       ${lib.optionalString stdenv.hostPlatform.isDarwin ''
