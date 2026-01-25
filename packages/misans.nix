@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation (
   finalAttrs: {
-    name = "MiSans";
+    pname = "MiSans";
     version = "0-unstable-2023-10-31";
 
     src = fetchzip {
