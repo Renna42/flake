@@ -1,39 +1,35 @@
 default: switch
 
 inspect:
-    nix run github:bluskript/nix-inspect -- -p .
+  nix run github:bluskript/nix-inspect -- -p .
 
 build:
-    nh os build .
+  nh os build .
 
-switch: && home-switch
-    nh os switch .
+switch:
+  nh os switch .
 
 boot:
-    nh os boot .
+  nh os boot .
 
 dryrun:
-    nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
+  nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
 
-darwin-switch: && home-switch
-    nh darwin switch .
-
-home-switch:
-    nh home switch . -b hm-bak
+darwin-switch:
+  nh darwin switch .
 
 gc:
-    # remove all generations older than 7 days
-    sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
+  # remove all generations older than 7 days
+  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
 
-    # garbage collect all unused nix store entries
-    sudo nix store gc --debug
+  # garbage collect all unused nix store entries
+  sudo nix store gc --debug
 
 update:
-    nix flake update
-
+  nix flake update
 
 scan-age-key target:
-    ssh {{ target }} cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
+  ssh {{ target }} cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
 
 updatekeys:
-    sops updatekeys secrets/* -y
+  sops updatekeys secrets/* -y

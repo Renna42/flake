@@ -3,7 +3,6 @@
   inputs,
   outputs,
   lib,
-  pkgs,
   secretsPath,
   ...
 }: {
@@ -17,7 +16,6 @@
   };
 
   nix = {
-    package = pkgs.nix;
     settings = {
       inherit (outputs.nix.settings) substituters;
       experimental-features = [

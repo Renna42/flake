@@ -147,128 +147,81 @@
         };
       };
 
-      flake =
-        {
-          nix.settings = {
-            # nix substituters shared between home-manager and nixos
-            substituters = let
-              channelStore = x: "https://${x}/nix-channels/store";
-              mirrors =
-                [
-                  (channelStore "mirror.sjtu.edu.cn")
-                ]
-                ++ map (x: channelStore "mirrors.${x}.edu.cn") [
-                  "ustc"
-                  "tuna.tsinghua"
-                ];
-              cachix = x: "https://${x}.cachix.org";
-            in
-              nixpkgs.lib.flatten [
-                mirrors
-                (cachix "nix-community")
-                "https://cache.garnix.io"
-                "https://cache.nixos.org"
-                (cachix "hyprland")
+      flake = {
+        nix.settings = {
+          # nix substituters shared between home-manager and nixos
+          substituters = let
+            channelStore = x: "https://${x}/nix-channels/store";
+            mirrors =
+              [
+                (channelStore "mirror.sjtu.edu.cn")
+              ]
+              ++ map (x: channelStore "mirrors.${x}.edu.cn") [
+                "ustc"
+                "tuna.tsinghua"
               ];
-          };
+            cachix = x: "https://${x}.cachix.org";
+          in
+            nixpkgs.lib.flatten [
+              mirrors
+              (cachix "nix-community")
+              "https://cache.garnix.io"
+              "https://cache.nixos.org"
+              (cachix "hyprland")
+            ];
+        };
 
-          nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
-            hostname:
-              nixpkgs.lib.nixosSystem {
-                specialArgs =
-                  globalSpecialArgs
-                  // {
-                    inherit hostname;
-                  };
-                modules = [
-                  ({config, ...}: {
-                    # Use the configured pkgs from perSystem
-                    nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-                      {pkgs, ...}:
-                      # perSystem module arguments
-                        pkgs
-                    );
-                  })
-                  ./nixos/configurations/${hostname}
-                  inputs.stylix.nixosModules.stylix
-                  inputs.hyprland.nixosModules.default
-                  inputs.home-manager.nixosModules.home-manager
-                  inputs.sops-nix.nixosModules.sops
-                ];
-              }
-          );
-
-          darwinConfigurations = nixpkgs.lib.genAttrs darwinMachines (
-            hostname:
-              inputs.darwin.lib.darwinSystem {
-                specialArgs =
-                  globalSpecialArgs
-                  // {
-                    inherit
-                      hostname
-                      ;
-                  };
-                modules = [
-                  ({config, ...}: {
-                    # Use the configured pkgs from perSystem
-                    nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-                      {pkgs, ...}:
-                      # perSystem module arguments
-                        pkgs
-                    );
-                  })
-                  ./darwin
-                  inputs.home-manager.darwinModules.home-manager
-                  inputs.sops-nix.darwinModules.sops
-                ];
-              }
-          );
-        }
-        // (
-          # Home-manager configurations
-          let
-            mkHomeConfig = {
-              hostname,
-              username ? "renna",
-              system ? "x86_64-linux",
-              home-manager ? inputs.home-manager,
-            }: let
-              platform = nixpkgs.lib.systems.elaborate system;
-            in {
-              "${username}@${hostname}" = withSystem system (
-                {pkgs, ...}:
-                  home-manager.lib.homeManagerConfiguration {
-                    inherit pkgs;
-                    modules = [
-                      (./home/renna/configurations + "/${hostname}")
-                      inputs.stylix.homeModules.stylix
-                      inputs.catppuccin.homeModules.catppuccin
-                      inputs.nix-index-database.homeModules.nix-index
-                      inputs.direnv-instant.homeModules.direnv-instant
-                      inputs.sops-nix.homeManagerModules.sops
-                    ];
-                    extraSpecialArgs =
-                      globalSpecialArgs
-                      // {
-                        inherit
-                          username
-                          hostname
-                          platform
-                          ;
-                      };
-                  }
-              );
-            };
-          in {
-            homeConfigurations =
-              mkHomeConfig {
-                hostname = "Mizuka";
-              }
-              // mkHomeConfig {
-                hostname = "Schwarzschild";
-                system = "aarch64-darwin";
-              };
-          }
+        nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
+          hostname:
+            nixpkgs.lib.nixosSystem {
+              specialArgs =
+                globalSpecialArgs
+                // {
+                  inherit hostname;
+                };
+              modules = [
+                ({config, ...}: {
+                  # Use the configured pkgs from perSystem
+                  nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
+                    {pkgs, ...}:
+                    # perSystem module arguments
+                      pkgs
+                  );
+                })
+                ./nixos/configurations/${hostname}
+                inputs.stylix.nixosModules.stylix
+                inputs.hyprland.nixosModules.default
+                inputs.home-manager.nixosModules.home-manager
+                inputs.sops-nix.nixosModules.sops
+              ];
+            }
         );
+
+        darwinConfigurations = nixpkgs.lib.genAttrs darwinMachines (
+          hostname:
+            inputs.darwin.lib.darwinSystem {
+              specialArgs =
+                globalSpecialArgs
+                // {
+                  inherit
+                    hostname
+                    ;
+                };
+              modules = [
+                ({config, ...}: {
+                  # Use the configured pkgs from perSystem
+                  nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
+                    {pkgs, ...}:
+                    # perSystem module arguments
+                      pkgs
+                  );
+                })
+                ./darwin
+                inputs.home-manager.darwinModules.home-manager
+                inputs.sops-nix.darwinModules.sops
+              ];
+            }
+        );
+      };
     });
 }

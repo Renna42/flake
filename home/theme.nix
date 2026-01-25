@@ -4,12 +4,12 @@
   lib,
   pkgs,
   platform,
+  osConfig,
   ...
 }: let
   commonStylix = {
     enable = true;
     image = "${assetsPath}/wallpapers/132178898_p0.png";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     polarity = "dark";
     opacity.terminal = 0.8;
     fonts = {
@@ -33,12 +33,14 @@
     };
   };
   darwinStylix = lib.recursiveUpdate commonStylix {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     overlays.enable = false;
     fonts.sizes = {
       applications = 10;
     };
   };
   linuxStylix = lib.recursiveUpdate commonStylix {
+    inherit (osConfig.stylix) base16Scheme;
     targets.qt.platform = "kde";
     icons = {
       enable = true;
