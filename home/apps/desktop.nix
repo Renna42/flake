@@ -17,5 +17,6 @@
     dbeaver-bin
     tenacity
     mediainfo
+    flakePackages.openscreen
   ];
 }
