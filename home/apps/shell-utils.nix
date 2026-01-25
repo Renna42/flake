@@ -87,6 +87,7 @@
       end
 
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+      export GITHUB_TOKEN_CMD="gh auth token"
     '';
   };
 
