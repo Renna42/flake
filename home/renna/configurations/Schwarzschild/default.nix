@@ -1,8 +1,4 @@
-{
-  assetsPath,
-  pkgs,
-  ...
-}: {
+{assetsPath, ...}: {
   imports = [
     ../../../base.nix
     ../../../nix.nix

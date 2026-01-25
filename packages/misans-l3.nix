@@ -4,7 +4,7 @@
   lib,
 }:
 stdenvNoCC.mkDerivation (
-  finalAttrs: {
+  _finalAttrs: {
     pname = "MiSans L3";
     version = "0-unstable-2023-10-31";
 
