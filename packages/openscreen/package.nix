@@ -37,14 +37,13 @@ in
       ./electron-avoid-phantomjs.patch
     ];
 
-    buildPhase =
-      ''
-        runHook preBuild
+    buildPhase = ''
+      runHook preBuild
 
-        npm exec tsc
-        npm exec vite build
-      ''
-      + lib.optionalString stdenv.hostPlatform.isDarwin ''
+      npm exec tsc
+      npm exec vite build
+
+      ${lib.optionalString stdenv.hostPlatform.isDarwin ''
         # electronDist needs to be modifiable on Darwin
         cp -r ${electron.dist} electron-dist
         chmod -R u+w electron-dist
@@ -56,16 +55,17 @@ in
           --dir \
           -c.electronDist=electron-dist \
           -c.electronVersion=${electron.version}
-      ''
-      + lib.optionalString stdenv.hostPlatform.isLinux ''
+      ''}
+
+      ${lib.optionalString stdenv.hostPlatform.isLinux ''
         npm exec electron-builder -- \
           --dir \
           -c.electronDist=${electron.dist} \
           -c.electronVersion=${electron.version}
-      ''
-      + ''
-        runHook postBuild
-      '';
+      ''}
+
+      runHook postBuild
+    '';
 
     installPhase = ''
       runHook preInstall
