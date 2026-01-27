@@ -110,7 +110,7 @@
 
       loginwindow = {
         GuestEnabled = false;
-        SHOWFULLNAME = true;
+        SHOWFULLNAME = false;
       };
     };
 
