@@ -44,6 +44,7 @@ _: {
       "shottr"
       "launchcontrol"
       "google-chrome"
+      "input-source-pro"
     ];
   };
 }
