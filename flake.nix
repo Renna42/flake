@@ -35,7 +35,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     flake-compat = {
       url = "github:NixOS/flake-compat";
@@ -166,7 +166,7 @@
               (cachix "nix-community")
               "https://cache.garnix.io"
               "https://cache.nixos.org"
-              (cachix "hyprland")
+              # (cachix "hyprland")
             ];
         };
 
@@ -189,7 +189,7 @@
                 })
                 ./nixos/configurations/${hostname}
                 inputs.stylix.nixosModules.stylix
-                inputs.hyprland.nixosModules.default
+                # inputs.hyprland.nixosModules.default
                 inputs.home-manager.nixosModules.home-manager
                 inputs.sops-nix.nixosModules.sops
               ];
