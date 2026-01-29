@@ -46,6 +46,7 @@ _: {
       "google-chrome"
       "input-source-pro"
       "obs"
+      "discord"
     ];
   };
 }
