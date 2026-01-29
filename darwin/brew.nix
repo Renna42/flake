@@ -45,6 +45,7 @@ _: {
       "launchcontrol"
       "google-chrome"
       "input-source-pro"
+      "obs"
     ];
   };
 }
