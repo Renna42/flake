@@ -1,11 +1,17 @@
 {
-  assetsPath,
+  secretsPath,
   config,
   pkgs,
   ...
 }: {
+  sops.secrets."idapro.hexlic" = {
+    format = "json";
+    sopsFile = "${secretsPath}/idapro-license.json";
+    key = "";
+    path = "${config.home.homeDirectory}/.idapro/idapro.hexlic";
+  };
+
   home.file = {
-    ".idapro/idapro.hexlic".source = "${assetsPath}/idapro.hexlic";
     ".idapro/themes/catppuccin-${config.catppuccin.flavor}" = {
       source =
         pkgs.fetchFromGitHub {
