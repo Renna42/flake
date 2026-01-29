@@ -1,10 +1,16 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  platform,
+  ...
+}: {
   home.packages = with pkgs; [
     prismlauncher
     osu-lazer-bin
+    ryubing
   ];
 
-  programs.lutris = {
+  programs.lutris = lib.mkIf platform.isLinux {
     enable = true;
     defaultWinePackage = pkgs.proton-ge-bin;
     protonPackages = [

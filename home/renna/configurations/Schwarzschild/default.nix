@@ -5,6 +5,7 @@
     ../../../theme.nix
 
     ../../../apps/desktop.nix
+    ../../../apps/game.nix
     ../../../apps/develop.nix
     ../../../apps/shell-utils.nix
   ];
