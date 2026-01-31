@@ -14,6 +14,7 @@
     delta
     chroma
     moor
+    nix-output-monitor
   ];
 
   # Command-line Apps
