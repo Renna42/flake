@@ -11,6 +11,7 @@
     ../../roles/desktop
     # ../../gui/suites/hyprland.nix
     ../../gui/suites/plasma.nix
+    ../../gui/steam.nix
 
     ../../hardware/nvidia.nix
     ../../hardware/intel-gfx.nix

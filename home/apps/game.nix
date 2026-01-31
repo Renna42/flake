@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  osConfig,
   platform,
   ...
 }: {
@@ -12,9 +13,10 @@
 
   programs.lutris = lib.mkIf platform.isLinux {
     enable = true;
-    defaultWinePackage = pkgs.proton-ge-bin;
+    steamPackage = osConfig.programs.steam.package;
+    defaultWinePackage = pkgs.flakePackages.dwproton-bin;
     protonPackages = [
-      pkgs.proton-ge-bin
+      pkgs.flakePackages.dwproton-bin
     ];
     extraPackages = with pkgs; [
       mangohud
