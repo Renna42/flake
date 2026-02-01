@@ -24,5 +24,8 @@
     "textDocument/documentSymbol",
     "textDocument/inlayHint",
     "textDocument/documentLink"
-  ]
+  ],
+  "files.associations": {
+    "idapro.hexlic": "json"
+  }
 }

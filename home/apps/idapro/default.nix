@@ -6,7 +6,7 @@
 }: {
   sops.secrets."idapro.hexlic" = {
     format = "json";
-    sopsFile = "${secretsPath}/idapro-license.json";
+    sopsFile = "${secretsPath}/idapro.hexlic";
     key = "";
     path = "${config.home.homeDirectory}/.idapro/idapro.hexlic";
   };
