@@ -92,6 +92,11 @@
         system,
         ...
       }: let
+        # rename `self.legacyPackages.*.packages` -> `self.legacyPackages.*.packages'`
+        # `self.legacyPackages.*.packages` collides with `self.packages` in nix cli
+        adjustLegacyPackages = pkgs:
+          nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"]
+          // {packages' = pkgs.packages;};
         nix-inspect = inputs.nix-inspect.packages.${system}.default;
       in {
         _module.args.pkgs = import self.inputs.nixpkgs {
@@ -108,7 +113,7 @@
           ];
         };
 
-        legacyPackages = self.lib.makePackages pkgs ./pkgs {};
+        legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs ./pkgs {});
         packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
         overlayAttrs = {
