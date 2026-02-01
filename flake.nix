@@ -183,27 +183,30 @@
 
         nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
           hostname:
-            nixpkgs.lib.nixosSystem {
-              specialArgs =
-                globalSpecialArgs
-                // {
-                  inherit hostname;
-                };
-              modules = [
-                ({config, ...}: {
-                  # Use the configured pkgs from perSystem
-                  nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-                    {pkgs, ...}:
-                    # perSystem module arguments
-                      pkgs
-                  );
-                })
-                ./nixos/configurations/${hostname}
-                inputs.stylix.nixosModules.stylix
-                # inputs.hyprland.nixosModules.default
-                inputs.home-manager.nixosModules.home-manager
-                inputs.sops-nix.nixosModules.sops
-              ];
+            self.lib.withOfflineInstaller {
+              flake = self;
+              nixosConfig = nixpkgs.lib.nixosSystem {
+                specialArgs =
+                  globalSpecialArgs
+                  // {
+                    inherit hostname;
+                  };
+                modules = [
+                  ({config, ...}: {
+                    # Use the configured pkgs from perSystem
+                    nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
+                      {pkgs, ...}:
+                      # perSystem module arguments
+                        pkgs
+                    );
+                  })
+                  ./nixos/configurations/${hostname}
+                  inputs.stylix.nixosModules.stylix
+                  # inputs.hyprland.nixosModules.default
+                  inputs.home-manager.nixosModules.home-manager
+                  inputs.sops-nix.nixosModules.sops
+                ];
+              };
             }
         );
 
