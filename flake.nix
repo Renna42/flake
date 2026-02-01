@@ -102,7 +102,7 @@
           ];
         };
 
-        legacyPackages = self.lib.makePackages pkgs ./packages {};
+        legacyPackages = self.lib.makePackages pkgs ./pkgs {};
 
         packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
