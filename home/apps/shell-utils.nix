@@ -6,6 +6,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # keep-sorted start block=yes
     any-nix-shell
     asciinema
     cachix
@@ -16,6 +17,8 @@
     fastfetch
     moor
     nix-output-monitor
+    qrencode
+    # keep-sorted end
   ];
 
   # Command-line Apps
