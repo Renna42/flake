@@ -41,6 +41,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
+    nix-inspect.url = "github:bluskript/nix-inspect";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     flake-compat = {
@@ -90,7 +91,9 @@
         config,
         system,
         ...
-      }: {
+      }: let
+        nix-inspect = inputs.nix-inspect.packages.${system}.default;
+      in {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
           config = {
@@ -148,6 +151,7 @@
             ssh-to-age
             openssh
             sops
+            nix-inspect
           ];
           inherit (config.pre-commit) shellHook;
           buildInputs = config.pre-commit.settings.enabledPackages;
@@ -162,6 +166,10 @@
           # nix substituters shared between home-manager and nixos
           substituters = [
             "https://mirror.sjtu.edu.cn/nix-channels/store"
+            "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+            "https://mirrors.ustc.edu.cn/nix-channels/store"
+          ];
+          extra-substituters = [
             "https://nix-community.cachix.org"
             "https://cache.garnix.io"
             "https://renna42.cachix.org"

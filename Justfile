@@ -1,7 +1,7 @@
 default: switch
 
 inspect:
-  nix run github:bluskript/nix-inspect -- -p .
+  nix-inspect -p .
 
 build:
   nh os build .
