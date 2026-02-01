@@ -103,7 +103,6 @@
         };
 
         legacyPackages = self.lib.makePackages pkgs ./pkgs {};
-
         packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
         overlayAttrs = {
@@ -113,6 +112,7 @@
         checks = {
           pre-commit-check = inputs.git-hooks.lib.${system}.run {
             src = ./.;
+            package = pkgs.prek;
             hooks = {
               treefmt = {
                 enable = true;
@@ -122,6 +122,7 @@
           };
         };
         formatter = treefmtEval.config.build.wrapper;
+
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nix
