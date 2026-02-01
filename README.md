@@ -6,13 +6,20 @@ A personal flake configuration repo
 
 ## License
 
-Licensed under [MIT License](./LICENSE)
+All the source code licensed under [MIT License](./LICENSE).
+
+### Wallpaper Soruces
+
+| Filename         | Author                                        | Source link                                       |
+| ---------------- | --------------------------------------------- | ------------------------------------------------- |
+| 132178898_p0.png | [mmAir](https://www.pixiv.net/users/39363802) | [Pixiv](https://www.pixiv.net/artworks/132178898) |
+| 129665127_p0.png | [furi / ふーり](www.pixiv.net/users/41736171) | [Pixiv](https://www.pixiv.net/artworks/129665127) |
 
 ## Credits
 
-| Project                                                      | License     |
-| :----------------------------------------------------------- | :---------- |
-| [inclyc/flakes](https://github.com/inclyc/flakes)            | MIT License |
-| [AsterisMono/flake](https://github.com/AsterisMono/flake)    | MIT License |
-| [nix-community/stylix](https://github.com/nix-community/stylix) | MIT License |
+| Project                                                               | License     |
+| :-------------------------------------------------------------------- | :---------- |
+| [inclyc/flakes](https://github.com/inclyc/flakes)                     | MIT License |
+| [AsterisMono/flake](https://github.com/AsterisMono/flake)             | MIT License |
+| [nix-community/stylix](https://github.com/nix-community/stylix)       | MIT License |
 | [linyinfeng/nur-packages](https://github.com/linyinfeng/nur-packages) | MIT License |
