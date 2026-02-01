@@ -81,6 +81,7 @@
 
       systems = flake-utils.lib.defaultSystems;
       perSystem = {
+        self',
         pkgs,
         config,
         system,
@@ -101,23 +102,12 @@
           ];
         };
 
-        packages =
-          pkgs.lib.filterAttrs
-          (
-            _pname: package:
-              if builtins.hasAttr "meta" package
-              then builtins.elem system package.meta.platforms
-              else true
-          )
-          (
-            pkgs.lib.packagesFromDirectoryRecursive {
-              inherit (pkgs) callPackage;
-              directory = ./packages;
-            }
-          );
+        legacyPackages = self.lib.makePackages pkgs ./packages {};
+
+        packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
         overlayAttrs = {
-          flakePackages = config.packages;
+          flakePackages = pkgs.lib.recurseIntoAttrs self'.legacyPackages;
         };
 
         checks = {
@@ -152,6 +142,8 @@
       };
 
       flake = {
+        lib = import ./lib {inherit (nixpkgs) lib;};
+
         nix.settings = {
           # nix substituters shared between home-manager and nixos
           substituters = let
