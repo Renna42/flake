@@ -35,6 +35,10 @@
       url = "github:Mic92/sops-nix?rev=d7593b87b0c1c33f9cfdd485a7fef081dd5362e7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     git-hooks.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
@@ -98,6 +102,7 @@
           overlays = [
             inputs.nur.overlays.default
             inputs.nix4vscode.overlays.default
+            inputs.rust-overlay.overlays.default
             self.overlays.default
           ];
         };

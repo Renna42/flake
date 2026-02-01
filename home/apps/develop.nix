@@ -10,6 +10,7 @@
         requests
         httpx
       ]))
+    rust-bin.stable.latest.default
 
     subversionClient
     mercurial
