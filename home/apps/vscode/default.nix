@@ -92,6 +92,9 @@
             "*.sdb" = "\${capture}.\${extname}-*";
             "*.s3db" = "\${capture}.\${extname}-*";
           };
+          "files.associations" = {
+            "LICENSE" = "plaintext";
+          };
           "files.autoGuessEncoding" = true;
           "files.autoSaveWhenNoErrors" = true;
           "files.exclude" = {
