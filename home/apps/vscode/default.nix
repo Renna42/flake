@@ -10,8 +10,23 @@
     profiles.default = {
       userSettings =
         {
+          # keep-sorted start block=yes
           "[css]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[dockercompose]" = {
+            "editor.insertSpaces" = true;
+            "editor.tabSize" = 2;
+            "editor.autoIndent" = "advanced";
+            "editor.quickSuggestions" = {
+              "other" = true;
+              "comments" = false;
+              "strings" = true;
+            };
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
+          "[github-actions-workflow]" = {
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
           "[html]" = {
             "editor.defaultFormatter" = "vscode.html-language-features";
@@ -44,24 +59,10 @@
           "[vue]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
-          "[yaml]" = {
-            "editor.defaultFormatter" = "redhat.vscode-yaml";
-          };
           "[xml]" = {
             "editor.defaultFormatter" = "redhat.vscode-xml";
           };
-          "[dockercompose]" = {
-            "editor.insertSpaces" = true;
-            "editor.tabSize" = 2;
-            "editor.autoIndent" = "advanced";
-            "editor.quickSuggestions" = {
-              "other" = true;
-              "comments" = false;
-              "strings" = true;
-            };
-            "editor.defaultFormatter" = "redhat.vscode-yaml";
-          };
-          "[github-actions-workflow]" = {
+          "[yaml]" = {
             "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
           "claudeCode.disableLoginPrompt" = true;
@@ -144,11 +145,13 @@
           "workbench.productIconTheme" = "fluent-icons";
           "workbench.startupEditor" = "none";
           "workbench.tree.enableStickyScroll" = true;
+          # keep-sorted end
         }
         // import ./fonts.nix config.stylix.fonts;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = pkgs.nix4vscode.forVscode [
+        # keep-sorted start block=yes case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
         "anthropic.claude-code"
@@ -156,7 +159,6 @@
         "bradlc.vscode-tailwindcss"
         "christian-kohler.path-intellisense"
         "clinyong.vscode-css-modules"
-        "csstools.postcss"
         "csstools.postcss"
         "cweijan.vscode-office"
         "Dart-Code.dart-code"
@@ -237,6 +239,7 @@
         "xshrim.txt-syntax"
         "yzhang.markdown-all-in-one"
         "zignd.html-css-class-completion"
+        # keep-sorted end
       ];
     };
   };

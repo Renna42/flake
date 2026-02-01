@@ -4,10 +4,11 @@ in {
   programs.zed-editor = {
     enable = true;
     extensions = [
+      # keep-sorted start
       "astro"
       "biome"
-      "dockerfile"
       "docker-compose"
+      "dockerfile"
       "git-firefly"
       "html"
       "just"
@@ -15,6 +16,7 @@ in {
       "nix"
       "toml"
       "wakatime"
+      # keep-sorted end
     ];
     extraPackages = [
       pkgs.nixd
