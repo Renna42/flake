@@ -7,12 +7,13 @@
 }: {
   home.packages = with pkgs; [
     any-nix-shell
-    fastfetch
-    dust
-    duf
     asciinema
-    delta
+    cachix
     chroma
+    delta
+    duf
+    dust
+    fastfetch
     moor
     nix-output-monitor
   ];

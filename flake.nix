@@ -147,25 +147,14 @@
 
         nix.settings = {
           # nix substituters shared between home-manager and nixos
-          substituters = let
-            channelStore = x: "https://${x}/nix-channels/store";
-            mirrors =
-              [
-                (channelStore "mirror.sjtu.edu.cn")
-              ]
-              ++ map (x: channelStore "mirrors.${x}.edu.cn") [
-                "ustc"
-                "tuna.tsinghua"
-              ];
-            cachix = x: "https://${x}.cachix.org";
-          in
-            nixpkgs.lib.flatten [
-              mirrors
-              (cachix "nix-community")
-              "https://cache.garnix.io"
-              "https://cache.nixos.org"
-              # (cachix "hyprland")
-            ];
+          substituters = [
+            "https://mirror.sjtu.edu.cn/nix-channels/store"
+            "https://mirrorz.org/nix-channels/store"
+            "https://nix-community.cachix.org"
+            "https://renna42.cachix.org"
+            "https://cache.garnix.io"
+            "https://cache.nixos.org"
+          ];
         };
 
         nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
