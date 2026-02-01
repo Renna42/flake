@@ -18,7 +18,7 @@
       maple-mono.Normal-NF-CN-unhinted
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
-      flakePackages.misansFont.misans
+      flakePackages.misansFonts.misans
       flakePackages.misansFonts.misans-l3
     ];
     enableGhostscriptFonts = true;
