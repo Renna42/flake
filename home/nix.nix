@@ -17,7 +17,7 @@
 
   nix = {
     settings = {
-      inherit (outputs.nix.settings) substituters;
+      inherit (outputs.nix.settings) substituters extra-substituters;
       experimental-features = [
         "nix-command"
         "flakes"

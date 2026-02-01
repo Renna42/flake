@@ -163,9 +163,8 @@
           substituters = [
             "https://mirror.sjtu.edu.cn/nix-channels/store"
             "https://nix-community.cachix.org"
-            "https://renna42.cachix.org"
             "https://cache.garnix.io"
-            "https://cache.nixos.org"
+            "https://renna42.cachix.org"
           ];
         };
 

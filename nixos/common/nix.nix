@@ -28,7 +28,7 @@
       dates = ["03:45"];
     };
     settings = {
-      inherit (outputs.nix.settings) substituters;
+      inherit (outputs.nix.settings) substituters extra-substituters;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
       trusted-users = [
         "root"

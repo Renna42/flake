@@ -19,7 +19,7 @@
   nix = {
     package = pkgs.nix;
     settings = {
-      inherit (outputs.nix.settings) substituters;
+      inherit (outputs.nix.settings) substituters extra-substituters;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
       experimental-features = [
         "nix-command"
