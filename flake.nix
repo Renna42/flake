@@ -77,6 +77,7 @@
       ...
     }: {
       imports = [
+        inputs.treefmt-nix.flakeModule
         inputs.flake-parts.flakeModules.easyOverlay
         inputs.home-manager.flakeModules.home-manager
       ];
@@ -88,9 +89,7 @@
         config,
         system,
         ...
-      }: let
-        treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-      in {
+      }: {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
           config = {
@@ -112,6 +111,22 @@
           flakePackages = pkgs.lib.recurseIntoAttrs self'.legacyPackages;
         };
 
+        treefmt = {
+          programs = {
+            alejandra.enable = true;
+            deadnix = {
+              enable = true;
+              no-lambda-arg = true;
+              no-lambda-pattern-names = true;
+            };
+            statix = {
+              enable = true;
+              disabled-lints = ["repeated_keys" "faster_zipattrswith"];
+            };
+            keep-sorted.enable = true;
+          };
+        };
+
         checks = {
           pre-commit-check = inputs.git-hooks.lib.${system}.run {
             src = ./.;
@@ -119,12 +134,11 @@
             hooks = {
               treefmt = {
                 enable = true;
-                packageOverrides.treefmt = treefmtEval.config.build.wrapper;
+                packageOverrides.treefmt = config.treefmt.build.wrapper;
               };
             };
           };
         };
-        formatter = treefmtEval.config.build.wrapper;
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
