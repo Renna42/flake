@@ -149,7 +149,6 @@
           # nix substituters shared between home-manager and nixos
           substituters = [
             "https://mirror.sjtu.edu.cn/nix-channels/store"
-            "https://mirrorz.org/nix-channels/store"
             "https://nix-community.cachix.org"
             "https://renna42.cachix.org"
             "https://cache.garnix.io"
