@@ -6,7 +6,7 @@ A personal flake configuration repo
 
 ## License
 
-All the source code licensed under [MIT License](./LICENSE).
+Source codes are licensed under [MIT License](./LICENSE).
 
 ### Wallpaper Soruces
 
