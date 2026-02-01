@@ -37,7 +37,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
@@ -77,6 +77,7 @@
       ...
     }: {
       imports = [
+        inputs.git-hooks-nix.flakeModule
         inputs.treefmt-nix.flakeModule
         inputs.flake-parts.flakeModules.easyOverlay
         inputs.home-manager.flakeModules.home-manager
@@ -127,16 +128,11 @@
           };
         };
 
-        checks = {
-          pre-commit-check = inputs.git-hooks.lib.${system}.run {
-            src = ./.;
-            package = pkgs.prek;
-            hooks = {
-              treefmt = {
-                enable = true;
-                packageOverrides.treefmt = config.treefmt.build.wrapper;
-              };
-            };
+        pre-commit.settings = {
+          package = pkgs.prek;
+          hooks.treefmt = {
+            enable = true;
+            packageOverrides.treefmt = config.treefmt.build.wrapper;
           };
         };
 
@@ -153,8 +149,8 @@
             openssh
             sops
           ];
-          inherit (config.checks.pre-commit-check) shellHook;
-          buildInputs = config.checks.pre-commit-check.enabledPackages;
+          inherit (config.pre-commit) shellHook;
+          buildInputs = config.pre-commit.settings.enabledPackages;
           EDITOR = "codium -w";
         };
       };

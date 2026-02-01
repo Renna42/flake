@@ -290,7 +290,7 @@
         "type": "github"
       }
     },
-    "git-hooks": {
+    "git-hooks-nix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
@@ -313,7 +313,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "git-hooks",
+          "git-hooks-nix",
           "nixpkgs"
         ]
       },
@@ -560,7 +560,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "flake-utils": "flake-utils",
-        "git-hooks": "git-hooks",
+        "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nix4vscode": "nix4vscode",
