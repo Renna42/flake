@@ -8,7 +8,7 @@ lib.makeScope newScope (
   in {
     # keep-sorted start block=yes
     misansFonts = lib.recurseIntoAttrs (callPackage ./misans-fonts {});
-    openscreen = callPackage ./openscreen {};
+    openscreen = callPackage ./openscreen/package.nix {};
     rime-data = callPackage ./rime-data.nix {};
     zashboard = callPackage ./zashboard.nix {};
     # keep-sorted end
