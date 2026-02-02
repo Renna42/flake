@@ -24,6 +24,7 @@ in {
         "dialout"
         "wireshark"
         "tss"
+        "libvirtd"
       ];
       shell = pkgs.fish;
       initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";

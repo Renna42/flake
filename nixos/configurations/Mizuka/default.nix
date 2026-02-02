@@ -26,6 +26,7 @@
     ../../services/fprintd.nix
     ../../services/printing.nix
     ../../services/podman.nix
+    ../../services/libvirt.nix
 
     ../../users/renna.nix
   ];
