@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   inputs,
   hostname,
@@ -7,6 +8,12 @@
 } @ osSpecialArgs: let
   username = "renna";
 in {
+  options = {
+    userSettings.${username}.homeManager = {
+      enable = lib.mkEnableOption "Enable home-manager for ${username}";
+    };
+  };
+
   config = {
     users.users.${username} = {
       isNormalUser = true;
@@ -37,7 +44,7 @@ in {
       useBabelfish = true;
     };
 
-    home-manager = {
+    home-manager = lib.mkIf config.userSettings.${username}.homeManager.enable {
       sharedModules = [
         inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.homeModules.nix-index
