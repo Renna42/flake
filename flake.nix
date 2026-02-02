@@ -73,7 +73,7 @@
         secretsPath
         ;
     };
-    nixosMachines = ["Mizuka"];
+    nixosMachines = ["Mizuka" "Quebec"];
     darwinMachines = ["Schwarzschild"];
   in
     flake-parts.lib.mkFlake {inherit inputs;} ({
