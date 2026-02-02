@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../common
     ../../roles/desktop
     # ../../gui/suites/hyprland.nix
     ../../gui/suites/plasma.nix
@@ -51,6 +50,8 @@
   };
 
   networking.hostName = hostname;
+
+  userSettings.renna.homeManager.enable = true;
 
   boot.binfmt = {
     emulatedSystems = ["aarch64-linux"];

@@ -204,6 +204,7 @@
                         pkgs
                     );
                   })
+                  ./nixos/common
                   ./nixos/configurations/${hostname}
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
