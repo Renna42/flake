@@ -93,6 +93,8 @@
 
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
+      export GO111MODULE="on"
+      export GOPROXY="https://goproxy.cn"
     '';
   };
 
