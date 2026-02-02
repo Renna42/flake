@@ -13,6 +13,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -201,6 +205,7 @@
                     );
                   })
                   ./nixos/configurations/${hostname}
+                  inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
                   # inputs.hyprland.nixosModules.default
                   inputs.home-manager.nixosModules.home-manager
