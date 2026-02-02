@@ -3,6 +3,16 @@ default: switch
 inspect:
   nix-inspect -p .
 
+install hostname target:
+    nix run github:nix-community/nixos-anywhere -- \
+      --flake .#{{ hostname }} \
+      --target-host {{ target }} \
+      --copy-host-keys \
+      --disko-mode disko \
+
+bootstrap hostname disk:
+    nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
+
 build:
   nh os build .
 
