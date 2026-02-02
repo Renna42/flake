@@ -49,6 +49,7 @@ _: {
       "siyuan"
       "tailscale-app"
       "typora"
+      "utm@beta"
       # keep-sorted end
     ];
   };
