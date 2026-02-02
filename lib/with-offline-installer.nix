@@ -46,7 +46,7 @@ in
             }: {
               imports = [(modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")];
 
-              nixpkgs.hostPlatform.system = "x86_64-linux";
+              nixpkgs.hostPlatform = nixosConfig.config.nixpkgs.hostPlatform;
 
               nix.settings = {
                 experimental-features = [
