@@ -51,7 +51,10 @@
 
   networking.hostName = hostname;
 
-  userSettings.renna.homeManager.enable = true;
+  renna = {
+    homeManager.enable = true;
+    useMirrorRepos = true;
+  };
 
   boot.binfmt = {
     emulatedSystems = ["aarch64-linux"];

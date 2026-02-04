@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  outputs,
   pkgs,
   hostname,
   ...
@@ -39,7 +38,6 @@ in {
         inherit
           (osSpecialArgs)
           inputs
-          outputs
           hostname
           secretsPath
           assetsPath

@@ -60,14 +60,12 @@
     flake-utils,
     ...
   } @ inputs: let
-    inherit (self) outputs;
     assetsPath = ./assets;
     secretsPath = ./secrets;
 
     globalSpecialArgs = {
       inherit
         inputs
-        outputs
         assetsPath
         secretsPath
         ;
@@ -151,6 +149,7 @@
             nix
             alejandra
             nixd
+            disko
             just
             nh
             nix-output-monitor
@@ -167,20 +166,6 @@
 
       flake = {
         lib = import ./lib {inherit (nixpkgs) lib;};
-
-        nix.settings = {
-          # nix substituters shared between home-manager and nixos
-          substituters = [
-            "https://mirror.sjtu.edu.cn/nix-channels/store"
-            "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-            "https://mirrors.ustc.edu.cn/nix-channels/store"
-          ];
-          extra-substituters = [
-            "https://nix-community.cachix.org"
-            "https://cache.garnix.io"
-            "https://renna42.cachix.org"
-          ];
-        };
 
         nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
           hostname:

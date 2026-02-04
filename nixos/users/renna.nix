@@ -9,8 +9,8 @@
   username = "renna";
 in {
   options = {
-    userSettings.${username}.homeManager = {
-      enable = lib.mkEnableOption "Enable home-manager for ${username}";
+    renna.homeManager = {
+      enable = lib.mkEnableOption "Enable home-manager for Renna Z.";
     };
   };
 
@@ -44,7 +44,7 @@ in {
       useBabelfish = true;
     };
 
-    home-manager = lib.mkIf config.userSettings.${username}.homeManager.enable {
+    home-manager = lib.mkIf config.renna.homeManager.enable {
       sharedModules = [
         inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.homeModules.nix-index
@@ -61,7 +61,6 @@ in {
         inherit
           (osSpecialArgs)
           inputs
-          outputs
           hostname
           secretsPath
           assetsPath

@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  outputs,
   lib,
   pkgs,
   secretsPath,
@@ -19,14 +18,22 @@
   nix = {
     package = pkgs.nix;
     settings = {
-      inherit (outputs.nix.settings) substituters extra-substituters;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+      ];
+      extra-substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.garnix.io"
+        "https://renna42.cachix.org"
+      ];
       trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
