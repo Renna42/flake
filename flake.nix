@@ -45,7 +45,6 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
-    nix-inspect.url = "github:bluskript/nix-inspect";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     flake-compat = {
@@ -101,7 +100,6 @@
         adjustLegacyPackages = pkgs:
           nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"]
           // {packages' = pkgs.packages;};
-        nix-inspect = inputs.nix-inspect.packages.${system}.default;
       in {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
@@ -160,7 +158,6 @@
             ssh-to-age
             openssh
             sops
-            nix-inspect
           ];
           inherit (config.pre-commit) shellHook;
           buildInputs = config.pre-commit.settings.enabledPackages;

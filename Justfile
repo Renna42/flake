@@ -1,7 +1,7 @@
 default: switch
 
 inspect:
-  nix-inspect -p .
+  nix run github:bluskript/nix-inspect -- -p .
 
 install hostname target:
     nix run github:nix-community/nixos-anywhere -- \
