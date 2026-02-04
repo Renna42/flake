@@ -49,6 +49,7 @@ _: {
       "shottr"
       "siyuan"
       "tailscale-app"
+      "tinymediamanager"
       "typora"
       "utm@beta"
       # keep-sorted end
