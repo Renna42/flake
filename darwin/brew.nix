@@ -20,6 +20,7 @@ _: {
     casks = [
       # keep-sorted start block=yes
       "ayugram"
+      "bambu-studio"
       "coteditor"
       "discord"
       "element"
