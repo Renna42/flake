@@ -24,4 +24,4 @@ jobs:
 
       - name: Run CI with nix develop
         shell: 'nix develop -c bash -e {0}'
-        run: om ci run --extra-access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}" | xargs cachix push renna42
+        run: om ci run --extra-access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}"
