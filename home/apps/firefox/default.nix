@@ -25,12 +25,9 @@
             // value
         )
         {
-          # keep-sorted start block=yes
+          # keep-sorted start block=yes case=no
           "@ublacklist" = {
             install_url = moz "ublacklist";
-          };
-          "Google_AI_Overviews_Blocker@zachbarnes.dev" = {
-            install_url = moz "hide-google-ai-overviews";
           };
           "addon@celeus.cn" = {
             install_url = moz "bewlycat";
@@ -51,11 +48,17 @@
             install_url = moz "tampermonkey";
             default_area = "navbar";
           };
+          "Google_AI_Overviews_Blocker@zachbarnes.dev" = {
+            install_url = moz "hide-google-ai-overviews";
+          };
           "headereditor-amo@addon.firefoxcn.net" = {
             install_url = moz "header-editor";
           };
           "redirect-nix-wiki@undesided.me" = {
             install_url = moz "redirectnixwiki";
+          };
+          "sponsorBlocker@ajay.app" = {
+            install_url = moz "sponsorblock";
           };
           "uBlock0@raymondhill.net" = {
             install_url = moz "ublock-origin";
