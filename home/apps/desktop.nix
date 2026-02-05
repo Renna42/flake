@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  platform,
+  ...
+}: {
   imports = [
     ./firefox
     ./vscode
@@ -10,13 +15,16 @@
     ./claude
   ];
 
-  home.packages = with pkgs; [
-    localsend
-    bitwarden-desktop
-    imhex
-    dbeaver-bin
-    tenacity
-    mediainfo
-    flakePackages.openscreen
-  ];
+  home.packages = with pkgs;
+    [
+      imhex
+      dbeaver-bin
+      tenacity
+      flakePackages.openscreen
+    ]
+    ++ lib.optionals (!platform.isDarwin) [
+      localsend
+      bitwarden-desktop
+      mediainfo
+    ];
 }

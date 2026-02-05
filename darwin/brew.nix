@@ -19,8 +19,8 @@ _: {
     brews = [];
     casks = [
       # keep-sorted start block=yes
-      "ayugram"
       "bambu-studio"
+      "bitwarden"
       "claude-code"
       "coteditor"
       "discord"
@@ -39,6 +39,7 @@ _: {
       "kekaexternalhelper"
       "kitty"
       "launchcontrol"
+      "localsend"
       "lulu"
       "maccy"
       "mediainfo"
@@ -51,6 +52,7 @@ _: {
       "shottr"
       "siyuan"
       "tailscale-app"
+      "telegram-desktop"
       "tinymediamanager"
       "typora"
       "utm@beta"
