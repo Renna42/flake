@@ -63,6 +63,21 @@
 
   home.file."${config.xdg.configHome}/starship.toml".source = lib.mkForce ./configs/starship.toml;
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        forwardAgent = true;
+      };
+      "git.dn42.dev" = {
+        forwardAgent = true;
+      };
+      "git.asnk.io" = {
+        forwardAgent = true;
+      };
+    };
+  };
+
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
