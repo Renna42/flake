@@ -20,10 +20,6 @@
     ];
     extraPackages = with pkgs; [
       mangohud
-      winetricks
-      gamescope
-      gamemode
-      mesa-demos # for glxinfo
     ];
   };
   # Lutris runtime has some incompatible libraries

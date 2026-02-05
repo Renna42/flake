@@ -13,7 +13,18 @@
     capSysNice = true;
   };
 
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
+    lutris
     steam-devices-udev-rules
   ];
 }
