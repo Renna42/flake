@@ -17,6 +17,7 @@
     fastfetch
     moor
     nix-output-monitor
+    omnix
     qrencode
     # keep-sorted end
   ];
