@@ -21,6 +21,7 @@ _: {
       # keep-sorted start block=yes
       "ayugram"
       "bambu-studio"
+      "claude-code"
       "coteditor"
       "discord"
       "element"
@@ -36,6 +37,7 @@ _: {
       "karabiner-elements"
       "keka"
       "kekaexternalhelper"
+      "kitty"
       "launchcontrol"
       "lulu"
       "maccy"
@@ -52,6 +54,7 @@ _: {
       "tinymediamanager"
       "typora"
       "utm@beta"
+      "zed"
       # keep-sorted end
     ];
   };

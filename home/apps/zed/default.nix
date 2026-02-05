@@ -1,8 +1,16 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  platform,
+  ...
+}: let
   readJson = path: builtins.fromJSON (builtins.readFile path);
 in {
   programs.zed-editor = {
     enable = true;
+    package =
+      if !platform.isDarwin
+      then pkgs.zed-editor
+      else null;
     extensions = [
       # keep-sorted start
       "astro"
@@ -17,9 +25,6 @@ in {
       "toml"
       "wakatime"
       # keep-sorted end
-    ];
-    extraPackages = [
-      pkgs.nixd
     ];
     userSettings = readJson ./settings.json;
   };

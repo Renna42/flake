@@ -1,10 +1,15 @@
 {
   lib,
   pkgs,
+  platform,
   ...
 }: {
   programs.kitty = {
     enable = true;
+    package =
+      if !platform.isDarwin
+      then pkgs.kitty
+      else null;
     enableGitIntegration = true;
     shellIntegration = {
       enableFishIntegration = true;

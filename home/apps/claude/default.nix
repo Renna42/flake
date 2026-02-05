@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  platform,
+  ...
+}: {
   sops = {
     secrets.authropic_auth_token = {};
     secrets.authropic_base_url = {};
@@ -13,6 +18,10 @@
 
   programs.claude-code = {
     enable = true;
+    package =
+      if !platform.isDarwin
+      then pkgs.claude-code
+      else null;
     settings = {
       hooks = {
         PostToolUse = [
