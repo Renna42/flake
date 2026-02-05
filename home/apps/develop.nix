@@ -18,6 +18,7 @@
     nixd
     alejandra
     just
+    just-lsp
     devenv
   ];
 }
