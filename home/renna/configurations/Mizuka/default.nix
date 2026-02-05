@@ -11,6 +11,7 @@
 
     ../../../apps/fcitx5
     ../../../apps/chromium
+    ../../../apps/obs-studio
     ../../../apps/desktop.nix
     ../../../apps/develop.nix
     ../../../apps/shell-utils.nix

@@ -27,6 +27,7 @@
     ../../services/podman.nix
     ../../services/libvirt.nix
     ../../services/wine.nix
+    ../../services/obs-cam.nix
 
     ../../users/renna.nix
   ];
