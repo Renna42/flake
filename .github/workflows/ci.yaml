@@ -18,4 +18,4 @@ jobs:
         name: renna42
         # If you chose API tokens for write access OR if you have a private cache
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix run github:Mic92/nix-fast-build -- --cachix-cache renna42
+    - run: nix run github:Mic92/nix-fast-build -- --no-nom --cachix-cache renna42
