@@ -18,5 +18,10 @@ jobs:
           name: renna42
           # If you chose API tokens for write access OR if you have a private cache
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run:
-          om ci run --extra-access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}" --include-all-dependencies | xargs cachix push renna42
+
+      - name: Pre-build devShell
+        run: nix build --no-link .#devShells.$(nix eval --impure --raw --expr 'builtins.currentSystem').default
+
+      - name: Run CI with nix develop
+        shell: 'nix develop -c bash -e {0}'
+        run: om ci run --extra-access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}" --include-all-dependencies | xargs cachix push renna42
