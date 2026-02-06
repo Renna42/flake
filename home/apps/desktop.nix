@@ -26,5 +26,6 @@
       localsend
       bitwarden-desktop
       mediainfo
+      realvnc-vnc-viewer
     ];
 }

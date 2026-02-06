@@ -58,6 +58,7 @@ _: {
       "tinymediamanager"
       "typora"
       "utm@beta"
+      "vnc-viewer"
       "zed"
       # keep-sorted end
     ];
