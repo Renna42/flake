@@ -9,7 +9,7 @@
 }: let
   commonStylix = {
     enable = true;
-    image = "${assetsPath}/wallpapers/132178898_p0.png";
+    image = "${assetsPath}/wallpapers/79075144_p0.jpg";
     polarity = "dark";
     opacity.terminal = 0.8;
     fonts = {
@@ -62,6 +62,10 @@ in {
 
   home.activation = lib.mkIf platform.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      if [ ! -f "${config.stylix.image}" ]; then
+        echo Wallpaper file "${config.stylix.image}" not found.
+        exit -1
+      fi
       /usr/bin/osascript <<EOF
         tell application "System Events"
           tell every desktop
