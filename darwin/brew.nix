@@ -16,7 +16,9 @@ _: {
     };
 
     taps = [];
-    brews = [];
+    brews = [
+      "nexttrace"
+    ];
     casks = [
       # keep-sorted start block=yes
       "bambu-studio"

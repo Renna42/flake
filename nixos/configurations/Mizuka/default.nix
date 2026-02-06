@@ -28,6 +28,7 @@
     ../../services/libvirt.nix
     ../../services/wine.nix
     ../../services/obs-cam.nix
+    ../../services/nexttrace.nix
 
     ../../users/renna.nix
   ];
