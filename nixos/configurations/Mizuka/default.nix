@@ -49,7 +49,7 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   };
 
   networking.hostName = hostname;

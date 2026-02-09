@@ -41,6 +41,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
@@ -105,6 +106,7 @@
             allowUnfreePredicate = _: true;
           };
           overlays = [
+            inputs.nix-cachyos-kernel.overlays.pinned
             inputs.nur.overlays.default
             inputs.nix4vscode.overlays.default
             inputs.rust-overlay.overlays.default
