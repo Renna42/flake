@@ -46,11 +46,6 @@
     direnv-instant.url = "github:Mic92/direnv-instant";
     catppuccin.url = "github:catppuccin/nix";
     # hyprland.url = "github:hyprwm/Hyprland";
-
-    flake-compat = {
-      url = "github:NixOS/flake-compat";
-      flake = false;
-    };
   };
 
   outputs = {
