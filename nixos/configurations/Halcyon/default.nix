@@ -19,6 +19,7 @@
       grub = {
         enable = true;
         efiSupport = false;
+        device = "/dev/sda1";
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
