@@ -12,17 +12,17 @@
     "uhci_hcd"
     "virtio_pci"
     "virtio_scsi"
-    "virtio_blk"
+    "sd_mod"
+    "sr_mod"
+    "ahci"
+    "xen_blkfront"
+    "vmw_pvscsi"
   ];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.kernelParams = [
-    # Do not generate NIC names based on PCIe addresses (e.g. enp1s0, useless for VPS)
-    # Generate names based on orders (e.g. eth0)
-    "net.ifnames=0"
-  ];
 
+  networking.usePredictableInterfaceNames = false;
   networking.useDHCP = false;
   networking.interfaces.eth0 = {
     ipv4.addresses = [
