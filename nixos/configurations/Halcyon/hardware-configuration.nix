@@ -22,6 +22,11 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  fileSystems = {
+    "/".device = "/dev/sda1";
+  };
+  disko.enableConfig = false;
+
   networking.usePredictableInterfaceNames = false;
   networking.useDHCP = false;
   networking.interfaces.eth0 = {
