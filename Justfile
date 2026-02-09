@@ -1,32 +1,32 @@
 default: switch
 
 inspect:
-  nix run github:bluskript/nix-inspect -- -p .
+  nix --accept-flake-config run github:bluskript/nix-inspect -- -p .
 
 install hostname target:
-    nix run github:nix-community/nixos-anywhere -- \
+    nix --accept-flake-config run github:nix-community/nixos-anywhere -- \
       --flake .#{{ hostname }} \
       --target-host {{ target }} \
       --copy-host-keys \
       --disko-mode disko \
 
 bootstrap hostname disk:
-    nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
+    nix --extra-experimental-features "nix-command flakes" --accept-flake-config run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
 
 build:
-  nh os build .
+  nh os build . --accept-flake-config
 
 switch:
-  nh os switch .
+  nh os switch . --accept-flake-config
 
 boot:
-  nh os boot .
+  nh os boot . --accept-flake-config
 
 dryrun:
-  nixos-rebuild dry-run --flake . --sudo -v --log-format internal-json |& nom --json
+  nixos-rebuild dry-run --flake . --sudo --accept-flake-config -v --log-format internal-json |& nom --json
 
 darwin-switch:
-  nh darwin switch .
+  nh darwin switch . --accept-flake-config
 
 gc:
   # remove all generations older than 7 days
