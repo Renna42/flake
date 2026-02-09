@@ -26,6 +26,5 @@
 
   networking.hostName = hostname;
 
-  disko.devices.disk.main.imageSize = "4G";
-  disko.devices.disk.main.device = "/dev/vda";
+  disko.devices.disk.main.device = "/dev/sda";
 }
