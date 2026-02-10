@@ -18,7 +18,10 @@
     "sr_mod"
   ];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
+  boot.kernelModules = [
+    "kvm-intel"
+    "ntsync"
+  ];
   boot.extraModulePackages = [];
   # Block spd5118 to prevent it breaks the suspend
   boot.blacklistedKernelModules = ["spd5118"];
