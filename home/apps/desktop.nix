@@ -21,6 +21,7 @@
       dbeaver-bin
       tenacity
       openscreen
+      motrix
     ]
     ++ lib.optionals (!platform.isDarwin) [
       localsend
