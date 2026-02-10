@@ -20,7 +20,7 @@
       imhex
       dbeaver-bin
       tenacity
-      flakePackages.openscreen
+      openscreen
     ]
     ++ lib.optionals (!platform.isDarwin) [
       localsend
