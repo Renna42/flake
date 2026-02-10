@@ -15,6 +15,4 @@ _: {
       FastConnectable = true;
     };
   };
-
-  services.blueman.enable = true;
 }
