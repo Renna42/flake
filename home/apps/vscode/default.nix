@@ -69,6 +69,7 @@
           "claudeCode.preferredLocation" = "panel";
           "debug.javascript.autoAttachFilter" = "disabled";
           "diffEditor.ignoreTrimWhitespace" = false;
+          "docker.extension.enableComposeLanguageServer" = true;
           "editor.acceptSuggestionOnEnter" = "smart";
           "editor.accessibilitySupport" = "off";
           "editor.bracketPairColorization.enabled" = true;
@@ -148,6 +149,12 @@
           "workbench.productIconTheme" = "fluent-icons";
           "workbench.startupEditor" = "none";
           "workbench.tree.enableStickyScroll" = true;
+          "yaml.schemas" = {
+            "https://raw.githubusercontent.com/docker/vscode-extension/6a88caada42b57090df7ce91ec2a6561b422afe1/misc/empty.json" = [
+              "compose*y*ml"
+              "docker-compose*y*ml"
+            ];
+          };
           # keep-sorted end
         }
         // import ./fonts.nix config.stylix.fonts;
