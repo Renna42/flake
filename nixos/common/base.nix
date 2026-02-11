@@ -1,20 +1,26 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    vim
+    # keep-sorted start block=yes
+    curl
+    dnsutils
     git
     htop
-    wget
-    curl
-    killall
-    tldr
-    lshw
-    iw
     inetutils
+    iw
+    killall
+    lshw
     net-tools
     pciutils
-    usbutils
     pv
-    dnsutils
+    tldr
+    usbutils
+    vim
+    wget
+    # keep-sorted end
+  ];
+
+  security.pki.certificateFiles = [
+    "${pkgs.dn42-cacert}/etc/ssl/certs/dn42-ca.crt"
   ];
 
   boot.supportedFilesystems = [

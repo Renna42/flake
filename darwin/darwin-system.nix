@@ -123,7 +123,12 @@
     startup.chime = false;
   };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security = {
+    pam.services.sudo_local.touchIdAuth = true;
+    pki.certificateFiles = [
+      "${pkgs.dn42-cacert}/etc/ssl/certs/dn42-ca.crt"
+    ];
+  };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
