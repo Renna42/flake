@@ -15,7 +15,15 @@
       enableFishIntegration = true;
       # make kitty dont alias sudo to make doas works well
       # ref: https://github.com/NixOS/nixpkgs/issues/260427#issuecomment-1758197272
-      mode = "no-sudo";
+      mode = lib.optionalString (!platform.isDarwin) "no-sudo";
+    };
+
+    keybindings = {
+      "cmd+d" = "launch --location=hsplit";
+      "cmd+r" = "launch --location=vsplit";
+      "cmd+w" = "close_window";
+      "cmd+[" = "previous_window";
+      "cmd+]" = "next_window";
     };
 
     mouseBindings = {
@@ -26,6 +34,9 @@
     settings = {
       "shell" = lib.getExe pkgs.fish;
       "window_padding_width" = 10;
+      "dynamic_background_opacity" = true;
+      "strip_trailing_spaces" = "smart";
+      "enabled_layouts" = "grid";
     };
   };
 }

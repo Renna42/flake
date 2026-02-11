@@ -120,6 +120,10 @@
         /opt/homebrew/bin/brew shellenv | source
       end
 
+      ${lib.optionalString config.programs.kitty.enable ''
+        alias s="kitten ssh"
+      ''}
+
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
       export GO111MODULE="on"
