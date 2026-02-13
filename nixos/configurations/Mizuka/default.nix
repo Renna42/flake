@@ -42,9 +42,9 @@
     loader = {
       systemd-boot = {
         enable = true;
-        consoleMode = "2";
-        edk2-uefi-shell.enable = true;
-        configurationLimit = lib.mkDefault 10;
+        editor = false;
+        consoleMode = "auto";
+        configurationLimit = 5;
       };
       efi.canTouchEfiVariables = true;
     };
