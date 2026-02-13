@@ -56,7 +56,7 @@
 
   renna = {
     homeManager.enable = true;
-    useMirrorRepos = true;
+    enableMirrorSubstituter = true;
   };
 
   boot.binfmt = {

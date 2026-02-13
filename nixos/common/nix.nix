@@ -8,7 +8,7 @@
   ...
 }: {
   options = {
-    renna.useMirrorRepos = lib.mkEnableOption "Enable mirror repos";
+    renna.enableMirrorSubstituter = lib.mkEnableOption "Enable mirror for cache.nixos.org";
   };
 
   config = {
@@ -42,7 +42,7 @@
           "nix-command"
           "flakes"
         ];
-        substituters = lib.mkIf config.renna.useMirrorRepos [
+        substituters = lib.mkIf config.renna.enableMirrorSubstituter [
           "https://mirror.sjtu.edu.cn/nix-channels/store"
           "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
           "https://mirrors.ustc.edu.cn/nix-channels/store"
