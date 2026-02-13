@@ -5,28 +5,50 @@
   ...
 }: {
   imports = [
-    ../../../base.nix
-    ../../../nix.nix
-    ../../../theme.nix
+    ./base.nix
+    ./nix.nix
+    ./theme.nix
 
-    ../../../apps/fcitx5
-    ../../../apps/chromium
-    ../../../apps/obs-studio
-    ../../../apps/desktop.nix
-    ../../../apps/develop.nix
-    ../../../apps/shell-utils.nix
-    ../../../apps/game.nix
+    # keep-sorted start block=yes
+    ./apps/chromium
+    ./apps/claude
+    ./apps/fcitx5
+    ./apps/firefox
+    ./apps/idapro
+    ./apps/kitty
+    ./apps/obs-studio
+    ./apps/vscode
+    ./apps/wakatime
+    ./apps/yubikey
+    ./apps/zed
+    # keep-sorted end
+
+    ./apps/develop.nix
+    ./apps/game.nix
+    ./apps/shell-utils.nix
   ];
 
   home = {
     packages = with pkgs; [
+      # keep-sorted start block=yes case=no
       _64gram
-      vlc
-      siyuan
-      mediainfo-gui
+      bitwarden-desktop
+      cider-2
+      dbeaver-bin
+      imhex
       kdePackages.kleopatra
+      localsend
+      mediainfo-gui
+      motrix
+      openscreen
       podman-desktop
+      realvnc-vnc-viewer
+      siyuan
+      tenacity
+      vlc
+      # keep-sorted end
     ];
+
     sessionVariables = {
       "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
       "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland

@@ -53,7 +53,7 @@ in {
         inputs.sops-nix.homeManagerModules.sops
       ];
       users."${username}".imports = [
-        ../../home/${username}/configurations/${hostname}
+        ../../home/linux-desktop.nix
       ];
       useGlobalPkgs = true;
       useUserPackages = true;
