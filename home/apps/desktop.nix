@@ -28,5 +28,6 @@
       mediainfo
       realvnc-vnc-viewer
       motrix
+      cider-2
     ];
 }
