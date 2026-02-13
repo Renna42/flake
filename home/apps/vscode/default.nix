@@ -185,7 +185,7 @@
         "foxundermoon.shell-format"
         "fwcd.kotlin"
         "GitHub.vscode-github-actions"
-        "GitHub.vscode-pull-request-github"
+        "GitHub.vscode-pull-request-github.0.126.0"
         "golang.go"
         "IBM.output-colorizer"
         "JHeilingbrunner.vscode-gnupg-tool"
