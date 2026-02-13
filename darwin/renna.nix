@@ -3,6 +3,7 @@
   inputs,
   pkgs,
   hostname,
+  overlays,
   ...
 } @ osSpecialArgs: let
   username = "renna";
@@ -39,6 +40,7 @@ in {
           (osSpecialArgs)
           inputs
           hostname
+          overlays
           secretsPath
           assetsPath
           ;

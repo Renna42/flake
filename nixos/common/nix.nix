@@ -4,6 +4,7 @@
   lib,
   pkgs,
   secretsPath,
+  overlays,
   ...
 }: {
   options = {
@@ -73,6 +74,11 @@
       extraOptions = ''
         !include ${config.sops.templates."nix-github-tokens".path}
       '';
+    };
+
+    nixpkgs = {
+      inherit overlays;
+      config.allowUnfree = true;
     };
   };
 }

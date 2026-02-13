@@ -74,11 +74,13 @@
     assetsPath = ./assets;
     secretsPath = ./secrets;
 
+    overlays = nixpkgs.lib.attrValues self.overlays;
     globalSpecialArgs = {
       inherit
         inputs
         assetsPath
         secretsPath
+        overlays
         ;
     };
     nixosMachines = [
@@ -87,11 +89,7 @@
     ];
     darwinMachines = ["Schwarzschild"];
   in
-    flake-parts.lib.mkFlake {inherit inputs;} ({
-      inputs,
-      withSystem,
-      ...
-    }: {
+    flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.git-hooks-nix.flakeModule
         inputs.treefmt-nix.flakeModule
@@ -112,23 +110,13 @@
         adjustLegacyPackages = pkgs:
           nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"]
           // {packages' = pkgs.packages;};
-      in {
-        _module.args.pkgs = import self.inputs.nixpkgs {
-          inherit system;
-          config = {
-            allowUnfree = true;
-            allowUnfreePredicate = _: true;
-          };
-          overlays = [
-            inputs.nix-cachyos-kernel.overlays.pinned
-            inputs.nur.overlays.default
-            inputs.nix4vscode.overlays.default
-            inputs.rust-overlay.overlays.default
-            self.overlays.default
-          ];
-        };
 
-        legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs ./pkgs {});
+        pkgs' = import self.inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in {
+        legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs' ./pkgs {});
         packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
         overlayAttrs = {
@@ -181,6 +169,13 @@
       };
 
       flake = {
+        overlays = {
+          nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
+          nur = inputs.nur.overlays.default;
+          nix4vscode = inputs.nix4vscode.overlays.default;
+          rust-overlay = inputs.rust-overlay.overlays.default;
+        };
+
         lib = import ./lib {inherit (nixpkgs) lib;};
 
         nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
@@ -194,16 +189,8 @@
                     inherit hostname;
                   };
                 modules = [
-                  ({config, ...}: {
-                    # Use the configured pkgs from perSystem
-                    nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-                      {pkgs, ...}:
-                      # perSystem module arguments
-                        pkgs
-                    );
-                  })
-                  ./nixos/common
                   ./nixos/configurations/${hostname}
+                  ./nixos/common
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
                   # inputs.hyprland.nixosModules.default
@@ -220,19 +207,9 @@
               specialArgs =
                 globalSpecialArgs
                 // {
-                  inherit
-                    hostname
-                    ;
+                  inherit hostname;
                 };
               modules = [
-                ({config, ...}: {
-                  # Use the configured pkgs from perSystem
-                  nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-                    {pkgs, ...}:
-                    # perSystem module arguments
-                      pkgs
-                  );
-                })
                 ./darwin
                 inputs.home-manager.darwinModules.home-manager
                 inputs.sops-nix.darwinModules.sops
@@ -240,5 +217,5 @@
             }
         );
       };
-    });
+    };
 }
