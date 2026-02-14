@@ -2,8 +2,6 @@
   config,
   inputs,
   pkgs,
-  hostname,
-  overlays,
   ...
 } @ osSpecialArgs: let
   username = "renna";
