@@ -48,7 +48,6 @@ _: {
       "mkvtoolnix-app"
       "mos@beta"
       "motrix"
-      "notion"
       "obs"
       "orbstack"
       "reqable"
