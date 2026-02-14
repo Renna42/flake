@@ -23,7 +23,6 @@ _: {
       # keep-sorted start block=yes
       "bambu-studio"
       "bitwarden"
-      "claude-code"
       "coteditor"
       "discord"
       "element"

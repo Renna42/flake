@@ -12,7 +12,6 @@
     ./idapro
     ./yubikey
     ./wakatime
-    ./claude
   ];
 
   home.packages = with pkgs;

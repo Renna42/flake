@@ -11,7 +11,6 @@
 
     # keep-sorted start block=yes
     ./apps/chromium
-    ./apps/claude
     ./apps/fcitx5
     ./apps/firefox
     ./apps/idapro

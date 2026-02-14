@@ -9,7 +9,6 @@
     ./theme.nix
 
     # keep-sorted start block=yes
-    ./apps/claude
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
