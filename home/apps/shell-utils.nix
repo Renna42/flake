@@ -19,6 +19,7 @@
     nix-output-monitor
     omnix
     qrencode
+    yq-go
     # keep-sorted end
   ];
 
