@@ -6,6 +6,7 @@
   ...
 }: let
   stSopsFile = "${secretsPath}/st-${hostname}.yaml";
+  captureOnePath = "${config.home.homeDirectory}/Pictures/Capture One Catalog Share";
 in {
   options = {
     renna.syncthing = {
@@ -40,7 +41,7 @@ in {
           captureone = lib.mkIf config.renna.syncthing.captureone {
             id = "captureone";
             label = "Capture One Catalog Share";
-            path = "~/Pictures/Capture One Catalog Share";
+            path = captureOnePath;
             devices = [
               "IzmnAS"
             ];
@@ -53,5 +54,10 @@ in {
         };
       };
     };
+
+    home.file."${captureOnePath}/.stignore".text = lib.optionalString config.renna.syncthing.captureone ''
+      .DS_Store
+      Cache/
+    '';
   };
 }
