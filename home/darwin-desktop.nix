@@ -13,6 +13,7 @@
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
+    ./apps/syncthing
     ./apps/vscode
     ./apps/wakatime
     ./apps/yubikey
@@ -22,6 +23,10 @@
     ./apps/develop.nix
     ./apps/shell-utils.nix
   ];
+
+  renna.syncthing = {
+    captureone = true;
+  };
 
   home = {
     packages = with pkgs; [

@@ -43,3 +43,15 @@ scan-age-key target:
 
 updatekeys:
   sops updatekeys secrets/* -y
+
+st-generate:
+  #!/usr/bin/env sh
+  export STHOMEDIR=$(mktemp -d)
+  nix run nixpkgs#syncthing -- generate
+  export STCERT=$(cat ${STHOMEDIR}/cert.pem)
+  export STKEY=$(cat ${STHOMEDIR}/key.pem)
+  export OUTPUT=secrets/st-${HOSTNAME}.yaml
+  yq --null-input '
+    .st_cert = strenv(STCERT) | .st_cert style="literal" |
+    .st_key = strenv(STKEY) | .st_key style="literal"
+  ' | sops -e --filename-override ${OUTPUT} /dev/stdin > ${OUTPUT}
