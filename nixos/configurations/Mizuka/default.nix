@@ -27,7 +27,6 @@
     ../../services/libvirt.nix
     ../../services/nix-cache-proxy.nix
 
-    ../../programs/gpg-agent.nix
     ../../programs/wine.nix
 
     ../../users/renna.nix
