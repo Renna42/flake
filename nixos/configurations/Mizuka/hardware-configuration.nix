@@ -23,7 +23,7 @@
     "ntsync"
   ];
   boot.extraModulePackages = [];
-  # Block spd5118 to prevent it breaks the suspend
+  # spd5118 has some useless error logs when resume from the suspend
   boot.blacklistedKernelModules = ["spd5118"];
 
   fileSystems."/" = {
