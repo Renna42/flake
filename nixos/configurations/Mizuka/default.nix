@@ -59,8 +59,8 @@
   };
 
   programs = {
-    programs.nexttrace.enable = true;
-    programs.obs-studio.enableVirtualCamera = true;
+    nexttrace.enable = true;
+    obs-studio.enableVirtualCamera = true;
   };
 
   boot.binfmt = {
