@@ -43,6 +43,7 @@
     };
     # Using kernel 6.18 version because NVIDIA breaked it.
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/9f1a757b";
+    nix-cache-proxy.url = "github:xddxdd/nix-cache-proxy";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     direnv-instant.url = "github:Mic92/direnv-instant";
@@ -157,6 +158,7 @@
       flake = {
         overlays = {
           nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
+          nix-cache-proxy = inputs.nix-cache-proxy.overlays.default;
           nur = inputs.nur.overlays.default;
           nix4vscode = inputs.nix4vscode.overlays.default;
           rust-overlay = inputs.rust-overlay.overlays.default;
@@ -177,6 +179,7 @@
                 modules = [
                   ./nixos/configurations/${hostname}
                   ./nixos/common
+                  inputs.nix-cache-proxy.nixosModules.nix-cache-proxy
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
                   # inputs.hyprland.nixosModules.default
