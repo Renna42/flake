@@ -48,7 +48,7 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   };
 
   networking.hostName = hostname;
