@@ -92,5 +92,10 @@
       inherit overlays;
       config.allowUnfree = true;
     };
+
+    systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
+    systemd.tmpfiles.rules = [
+      "d /nix/tmp 1777 root root 1d"
+    ];
   };
 }
