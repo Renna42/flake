@@ -1,11 +1,11 @@
 {
-  lib,
   pkgs,
   hostname,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./epson_l8168.nix
 
     ../../roles/desktop
     # ../../gui/suites/hyprland.nix
@@ -17,7 +17,6 @@
     ../../hardware/bluetooth.nix
     ../../hardware/tpm.nix
     ../../hardware/xpad.nix
-    ../../hardware/printers/epson_l8168.nix
 
     ../../services/kmscon.nix
     ../../services/mdns.nix
@@ -26,9 +25,9 @@
     ../../services/printing.nix
     ../../services/podman.nix
     ../../services/libvirt.nix
-    ../../services/wine.nix
-    ../../services/obs-cam.nix
-    ../../services/nexttrace.nix
+
+    ../../programs/gpg-agent.nix
+    ../../programs/wine.nix
 
     ../../users/renna.nix
   ];
@@ -57,6 +56,11 @@
   renna = {
     homeManager.enable = true;
     enableMirrorSubstituter = true;
+  };
+
+  programs = {
+    programs.nexttrace.enable = true;
+    programs.obs-studio.enableVirtualCamera = true;
   };
 
   boot.binfmt = {
