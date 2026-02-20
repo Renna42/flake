@@ -104,6 +104,9 @@
           allowApplePersonalizedAdvertising = false;
           allowIdentifierForAdvertising = false;
         };
+        "com.apple.Maps".AppleLanguages = [
+          "(zh-CN)"
+        ];
         # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
       };
