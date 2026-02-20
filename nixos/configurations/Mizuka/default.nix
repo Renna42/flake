@@ -17,6 +17,7 @@
     ../../hardware/bluetooth.nix
     ../../hardware/tpm.nix
     ../../hardware/xpad.nix
+    ../../hardware/logitech-wireless.nix
 
     ../../services/kmscon.nix
     ../../services/mdns.nix

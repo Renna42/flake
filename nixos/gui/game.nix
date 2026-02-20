@@ -25,6 +25,10 @@
 
   hardware.steam-hardware.enable = true;
 
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
+
   environment.systemPackages = with pkgs; [
     lutris
   ];
