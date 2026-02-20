@@ -16,7 +16,6 @@
     ./apps/vscode
     ./apps/wakatime
     ./apps/yubikey
-    ./apps/zed
     # keep-sorted end
 
     ./apps/develop.nix
