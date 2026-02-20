@@ -57,6 +57,7 @@
   renna = {
     homeManager.enable = true;
     enableMirrorSubstituter = true;
+    enableCachyosSettings = true;
   };
 
   programs = {
