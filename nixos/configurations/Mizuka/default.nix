@@ -26,7 +26,6 @@
     ../../services/printing.nix
     ../../services/podman.nix
     ../../services/libvirt.nix
-    ../../services/scx.nix
 
     ../../programs/wine.nix
     ../../programs/evolution.nix
