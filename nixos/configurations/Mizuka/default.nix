@@ -29,6 +29,7 @@
     ../../services/scx.nix
 
     ../../programs/wine.nix
+    ../../programs/evolution.nix
 
     ../../users/renna.nix
   ];
