@@ -35,7 +35,6 @@
       settings = {
         narinfo-cache-positive-ttl = 60 * 60 * 24;
         trusted-users = [
-          "root"
           "@wheel"
         ];
         experimental-features = [
@@ -60,10 +59,6 @@
           "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
         ];
         warn-dirty = false;
-        system-features = [
-          "kvm"
-          "big-parallel"
-        ];
         use-xdg-base-directories = true;
         builders-use-substitutes = true;
 
