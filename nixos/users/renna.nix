@@ -18,18 +18,20 @@ in {
       isNormalUser = true;
       description = "Renna";
       extraGroups = [
-        "wheel"
-        "video"
-        "networkmanager"
-        "docker"
-        "podman"
-        "input"
-        "i2c"
-        "plugdev"
+        # keep-sorted start block=yes
         "dialout"
-        "wireshark"
-        "tss"
+        "docker"
+        "i2c"
+        "input"
         "libvirtd"
+        "networkmanager"
+        "podman"
+        "render"
+        "tss"
+        "video"
+        "wheel"
+        "wireshark"
+        # keep-sorted end
       ];
       shell = pkgs.fish;
       initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
