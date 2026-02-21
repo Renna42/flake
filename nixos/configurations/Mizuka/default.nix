@@ -1,8 +1,20 @@
 {
+  inputs,
   pkgs,
   hostname,
   ...
-}: {
+}: let
+  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-lts-lto.override {
+    processorOpt = "x86_64-v3";
+    bbr3 = true;
+  };
+  cachyosKernelPackage = let
+    # helpers.nix provides a few utilities for building kernel with LTO.
+    # I haven't figured out a clean way to expose it in flakes.
+    helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" {};
+  in
+    helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor cachyosKernel);
+in {
   imports = [
     ./hardware-configuration.nix
     ./epson_l8168.nix
@@ -49,7 +61,7 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = ["ntfs"];
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    kernelPackages = cachyosKernelPackage;
   };
 
   networking.hostName = hostname;
