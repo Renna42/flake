@@ -1,14 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-    ];
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -23,6 +16,4 @@
     };
     nvidia-container-toolkit.enable = config.virtualisation.podman.enable or config.virtualisation.docker.enable;
   };
-
-  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 }
