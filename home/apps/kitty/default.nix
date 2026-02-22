@@ -1,13 +1,12 @@
 {
   lib,
   pkgs,
-  platform,
   ...
 }: {
   programs.kitty = {
     enable = true;
     package =
-      if !platform.isDarwin
+      if !pkgs.stdenv.isDarwin
       then pkgs.kitty
       else null;
     enableGitIntegration = true;
@@ -15,7 +14,7 @@
       enableFishIntegration = true;
       # make kitty dont alias sudo to make doas works well
       # ref: https://github.com/NixOS/nixpkgs/issues/260427#issuecomment-1758197272
-      mode = lib.optionalString (!platform.isDarwin) "no-sudo";
+      mode = lib.optionalString (! pkgs.stdenv.isDarwin) "no-sudo";
     };
 
     keybindings = {

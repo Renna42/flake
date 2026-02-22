@@ -1,14 +1,10 @@
-{
-  pkgs,
-  platform,
-  ...
-}: let
+{pkgs, ...}: let
   readJson = path: builtins.fromJSON (builtins.readFile path);
 in {
   programs.zed-editor = {
     enable = true;
     package =
-      if !platform.isDarwin
+      if !pkgs.stdenv.isDarwin
       then pkgs.zed-editor
       else null;
     extensions = [

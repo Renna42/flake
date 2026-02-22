@@ -1,12 +1,12 @@
 {
   lib,
+  pkgs,
   username,
-  platform,
   secretsPath,
   ...
 }: let
   homeDirectory =
-    if platform.isDarwin
+    if pkgs.stdenv.isDarwin
     then "/Users/${username}"
     else "/home/${username}";
 in {
@@ -25,7 +25,7 @@ in {
     defaultSopsFile = "${secretsPath}/home.yaml";
   };
 
-  xdg.userDirs = lib.mkIf platform.isLinux {
+  xdg.userDirs = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     createDirectories = true;
   };

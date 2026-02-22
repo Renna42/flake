@@ -43,7 +43,6 @@ in {
           assetsPath
           ;
         inherit username;
-        platform = config.nixpkgs.hostPlatform;
       };
     };
 

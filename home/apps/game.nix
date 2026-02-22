@@ -1,8 +1,6 @@
 {
-  lib,
   pkgs,
   osConfig,
-  platform,
   ...
 }: {
   home.packages = with pkgs; [
@@ -11,7 +9,7 @@
     ryubing
   ];
 
-  programs.lutris = lib.mkIf platform.isLinux {
+  programs.lutris = {
     enable = true;
     steamPackage = osConfig.programs.steam.package;
     defaultWinePackage = pkgs.flakePackages.dwproton-bin;

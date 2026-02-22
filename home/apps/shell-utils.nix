@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  platform,
   ...
 }: {
   home.packages = with pkgs; [
@@ -224,7 +223,7 @@
   };
 
   services.gpg-agent = {
-    enable = platform.isLinux;
+    enable = pkgs.stdenv.isLinux;
     enableFishIntegration = true;
     enableSshSupport = true;
     pinentry.package = pkgs.pinentry-qt;

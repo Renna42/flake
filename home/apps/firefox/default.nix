@@ -1,13 +1,12 @@
 {
   lib,
   pkgs,
-  platform,
   ...
 }: {
   programs.firefox = {
     enable = true;
     package =
-      if !platform.isDarwin
+      if !pkgs.stdenv.isDarwin
       then pkgs.firefox
       else null;
     policies = {

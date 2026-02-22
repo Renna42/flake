@@ -3,7 +3,6 @@
   config,
   lib,
   pkgs,
-  platform,
   osConfig,
   ...
 }: let
@@ -56,11 +55,11 @@ in {
   };
 
   stylix =
-    if platform.isDarwin
+    if pkgs.stdenv.isDarwin
     then darwinStylix
     else linuxStylix;
 
-  home.activation = lib.mkIf platform.isDarwin {
+  home.activation = lib.mkIf pkgs.stdenv.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
       if [ ! -f "${config.stylix.image}" ]; then
         echo Wallpaper file "${config.stylix.image}" not found.
