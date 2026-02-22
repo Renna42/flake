@@ -212,9 +212,5 @@
         # This reduces the memory usage, when THP=always used and the memory usage goes down to around the same usage as when madvise is used, while still providing an equal performance improvement
         "w! /sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none - - - - 409"
       ];
-    }
-    // {
-      services.resolved.enable = true;
-      networking.networkmanager.dns = "systemd-resolved";
     });
 }

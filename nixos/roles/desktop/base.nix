@@ -9,7 +9,10 @@
 
   networking = {
     hostName = hostname;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
     # proxy = {
     #   default = "http://10.22.0.114:7890";
     #   noProxy = "127.0.0.1,localhost,internal.domain";
@@ -21,6 +24,7 @@
     };
   };
 
+  services.resolved.enable = true;
   services.udisks2.enable = true;
 
   # Building man-cache is too slow, use this trick to inhibit it.
