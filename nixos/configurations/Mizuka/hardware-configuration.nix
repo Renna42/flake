@@ -18,13 +18,9 @@
     "sr_mod"
   ];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [
-    "kvm-intel"
-    "ntsync"
-  ];
+  boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  # spd5118 has some useless error logs when resume from the suspend
-  boot.blacklistedKernelModules = ["spd5118"];
+  boot.blacklistedKernelModules = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d7edc60b-44cf-4c62-a3f9-0d9e1c75196b";
