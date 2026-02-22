@@ -20,7 +20,7 @@ _: {
       "nexttrace"
     ];
     casks = [
-      # keep-sorted start block=yes
+      # keep-sorted start
       "bambu-studio"
       "bitwarden"
       "coteditor"

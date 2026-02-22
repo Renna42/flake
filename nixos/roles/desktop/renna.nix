@@ -18,7 +18,7 @@ in {
       isNormalUser = true;
       description = "Renna";
       extraGroups = [
-        # keep-sorted start block=yes
+        # keep-sorted start
         "dialout"
         "docker"
         "i2c"

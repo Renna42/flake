@@ -9,7 +9,7 @@
     ./nix.nix
     ./theme.nix
 
-    # keep-sorted start block=yes
+    # keep-sorted start
     ./apps/chromium
     ./apps/element
     ./apps/fcitx5
@@ -29,7 +29,7 @@
 
   home = {
     packages = with pkgs; [
-      # keep-sorted start block=yes case=no
+      # keep-sorted start case=no
       _64gram
       bitwarden-desktop
       cider-2

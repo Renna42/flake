@@ -159,7 +159,7 @@
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = pkgs.nix4vscode.forVscode [
-        # keep-sorted start block=yes case=no
+        # keep-sorted start case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
         "astro-build.astro-vscode"

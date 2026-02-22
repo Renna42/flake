@@ -8,7 +8,7 @@
     ./nix.nix
     ./theme.nix
 
-    # keep-sorted start block=yes
+    # keep-sorted start
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
@@ -28,7 +28,7 @@
 
   home = {
     packages = with pkgs; [
-      # keep-sorted start block=yes case=no
+      # keep-sorted start
       dbeaver-bin
       imhex
       openscreen

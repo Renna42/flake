@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # keep-sorted start block=yes
+    # keep-sorted start
     any-nix-shell
     asciinema
     cachix
