@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # keep-sorted start
+    binutils
     curl
     dnsutils
     git
