@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  hostname,
   ...
 }: let
   cachyosKernel = pkgs.cachyosKernels.linux-cachyos-lts-lto.override {
@@ -61,8 +60,6 @@ in {
     supportedFilesystems = ["ntfs"];
     kernelPackages = cachyosKernelPackage;
   };
-
-  networking.hostName = hostname;
 
   renna = {
     homeManager.enable = true;

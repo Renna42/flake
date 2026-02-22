@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  hostname,
   ...
 }: {
   imports = [
@@ -19,8 +18,6 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
-
-  networking.hostName = hostname;
 
   services.qemuGuest.enable = true;
 

@@ -1,9 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  hostname,
+  ...
+}: {
   imports = [
     ../../gui/stylix.nix
   ];
 
   networking = {
+    hostName = hostname;
     networkmanager.enable = true;
     # proxy = {
     #   default = "http://10.22.0.114:7890";
