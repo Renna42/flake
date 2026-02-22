@@ -21,4 +21,9 @@
     just-lsp
     devenv
   ];
+
+  home.sessionVariables = {
+    GO111MODULE = "on";
+    GOPROXY = "https://goproxy.cn,direct";
+  };
 }
