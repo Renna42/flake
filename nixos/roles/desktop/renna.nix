@@ -33,14 +33,17 @@ in {
         "wireshark"
         # keep-sorted end
       ];
-      shell = pkgs.fish;
+      shell =
+        if config.renna.homeManager.enable
+        then pkgs.fish
+        else pkgs.bashInteractive;
       initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHL5pMTK8LGrizHB2VvgL1RG9cNKxAhYXb59NqSyAwpw"
       ];
     };
 
-    programs.fish = {
+    programs.fish = lib.mkIf config.renna.homeManager.enable {
       enable = true;
       useBabelfish = true;
     };
