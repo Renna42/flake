@@ -86,6 +86,9 @@
           # Disable NMI watchdog
           "kernel.nmi_watchdog" = "0";
 
+          # To hide any kernel messages from the console
+          "kernel.printk" = "3 3 3 3";
+
           # Restricting access to kernel pointers in the proc filesystem
           "kernel.kptr_restrict" = "2";
 
