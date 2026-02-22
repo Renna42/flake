@@ -8,8 +8,6 @@
     ../../roles/desktop
     ../../gui/suites/plasma.nix
     ../../disk-layouts/simple.nix
-
-    ../../users/renna.nix
   ];
 
   boot = {

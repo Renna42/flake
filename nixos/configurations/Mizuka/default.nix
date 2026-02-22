@@ -41,8 +41,6 @@ in {
 
     ../../programs/wine.nix
     ../../programs/evolution.nix
-
-    ../../users/renna.nix
   ];
 
   environment.systemPackages = with pkgs; [
