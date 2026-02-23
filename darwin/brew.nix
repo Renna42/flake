@@ -20,7 +20,8 @@ _: {
       "nexttrace"
     ];
     casks = [
-      # keep-sorted start
+      # keep-sorted startx
+      "alienator88-sentinel"
       "bambu-studio"
       "bitwarden"
       "coteditor"
