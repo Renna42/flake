@@ -27,11 +27,6 @@
   services.resolved.enable = true;
   services.udisks2.enable = true;
 
-  # Building man-cache is too slow, use this trick to inhibit it.
-  # Only do that on my desktop machines because we have `fish`.
-  # Source: https://discourse.nixos.org/t/slow-build-at-building-man-cache/52365
-  documentation.man.generateCaches = false;
-
   # Set hardware time to local
   time.hardwareClockInLocalTime = true;
 
