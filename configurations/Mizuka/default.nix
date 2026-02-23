@@ -16,28 +16,28 @@ in {
     ./hardware-configuration.nix
     ./epson_l8168.nix
 
-    ../../roles/desktop
-    # ../../gui/suites/hyprland.nix
-    ../../gui/suites/plasma.nix
-    ../../gui/game.nix
+    ../../nixos/roles/desktop
+    # ../../nixos/gui/suites/hyprland.nix
+    ../../nixos/gui/suites/plasma.nix
+    ../../nixos/gui/game.nix
 
-    ../../hardware/nvidia.nix
-    ../../hardware/intel-gfx.nix
-    ../../hardware/bluetooth.nix
-    ../../hardware/tpm.nix
-    ../../hardware/xpad.nix
-    ../../hardware/logitech-wireless.nix
+    ../../nixos/hardware/nvidia.nix
+    ../../nixos/hardware/intel-gfx.nix
+    ../../nixos/hardware/bluetooth.nix
+    ../../nixos/hardware/tpm.nix
+    ../../nixos/hardware/xpad.nix
+    ../../nixos/hardware/logitech-wireless.nix
 
-    ../../services/kmscon.nix
-    ../../services/mdns.nix
-    ../../services/proxy.nix
-    ../../services/fprintd.nix
-    ../../services/printing.nix
-    ../../services/podman.nix
-    ../../services/libvirt.nix
+    ../../nixos/services/kmscon.nix
+    ../../nixos/services/mdns.nix
+    ../../nixos/services/proxy.nix
+    ../../nixos/services/fprintd.nix
+    ../../nixos/services/printing.nix
+    ../../nixos/services/podman.nix
+    ../../nixos/services/libvirt.nix
 
-    ../../programs/wine.nix
-    ../../programs/evolution.nix
+    ../../nixos/programs/wine.nix
+    ../../nixos/programs/evolution.nix
   ];
 
   environment.systemPackages = with pkgs; [

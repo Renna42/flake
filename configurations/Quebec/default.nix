@@ -4,9 +4,9 @@
   ...
 }: {
   imports = [
-    ../../roles/desktop
-    ../../gui/suites/plasma.nix
-    ../../disk-layouts/simple.nix
+    ../../nixos/roles/desktop
+    ../../nixos/gui/suites/plasma.nix
+    ../../nixos/disk-layouts/simple.nix
   ];
 
   boot = {

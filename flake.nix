@@ -175,7 +175,7 @@
                     inherit hostname;
                   };
                 modules = [
-                  ./nixos/configurations/${hostname}
+                  ./configurations/${hostname}
                   ./nixos/common
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
