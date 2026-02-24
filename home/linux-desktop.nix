@@ -44,6 +44,7 @@
       podman-desktop
       realvnc-vnc-viewer
       siyuan
+      teamspeak3
       tenacity
       vlc
       # keep-sorted end

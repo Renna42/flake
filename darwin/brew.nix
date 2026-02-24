@@ -54,6 +54,7 @@ _: {
       "shottr"
       "siyuan"
       "tailscale-app"
+      "teamspeak-client"
       "telegram-desktop"
       "tinymediamanager"
       "typora"
