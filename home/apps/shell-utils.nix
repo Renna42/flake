@@ -16,6 +16,7 @@
     fastfetch
     moor
     nix-output-monitor
+    nurl
     omnix
     qrencode
     yq-go
