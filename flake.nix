@@ -56,7 +56,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Using kernel 6.18 version because NVIDIA breaked it.
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
