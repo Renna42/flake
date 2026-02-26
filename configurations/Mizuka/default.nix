@@ -63,6 +63,7 @@ in {
     homeManager.enable = true;
     enableMirrorSubstituter = true;
     enableCachyosSettings = true;
+    enableCompatLibraries = true;
   };
 
   programs = {
