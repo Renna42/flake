@@ -14,7 +14,7 @@
       enableFishIntegration = true;
       # make kitty dont alias sudo to make doas works well
       # ref: https://github.com/NixOS/nixpkgs/issues/260427#issuecomment-1758197272
-      mode = lib.optionalString (! pkgs.stdenv.isDarwin) "no-sudo";
+      mode = lib.optionalString (!pkgs.stdenv.isDarwin) "no-sudo";
     };
 
     keybindings = {
