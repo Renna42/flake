@@ -20,6 +20,7 @@
     just
     just-lsp
     devenv
+    android-tools
   ];
 
   home.sessionVariables = {
