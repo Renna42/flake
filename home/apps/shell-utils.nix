@@ -99,12 +99,6 @@
     nix-direnv.enable = true;
   };
 
-  programs.direnv-instant = {
-    enable = true;
-    enableFishIntegration = true;
-    settings.mux_delay = 2;
-  };
-
   programs.fish = {
     enable = true;
     plugins = map (x: {inherit (x) name src;}) (

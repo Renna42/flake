@@ -52,7 +52,6 @@ in {
       sharedModules = [
         inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.homeModules.nix-index
-        inputs.direnv-instant.homeModules.direnv-instant
         inputs.sops-nix.homeManagerModules.sops
       ];
       users."${username}".imports = [
