@@ -27,18 +27,21 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
+    lfs.enable = true;
+    signing = {
+      key = "96763FAE10AC74FC";
+      format = "openpgp";
+      signByDefault = true;
+    };
     settings = {
       user = {
         name = "Renna Z.";
         email = "is@renna.dev";
-        signingKey = "96763FAE10AC74FC";
       };
       core.autocrlf = "input";
       init.defaultBranch = "main";
       pull.rebase = true;
       push.autoSetupRemote = true;
-      commit.gpgSign = true;
-      tag.gpgSign = true;
       alias.ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
     };
   };
