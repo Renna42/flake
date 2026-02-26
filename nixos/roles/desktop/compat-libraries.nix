@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -6,7 +7,7 @@
   options = {
     renna.enableCompatLibraries = lib.mkEnableOption "Enable compatibility libraries for nix-ld";
   };
-  config = {
+  config = lib.mkIf config.renna.enableCompatLibraries {
     programs.nix-ld.libraries = with pkgs; [
       libxcomposite
       libxtst
