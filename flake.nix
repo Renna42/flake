@@ -58,6 +58,7 @@
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     catppuccin.url = "github:catppuccin/nix";
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -193,6 +194,7 @@
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
                   # inputs.hyprland.nixosModules.default
+                  inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
                   inputs.home-manager.nixosModules.home-manager
                   inputs.sops-nix.nixosModules.sops
                 ];
