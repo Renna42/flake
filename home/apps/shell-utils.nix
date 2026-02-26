@@ -189,13 +189,10 @@
   # Cachix
   sops.secrets.cachix_auth_token = {};
   sops.templates."cachix.dhall" = {
-    content = ''
-      { authToken =
-          "${config.sops.placeholder.cachix_auth_token}"
-      , hostname = "https://cachix.org"
-      , binaryCaches = [] : List { name : Text, secretKey : Text }
-      }
-    '';
+    content = lib.generators.toDhall {} {
+      authToken = config.sops.placeholder.cachix_auth_token;
+      hostname = "https://cachix.org";
+    };
     path = "${config.home.homeDirectory}/.config/cachix/cachix.dhall";
   };
 

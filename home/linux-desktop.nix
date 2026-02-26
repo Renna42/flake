@@ -3,7 +3,9 @@
   pkgs,
   username,
   ...
-}: {
+}: let
+  toml = pkgs.formats.toml {};
+in {
   imports = [
     ./base.nix
     ./nix.nix
@@ -75,10 +77,11 @@
     file.".face.icon".source = "${assetsPath}/${username}.png";
   };
 
-  xdg.configFile."containers/registries.conf".text = ''
-    [registries.search]
-    registries = ['docker.io']
-  '';
+  xdg.configFile."containers/registries.conf" = {
+    source = toml.generate "registries.conf" {
+      "registries.search".registries = ["docker.io"];
+    };
+  };
 
   i18n.inputMethod = {
     enable = true;
