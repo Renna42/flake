@@ -12,8 +12,7 @@
             attributes = [0]; # partition attribute
             priority = 0;
           };
-          esp = {
-            name = "esp";
+          ESP = {
             size = "512M";
             type = "EF00";
             priority = 1;
@@ -21,7 +20,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = ["fmask=0077" "dmask=0077"];
+              mountOptions = ["fmask=0022" "dmask=0022"];
             };
           };
           root = {
