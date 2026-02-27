@@ -25,7 +25,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d7edc60b-44cf-4c62-a3f9-0d9e1c75196b";
     fsType = "xfs";
-    options = ["noatime"];
+    options = ["relatime"];
   };
 
   fileSystems."/home" = {
@@ -34,7 +34,7 @@
     options = [
       "subvol=@home"
       "compress=zstd"
-      "noatime"
+      "relatime"
     ];
 
     # To make sops-nix happy
