@@ -154,7 +154,6 @@
             nixd
             disko
             just
-            omnix
             nh
             nix-output-monitor
             statix
