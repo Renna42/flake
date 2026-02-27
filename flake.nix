@@ -70,7 +70,6 @@
     nixpkgs,
     flake-parts,
     flake-utils,
-    deploy-rs,
     ...
   } @ inputs: let
     assetsPath = ./assets;
@@ -90,6 +89,8 @@
       "Quebec"
     ];
     darwinMachines = ["Schwarzschild"];
+
+    deployLib = inputs.deploy-rs.lib;
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
@@ -142,7 +143,7 @@
             nixf-diagnose.enable = true;
           };
         };
-        checks = deploy-rs.lib.deployChecks self'.deploy;
+        checks = deployLib.deployChecks self'.deploy;
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
@@ -205,7 +206,7 @@
             sshUser = "root";
             profiles.system = {
               user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
+              path = deployLib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
             };
           }
         );
