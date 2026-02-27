@@ -1,22 +1,26 @@
-default: switch
+default: deploy
 
 inspect:
   nix run github:bluskript/nix-inspect -- -p .
 
-install hostname target:
-    nix run github:nix-community/nixos-anywhere -- \
-      --flake .#{{ hostname }} \
-      --target-host {{ target }} \
-      --copy-host-keys \
-      --disko-mode disko \
+install hostname target *FLAGS:
+  nix run github:nix-community/nixos-anywhere -- \
+    --flake .#{{ hostname }} \
+    --target-host {{ target }} \
+    --copy-host-keys \
+    --disko-mode disko \
+    {{ FLAGS }}
 
 bootstrap hostname disk:
-    nix --extra-experimental-features "nix-command flakes" --accept-flake-config run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
+  nix --extra-experimental-features "nix-command flakes" --accept-flake-config run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
+
+generate-hardware-config hostname target:
+  ssh {{ target }} "nix --extra-experimental-features nix-command --extra-experimental-features flakes shell nixpkgs#nixos-install-tools -c nixos-generate-config --show-hardware-config --no-filesystems" > ./configurations/{{ hostname }}/hardware-configuration.nix
 
 build:
   nixos-rebuild build --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
 
-switch:
+deploy:
   nixos-rebuild switch --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
 
 boot:
@@ -25,7 +29,10 @@ boot:
 dryrun:
   nixos-rebuild dry-run --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
 
-darwin-switch:
+darwin-bootstrap:
+  sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .
+
+darwin-deploy:
   nh darwin switch .# --accept-flake-config
 
 gc:
@@ -43,6 +50,15 @@ scan-age-key target:
 
 updatekeys:
   sops updatekeys secrets/* -y
+
+rdeploy:
+    deploy
+
+rdeploy-host hostname:
+    deploy .#{{ hostname }}
+
+rdeploy-host-bare hostname target:
+  nixos-rebuild switch --flake .#{{ hostname }} --target-host {{ target }} --accept-flake-config --log-format internal-json |& nom --json
 
 st-generate:
   #!/usr/bin/env sh

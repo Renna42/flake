@@ -1,8 +1,20 @@
-_: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   # Boot
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot = {
+    loader = {
+      limine = {
+        enable = true;
+        maxGenerations = 5;
+        efiSupport = lib.mkDefault true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  };
 
   # No need for fonts and documentation on a server
   documentation.man.enable = true;
@@ -61,9 +73,9 @@ _: {
     };
   };
 
-  # use TCP BBR has significantly increased throughput and reduced latency for connections
+  # use TCP BBRv3 has significantly increased throughput and reduced latency for connections
   boot.kernel.sysctl = {
-    "net.core.default_qdisc" = "fq";
-    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "fq_codel";
+    "net.ipv4.tcp_congestion_control" = "bbr3";
   };
 }

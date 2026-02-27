@@ -61,6 +61,7 @@
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     catppuccin.url = "github:catppuccin/nix";
+    deploy-rs.url = "github:serokell/deploy-rs";
     # hyprland.url = "github:hyprwm/Hyprland";
   };
 
@@ -86,6 +87,7 @@
     nixosMachines = [
       "Mizuka"
       "Quebec"
+      "Titania"
     ];
     darwinMachines = ["Schwarzschild"];
   in
@@ -199,6 +201,17 @@
                 ];
               };
             }
+        );
+
+        deploy.nodes = nixpkgs.lib.genAttrs nixosMachines (
+          hostname: {
+            inherit hostname;
+            sshUser = "root";
+            profiles.system = {
+              user = "root";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
+            };
+          }
         );
 
         darwinConfigurations = nixpkgs.lib.genAttrs darwinMachines (
