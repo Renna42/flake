@@ -66,6 +66,9 @@
 
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
+      daemonIOSchedClass = lib.mkDefault "idle";
+      daemonCPUSchedPolicy = lib.mkDefault "idle";
+
       extraOptions = ''
         !include ${config.sops.templates."nix-github-tokens".path}
       '';
@@ -76,9 +79,19 @@
       config.allowUnfree = true;
     };
 
-    systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
+    systemd.services.nix-daemon = {
+      environment.TMPDIR = "/nix/tmp";
+
+      # put the service in top-level slice
+      # so that it's lower than system and user slice overall
+      # instead of only being lower in system slice
+      serviceConfig.Slice = "-.slice";
+    };
     systemd.tmpfiles.rules = [
       "d /nix/tmp 1777 root root 1d"
     ];
+
+    # always use the daemon, even executed  with root
+    environment.variables.NIX_REMOTE = "daemon";
   };
 }
