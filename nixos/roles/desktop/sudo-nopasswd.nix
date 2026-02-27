@@ -1,16 +1,9 @@
-{pkgs, ...}: {
-  security.sudo.enable = false;
-  security.doas = {
+_: {
+  security.sudo = {
     enable = true;
-    extraRules = [
-      {
-        users = ["renna"];
-        keepEnv = true;
-        noPass = true;
-      }
-    ];
+    wheelNeedsPassword = false;
+    execWheelOnly = true;
   };
-  environment.systemPackages = [pkgs.doas-sudo-shim];
 
   security.polkit.extraConfig = ''
     /* Allow members of the wheel group to execute any actions
