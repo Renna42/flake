@@ -1,8 +1,18 @@
-_: {
-  # AppImage
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
+{lib, ...}: {
+  options = {
+    renna.enableBinaryCompat =
+      lib.mkEnableOption "Enable binary compatibility with FHS programs"
+      // {
+        default = true;
+      };
+  };
 
-  # nix-ld
-  programs.nix-ld.enable = true;
+  config = {
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
+    programs.nix-ld.enable = true;
+  };
 }
