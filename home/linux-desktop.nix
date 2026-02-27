@@ -68,7 +68,7 @@ in {
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
       "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
       "QT_QPA_PLATFORM" = "wayland";
-      "SDL_VIDEODRIVER" = "wayland";
+      "SDL_VIDEODRIVER" = "wayland,x11";
       "GDK_BACKEND" = "wayland";
       "CLUTTER_BACKEND" = "wayland";
       "XDG_SESSION_TYPE" = "wayland";
