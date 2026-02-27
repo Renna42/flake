@@ -11,6 +11,7 @@
         httpx
       ]))
     rust-bin.stable.latest.default
+    libclang
 
     subversionClient
     mercurial
