@@ -19,7 +19,6 @@ in {
     ../../nixos/roles/desktop
     # ../../nixos/gui/suites/hyprland.nix
     ../../nixos/gui/suites/plasma.nix
-    ../../nixos/gui/game.nix
 
     ../../nixos/hardware/nvidia.nix
     ../../nixos/hardware/intel-gfx.nix
@@ -36,6 +35,7 @@ in {
     ../../nixos/services/podman.nix
     ../../nixos/services/libvirt.nix
 
+    ../../nixos/programs/game
     ../../nixos/programs/wine.nix
     ../../nixos/programs/evolution.nix
   ];
