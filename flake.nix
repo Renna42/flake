@@ -70,6 +70,7 @@
     nixpkgs,
     flake-parts,
     flake-utils,
+    deploy-rs,
     ...
   } @ inputs: let
     assetsPath = ./assets;
@@ -87,7 +88,6 @@
     nixosMachines = [
       "Mizuka"
       "Quebec"
-      "Titania"
     ];
     darwinMachines = ["Schwarzschild"];
   in
@@ -128,32 +128,28 @@
         treefmt = {
           programs = {
             alejandra.enable = true;
-            deadnix = {
-              enable = true;
-              no-lambda-arg = true;
-              no-lambda-pattern-names = true;
-            };
-            statix = {
-              enable = true;
-              disabled-lints = ["repeated_keys" "faster_zipattrswith"];
-            };
             keep-sorted.enable = true;
           };
         };
 
         pre-commit.settings = {
           package = pkgs.prek;
-          hooks.treefmt = {
-            enable = true;
-            packageOverrides.treefmt = config.treefmt.build.wrapper;
+          hooks = {
+            treefmt = {
+              enable = true;
+              packageOverrides.treefmt = config.treefmt.build.wrapper;
+            };
+            nixf-diagnose.enable = true;
           };
         };
+        checks = deploy-rs.lib.deployChecks self'.deploy;
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nix
             alejandra
             nixd
+            deploy-rs
             disko
             just
             nh
@@ -209,7 +205,7 @@
             sshUser = "root";
             profiles.system = {
               user = "root";
-              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
             };
           }
         );

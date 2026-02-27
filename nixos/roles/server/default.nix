@@ -13,6 +13,10 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    kernelParams = [
+      "audit=0"
+      "net.ifnames=0"
+    ];
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 
@@ -29,18 +33,26 @@
   };
   programs.git.enable = true;
 
-  users.mutableUsers = false;
+  users = {
+    users.root = {
+      initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHL5pMTK8LGrizHB2VvgL1RG9cNKxAhYXb59NqSyAwpw"
+      ];
+    };
+    mutableUsers = false;
+  };
 
-  # Access
-  users.users.root = {
-    initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHL5pMTK8LGrizHB2VvgL1RG9cNKxAhYXb59NqSyAwpw"
-    ];
+  networking = {
+    useNetworkd = true;
+    useDHCP = false;
+    firewall = {
+      enable = lib.mkDefault true;
+    };
   };
-  networking.firewall = {
-    enable = true;
-  };
+  systemd.network.enable = true;
+  services.resolved.enable = false;
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;

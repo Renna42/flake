@@ -17,6 +17,9 @@ bootstrap hostname disk:
 generate-hardware-config hostname target:
   ssh {{ target }} "nix --extra-experimental-features nix-command --extra-experimental-features flakes shell nixpkgs#nixos-install-tools -c nixos-generate-config --show-hardware-config --no-filesystems" > ./configurations/{{ hostname }}/hardware-configuration.nix
 
+build-disko-image hostname:
+  nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#nixosConfigurations.{{ hostname }}.config.system.build.diskoImages --accept-flake-config --log-format internal-json |& nom --json
+
 build:
   nixos-rebuild build --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
 
