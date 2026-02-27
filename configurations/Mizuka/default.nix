@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-lts-lto.override {
+  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
     processorOpt = "x86_64-v3";
   };
   cachyosKernelPackage = let
