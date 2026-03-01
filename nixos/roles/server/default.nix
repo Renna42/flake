@@ -1,8 +1,13 @@
 {
   lib,
   pkgs,
+  hostname,
   ...
 }: {
+  imports = [
+    ./root.nix
+  ];
+
   # Boot
   boot = {
     loader = {
@@ -33,17 +38,8 @@
   };
   programs.git.enable = true;
 
-  users = {
-    users.root = {
-      initialHashedPassword = "$y$j9T$KHYs8lBhE5S.gupM7N/QE/$zurxi/XMT5n6aACZu9tz3RBLBQ6Ge/eCUwODOjRMqe0";
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHL5pMTK8LGrizHB2VvgL1RG9cNKxAhYXb59NqSyAwpw"
-      ];
-    };
-    mutableUsers = false;
-  };
-
   networking = {
+    hostName = hostname;
     useNetworkd = true;
     useDHCP = false;
     firewall = {
