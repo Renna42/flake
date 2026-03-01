@@ -12,6 +12,7 @@
       ]))
     rust-bin.stable.latest.default
     libclang
+    gnumake
 
     subversionClient
     mercurial
