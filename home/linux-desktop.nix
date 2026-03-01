@@ -58,18 +58,27 @@ in {
       "MOZ_WEBRENDER" = "1";
       # enable native Wayland support for most Electron apps
       "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
+
       # fcitx5
+      GLFW_IM_MODULE = "ibus";
+      XMODIFIERS = "@im=fcitx";
+      # Not everywhere needs these environments
       # GTK_IM_MODULE = "fcitx";
       # QT_IM_MODULE = "fcitx";
       # SDL_IM_MODULE = "fcitx";
-      XMODIFIERS = "@im=fcitx";
-      GLFW_IM_MODULE = "ibus";
+
       # misc
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
       "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
-      "QT_QPA_PLATFORM" = "wayland";
+
+      # https://bugreports.qt.io/browse/QTBUG-113574
+      "QT_SCALE_FACTOR_ROUNDING_POLICY" = "RoundPreferFloor";
+
+      # Some applications doesnt support wayland
+      "QT_QPA_PLATFORM" = "wayland;xcb";
       "SDL_VIDEODRIVER" = "wayland,x11";
-      "GDK_BACKEND" = "wayland";
+
+      # "GDK_BACKEND" = "wayland"; # GDK 3 & 4 are using wayland defaultly
       "CLUTTER_BACKEND" = "wayland";
       "XDG_SESSION_TYPE" = "wayland";
     };
