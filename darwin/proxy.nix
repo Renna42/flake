@@ -5,7 +5,7 @@
   secretsPath,
   ...
 }: let
-  mihomoWebui = pkgs.flakePackages.zashboard;
+  mihomoWebui = pkgs.flakePackages.zashboard-bin;
 in {
   sops.secrets.mihomoConfig = {
     format = "yaml";

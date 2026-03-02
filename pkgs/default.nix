@@ -10,7 +10,7 @@ lib.makeScope newScope (
     dwproton-bin = callPackage ./dwproton-bin.nix {};
     misansFonts = lib.recurseIntoAttrs (callPackage ./misans-fonts {});
     rime-data = callPackage ./rime-data.nix {};
-    zashboard = callPackage ./zashboard.nix {};
+    zashboard-bin = callPackage ./zashboard-bin.nix {};
     # keep-sorted end
   }
 )
