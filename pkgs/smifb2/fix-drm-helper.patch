@@ -1,0 +1,13 @@
+diff --git a/smi_mode.c b/smi_mode.c
+index c8f32fd..08f9eaf 100644
+--- a/smi_mode.c
++++ b/smi_mode.c
+@@ -824,7 +824,7 @@ static int smi_connector_get_modes(struct drm_connector *connector)
+ }
+ 
+ static enum drm_mode_status smi_connector_mode_valid(struct drm_connector *connector,
+-				 struct drm_display_mode *mode)
++				 const struct drm_display_mode *mode)
+ {
+ 	struct smi_device *sdev = connector->dev->dev_private;
+ 
