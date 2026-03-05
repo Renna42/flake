@@ -11,6 +11,9 @@
       userSettings =
         {
           # keep-sorted start block=yes
+          "[bats]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
+          };
           "[css]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
@@ -25,11 +28,20 @@
             };
             "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
+          "[dockerfile]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
+          };
           "[github-actions-workflow]" = {
             "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
+          "[hosts]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
+          };
           "[html]" = {
             "editor.defaultFormatter" = "vscode.html-language-features";
+          };
+          "[ignore]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
           "[javascript]" = {
             "editor.defaultFormatter" = "vscode.typescript-language-features";
@@ -43,12 +55,21 @@
           "[jsonc]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
+          "[jvmoptions]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
+          };
           "[markdown]" = {
             "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
+          };
+          "[properties]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
             "editor.tabSize" = 4;
+          };
+          "[shellscript]" = {
+            "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
           "[typescript]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
