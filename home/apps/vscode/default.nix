@@ -179,7 +179,7 @@
         // import ./fonts.nix config.stylix.fonts;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      extensions = pkgs.nix4vscode.forVscode [
+      extensions = pkgs.nix4vscode.forVscodeVersion config.programs.vscode.package.version [
         # keep-sorted start case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
@@ -203,7 +203,7 @@
         "foxundermoon.shell-format"
         "fwcd.kotlin"
         "GitHub.vscode-github-actions"
-        "GitHub.vscode-pull-request-github.0.126.0"
+        "GitHub.vscode-pull-request-github"
         "golang.go"
         "IBM.output-colorizer"
         "JHeilingbrunner.vscode-gnupg-tool"
