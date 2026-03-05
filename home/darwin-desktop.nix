@@ -9,6 +9,7 @@
     ./theme.nix
 
     # keep-sorted start
+    ./apps/develop
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
@@ -19,7 +20,6 @@
     ./apps/zed
     # keep-sorted end
 
-    ./apps/develop.nix
     ./apps/shell-utils.nix
   ];
 

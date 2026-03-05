@@ -13,6 +13,7 @@ in {
 
     # keep-sorted start
     ./apps/chromium
+    ./apps/develop
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
@@ -25,7 +26,6 @@ in {
     ./apps/zed
     # keep-sorted end
 
-    ./apps/develop.nix
     ./apps/game.nix
     ./apps/shell-utils.nix
   ];
