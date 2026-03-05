@@ -30,10 +30,7 @@
   home = {
     packages = with pkgs; [
       # keep-sorted start
-      dbeaver-bin
-      imhex
       openscreen
-      tenacity
       # keep-sorted end
     ];
 

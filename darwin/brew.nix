@@ -24,11 +24,14 @@ _: {
     casks = [
       # keep-sorted start
       "Renna42/tap/ayugram"
+      "Renna42/tap/imhex"
       "alienator88-sentinel"
+      "audacity"
       "bambu-studio"
       "bitwarden"
       "clash-verge-rev"
       "coteditor"
+      "dbeaver"
       "discord"
       "element"
       "firefox"

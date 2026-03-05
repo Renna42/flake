@@ -34,6 +34,7 @@ in {
     packages = with pkgs; [
       # keep-sorted start case=no
       _64gram
+      audacity
       bitwarden-desktop
       cider-2
       dbeaver-bin
@@ -47,7 +48,6 @@ in {
       realvnc-vnc-viewer
       siyuan
       teamspeak6-client
-      tenacity
       vlc
       # keep-sorted end
     ];
