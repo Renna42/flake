@@ -15,15 +15,19 @@ _: {
       Infuse = 1136220934;
     };
 
-    taps = [];
+    taps = [
+      "Renna42/tap"
+    ];
     brews = [
       "nexttrace"
     ];
     casks = [
-      # keep-sorted startx
+      # keep-sorted start
+      "Renna42/tap/ayugram"
       "alienator88-sentinel"
       "bambu-studio"
       "bitwarden"
+      "clash-verge-rev"
       "coteditor"
       "discord"
       "element"
@@ -55,7 +59,6 @@ _: {
       "siyuan"
       "tailscale-app"
       "teamspeak-client"
-      "telegram-desktop"
       "tinymediamanager"
       "typora"
       "utm@beta"
