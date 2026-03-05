@@ -9,6 +9,8 @@ on:
 jobs:
   lockfile:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -26,4 +28,4 @@ jobs:
           pr-labels: | # Labels to be set on the PR
             dependencies
             automated
-          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          token: ${{ secrets.GITHUB_TOKEN }}
