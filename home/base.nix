@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   username,
   secretsPath,
@@ -23,10 +22,5 @@ in {
   sops = {
     age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt";
     defaultSopsFile = "${secretsPath}/home.yaml";
-  };
-
-  xdg.userDirs = lib.mkIf pkgs.stdenv.isLinux {
-    enable = true;
-    createDirectories = true;
   };
 }

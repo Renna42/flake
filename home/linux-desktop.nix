@@ -86,6 +86,11 @@ in {
     file.".face.icon".source = "${assetsPath}/${username}.png";
   };
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
+
   xdg.configFile."containers/registries.conf" = {
     source = toml.generate "registries.conf" {
       "registries.search".registries = ["docker.io"];
