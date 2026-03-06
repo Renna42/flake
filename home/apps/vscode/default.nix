@@ -156,6 +156,7 @@
           "search.smartCase" = true;
           "security.workspace.trust.untrustedFiles" = "open";
           "svelte.enable-ts-plugin" = true;
+          "terminal.integrated.initialHint" = false;
           "typescript.locale" = "en";
           "typescript.preferences.importModuleSpecifier" = "non-relative";
           "typescript.suggest.autoImports" = true;
