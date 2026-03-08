@@ -39,6 +39,7 @@ in {
       dbeaver-bin
       imhex
       kdePackages.kleopatra
+      krita
       localsend
       mediainfo-gui
       motrix
