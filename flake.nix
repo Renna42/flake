@@ -118,6 +118,7 @@
         pkgs' = import self.inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          config.allowDeprecatedx86_64Darwin = true;
         };
       in {
         legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs' ./pkgs {});

@@ -58,5 +58,6 @@
   nixpkgs = {
     inherit overlays;
     config.allowUnfree = true;
+    config.allowDeprecatedx86_64Darwin = true;
   };
 }
