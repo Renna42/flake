@@ -77,6 +77,9 @@
     nixpkgs = {
       inherit overlays;
       config.allowUnfree = true;
+      config.npmRegistryOverrides = lib.mkIf config.renna.enableMirrorSubstituter {
+        "registry.npmjs.org" = "https://registry.npmmirror.com";
+      };
     };
 
     systemd.services.nix-daemon = {
