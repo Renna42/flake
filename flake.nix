@@ -101,7 +101,11 @@
         inputs.home-manager.flakeModules.home-manager
       ];
 
-      systems = flake-utils.lib.defaultSystems;
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
       perSystem = {
         self',
         pkgs,
@@ -118,7 +122,6 @@
         pkgs' = import self.inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          config.allowDeprecatedx86_64Darwin = true;
         };
       in {
         legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs' ./pkgs {});
