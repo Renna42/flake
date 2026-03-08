@@ -36,7 +36,6 @@ in {
       _64gram
       audacity
       bitwarden-desktop
-      cider-2
       dbeaver-bin
       imhex
       kdePackages.kleopatra
