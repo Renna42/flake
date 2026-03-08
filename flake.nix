@@ -62,7 +62,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     catppuccin.url = "github:catppuccin/nix";
     deploy-rs.url = "github:serokell/deploy-rs";
-    # hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -193,7 +193,7 @@
                   ./nixos/common
                   inputs.disko.nixosModules.disko
                   inputs.stylix.nixosModules.stylix
-                  # inputs.hyprland.nixosModules.default
+                  inputs.hyprland.nixosModules.default
                   inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
                   inputs.home-manager.nixosModules.home-manager
                   inputs.sops-nix.nixosModules.sops
