@@ -38,6 +38,7 @@ in {
     ../../nixos/programs/game
     ../../nixos/programs/wine.nix
     ../../nixos/programs/evolution.nix
+    ../../nixos/programs/odd.nix
   ];
 
   environment.systemPackages = with pkgs; [

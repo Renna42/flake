@@ -41,6 +41,7 @@ in {
       kdePackages.kleopatra
       krita
       localsend
+      makemkv
       mediainfo-gui
       motrix
       openscreen
