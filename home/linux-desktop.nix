@@ -34,6 +34,7 @@ in {
     packages = with pkgs; [
       # keep-sorted start case=no
       _64gram
+      angryipscanner
       audacity
       bitwarden-desktop
       dbeaver-bin
@@ -50,6 +51,7 @@ in {
       siyuan
       teamspeak6-client
       vlc
+      wireshark-qt
       # keep-sorted end
     ];
 

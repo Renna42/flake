@@ -26,6 +26,7 @@ _: {
       "Renna42/tap/ayugram"
       "Renna42/tap/imhex"
       "alienator88-sentinel"
+      "angry-ip-scanner"
       "audacity"
       "bambu-studio"
       "bitwarden"
@@ -66,6 +67,7 @@ _: {
       "typora"
       "utm@beta"
       "vnc-viewer"
+      "wireshark-app"
       "zed"
       # keep-sorted end
     ];
