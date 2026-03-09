@@ -51,7 +51,6 @@ in {
       siyuan
       teamspeak6-client
       vlc
-      wireshark-qt
       # keep-sorted end
     ];
 

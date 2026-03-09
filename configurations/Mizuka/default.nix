@@ -39,6 +39,7 @@ in {
     ../../nixos/programs/wine.nix
     ../../nixos/programs/evolution.nix
     ../../nixos/programs/odd.nix
+    ../../nixos/programs/wireshark.nix
   ];
 
   environment.systemPackages = with pkgs; [
