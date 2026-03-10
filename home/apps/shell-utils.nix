@@ -26,7 +26,10 @@
   # Command-line Apps
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
+    package =
+      if pkgs.stdenv.isLinux
+      then pkgs.git.override {withLibsecret = true;}
+      else pkgs.git;
     lfs.enable = true;
     signing = {
       key = "96763FAE10AC74FC";
@@ -38,6 +41,7 @@
         name = "Renna Z.";
         email = "is@renna.dev";
       };
+      credential.helper = lib.optionalString pkgs.stdenv.isLinux "libsecret";
       core.autocrlf = "input";
       init.defaultBranch = "main";
       pull.rebase = true;

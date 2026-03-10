@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    subversionClient
-    mercurial
-
     devenv
     just
     just-lsp
