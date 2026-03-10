@@ -152,6 +152,7 @@
             };
           };
           "prettier.tabWidth" = 2;
+          "python.languageServer" = "Pylance";
           "redhat.telemetry.enabled" = false;
           "search.smartCase" = true;
           "security.workspace.trust.untrustedFiles" = "open";

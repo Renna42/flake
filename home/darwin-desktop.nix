@@ -10,6 +10,7 @@
 
     # keep-sorted start
     ./apps/develop
+    ./apps/develop/python.nix
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
