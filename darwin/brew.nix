@@ -22,11 +22,8 @@ _: {
       "nexttrace"
     ];
     casks = [
-      # keep-sorted start
-      "Renna42/tap/ayugram"
-      "Renna42/tap/imhex"
+      # keep-sorted start case=no
       "alienator88-sentinel"
-      "angry-ip-scanner"
       "audacity"
       "bambu-studio"
       "bitwarden"
@@ -58,6 +55,9 @@ _: {
       "motrix"
       "obs"
       "orbstack"
+      "Renna42/tap/angry-ip-scanner"
+      "Renna42/tap/ayugram"
+      "Renna42/tap/imhex"
       "reqable"
       "shottr"
       "siyuan"
