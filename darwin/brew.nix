@@ -26,6 +26,7 @@ _: {
       "alienator88-sentinel"
       "audacity"
       "bambu-studio"
+      "betterdisplay"
       "bitwarden"
       "clash-verge-rev"
       "coteditor"
