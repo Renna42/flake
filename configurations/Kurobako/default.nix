@@ -8,6 +8,7 @@
     ../../nixos/disk-layouts/xfs-efi-compat.nix
   ];
 
+  boot.supportedFilesystems = ["ntfs"];
   boot.extraModulePackages = with pkgs; [
     flakePackages.linuxPackages_xanmod_latest.smifb2
   ];
