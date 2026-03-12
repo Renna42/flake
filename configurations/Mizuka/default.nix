@@ -71,6 +71,7 @@ in {
   programs = {
     nexttrace.enable = true;
     obs-studio.enableVirtualCamera = true;
+    virt-manager.enable = true;
   };
 
   boot.binfmt = {
