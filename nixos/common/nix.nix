@@ -3,7 +3,6 @@
   inputs,
   lib,
   pkgs,
-  secretsPath,
   overlays,
   ...
 }: {
@@ -12,15 +11,6 @@
   };
 
   config = {
-    sops = {
-      secrets.nix_access_tokens = {
-        sopsFile = "${secretsPath}/nix-daemon-auth.yaml";
-      };
-      templates."nix-github-tokens".content = ''
-        access-tokens = ${config.sops.placeholder.nix_access_tokens}
-      '';
-    };
-
     nix = {
       package = pkgs.nix;
       gc = {
@@ -68,10 +58,6 @@
 
       daemonIOSchedClass = lib.mkDefault "idle";
       daemonCPUSchedPolicy = lib.mkDefault "idle";
-
-      extraOptions = ''
-        !include ${config.sops.templates."nix-github-tokens".path}
-      '';
     };
 
     nixpkgs = {
