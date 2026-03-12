@@ -3,11 +3,17 @@ keys:
   - &host_mizuka age1fvz050spxg5uweatm806kn3xt63ml6hc8ale3hzl9t8hqx852qnstlsm34
   - &host_schwarzschild age1shrz0an8zs56u3z7stsaazt62c5lwf68e0gulkd2egz5dfnhqc0q40ccrz
   - &host_halcyon age15ew3u85vcsg8u7dll0h5k2agtm4dg2n3yp90rst2e43fq63vhurqwr5n8y
+  - &host_shirobako age1kpjpenfv833rm6gyxvpce6zjdx6e7y5lgrd0usaqr777rafjea9qvgp90s
 creation_rules:
   - path_regex: secrets/(home.yaml|idapro\.hexlic)$
     key_groups:
       - age:
           - *renna
+  - path_regex: secrets/st-Schwarzschild.yaml$
+    key_groups:
+      - age:
+          - *renna
+          - *host_schwarzschild
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
@@ -15,3 +21,4 @@ creation_rules:
           - *host_mizuka
           - *host_schwarzschild
           - *host_halcyon
+          - *host_shirobako
