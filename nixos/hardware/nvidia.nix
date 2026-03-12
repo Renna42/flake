@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -12,7 +16,7 @@
       powerManagement.enable = true;
       open = true;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
     };
     nvidia-container-toolkit.enable = config.virtualisation.podman.enable or config.virtualisation.docker.enable;
   };
