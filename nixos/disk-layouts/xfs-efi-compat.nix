@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   disko.devices = {
     disk.main = {
       device = lib.mkDefault "/dev/sda";
@@ -40,4 +44,7 @@
       };
     };
   };
+
+  boot.loader.grub.device = lib.mkDefault config.disko.devices.disk.main.device;
+  boot.loader.limine.biosDevice = lib.mkDefault config.disko.devices.disk.main.device;
 }
