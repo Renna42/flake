@@ -98,6 +98,10 @@
         forwardAgent = true;
       };
     };
+    extraConfig = ''
+      Host 10.22.0.1
+        HostKeyAlgorithms=+ssh-rsa
+    '';
   };
 
   programs.direnv = {
