@@ -11,11 +11,12 @@
   # Boot
   boot = {
     loader = {
-      limine = {
-        enable = true;
-        maxGenerations = 5;
-        efiSupport = lib.mkDefault true;
+      systemd-boot = {
+        enable = lib.mkDefault true;
+        consoleMode = "auto";
+        configurationLimit = 5;
       };
+      grub.enable = lib.mkDefault false;
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [
