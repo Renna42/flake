@@ -9,6 +9,7 @@
     ./theme.nix
 
     # keep-sorted start
+    ./apps/archives
     ./apps/develop
     ./apps/develop/python.nix
     ./apps/firefox

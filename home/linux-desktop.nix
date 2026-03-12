@@ -12,6 +12,7 @@ in {
     ./theme.nix
 
     # keep-sorted start
+    ./apps/archives
     ./apps/chromium
     ./apps/develop
     ./apps/element
