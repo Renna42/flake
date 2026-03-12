@@ -87,6 +87,7 @@
     nixosMachines = [
       "Mizuka"
       "Quebec"
+      "Kurobako"
     ];
     darwinMachines = ["Schwarzschild"];
 
