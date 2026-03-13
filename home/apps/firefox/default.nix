@@ -114,7 +114,6 @@
         "browser.search.separatePrivateDefault.ui.enabled" = true;
         "browser.tabs.groups.smart.enabled" = false;
         "browser.tabs.groups.smart.userEnabled" = false;
-        "devtools.toolbox.host" = "window";
         "dom.security.https_first" = true;
         "extensions.autoDisableScopes" = 0;
         "extensions.ml.enabled" = false;
