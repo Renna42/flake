@@ -11,6 +11,7 @@
     # keep-sorted start
     ./apps/archives
     ./apps/develop
+    ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
     ./apps/firefox
     ./apps/idapro
