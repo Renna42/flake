@@ -9,7 +9,9 @@
     docker.enable = false;
     podman = {
       enable = true;
+      package = pkgs.podman;
       dockerSocket.enable = true;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
   };
