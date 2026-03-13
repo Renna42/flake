@@ -38,8 +38,10 @@ in {
       angryipscanner
       audacity
       bitwarden-desktop
+      darktable
       dbeaver-bin
       imhex
+      inkscape-with-extensions
       kdePackages.kleopatra
       krita
       localsend
