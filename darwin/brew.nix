@@ -23,6 +23,7 @@ _: {
     ];
     casks = [
       # keep-sorted start case=no
+      "affinity"
       "alienator88-sentinel"
       "audacity"
       "bambu-studio"
@@ -38,7 +39,6 @@ _: {
       "gpg-suite"
       "handbrake-app"
       "iina"
-      "inkscape"
       "input-source-pro"
       "jetbrains-toolbox"
       "jordanbaird-ice"
