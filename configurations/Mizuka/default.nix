@@ -34,6 +34,7 @@ in {
     ../../nixos/services/printing.nix
     ../../nixos/services/podman.nix
     ../../nixos/services/libvirt.nix
+    ../../nixos/services/samba.nix
 
     ../../nixos/programs/game
     ../../nixos/programs/wine.nix

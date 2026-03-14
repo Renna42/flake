@@ -27,6 +27,7 @@ in {
         "networkmanager"
         "podman"
         "render"
+        "samba"
         "tss"
         "video"
         "wheel"
