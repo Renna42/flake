@@ -6,9 +6,13 @@
   programs.firefox = {
     enable = true;
     package =
-      if !pkgs.stdenv.isDarwin
+      if pkgs.stdenv.isLinux
       then pkgs.firefox
       else null;
+    languagePacks =
+      if pkgs.stdenv.isLinux
+      then ["zh-CN" "en-US"]
+      else [];
     policies = {
       DisableAppUpdate = true;
       ExtensionSettings = let
@@ -85,13 +89,13 @@
           # keep-sorted end
         };
       # keep-sorted start block=yes
-      DisableFirefoxScreenshots = true;
       DisableFirefoxStudies = true;
       DisableProfileImport = true;
       DisableProfileRefresh = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "never";
+      HardwareAcceleration = true;
       Homepage.Locked = true;
       Homepage.StartPage = "none";
       Homepage.URL = "chrome://browser/content/blanktab.html";
@@ -130,7 +134,6 @@
       };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
       SearchEngines = {
-        "Default" = "Google";
         "Remove" = ["百度"];
       };
       # keep-sorted end
@@ -139,6 +142,69 @@
       id = 0;
       isDefault = true;
       name = "Renna";
+
+      search = {
+        force = true;
+        default = "google";
+        privateDefault = "google";
+
+        engines = {
+          mynixos = {
+            name = "MyNixOS";
+            urls = [
+              {
+                template = "https://mynixos.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+            definedAliases = ["@mn"];
+          };
+
+          nixos-wiki = {
+            name = "NixOS Wiki";
+            urls = [
+              {
+                template = "https://wiki.nixos.org/w/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@nw"];
+          };
+
+          noogle = {
+            name = "Noogle";
+            urls = [
+              {
+                template = "https://noogle.dev/q";
+                params = [
+                  {
+                    name = "term";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@no"];
+          };
+
+          bing.metaData.hidden = true;
+          google.metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+        };
+      };
     };
   };
   stylix.targets.firefox.profileNames = [
