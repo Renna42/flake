@@ -32,8 +32,10 @@
       else pkgs.git;
     lfs.enable = true;
     signing = {
-      key = "96763FAE10AC74FC";
-      format = "openpgp";
+      key = ''
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGB2uuw6/tQo99cUQWzgwqP0KdPagwceBBgOYTVejhyI Renna Zhou
+      '';
+      format = "ssh";
       signByDefault = true;
     };
     settings = {
