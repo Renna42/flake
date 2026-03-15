@@ -120,16 +120,16 @@
       ]
     );
     shellInit = "set -g fish_greeting";
+    shellAliases = {
+      co = "codium .";
+      s = "kitten ssh";
+    };
     interactiveShellInit = ''
       any-nix-shell fish --info-right | source
 
       if test -x /opt/homebrew/bin/brew
         /opt/homebrew/bin/brew shellenv | source
       end
-
-      ${lib.optionalString config.programs.kitty.enable ''
-        alias s="kitten ssh"
-      ''}
 
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
