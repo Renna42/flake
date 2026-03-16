@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     # keep-sorted start
-    any-nix-shell
     asciinema
     cachix
     chroma
@@ -124,10 +123,11 @@
     shellInit = "set -g fish_greeting";
     shellAliases = {
       co = "codium .";
+      dt = "date +%Y-%m-%dT%H:%M:%S%:z";
       s = "kitten ssh";
     };
     interactiveShellInit = ''
-      any-nix-shell fish --info-right | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
