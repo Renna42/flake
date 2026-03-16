@@ -1,17 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
-    processorOpt = "x86_64-v3";
-  };
-  cachyosKernelPackage = let
-    # helpers.nix provides a few utilities for building kernel with LTO.
-    helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" {};
-  in
-    helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor cachyosKernel);
-in {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./epson_l8168.nix
@@ -47,20 +34,6 @@ in {
     ciel
     squashfsTools
   ];
-
-  boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        editor = false;
-        consoleMode = "auto";
-        configurationLimit = 5;
-      };
-      efi.canTouchEfiVariables = true;
-    };
-    supportedFilesystems = ["ntfs"];
-    kernelPackages = cachyosKernelPackage;
-  };
 
   renna = {
     homeManager.enable = true;

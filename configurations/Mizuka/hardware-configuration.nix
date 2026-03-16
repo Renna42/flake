@@ -1,26 +1,46 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
   modulesPath,
   ...
-}: {
+}: let
+  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
+    processorOpt = "x86_64-v3";
+  };
+  cachyosKernelPackage = let
+    # helpers.nix provides a few utilities for building kernel with LTO.
+    helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" {};
+  in
+    helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor cachyosKernel);
+in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-    "sr_mod"
-  ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-  boot.blacklistedKernelModules = [];
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "auto";
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "nvme"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
+      "sr_mod"
+    ];
+    kernelModules = ["kvm-intel"];
+    supportedFilesystems = ["ntfs"];
+    kernelPackages = cachyosKernelPackage;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d7edc60b-44cf-4c62-a3f9-0d9e1c75196b";
