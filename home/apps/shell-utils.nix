@@ -137,6 +137,7 @@
     shellAliases = {
       co = "codium .";
       dt = "date --iso-8601=seconds";
+      gp = "git pull";
       tree = "tre";
       issh = "kitten ssh";
       icat = "kitten icat";
