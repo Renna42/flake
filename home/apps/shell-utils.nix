@@ -13,8 +13,10 @@
     duf
     dust
     fastfetch
+    glow
     moor
     nix-output-monitor
+    nixpkgs-review
     nurl
     omnix
     qrencode
