@@ -4,12 +4,14 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
+      "https://nixpkgs-wayland.cachix.org"
       "https://attic.xuyh0120.win/lantian"
       "https://cache.garnix.io"
       "https://renna42.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
@@ -54,6 +56,10 @@
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -176,6 +182,7 @@
           nur = inputs.nur.overlays.default;
           nix4vscode = inputs.nix4vscode.overlays.default;
           rust-overlay = inputs.rust-overlay.overlays.default;
+          nixpkgs-wayland = inputs.nixpkgs-wayland.overlay;
         };
 
         lib = import ./lib {inherit (nixpkgs) lib;};
