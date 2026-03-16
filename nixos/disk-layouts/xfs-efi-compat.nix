@@ -34,7 +34,6 @@
               format = "xfs";
               mountpoint = "/";
               mountOptions = [
-                "relatime"
                 "nosuid"
                 "nodev"
               ];

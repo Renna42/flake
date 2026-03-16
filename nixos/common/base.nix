@@ -5,6 +5,7 @@
     curl
     dnsutils
     git
+    gptfdisk
     htop
     inetutils
     iw

@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./epson_l8168.nix
+    ../../nixos/disk-layouts/root-data-separate.nix
 
     ../../nixos/roles/desktop
     # ../../nixos/gui/suites/hyprland.nix
@@ -33,6 +34,7 @@
   environment.systemPackages = with pkgs; [
     ciel
     squashfsTools
+    gparted-full
   ];
 
   renna = {
