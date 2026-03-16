@@ -25,6 +25,11 @@
     # keep-sorted end
   ];
 
+  home.sessionVariables = {
+    # VSCodium required this to sign commits
+    SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
+  };
+
   # Command-line Apps
   programs.git = {
     enable = true;
@@ -127,7 +132,6 @@
     interactiveShellInit = ''
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
-      export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
       export PAGER="moor"
     '';
