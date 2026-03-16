@@ -20,7 +20,6 @@
     nurl
     qrencode
     tre-command
-    wl-clipboard-rs
     yq-go
     # keep-sorted end
   ];
@@ -137,7 +136,7 @@
     '';
     shellAliases = {
       co = "codium .";
-      dt = "date --iso-8601=seconds | tee /dev/stderr | wl-copy";
+      dt = "date --iso-8601=seconds";
       tree = "tre";
       issh = "kitten ssh";
       icat = "kitten icat";
