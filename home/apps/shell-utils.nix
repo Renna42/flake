@@ -19,6 +19,7 @@
     nixpkgs-review
     nurl
     qrencode
+    wl-clipboard-rs
     yq-go
     # keep-sorted end
   ];
