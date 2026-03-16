@@ -18,7 +18,6 @@
     nix-output-monitor
     nixpkgs-review
     nurl
-    omnix
     qrencode
     yq-go
     # keep-sorted end
