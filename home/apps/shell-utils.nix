@@ -19,6 +19,7 @@
     nixpkgs-review
     nurl
     qrencode
+    tre-command
     wl-clipboard-rs
     yq-go
     # keep-sorted end
@@ -123,19 +124,20 @@
       ]
     );
     shellInit = "set -g fish_greeting";
-    shellAliases = {
-      co = "codium .";
-      dt = "date +%Y-%m-%dT%H:%M:%S%:z";
-      s = "kitten ssh";
-    };
     interactiveShellInit = ''
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
       export GITHUB_TOKEN_CMD="gh auth token"
-      export GO111MODULE="on"
-      export GOPROXY="https://goproxy.cn"
+      export PAGER="moor"
     '';
+    shellAliases = {
+      co = "codium .";
+      dt = "date --iso-8601=seconds | tee /dev/stderr | wl-copy";
+      tree = "tre";
+      issh = "kitten ssh";
+      icat = "kitten icat";
+    };
   };
 
   programs.gh = {
