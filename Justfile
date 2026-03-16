@@ -33,7 +33,7 @@ dryrun:
   nixos-rebuild dry-run --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
 
 darwin-bootstrap:
-  sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .
+  sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .# --accept-flake-config
 
 darwin-deploy:
   nh darwin switch .# --accept-flake-config
@@ -46,7 +46,7 @@ gc:
   sudo nix store gc --debug
 
 update:
-  nix flake update
+  nix flake update --accept-flake-config
 
 scan-age-key target:
   ssh {{ target }} cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
