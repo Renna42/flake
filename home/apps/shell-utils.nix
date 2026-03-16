@@ -235,7 +235,6 @@
   services.gpg-agent = {
     enable = pkgs.stdenv.isLinux;
     enableFishIntegration = true;
-    enableSshSupport = true;
     pinentry.package = pkgs.pinentry-qt;
   };
 
