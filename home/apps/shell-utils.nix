@@ -13,6 +13,7 @@
     duf
     dust
     fastfetch
+    git-msgraph
     glow
     moor
     nix-output-monitor
@@ -44,10 +45,16 @@
       format = "ssh";
       signByDefault = true;
     };
-    settings = {
+    settings = let
+      email = "is@renna.dev";
+    in {
       user = {
+        inherit email;
         name = "Renna Z.";
-        email = "is@renna.dev";
+      };
+      sendemail = {
+        sendmailCmd = "git-msgraph";
+        from = email;
       };
       credential.helper = lib.optionalString pkgs.stdenv.isLinux "libsecret";
       core.autocrlf = "input";
