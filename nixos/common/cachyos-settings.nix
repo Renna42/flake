@@ -13,47 +13,6 @@
         kernelModules = [
           "ntsync"
         ];
-        blacklistedKernelModules = [
-          # Blacklist the Intel TCO Watchdog/Timer module
-          "iTCO_wdt"
-          # Blacklist the AMD SP5100 TCO Watchdog/Timer module (Required for Ryzen cpus)
-          "sp5100_tco"
-        ];
-        extraModprobeConfig = ''
-          #
-          # NVreg_UsePageAttributeTable=1 (Default 0) - Activating the better memory
-          # management method (PAT). The PAT method creates a partition type table at a
-          # specific address mapped inside the register and utilizes the memory
-          # architecture and instruction set more efficiently and faster. If your system
-          # can support this feature, it should improve CPU performance.
-          #
-          # NVreg_InitializeSystemMemoryAllocations=0 (Default 1) - Disables clearing
-          # system memory allocation before using it for the GPU. Potentially improves
-          # performance, but at the cost of increased security risks. Write "options
-          # nvidia NVreg_InitializeSystemMemoryAllocations=1" in
-          # /etc/modprobe.d/nvidia.conf, if you want to return the default value. Note:
-          # It is possible to use more memory (?)
-          #
-          # NVreg_DynamicPowerManagement=0x02 - Enables the use of dynamic power
-          # management for Turing generation mobile cards, allowing the dGPU to be
-          # powered down during idle time.
-          #
-          # NVreg_RegistryDwords=RmEnableAggressiveVblank=1
-          # Reduce time spent in interrupt top half for low latency display interrupts
-          # by deferring the work until later
-          #
-          # NVreg_EnableS0ixPowerManagement=1 (default 0) Enables S0ix for the NVIDIA GPU:
-          # lets the device enter deep,
-          # low-power idle states while the system uses s2idle (the S0 low-power idle path),
-          # reducing battery drain—especially on laptops with recent Intel/AMD
-          # platforms and Turing/Ampere/Ada GPUs
-          #
-          options nvidia NVreg_UsePageAttributeTable=1 \
-              NVreg_InitializeSystemMemoryAllocations=0 \
-              NVreg_RegistryDwords=RmEnableAggressiveVblank=1 \
-              NVreg_DynamicPowerManagement=0x02 \
-              NVreg_EnableS0ixPowerManagement=1
-        '';
         kernel.sysctl = {
           # The sysctl swappiness parameter determines the kernel's preference for pushing anonymous pages or page cache to disk in memory-starved situations.
           # A low value causes the kernel to prefer freeing up open files (page cache), a high value causes the kernel to try to use swap space,
@@ -82,10 +41,6 @@
           # tunable expresses the interval between those wakeups, in 100'ths of a second (Default is 500).
           "vm.dirty_writeback_centisecs" = "1500";
 
-          # This action will speed up your boot and shutdown, because one less module is loaded. Additionally disabling watchdog timers increases performance and lowers power consumption
-          # Disable NMI watchdog
-          "kernel.nmi_watchdog" = "0";
-
           # Enable the sysctl setting kernel.unprivileged_userns_clone to allow normal users to run unprivileged containers.
           "kernel.unprivileged_userns_clone" = "1";
 
@@ -105,11 +60,13 @@
       };
     }
     // {
-      services.udev.path = [
-        pkgs.bash
-        pkgs.hdparm
-      ];
-
+      hardware.block = {
+        defaultScheduler = "mq-deadline";
+        defaultSchedulerRotational = "bfq";
+        scheduler."nvme[0-9]*" = "none";
+      };
+    }
+    // {
       services.udev.extraRules =
         # 30-zram.rules
         ''
@@ -126,46 +83,7 @@
           # Also it's better to disable Zswap, as this may prevent ZRAM from working
           # properly or keeping a proper count of compressed pages via zramctl.
           ACTION=="change", KERNEL=="zram0", ATTR{initstate}=="1", SYSCTL{vm.swappiness}="150", \
-              RUN+="/bin/sh -c 'echo N > /sys/module/zswap/parameters/enabled'"
-        ''
-        # 50-sata.rules
-        + ''
-          # SATA Active Link Power Management
-          ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", \
-              ATTR{link_power_management_supported}=="1", \
-              ATTR{link_power_management_policy}=="*", \
-              ATTR{link_power_management_policy}="max_performance"
-        ''
-        # 60-ioschedulers.rules
-        + ''
-          # HDD
-          ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", \
-              ATTR{queue/scheduler}="bfq"
-
-          # SSD
-          ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", \
-              ATTR{queue/scheduler}="mq-deadline"
-
-          # NVMe SSD
-          ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", \
-              ATTR{queue/scheduler}="none"
-        ''
-        # 69-hdparm.rules
-        + ''
-          ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", \
-              ATTRS{id/bus}=="ata", RUN+="/usr/bin/hdparm -B 254 -S 0 /dev/%k"
-        ''
-        # 71-nvidia.rules
-        + ''
-          # Enable runtime PM for NVIDIA VGA/3D controller devices on driver bind
-          ACTION=="add|bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", \
-              ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
-              TEST=="power/control", ATTR{power/control}="auto"
-
-          # Disable runtime PM for NVIDIA VGA/3D controller devices on driver unbind
-          ACTION=="remove|unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", \
-              ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", \
-              TEST=="power/control", ATTR{power/control}="on"
+              RUN+="${pkgs.bash}/bin/sh -c 'echo N > /sys/module/zswap/parameters/enabled'"
         '';
     }
     // {
@@ -187,26 +105,9 @@
       systemd.user.extraConfig = ''
         DefaultLimitNOFILE=1024:1048576
       '';
-
-      services.journald.extraConfig = ''
-        SystemMaxUse=50M
-      '';
-    }
-    // {
-      systemd.services = {
-        "user@".serviceConfig = {
-          Delegate = "cpu cpuset io memory pids";
-        };
-        "rtkit-daemon".serviceConfig = {
-          LogLevelMax = "info";
-        };
-      };
     }
     // {
       systemd.tmpfiles.rules = [
-        # Clear all coredumps that were created more than 3 days ago
-        "d /var/lib/systemd/coredump 0755 root root 3d"
-
         # Improve performance for applications that use tcmalloc
         # https://github.com/google/tcmalloc/blob/master/docs/tuning.md#system-level-optimizations
         "w! /sys/kernel/mm/transparent_hugepage/defrag - - - - defer+madvise"
