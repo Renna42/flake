@@ -10,6 +10,7 @@
 
   config = lib.mkIf config.renna.enableCachyosSettings ({
       boot = {
+        consoleLogLevel = 3;
         kernelModules = [
           "ntsync"
         ];
@@ -40,12 +41,6 @@
           # The kernel flusher threads will periodically wake up and write old data out to disk.  This
           # tunable expresses the interval between those wakeups, in 100'ths of a second (Default is 500).
           "vm.dirty_writeback_centisecs" = "1500";
-
-          # Enable the sysctl setting kernel.unprivileged_userns_clone to allow normal users to run unprivileged containers.
-          "kernel.unprivileged_userns_clone" = "1";
-
-          # To hide any kernel messages from the console
-          "kernel.printk" = "3 3 3 3";
 
           # Restricting access to kernel pointers in the proc filesystem
           "kernel.kptr_restrict" = "2";

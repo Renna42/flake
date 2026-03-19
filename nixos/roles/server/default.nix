@@ -19,10 +19,6 @@
       grub.enable = lib.mkDefault false;
       efi.canTouchEfiVariables = true;
     };
-    kernelParams = [
-      "audit=0"
-      "net.ifnames=0"
-    ];
     kernelPackages = pkgs.linuxPackages_xanmod_stable;
   };
 
@@ -43,6 +39,7 @@
     hostName = hostname;
     useNetworkd = true;
     useDHCP = false;
+    usePredictableInterfaceNames = false;
     firewall = {
       enable = lib.mkDefault true;
     };
