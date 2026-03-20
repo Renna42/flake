@@ -78,6 +78,7 @@ _: {
       "tinymediamanager"
       "typora"
       "utm@beta"
+      "vlc"
       "vnc-viewer"
       "wireshark-app"
       "zed"
