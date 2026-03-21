@@ -14,6 +14,7 @@
     ../../nixos/hardware/tpm.nix
     ../../nixos/hardware/xpad.nix
     ../../nixos/hardware/logitech-wireless.nix
+    ../../nixos/hardware/ddcci.nix
 
     ../../nixos/services/kmscon.nix
     ../../nixos/services/mdns.nix
