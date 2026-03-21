@@ -1,8 +1,4 @@
-{
-  assetsPath,
-  pkgs,
-  ...
-}: {
+{assetsPath, ...}: {
   imports = [
     ./base.nix
     ./nix.nix
@@ -30,14 +26,6 @@
     captureone = true;
   };
 
-  home = {
-    packages = with pkgs; [
-      # keep-sorted start
-      openscreen
-      # keep-sorted end
-    ];
-
-    file."Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = "${assetsPath}/mdmdt.css";
-    file."Library/ColorSync/Profiles/TCL R32U81.icc".source = "${assetsPath}/R32U81.icc";
-  };
+  home.file."Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = "${assetsPath}/mdmdt.css";
+  home.file."Library/ColorSync/Profiles/TCL R32U81.icc".source = "${assetsPath}/R32U81.icc";
 }
