@@ -38,9 +38,6 @@
           "addon@darkreader.org" = {
             install_url = moz "darkreader";
           };
-          "chrome-mask@overengineer.dev" = {
-            install_url = moz "chrome-mask";
-          };
           "cors-everywhere@spenibus" = {
             install_url = moz "cors-everywhere";
           };
@@ -74,14 +71,8 @@
             install_url = moz "bitwarden-password-manager";
             default_area = "navbar";
           };
-          "{5cce4ab5-3d47-41b9-af5e-8203eea05245}" = {
-            install_url = moz "control-panel-for-twitter";
-          };
           "{74145f27-f039-47ce-a470-a662b129930a}" = {
             install_url = moz "clearurls";
-          };
-          "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
-            install_url = moz "return-youtube-dislikes";
           };
           "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" = {
             install_url = moz "user-agent-string-switcher";
