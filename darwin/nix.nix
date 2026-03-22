@@ -1,21 +1,10 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
-  secretsPath,
   overlays,
   ...
 }: {
-  sops = {
-    secrets.nix_access_tokens = {
-      sopsFile = "${secretsPath}/nix-daemon-auth.yaml";
-    };
-    templates."nix-github-tokens".content = ''
-      access-tokens = ${config.sops.placeholder.nix_access_tokens}
-    '';
-  };
-
   nix = {
     package = pkgs.nix;
     settings = {
@@ -49,10 +38,6 @@
     optimise.automatic = true;
 
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-
-    extraOptions = ''
-      !include ${config.sops.templates."nix-github-tokens".path}
-    '';
   };
 
   nixpkgs = {
