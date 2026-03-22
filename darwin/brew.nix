@@ -25,7 +25,6 @@ _: {
     casks = [
       # keep-sorted start case=no
       "affinity"
-      "alienator88-sentinel"
       "audacity"
       "betterdisplay"
       "bitwarden"
