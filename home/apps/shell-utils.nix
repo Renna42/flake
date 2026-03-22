@@ -144,7 +144,6 @@
     shellAliases = {
       co = "codium .";
       dt = "date --iso-8601=seconds | tee /dev/stderr | fish_clipboard_copy";
-      gp = "git pull";
       tree = "tre";
       issh = "kitten ssh";
       icat = "kitten icat";
@@ -177,10 +176,7 @@
     enableFishIntegration = true;
   };
 
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  programs.fzf.enable = true;
 
   programs.carapace = {
     enable = true;
