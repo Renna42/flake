@@ -4,9 +4,12 @@
   ...
 }: {
   home.packages = with pkgs; [
-    prismlauncher
+    # keep-sorted start
+    adwsteamgtk
     osu-lazer-bin
+    prismlauncher
     ryubing
+    # keep-sorted end
   ];
 
   programs.lutris = {
