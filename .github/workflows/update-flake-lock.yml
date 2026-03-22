@@ -7,7 +7,7 @@ on:
     - cron: "15 1 * * 0" # runs weekly.
 
 jobs:
-  lockfile:
+  nix-flake-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,8 +16,7 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v31
         with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v28
