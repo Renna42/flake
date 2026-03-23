@@ -18,6 +18,7 @@ _: {
 
     taps = [
       "Renna42/tap"
+      "netbirdio/tap"
     ];
     brews = [
       "nexttrace"
@@ -62,6 +63,7 @@ _: {
       "mos@beta"
       "motrix"
       "musicbrainz-picard"
+      "netbird-ui"
       "obs"
       "orbstack"
       "orcaslicer"
@@ -72,7 +74,6 @@ _: {
       "reqable"
       "shottr"
       "siyuan"
-      "tailscale-app"
       "teamspeak-client"
       "tinymediamanager"
       "typora"
