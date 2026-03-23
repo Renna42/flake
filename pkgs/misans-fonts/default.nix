@@ -16,33 +16,31 @@
     url,
     hash,
   }:
-    stdenvNoCC.mkDerivation (
-      _finalAttrs: {
-        inherit
-          pname
-          meta
-          version
-          ;
+    stdenvNoCC.mkDerivation {
+      inherit
+        pname
+        meta
+        version
+        ;
 
-        src = fetchzip {
-          inherit url hash;
-          extension = "zip";
-          stripRoot = false;
-        };
+      src = fetchzip {
+        inherit url hash;
+        extension = "zip";
+        stripRoot = false;
+      };
 
-        dontConfigure = true;
-        dontBuild = true;
+      dontConfigure = true;
+      dontBuild = true;
 
-        installPhase = ''
-          runHook preInstall
+      installPhase = ''
+        runHook preInstall
 
-          find . -name "*.otf" -exec install -Dm444 -t "$out/share/fonts/opentype" {} +
-          find . -name "*.ttf" -exec install -Dm444 -t "$out/share/fonts/truetype" {} +
+        find . -name "*.otf" -exec install -Dm444 -t "$out/share/fonts/opentype" {} +
+        find . -name "*.ttf" -exec install -Dm444 -t "$out/share/fonts/truetype" {} +
 
-          runHook postInstall
-        '';
-      }
-    );
+        runHook postInstall
+      '';
+    };
   variants = [
     {
       pname = "misans";
