@@ -40,7 +40,6 @@
   };
   linuxStylix = lib.recursiveUpdate commonStylix {
     inherit (osConfig.stylix) base16Scheme;
-    targets.qt.platform = "kde";
     icons = {
       enable = true;
       package = pkgs.fluent-icon-theme;
