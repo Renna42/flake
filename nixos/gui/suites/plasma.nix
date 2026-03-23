@@ -14,6 +14,7 @@
     plasma-browser-integration
     konsole
     elisa
+    discover
   ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
