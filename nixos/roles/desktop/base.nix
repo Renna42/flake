@@ -35,6 +35,8 @@
   # Set hardware time to local
   time.hardwareClockInLocalTime = true;
 
+  hardware.enableRedistributableFirmware = true;
+
   environment.systemPackages = with pkgs; [
     xdg-user-dirs
   ];
