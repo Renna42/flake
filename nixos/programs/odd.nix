@@ -8,7 +8,14 @@
   '';
 
   environment.systemPackages = with pkgs; [
+    # keep-sorted start case=no
+    cdrdao
+    cdrtools
     dvdplusrwtools
+    flakePackages.gen-rdk
+    libbluray-full
     udftools
+    whipper
+    # keep-sorted end
   ];
 }
