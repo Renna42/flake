@@ -36,6 +36,7 @@
     ciel
     squashfsTools
     gparted-full
+    nvme-cli
   ];
 
   renna = {
