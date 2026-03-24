@@ -22,6 +22,7 @@ in {
     ./apps/idapro
     ./apps/kitty
     ./apps/obs-studio
+    ./apps/obsidian
     ./apps/vscode
     ./apps/wakatime
     ./apps/yubikey
@@ -47,7 +48,6 @@ in {
       makemkv
       mediainfo-gui
       motrix
-      obsidian
       openscreen
       podman-desktop
       realvnc-vnc-viewer

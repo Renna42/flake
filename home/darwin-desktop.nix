@@ -12,6 +12,7 @@
     ./apps/firefox
     ./apps/idapro
     ./apps/kitty
+    ./apps/obsidian
     ./apps/syncthing
     ./apps/vscode
     ./apps/wakatime
