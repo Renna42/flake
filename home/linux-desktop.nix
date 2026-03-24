@@ -47,10 +47,10 @@ in {
       makemkv
       mediainfo-gui
       motrix
+      obsidian
       openscreen
       podman-desktop
       realvnc-vnc-viewer
-      siyuan
       teamspeak6-client
       vlc
       # keep-sorted end
