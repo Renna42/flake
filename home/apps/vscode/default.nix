@@ -11,6 +11,9 @@
       userSettings =
         {
           # keep-sorted start block=yes
+          "[astro]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
           "[bats]" = {
             "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
