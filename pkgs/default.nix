@@ -14,6 +14,7 @@ lib.makeScope newScope (
       smifb2 = pkgs.linuxPackages_xanmod_latest.callPackage ./smifb2 {};
     };
     misansFonts = lib.recurseIntoAttrs (callPackage ./misans-fonts {});
+    obsidian-livesync = callPackage ./obsidian-livesync.nix {};
     rime-data = callPackage ./rime-data.nix {};
     zashboard-bin = callPackage ./zashboard-bin.nix {};
     # keep-sorted end
