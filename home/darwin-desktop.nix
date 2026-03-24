@@ -21,6 +21,7 @@
     # keep-sorted end
 
     ./apps/shell-utils.nix
+    ./apps/media-tools.nix
   ];
 
   renna.syncthing = {
