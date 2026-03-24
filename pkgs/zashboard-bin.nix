@@ -5,11 +5,11 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "zashboard-bin";
-  version = "2.7.0";
+  version = "2.8.0";
 
   src = fetchzip {
     url = "https://github.com/Zephyruso/zashboard/releases/download/v${finalAttrs.version}/dist.zip";
-    hash = "sha256-elHyR/RaPr/NMgzmDUMcXotbldUQ45XlTqexxcWX4Ws=";
+    hash = "sha256-uI1BZEADLiTO/efl8OPM1s+dLotZTawdVPO5QcfzzOU=";
   };
 
   dontConfigure = true;
