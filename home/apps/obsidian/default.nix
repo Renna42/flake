@@ -56,7 +56,10 @@ in {
         }
       ];
     };
-    vaults.${vaultName}.enable = true;
+    vaults.${vaultName} = {
+      enable = true;
+      target = "Documents/${vaultName}";
+    };
   };
 
   stylix.targets.obsidian = {
