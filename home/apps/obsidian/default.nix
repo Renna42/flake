@@ -13,10 +13,30 @@ in {
         "translucency" = true;
       };
       corePlugins = [
-        {
-          name = "sync";
-          enable = false;
-        }
+        # keep-sorted start
+        "backlink"
+        "bases"
+        "bookmarks"
+        "canvas"
+        "command-palette"
+        "daily-notes"
+        "editor-status"
+        "file-explorer"
+        "file-recovery"
+        "footnotes"
+        "global-search"
+        "graph"
+        "note-composer"
+        "outgoing-link"
+        "outline"
+        "page-preview"
+        "properties"
+        "slash-command"
+        "slides"
+        "switcher"
+        "tag-pane"
+        "word-count"
+        # keep-sorted end
       ];
       communityPlugins = [
         {
