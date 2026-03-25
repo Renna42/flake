@@ -8,7 +8,6 @@
     cuetools
     flac
     id3v2
-    mac
     shntool
     wavpack
     # keep-sorted end
