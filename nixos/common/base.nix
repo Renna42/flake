@@ -4,6 +4,7 @@
     binutils
     curl
     dnsutils
+    file
     git
     gptfdisk
     htop
