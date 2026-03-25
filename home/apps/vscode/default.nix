@@ -149,6 +149,9 @@
           "nix.serverPath" = "nixd";
           "nix.serverSettings" = {
             "nixd" = {
+              "nixpkgs" = {
+                "expr" = "import (builtins.getFlake \"${config.home.homeDirectory}/flake\").inputs.nixpkgs {}";
+              };
               "formatting" = {
                 "command" = ["alejandra"];
               };
