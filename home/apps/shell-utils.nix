@@ -17,6 +17,7 @@
     glow
     moor
     nix-output-monitor
+    nix-update
     nixpkgs-review
     nurl
     qrencode
@@ -136,8 +137,6 @@
     );
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-
       export GITHUB_TOKEN_CMD="gh auth token"
       export PAGER="moor"
     '';
