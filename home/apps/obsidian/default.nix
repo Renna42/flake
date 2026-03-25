@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   vaultName = "Obsidian Vault";
 in {
   programs.obsidian = {
@@ -11,6 +15,7 @@ in {
     defaultSettings = {
       appearance = {
         "translucency" = true;
+        "textFontFamily" = config.stylix.fonts.sansSerif.name;
       };
       corePlugins = [
         # keep-sorted start
