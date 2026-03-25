@@ -16,6 +16,8 @@ in {
     ./apps/chromium
     ./apps/develop
     ./apps/develop/c-family.nix
+    ./apps/develop/nodejs.nix
+    ./apps/develop/python.nix
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
