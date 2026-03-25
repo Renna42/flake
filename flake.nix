@@ -26,6 +26,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -204,6 +208,7 @@
                   inputs.stylix.nixosModules.stylix
                   inputs.hyprland.nixosModules.default
                   inputs.home-manager.nixosModules.home-manager
+                  inputs.hjem.nixosModules.default
                   inputs.sops-nix.nixosModules.sops
                 ];
               };
@@ -232,6 +237,7 @@
               modules = [
                 ./darwin
                 inputs.home-manager.darwinModules.home-manager
+                inputs.hjem.darwinModules.default
                 inputs.sops-nix.darwinModules.sops
               ];
             }
