@@ -13,10 +13,6 @@ in {
       else null;
     cli.enable = true;
     defaultSettings = {
-      appearance = {
-        "translucency" = true;
-        "textFontFamily" = config.stylix.fonts.sansSerif.name;
-      };
       corePlugins = [
         # keep-sorted start
         "backlink"
@@ -59,6 +55,10 @@ in {
     vaults.${vaultName} = {
       enable = true;
       target = "Documents/${vaultName}";
+      settings.appearance = {
+        "translucency" = true;
+        "textFontFamily" = config.stylix.fonts.sansSerif.name;
+      };
     };
   };
 
