@@ -15,6 +15,7 @@ lib.makeScope newScope (
     };
     misansFonts = lib.recurseIntoAttrs (callPackage ./misans-fonts {});
     obsidian-livesync = callPackage ./obsidian-livesync.nix {};
+    obsidian-tasks = callPackage ./obsidian-tasks.nix {};
     rime-data = callPackage ./rime-data.nix {};
     zashboard-bin = callPackage ./zashboard-bin.nix {};
     # keep-sorted end

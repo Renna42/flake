@@ -44,6 +44,10 @@ in {
           pkg = pkgs.flakePackages.obsidian-livesync;
           enable = true;
         }
+        {
+          pkg = pkgs.flakePackages.obsidian-tasks;
+          enable = true;
+        }
       ];
       themes = [
         {
