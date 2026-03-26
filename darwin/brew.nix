@@ -43,6 +43,7 @@ _: {
       "font-source-han-sans-vf"
       "font-source-han-serif-vf"
       "font-symbols-only-nerd-font"
+      "foobar2000"
       "google-chrome"
       "gpg-suite"
       "handbrake-app"
