@@ -18,7 +18,6 @@ in {
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
-    ./apps/develop/reverse.nix
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
