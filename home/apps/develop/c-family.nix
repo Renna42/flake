@@ -9,7 +9,6 @@
       clang-analyzer
       cmake
       gcc
-      gdb
       gnumake
       meson
       ninja
