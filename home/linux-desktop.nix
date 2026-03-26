@@ -18,10 +18,10 @@ in {
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
+    ./apps/develop/reverse.nix
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
-    ./apps/idapro
     ./apps/kitty
     ./apps/obs-studio
     ./apps/obsidian
@@ -43,7 +43,6 @@ in {
       audacity
       bitwarden-desktop
       dbeaver-bin
-      imhex
       kdePackages.kleopatra
       krita
       localsend
