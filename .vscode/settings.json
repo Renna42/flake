@@ -1,11 +1,12 @@
 {
+  "editor.formatOnSave": true,
   "explorer.excludeGitIgnore": true,
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
     "nixd": {
       "formatting": {
-        "command": ["alejandra"]
+        "command": ["treefmt", "--stdin", "-"]
       },
       "options": {
         "nixos": {
