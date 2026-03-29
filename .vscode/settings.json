@@ -6,7 +6,7 @@
   "nix.serverSettings": {
     "nixd": {
       "formatting": {
-        "command": ["treefmt", "--stdin", "-"]
+        "command": ["alejandra"]
       },
       "options": {
         "nixos": {
