@@ -2,7 +2,12 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cmd =
+    if pkgs.stdenv.isDarwin
+    then "cmd"
+    else "ctrl";
+in {
   programs.kitty = {
     enable = true;
     package =
@@ -15,16 +20,16 @@
     };
 
     keybindings = {
-      "cmd+d" = "launch --location=hsplit";
-      "cmd+r" = "launch --location=vsplit";
-      "cmd+w" = "close_window";
-      "cmd+[" = "previous_window";
-      "cmd+]" = "next_window";
+      "${cmd}+d" = "launch --location=hsplit";
+      "${cmd}+r" = "launch --location=vsplit";
+      "${cmd}+w" = "close_window";
+      "${cmd}+[" = "previous_window";
+      "${cmd}+]" = "next_window";
     };
 
     mouseBindings = {
       "left click" = "ungrabbed no-op";
-      "ctrl+left click" = "grabbed,ungrabbed mouse_click_url";
+      "${cmd}+left click" = "grabbed,ungrabbed mouse_click_url";
     };
 
     settings = {
