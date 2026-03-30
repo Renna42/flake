@@ -29,6 +29,7 @@ _: {
       "audacity"
       "betterdisplay"
       "bitwarden"
+      "c0re100-qbittorrent"
       "clash-verge-rev"
       "coteditor"
       "dbeaver-community"
