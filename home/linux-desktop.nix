@@ -93,6 +93,7 @@ in {
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = true;
   };
 
   xdg.configFile."containers/registries.conf" = {
