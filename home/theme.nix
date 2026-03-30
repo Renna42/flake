@@ -58,6 +58,8 @@ in {
     then darwinStylix
     else linuxStylix;
 
+  gtk.gtk4.theme = config.gtk.theme;
+
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
       if [ ! -f "${config.stylix.image}" ]; then
