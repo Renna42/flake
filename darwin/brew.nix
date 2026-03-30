@@ -31,7 +31,7 @@ _: {
       "bitwarden"
       "clash-verge-rev"
       "coteditor"
-      "dbeaver"
+      "dbeaver-community"
       "discord"
       "element"
       "firefox"
