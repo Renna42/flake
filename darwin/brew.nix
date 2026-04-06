@@ -4,7 +4,7 @@ _: {
     enableFishIntegration = true;
 
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
       upgrade = true;
@@ -26,6 +26,7 @@ _: {
     casks = [
       # keep-sorted start case=no
       "affinity"
+      "arch1t3cht-aegisub"
       "audacity"
       "betterdisplay"
       "bitwarden"
