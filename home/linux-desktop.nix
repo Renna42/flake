@@ -37,7 +37,6 @@ in {
   home = {
     packages = with pkgs; [
       # keep-sorted start case=no
-      _64gram
       angryipscanner
       audacity
       ayugram-desktop
