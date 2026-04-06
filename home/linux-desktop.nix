@@ -40,6 +40,7 @@ in {
       _64gram
       angryipscanner
       audacity
+      ayugram-desktop
       bitwarden-desktop
       dbeaver-bin
       kdePackages.kleopatra
