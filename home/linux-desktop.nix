@@ -52,6 +52,7 @@ in {
       podman-desktop
       realvnc-vnc-viewer
       teamspeak6-client
+      ventoy-full-qt
       vlc
       # keep-sorted end
     ];

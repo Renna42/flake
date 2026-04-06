@@ -62,9 +62,14 @@
 
     nixpkgs = {
       inherit overlays;
-      config.allowUnfree = true;
-      config.npmRegistryOverrides = lib.mkIf config.renna.enableMirrorSubstituter {
-        "registry.npmjs.org" = "https://registry.npmmirror.com";
+      config = {
+        allowUnfree = true;
+        npmRegistryOverrides = lib.mkIf config.renna.enableMirrorSubstituter {
+          "registry.npmjs.org" = "https://registry.npmmirror.com";
+        };
+        permittedInsecurePackages = [
+          "ventoy-qt5-1.1.10"
+        ];
       };
     };
 
