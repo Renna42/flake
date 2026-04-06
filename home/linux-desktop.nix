@@ -51,6 +51,7 @@ in {
       motrix
       openscreen
       podman-desktop
+      qbittorrent-enhanced
       realvnc-vnc-viewer
       teamspeak6-client
       ventoy-full-qt
