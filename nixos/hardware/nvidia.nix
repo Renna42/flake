@@ -18,6 +18,5 @@
       nvidiaSettings = true;
       package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
     };
-    nvidia-container-toolkit.enable = config.virtualisation.podman.enable or config.virtualisation.docker.enable;
   };
 }
