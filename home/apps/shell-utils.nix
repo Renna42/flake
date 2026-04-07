@@ -22,6 +22,7 @@
     nurl
     qrencode
     tre-command
+    wget
     yq-go
     # keep-sorted end
   ];
