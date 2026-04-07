@@ -14,7 +14,7 @@ proton-ge-bin.overrideAttrs (
 
     src = fetchzip {
       url = "https://dawn.wine/dawn-winery/dwproton/releases/download/${finalAttrs.version}/${finalAttrs.version}-x86_64.tar.xz";
-      hash = "sha256-kCdNyWb8aqwyaHpLo5YihuFsBI5LdZzYLoR+9AciOhs=";
+      hash = "sha256-XqXXxsTekvTUNsykpWu4vbZ4Mi+2tMR57zngaOt+3gQ=";
     };
 
     passthru.updateScript = writeScript "update-dwproton" ''
