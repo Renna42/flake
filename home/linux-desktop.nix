@@ -42,6 +42,7 @@ in {
       ayugram-desktop
       bitwarden-desktop
       dbeaver-bin
+      flakePackages.aegisub-arch1t3cht
       kdePackages.kleopatra
       krita
       localsend
