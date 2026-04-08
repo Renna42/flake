@@ -23,6 +23,7 @@
         dates = ["03:45"];
       };
       settings = {
+        auto-optimise-store = true;
         narinfo-cache-positive-ttl = 60 * 60 * 24;
         allowed-users = [
           "root"

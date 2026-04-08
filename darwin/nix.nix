@@ -8,6 +8,7 @@
   nix = {
     package = pkgs.nix;
     settings = {
+      auto-optimise-store = true;
       narinfo-cache-positive-ttl = 60 * 60 * 24;
       experimental-features = [
         "nix-command"
