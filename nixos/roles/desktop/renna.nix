@@ -74,6 +74,9 @@ in {
       };
     };
 
-    nix.settings.trusted-users = [username];
+    nix.settings = {
+      allowed-users = [username];
+      trusted-users = [username];
+    };
   };
 }

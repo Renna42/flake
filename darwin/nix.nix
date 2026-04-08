@@ -20,6 +20,10 @@
       ];
       warn-dirty = false;
       use-xdg-base-directories = true;
+      allowed-users = [
+        "root"
+        "@admin"
+      ];
       # Disable the built-in flake registry to speed up evaluation
       flake-registry = "";
     };

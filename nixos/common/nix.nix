@@ -24,6 +24,10 @@
       };
       settings = {
         narinfo-cache-positive-ttl = 60 * 60 * 24;
+        allowed-users = [
+          "root"
+          "@wheel"
+        ];
         trusted-users = [
           "@wheel"
         ];
