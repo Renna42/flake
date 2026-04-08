@@ -20,9 +20,7 @@ _: {
       "Renna42/tap"
       "netbirdio/tap"
     ];
-    brews = [
-      "nexttrace"
-    ];
+    brews = [];
     casks = [
       # keep-sorted start case=no
       "affinity"

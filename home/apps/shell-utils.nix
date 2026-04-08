@@ -16,6 +16,7 @@
     git-msgraph
     glow
     moor
+    nexttrace
     nix-output-monitor
     nix-update
     nixpkgs-review
