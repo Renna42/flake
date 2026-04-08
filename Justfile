@@ -12,31 +12,31 @@ install hostname target *FLAGS:
     {{ FLAGS }}
 
 bootstrap hostname disk:
-  nix --extra-experimental-features "nix-command flakes" --accept-flake-config run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
+  nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko#disko-install' -- --flake .#{{ hostname }} --disk main {{ disk }}
 
 generate-hardware-config hostname target:
   ssh {{ target }} "nix --extra-experimental-features nix-command --extra-experimental-features flakes shell nixpkgs#nixos-install-tools -c nixos-generate-config --show-hardware-config --no-filesystems" > ./configurations/{{ hostname }}/hardware-configuration.nix
 
 build-disko-image hostname:
-  nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#nixosConfigurations.{{ hostname }}.config.system.build.diskoImages --accept-flake-config --log-format internal-json |& nom --json
+  nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#nixosConfigurations.{{ hostname }}.config.system.build.diskoImages --log-format internal-json |& nom --json
 
 build:
-  nixos-rebuild build --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
+  nixos-rebuild build --flake .# --sudo --log-format internal-json |& nom --json
 
 deploy:
-  nixos-rebuild switch --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
+  nixos-rebuild switch --flake .# --sudo --log-format internal-json |& nom --json
 
 boot:
-  nixos-rebuild boot --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
+  nixos-rebuild boot --flake .# --sudo --log-format internal-json |& nom --json
 
 dryrun:
-  nixos-rebuild dry-run --flake .# --sudo --accept-flake-config --log-format internal-json |& nom --json
+  nixos-rebuild dry-run --flake .# --sudo --log-format internal-json |& nom --json
 
 darwin-bootstrap:
-  sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .# --accept-flake-config
+  sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .#
 
 darwin-deploy:
-  nh darwin switch .# --accept-flake-config
+  nh darwin switch .#
 
 gc:
   # remove all generations older than 7 days
@@ -46,7 +46,7 @@ gc:
   sudo nix store gc --debug
 
 update:
-  nix flake update --accept-flake-config
+  nix flake update
 
 scan-age-key target:
   ssh {{ target }} cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age
@@ -61,7 +61,7 @@ rdeploy-host hostname:
     deploy .#{{ hostname }}
 
 rdeploy-host-bare hostname target:
-  nixos-rebuild switch --flake .#{{ hostname }} --target-host {{ target }} --accept-flake-config --log-format internal-json |& nom --json
+  nixos-rebuild switch --flake .#{{ hostname }} --target-host {{ target }} --log-format internal-json |& nom --json
 
 st-generate:
   #!/usr/bin/env sh

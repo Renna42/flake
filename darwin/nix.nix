@@ -19,6 +19,7 @@
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://mirrors.ustc.edu.cn/nix-channels/store"
       ];
+      accept-flake-config = true;
       warn-dirty = false;
       use-xdg-base-directories = true;
       allowed-users = [
