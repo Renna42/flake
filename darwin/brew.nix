@@ -18,7 +18,6 @@ _: {
 
     taps = [
       "Renna42/tap"
-      "netbirdio/tap"
     ];
     brews = [];
     casks = [
@@ -63,7 +62,6 @@ _: {
       "mos@beta"
       "motrix"
       "musicbrainz-picard"
-      "netbird-ui"
       "obs"
       "obsidian"
       "orbstack"
