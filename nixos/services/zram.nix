@@ -1,0 +1,30 @@
+{pkgs, ...}: {
+  services.zram-generator = {
+    enable = true;
+    settings."zram0" = {
+      "compression-algorithm" = "zstd";
+      "zram-size" = "ram";
+      "swap-priority" = "100";
+      "fs-type" = "swap";
+    };
+  };
+
+  services.udev.extraRules =
+    # 30-zram.rules
+    ''
+      # When used with ZRAM, it is better to prefer page out only anonymous pages,
+      # because it ensures that they do not go out of memory, but will be just
+      # compressed. If we do frequent flushing of file pages, that increases the
+      # percentage of page cache misses, which in the long term gives additional
+      # cycles to re-read the same data from disk that was previously in page cache.
+      # This is the reason why it is recommended to use high values from 100 to keep
+      # the page cache as hermetic as possible, because otherwise it is "expensive"
+      # to read data from disk again. At the same time, uncompressing pages from ZRAM
+      # is not as expensive and is usually very fast on modern CPUs.
+      #
+      # Also it's better to disable Zswap, as this may prevent ZRAM from working
+      # properly or keeping a proper count of compressed pages via zramctl.
+      ACTION=="change", KERNEL=="zram0", ATTR{initstate}=="1", SYSCTL{vm.swappiness}="150", \
+          RUN+="${pkgs.bash}/bin/sh -c 'echo N > /sys/module/zswap/parameters/enabled'"
+    '';
+}
