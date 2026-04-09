@@ -127,6 +127,8 @@
       libxcrypt-legacy # For natron
       libGLU # For natron
 
+      kdePackages.wayland
+
       # Appimages need fuse, e.g. https://musescore.org/fr/download/musescore-x86_64.AppImage
       fuse
       e2fsprogs
