@@ -69,7 +69,6 @@ _: {
       "orbstack"
       "orcaslicer"
       "Renna42/tap/angry-ip-scanner"
-      "Renna42/tap/ayugram"
       "Renna42/tap/c0re100-qbittorrent"
       "Renna42/tap/imhex"
       "Renna42/tap/xld"
