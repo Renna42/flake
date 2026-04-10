@@ -29,6 +29,9 @@
         )
         {
           # keep-sorted start block=yes case=no
+          "458813868@qq.com" = {
+            install_url = moz "code-box";
+          };
           "@ublacklist" = {
             install_url = moz "ublacklist";
           };
