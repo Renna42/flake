@@ -5,3 +5,12 @@ pull_request_rules:
     actions:
       merge:
         method: rebase
+queue_rules:
+  - name: automatic merge for Dependabot pull requests
+    queue_branch_merge_method: ""
+    merge_method: rebase
+    autoqueue: true
+    queue_conditions:
+      - and:
+          - author = dependabot[bot]
+    branch_protection_injection_mode: none
