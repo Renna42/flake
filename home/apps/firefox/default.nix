@@ -98,6 +98,12 @@
       PasswordManagerEnabled = false;
       Preferences = {
         # keep-sorted start
+        "browser.ai.control.default" = "blocked";
+        "browser.ai.control.linkPreviewKeyPoints" = "blocked";
+        "browser.ai.control.pdfjsAltText" = "blocked";
+        "browser.ai.control.sidebarChatbot" = "blocked";
+        "browser.ai.control.smartTabGroups" = "blocked";
+        "browser.ai.control.translations" = "blocked";
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.ml.chat.enabled" = false;
         "browser.ml.enable" = false;
@@ -112,6 +118,7 @@
         "browser.search.separatePrivateDefault.ui.enabled" = true;
         "browser.tabs.groups.smart.enabled" = false;
         "browser.tabs.groups.smart.userEnabled" = false;
+        "browser.translations.enable" = false;
         "dom.security.https_first" = true;
         "extensions.autoDisableScopes" = 0;
         "extensions.ml.enabled" = false;
@@ -122,6 +129,7 @@
         "media.ffmpeg.vaapi.enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
+        "pdfjs.enableAltText" = false;
         "widget.dmabuf.force-enabled" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         # keep-sorted end
