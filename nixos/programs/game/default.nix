@@ -25,8 +25,6 @@
     };
   };
 
-  hardware.steam-hardware.enable = true;
-
   environment.sessionVariables = {
     PROTON_USE_NTSYNC = 1;
     PROTON_ENABLE_HDR = 1;
