@@ -26,6 +26,7 @@
     "${pkgs.dn42-cacert}/etc/ssl/certs/dn42-ca.crt"
   ];
 
+  boot.initrd.systemd.enable = true;
   boot.supportedFilesystems = [
     "btrfs"
     "ext4"
