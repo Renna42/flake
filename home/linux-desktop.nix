@@ -42,6 +42,7 @@ in {
       ayugram-desktop
       bitwarden-desktop
       dbeaver-bin
+      dejavu_fonts
       flakePackages.aegisub-arch1t3cht
       kdePackages.kleopatra
       krita
@@ -119,4 +120,6 @@ in {
       ];
     };
   };
+
+  fonts.fontconfig.enable = true;
 }
