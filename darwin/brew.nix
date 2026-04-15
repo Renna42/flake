@@ -72,6 +72,7 @@ _: {
       "Renna42/tap/xld"
       "reqable"
       "shottr"
+      "tailscale-app"
       "teamspeak-client"
       "tinymediamanager"
       "typora"
