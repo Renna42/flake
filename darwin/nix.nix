@@ -49,8 +49,5 @@
   nixpkgs = {
     inherit overlays;
     config.allowUnfree = true;
-    config.npmRegistryOverrides = {
-      "registry.npmjs.org" = "https://registry.npmmirror.com";
-    };
   };
 }
