@@ -25,6 +25,7 @@
     ../../nixos/services/libvirt.nix
     ../../nixos/services/samba.nix
     ../../nixos/services/zram.nix
+    ../../nixos/services/tailscale.nix
 
     ../../nixos/programs/game
     ../../nixos/programs/wine.nix

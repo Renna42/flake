@@ -94,6 +94,8 @@ in {
     file.".face.icon".source = "${assetsPath}/${username}.png";
   };
 
+  services.tailscale-systray.enable = true;
+
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
