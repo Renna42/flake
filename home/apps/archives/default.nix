@@ -9,7 +9,6 @@
     gzip
     lz4
     rar
-    unrar
     unzipNLS
     wimlib
     xz
