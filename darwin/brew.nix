@@ -19,7 +19,9 @@ _: {
     taps = [
       "Renna42/tap"
     ];
-    brews = [];
+    brews = [
+      "mkvtoolnix"
+    ];
     casks = [
       # keep-sorted start case=no
       "affinity"
@@ -58,7 +60,6 @@ _: {
       "lulu"
       "maccy"
       "mediainfo"
-      "mkvtoolnix-app"
       "mos@beta"
       "motrix"
       "musicbrainz-picard"
