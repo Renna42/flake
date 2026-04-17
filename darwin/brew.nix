@@ -4,7 +4,7 @@ _: {
     enableFishIntegration = true;
 
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
       upgrade = true;
@@ -82,9 +82,5 @@ _: {
       "zed"
       # keep-sorted end
     ];
-  };
-
-  environment.variables = {
-    HOMEBREW_NO_ENV_HINTS = "1";
   };
 }
