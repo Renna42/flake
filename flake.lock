@@ -926,11 +926,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1775358325,
-        "narHash": "sha256-Q3Kx+qfLLUkvD6jOdnJKNsFoLpqtDz/6AQdJOEPUdyI=",
+        "lastModified": 1776481363,
+        "narHash": "sha256-XvMCnshrWCwoNn1rxiBVD6Avf16nGwWKA3gtI3dEjHc=",
         "owner": "nix-community",
         "repo": "nix4vscode",
-        "rev": "ef5a35f57bc62ca614af1e26e1f5a0cacc59cc3c",
+        "rev": "b69acee4ba8dffcfa553c9a7ba19984db1a1c3a7",
         "type": "github"
       },
       "original": {
