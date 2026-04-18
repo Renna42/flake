@@ -15,9 +15,9 @@
   programs.lutris = {
     enable = true;
     steamPackage = osConfig.programs.steam.package;
-    defaultWinePackage = pkgs.flakePackages.dwproton-bin;
+    defaultWinePackage = pkgs.dwproton-bin;
     protonPackages = [
-      pkgs.flakePackages.dwproton-bin
+      pkgs.dwproton-bin
     ];
     extraPackages = with pkgs; [
       mangohud

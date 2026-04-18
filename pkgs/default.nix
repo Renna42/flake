@@ -9,7 +9,6 @@ lib.makeScope newScope (
   in {
     # keep-sorted start block=yes
     aegisub-arch1t3cht = callPackage ./aegisub-arch1t3cht.nix {};
-    dwproton-bin = callPackage ./dwproton-bin.nix {};
     gen-rdk = callPackage ./gen-rdk.nix {};
     linuxPackages_xanmod_latest = {
       smifb2 = pkgs.linuxPackages_xanmod_latest.callPackage ./smifb2 {};

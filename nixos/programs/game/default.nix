@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.steam;
     extraCompatPackages = with pkgs; [
-      flakePackages.dwproton-bin
+      dwproton-bin
     ];
     fontPackages = with pkgs; [
       source-han-sans
