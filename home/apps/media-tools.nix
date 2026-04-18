@@ -10,6 +10,7 @@
     id3v2
     shntool
     wavpack
+    yt-dlp
     # keep-sorted end
   ];
 }
