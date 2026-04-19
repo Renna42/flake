@@ -262,7 +262,7 @@
             hostname:
               self.lib.withOfflineInstaller {
                 flake = self;
-                nixosConfig = lib.nixosSystem {
+                nixosConfig = nixpkgs.lib.nixosSystem {
                   specialArgs =
                     globalSpecialArgs
                     // {
