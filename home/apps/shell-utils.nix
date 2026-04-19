@@ -160,6 +160,11 @@
     };
   };
 
+  programs.tirith = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   # Replace command-not-found with nix-index and comma
   programs.nix-index-database.comma.enable = true;
   programs.command-not-found.enable = false;
