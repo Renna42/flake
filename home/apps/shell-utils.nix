@@ -6,6 +6,7 @@
 }: {
   home.packages = with pkgs; [
     # keep-sorted start
+    aria2
     asciinema
     cachix
     chroma
