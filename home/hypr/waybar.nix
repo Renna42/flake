@@ -16,7 +16,15 @@ _: {
 
         modules-left = ["hyprland/window"];
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["tray" "pulseaudio" "network" "memory" "cpu" "battery" "clock"];
+        modules-right = [
+          "tray"
+          "pulseaudio"
+          "network"
+          "memory"
+          "cpu"
+          "battery"
+          "clock"
+        ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -103,7 +111,11 @@ _: {
           format-bluetooth = "{icon} {volume}%";
           format-bluetooth-muted = " {icon}";
           format-icons = {
-            default = ["" "" ""];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           on-click-right = "pavucontrol";
           ignored-sinks = ["Easy Effects Sink"];
@@ -117,7 +129,13 @@ _: {
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           max-length = 25;
         };
       };

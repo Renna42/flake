@@ -16,7 +16,10 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-hJS6hi9fVWBSEqkRAApg5OoDrd9n/1xxDs+GS+gFJUw=";
   };
 
-  hardeningDisable = ["pic" "format"]; # 1
+  hardeningDisable = [
+    "pic"
+    "format"
+  ]; # 1
   nativeBuildInputs = kernel.moduleBuildDependencies; # 2
 
   makeFlags =

@@ -21,8 +21,7 @@ with fonts; {
   # other factors (9/14, 13/14, 56/14) based on default for given value
   # divided by default for `editor.fontSize` (14) from
   # https://code.visualstudio.com/docs/getstarted/settings#_default-settings.
-  "editor.minimap.sectionHeaderFontSize" =
-    sizes.terminal * 4.0 / 3.0 * 9.0 / 14.0;
+  "editor.minimap.sectionHeaderFontSize" = sizes.terminal * 4.0 / 3.0 * 9.0 / 14.0;
   "scm.inputFontSize" = sizes.terminal * 4.0 / 3.0 * 13.0 / 14.0;
   "screencastMode.fontSize" = sizes.terminal * 4.0 / 3.0 * 56.0 / 14.0;
 }

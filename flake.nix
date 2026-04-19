@@ -118,9 +118,7 @@
       }: let
         # rename `self.legacyPackages.*.packages` -> `self.legacyPackages.*.packages'`
         # `self.legacyPackages.*.packages` collides with `self.packages` in nix cli
-        adjustLegacyPackages = pkgs:
-          nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"]
-          // {packages' = pkgs.packages;};
+        adjustLegacyPackages = pkgs: nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"] // {packages' = pkgs.packages;};
 
         pkgs' = import self.inputs.nixpkgs {
           inherit system;
@@ -208,16 +206,14 @@
             }
         );
 
-        deploy.nodes = nixpkgs.lib.genAttrs nixosMachines (
-          hostname: {
-            inherit hostname;
-            sshUser = "root";
-            profiles.system = {
-              user = "root";
-              path = deployLib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
-            };
-          }
-        );
+        deploy.nodes = nixpkgs.lib.genAttrs nixosMachines (hostname: {
+          inherit hostname;
+          sshUser = "root";
+          profiles.system = {
+            user = "root";
+            path = deployLib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
+          };
+        });
 
         darwinConfigurations = nixpkgs.lib.genAttrs darwinMachines (
           hostname:

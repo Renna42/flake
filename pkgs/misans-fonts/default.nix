@@ -106,11 +106,13 @@
 
   variantPkgs = map makeMisansFont variants;
 in
-  builtins.listToAttrs (map (pkg: {
+  builtins.listToAttrs (
+    map (pkg: {
       name = pkg.pname;
       value = pkg;
     })
-    variantPkgs)
+    variantPkgs
+  )
   // {
     misans-all = symlinkJoin {
       inherit meta version;

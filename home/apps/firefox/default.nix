@@ -11,7 +11,10 @@
       else null;
     languagePacks =
       if pkgs.stdenv.isLinux
-      then ["zh-CN" "en-US"]
+      then [
+        "zh-CN"
+        "en-US"
+      ]
       else [];
     policies = {
       DisableAppUpdate = true;
