@@ -5,47 +5,97 @@
   pkgs,
   overlays,
   ...
-}: {
+}: let
+  allowedUsers = [
+    "@wheel"
+    "root"
+  ];
+in {
   options = {
     renna.enableMirrorSubstituter = lib.mkEnableOption "Enable mirror for cache.nixos.org";
   };
 
   config = {
+    services.angrr = {
+      enable = true;
+      settings = {
+        temporary-root-policies = {
+          direnv = {
+            path-regex = "/\\.direnv/";
+            period = "14d";
+          };
+          result = {
+            path-regex = "/result[^/]*$";
+            period = "3d";
+          };
+        };
+        profile-policies = {
+          system = {
+            profile-paths = ["/nix/var/nix/profiles/system"];
+            keep-since = "14d";
+            keep-latest-n = 5;
+            keep-booted-system = true;
+            keep-current-system = true;
+          };
+          user = {
+            enable = false; # Policies can be individually disabled
+            profile-paths = [
+              "~/.local/state/nix/profiles/profile"
+              "/nix/var/nix/profiles/per-user/root/profile"
+            ];
+            keep-since = "1d";
+            keep-latest-n = 1;
+          };
+        };
+      };
+    };
+
     nix = {
-      package = pkgs.nix;
+      package = pkgs.lixPackageSets.latest.lix;
+
+      daemonIOSchedClass = lib.mkDefault "idle";
+      daemonCPUSchedPolicy = lib.mkDefault "idle";
+      daemonIOSchedPriority = 7;
+
       gc = {
         automatic = true;
         options = "--delete-older-than 7d";
-        dates = "daily";
+        randomizedDelaySec = "1h";
       };
-      optimise = {
-        automatic = true;
-        dates = ["03:45"];
-      };
+      nrBuildUsers = 0;
+      optimise.automatic = true;
       settings = {
+        accept-flake-config = true;
+        allowed-users = lib.mkForce allowedUsers;
+        auto-allocate-uids = true;
         auto-optimise-store = true;
-        narinfo-cache-positive-ttl = 60 * 60 * 24;
-        allowed-users = [
-          "root"
-          "@wheel"
-        ];
-        trusted-users = [
-          "@wheel"
-        ];
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+        build-dir = "/var/cache/nix";
+        builders-use-substitutes = true;
+        connect-timeout = 5;
+        # download-buffer-size = 1024 * 1024 * 1024;  # Removed in Lix
+        experimental-features = lib.mkForce "nix-command flakes auto-allocate-uids cgroups";
+        extra-experimental-features = lib.mkForce "nix-command flakes auto-allocate-uids cgroups";
+        fallback = true;
+        keep-going = true;
+        keep-outputs = true;
+        log-lines = 25;
+        max-free = 1000 * 1000 * 1000;
+        min-free = 128 * 1000 * 1000;
+        trusted-users = allowedUsers;
+        use-cgroups = true;
+        warn-dirty = false;
+        use-xdg-base-directories = true;
+
+        # # Determinate Nix specific
+        # eval-cores = 0;
+        # max-jobs = "auto";
+        # lazy-trees = true;
+
         substituters = lib.mkIf config.renna.enableMirrorSubstituter [
           "https://mirror.sjtu.edu.cn/nix-channels/store"
           "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
           "https://mirrors.ustc.edu.cn/nix-channels/store"
         ];
-        accept-flake-config = true;
-        warn-dirty = false;
-        use-xdg-base-directories = true;
-        builders-use-substitutes = true;
-
         # Disable the built-in flake registry to speed up evaluation
         flake-registry = "";
       };
@@ -61,9 +111,6 @@
       channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
 
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-
-      daemonIOSchedClass = lib.mkDefault "idle";
-      daemonCPUSchedPolicy = lib.mkDefault "idle";
     };
 
     nixpkgs = {
@@ -77,16 +124,14 @@
     };
 
     systemd.services.nix-daemon = {
-      environment.TMPDIR = "/nix/tmp";
-
-      # put the service in top-level slice
-      # so that it's lower than system and user slice overall
-      # instead of only being lower in system slice
-      serviceConfig.Slice = "-.slice";
+      serviceConfig = {
+        CacheDirectory = "nix";
+        Nice = 19;
+        OOMScoreAdjust = 250;
+      };
     };
-    systemd.tmpfiles.rules = [
-      "d /nix/tmp 1777 root root 1d"
-    ];
+
+    systemd.timers.nix-gc.timerConfig.Persistent = lib.mkForce "false";
 
     # always use the daemon, even executed  with root
     environment.variables.NIX_REMOTE = "daemon";

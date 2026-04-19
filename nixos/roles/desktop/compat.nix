@@ -7,8 +7,13 @@
   options = {
     renna.enableCompatLibraries = lib.mkEnableOption "Enable compatibility libraries for nix-ld";
   };
-  config = lib.mkIf config.renna.enableCompatLibraries {
-    programs.nix-ld.libraries = with pkgs; [
+  config = {
+    lantian.qemu-user-static-binfmt = {
+      enable = true;
+      package = pkgs.nur-xddxdd.qemu-user-static;
+    };
+
+    programs.nix-ld.libraries = lib.mkIf config.renna.enableCompatLibraries (with pkgs; [
       libxcomposite
       libxtst
       libxrandr
@@ -132,6 +137,6 @@
       # Appimages need fuse, e.g. https://musescore.org/fr/download/musescore-x86_64.AppImage
       fuse
       e2fsprogs
-    ];
+    ]);
   };
 }

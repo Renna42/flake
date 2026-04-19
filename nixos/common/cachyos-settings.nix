@@ -11,9 +11,6 @@
     {
       boot = {
         consoleLogLevel = 3;
-        kernelModules = [
-          "ntsync"
-        ];
         kernel.sysctl = {
           # The sysctl swappiness parameter determines the kernel's preference for pushing anonymous pages or page cache to disk in memory-starved situations.
           # A low value causes the kernel to prefer freeing up open files (page cache), a high value causes the kernel to try to use swap space,

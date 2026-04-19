@@ -1,7 +1,3 @@
-[character]
-success_symbol = "[](fg:black bg:#5BCEFA)[](fg:#5BCEFA bg:#F5A9B8)[](fg:#F5A9B8 bg:#FFFFFF)[](fg:#FFFFFF)"
-error_symbol = "[](fg:black bg:red)[](fg:red bg:red)[](fg:red)"
-
 [aws]
 symbol = "  "
 
@@ -10,6 +6,10 @@ symbol = " "
 
 [c]
 symbol = " "
+
+[character]
+success_symbol = "[](fg:black bg:#5BCEFA)[](fg:#5BCEFA bg:#F5A9B8)[](fg:#F5A9B8 bg:#FFFFFF)[](fg:#FFFFFF)"
+error_symbol = "[](fg:black bg:red)[](fg:red bg:red)[](fg:red)"
 
 [conda]
 symbol = " "

@@ -1,7 +1,5 @@
 _: {
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -10,6 +8,16 @@ _: {
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
-    wireplumber.enable = true;
+    lowLatency = {
+      enable = true;
+      quantum = 64;
+      rate = 768000;
+      alsa = {
+        enable = true;
+        devicePattern = "~alsa_output.usb-SMSL_SMSL_USB_AUDIO-00.*";
+      };
+    };
   };
+
+  security.rtkit.enable = true;
 }

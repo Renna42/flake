@@ -2,6 +2,7 @@
   programs.steam = {
     enable = true;
     package = pkgs.steam;
+    platformOptimizations.enable = true;
     extraCompatPackages = with pkgs; [
       dwproton-bin
     ];
@@ -23,11 +24,6 @@
         renice = 10;
       };
     };
-  };
-
-  environment.sessionVariables = {
-    PROTON_USE_NTSYNC = 1;
-    PROTON_ENABLE_HDR = 1;
   };
 
   services.udev.packages = with pkgs; [

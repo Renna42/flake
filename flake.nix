@@ -5,12 +5,16 @@
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
+      "https://nix-gaming.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
       "https://cache.garnix.io"
       "https://renna42.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
     ];
@@ -18,54 +22,124 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+    systems.url = "github:nix-systems/default";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+
+    # keep-sorted start block=yes
+    angrr = {
+      url = "github:linyinfeng/angrr";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
+    catppuccin = {
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
+    chinese-fonts-overlay = {
+      url = "github:brsvh/chinese-fonts-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks.follows = "git-hooks-nix";
+      inputs.systems.follows = "systems";
+    };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-index-database.follows = "nix-index-database";
+    };
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix4vscode = {
       url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur-xddxdd = {
+      url = "github:xddxdd/nur-packages";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nix-index-database.follows = "nix-index-database";
+      inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pre-commit-hooks-nix.follows = "git-hooks-nix";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nur.follows = "nur";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    catppuccin.url = "github:catppuccin/nix";
-    deploy-rs.url = "github:serokell/deploy-rs";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # keep-sorted end
   };
 
   outputs = {
@@ -96,140 +170,155 @@
 
     deployLib = inputs.deploy-rs.lib;
   in
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        inputs.git-hooks-nix.flakeModule
-        inputs.treefmt-nix.flakeModule
-        inputs.flake-parts.flakeModules.easyOverlay
-        inputs.home-manager.flakeModules.home-manager
-      ];
-
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "aarch64-darwin"
-      ];
-      perSystem = {
-        self',
-        pkgs,
-        config,
-        system,
+    flake-parts.lib.mkFlake {inherit inputs;} (
+      {
+        flake-parts-lib,
+        lib,
         ...
       }: let
-        # rename `self.legacyPackages.*.packages` -> `self.legacyPackages.*.packages'`
-        # `self.legacyPackages.*.packages` collides with `self.packages` in nix cli
-        adjustLegacyPackages = pkgs: nixpkgs.lib.attrsets.removeAttrs pkgs ["packages"] // {packages' = pkgs.packages;};
-
-        pkgs' = import self.inputs.nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+        inherit (flake-parts-lib) importApply;
+        flakeModules = {
+          renna-treefmt = importApply ./flake-modules/renna-treefmt.nix {inherit (inputs) treefmt-nix;};
+          renna-git-hooks = importApply ./flake-modules/renna-git-hooks.nix {inherit (inputs) git-hooks-nix;};
         };
       in {
-        legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs' ./pkgs {});
-        packages = flake-utils.lib.flattenTree self'.legacyPackages;
+        imports = [
+          inputs.flake-parts.flakeModules.easyOverlay
+          inputs.home-manager.flakeModules.home-manager
+          flakeModules.renna-treefmt
+          flakeModules.renna-git-hooks
+        ];
 
-        overlayAttrs = {
-          flakePackages = pkgs.lib.recurseIntoAttrs self'.legacyPackages;
-        };
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+          "aarch64-darwin"
+        ];
+        perSystem = {
+          self',
+          pkgs,
+          config,
+          system,
+          ...
+        }: let
+          # rename `self.legacyPackages.*.packages` -> `self.legacyPackages.*.packages'`
+          # `self.legacyPackages.*.packages` collides with `self.packages` in nix cli
+          adjustLegacyPackages = pkgs:
+            lib.attrsets.removeAttrs pkgs ["packages"]
+            // {packages' = pkgs.packages;};
 
-        treefmt = {
-          programs = {
-            alejandra.enable = true;
-            keep-sorted.enable = true;
+          pkgs' = import self.inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in {
+          legacyPackages = adjustLegacyPackages (self.lib.makePackages pkgs' ./pkgs {});
+          packages = flake-utils.lib.flattenTree self'.legacyPackages;
+
+          overlayAttrs = {
+            flakePackages = lib.recurseIntoAttrs self'.legacyPackages;
+          };
+
+          checks = deployLib.deployChecks self'.deploy;
+
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              nix
+              alejandra
+              nixd
+              deploy-rs
+              disko
+              just
+              nh
+              nix-output-monitor
+              statix
+              ssh-to-age
+              openssh
+              sops
+            ];
+            inherit (config.pre-commit) shellHook;
+            buildInputs = config.pre-commit.settings.enabledPackages;
+            EDITOR = "codium -w";
           };
         };
 
-        pre-commit.settings = {
-          package = pkgs.prek;
-          hooks = {
-            treefmt = {
-              enable = true;
-              packageOverrides.treefmt = config.treefmt.build.wrapper;
-            };
-            nixf-diagnose.enable = true;
+        flake = {
+          overlays = {
+            # keep-sorted start
+            angrr = inputs.angrr.overlays.default;
+            chinese-fonts-overlay = inputs.chinese-fonts-overlay.overlays.default;
+            nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
+            nix-gaming = inputs.nix-gaming.overlays.default;
+            nix4vscode = inputs.nix4vscode.overlays.default;
+            nixpkgs-wayland = inputs.nixpkgs-wayland.overlay;
+            nur = inputs.nur.overlays.default;
+            rust-overlay = inputs.rust-overlay.overlays.default;
+            # keep-sorted end
           };
-        };
-        checks = deployLib.deployChecks self'.deploy;
 
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nix
-            alejandra
-            nixd
-            deploy-rs
-            disko
-            just
-            nh
-            nix-output-monitor
-            statix
-            ssh-to-age
-            openssh
-            sops
-          ];
-          inherit (config.pre-commit) shellHook;
-          buildInputs = config.pre-commit.settings.enabledPackages;
-          EDITOR = "codium -w";
-        };
-      };
+          lib = import ./lib {inherit (nixpkgs) lib;};
 
-      flake = {
-        overlays = {
-          nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
-          nur = inputs.nur.overlays.default;
-          nix4vscode = inputs.nix4vscode.overlays.default;
-          rust-overlay = inputs.rust-overlay.overlays.default;
-          nixpkgs-wayland = inputs.nixpkgs-wayland.overlay;
-        };
+          nixosConfigurations = lib.genAttrs nixosMachines (
+            hostname:
+              self.lib.withOfflineInstaller {
+                flake = self;
+                nixosConfig = lib.nixosSystem {
+                  specialArgs =
+                    globalSpecialArgs
+                    // {
+                      inherit hostname;
+                    };
+                  modules = [
+                    ./configurations/${hostname}
+                    ./nixos/common
+                    # keep-sorted start
+                    inputs.angrr.nixosModules.angrr
+                    inputs.disko.nixosModules.disko
+                    inputs.home-manager.nixosModules.home-manager
+                    inputs.hyprland.nixosModules.default
+                    inputs.nix-gaming.nixosModules.pipewireLowLatency
+                    inputs.nix-gaming.nixosModules.platformOptimizations
+                    inputs.nix-gaming.nixosModules.wine
+                    inputs.nur-xddxdd.nixosModules.openssl-conf
+                    inputs.nur-xddxdd.nixosModules.openssl-gost-engine
+                    inputs.nur-xddxdd.nixosModules.openssl-oqs-provider
+                    inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
+                    inputs.nur-xddxdd.nixosModules.setupOverlay
+                    inputs.sops-nix.nixosModules.sops
+                    inputs.stylix.nixosModules.stylix
+                    # keep-sorted end
+                  ];
+                };
+              }
+          );
 
-        lib = import ./lib {inherit (nixpkgs) lib;};
+          deploy.nodes = lib.genAttrs nixosMachines (
+            hostname: {
+              inherit hostname;
+              sshUser = "root";
+              profiles.system = {
+                user = "root";
+                path = deployLib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
+              };
+            }
+          );
 
-        nixosConfigurations = nixpkgs.lib.genAttrs nixosMachines (
-          hostname:
-            self.lib.withOfflineInstaller {
-              flake = self;
-              nixosConfig = nixpkgs.lib.nixosSystem {
+          darwinConfigurations = lib.genAttrs darwinMachines (
+            hostname:
+              inputs.darwin.lib.darwinSystem {
                 specialArgs =
                   globalSpecialArgs
                   // {
                     inherit hostname;
                   };
                 modules = [
-                  ./configurations/${hostname}
-                  ./nixos/common
-                  inputs.disko.nixosModules.disko
-                  inputs.stylix.nixosModules.stylix
-                  inputs.hyprland.nixosModules.default
-                  inputs.home-manager.nixosModules.home-manager
-                  inputs.sops-nix.nixosModules.sops
+                  ./darwin
+                  inputs.home-manager.darwinModules.home-manager
+                  inputs.sops-nix.darwinModules.sops
                 ];
-              };
-            }
-        );
-
-        deploy.nodes = nixpkgs.lib.genAttrs nixosMachines (hostname: {
-          inherit hostname;
-          sshUser = "root";
-          profiles.system = {
-            user = "root";
-            path = deployLib.x86_64-linux.activate.nixos self.nixosConfigurations."${hostname}";
-          };
-        });
-
-        darwinConfigurations = nixpkgs.lib.genAttrs darwinMachines (
-          hostname:
-            inputs.darwin.lib.darwinSystem {
-              specialArgs =
-                globalSpecialArgs
-                // {
-                  inherit hostname;
-                };
-              modules = [
-                ./darwin
-                inputs.home-manager.darwinModules.home-manager
-                inputs.sops-nix.darwinModules.sops
-              ];
-            }
-        );
-      };
-    };
+              }
+          );
+        };
+      }
+    );
 }

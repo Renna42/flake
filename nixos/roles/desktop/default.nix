@@ -4,7 +4,7 @@ _: {
     ./audio.nix
     ./sudo-nopasswd.nix
     ./fonts.nix
-    ./compat-libraries.nix
+    ./compat.nix
     ./renna.nix
   ];
 }
