@@ -5,4 +5,6 @@
     usbmon.enable = true;
     dumpcap.enable = true;
   };
+
+  users.users.renna.extraGroups = ["wireshark"];
 }

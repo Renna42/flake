@@ -29,6 +29,11 @@
     options i915 enable_fbc=1 enable_guc=${toString enableGucFlag}
   '';
 
+  users.users.renna.extraGroups = [
+    "video"
+    "render"
+  ];
+
   environment.variables = {
     # Default to Intel hardware decoding
     LIBVA_DRIVER_NAME = lib.mkDefault "iHD";

@@ -20,18 +20,13 @@ in {
       extraGroups = [
         # keep-sorted start
         "dialout"
-        "docker"
         "i2c"
         "input"
-        "libvirtd"
         "networkmanager"
-        "podman"
-        "render"
-        "samba"
+        "systemd-journal"
         "tss"
-        "video"
+        "users"
         "wheel"
-        "wireshark"
         # keep-sorted end
       ];
       shell =

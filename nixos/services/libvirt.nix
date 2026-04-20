@@ -13,5 +13,7 @@
     spiceUSBRedirection.enable = true;
   };
 
+  users.users.renna.extraGroups = ["libvirtd"];
+
   systemd.tmpfiles.rules = ["L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware"];
 }
