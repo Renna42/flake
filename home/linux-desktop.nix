@@ -18,6 +18,7 @@ in {
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
+    ./apps/discord
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
@@ -41,6 +42,7 @@ in {
       audacity
       ayugram-desktop
       bitwarden-desktop
+      cider-2
       dbeaver-bin
       dejavu_fonts
       flakePackages.aegisub-arch1t3cht
@@ -55,7 +57,7 @@ in {
       qbittorrent-enhanced
       realvnc-vnc-viewer
       teamspeak6-client
-      ventoy-full-qt
+      ventoy-full
       vlc
       # keep-sorted end
     ];

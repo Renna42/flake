@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   # Enable sound with pipewire.
   services.pipewire = {
     enable = true;
@@ -10,14 +10,13 @@ _: {
 
     lowLatency = {
       enable = true;
-      quantum = 64;
-      rate = 768000;
-      alsa = {
-        enable = true;
-        devicePattern = "~alsa_output.usb-SMSL_SMSL_USB_AUDIO-00.*";
-      };
+      alsa.enable = true;
     };
   };
 
   security.rtkit.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+  ];
 }

@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     renna.enableBinaryCompat =
       lib.mkEnableOption "Enable binary compatibility with FHS programs"
@@ -14,5 +18,9 @@
     };
 
     programs.nix-ld.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      nix-alien
+    ];
   };
 }

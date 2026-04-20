@@ -1,8 +1,30 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  profileName = "renna";
+
+  redirectnixwiki = inputs.firefox-addons.lib.buildFirefoxAddon rec {
+    pname = "RedirectNixWiki";
+    version = "1.0";
+    addonId = "redirect-nix-wiki@undesided.me";
+    derivationArgs = {
+      src = pkgs.fetchurl {
+        url = "https://addons.mozilla.org/firefox/downloads/file/4373121/redirectnixwiki-1.0.xpi";
+        hash = "sha256-ygnfXIv5bW7TTuh1PezvGICZq3fCSQ+G7hclRSNv0D8=";
+      };
+      meta = {
+        addonName = pname;
+        platform = lib.platforms.all;
+        license = lib.licenses.mit;
+      };
+    };
+  } {inherit lib pkgs;};
+in {
+  imports = [inputs.betterfox-nix.homeModules.betterfox];
+
   programs.firefox = {
     enable = true;
     package =
@@ -16,137 +38,175 @@
         "en-US"
       ]
       else [];
+    betterfox = {
+      enable = true;
+      profiles.${profileName}.settings = {
+        fastfox.enable = true;
+        securefox.enable = true;
+        peskyfox.enable = true;
+      };
+    };
     policies = {
       DisableAppUpdate = true;
-      ExtensionSettings = let
-        moz = short: "https://addons.mozilla.org/firefox/downloads/latest/${short}/latest.xpi";
-      in
-        lib.mapAttrs
-        (
-          _: value:
-            {
-              installation_mode = "force_installed";
-              default_area = "menupanel";
-            }
-            // value
-        )
-        {
-          # keep-sorted start block=yes case=no
-          "458813868@qq.com" = {
-            install_url = moz "code-box";
-          };
-          "@ublacklist" = {
-            install_url = moz "ublacklist";
-          };
-          "addon@celeus.cn" = {
-            install_url = moz "bewlycat";
-          };
-          "addon@darkreader.org" = {
-            install_url = moz "darkreader";
-          };
-          "cors-everywhere@spenibus" = {
-            install_url = moz "cors-everywhere";
-          };
-          "firefox-extension@steamdb.info" = {
-            install_url = moz "steam-database";
-          };
-          "firefox@tampermonkey.net" = {
-            install_url = moz "tampermonkey";
-            default_area = "navbar";
-          };
-          "Google_AI_Overviews_Blocker@zachbarnes.dev" = {
-            install_url = moz "hide-google-ai-overviews";
-          };
-          "headereditor-amo@addon.firefoxcn.net" = {
-            install_url = moz "header-editor";
-          };
-          "redirect-nix-wiki@undesided.me" = {
-            install_url = moz "redirectnixwiki";
-          };
-          "sponsorBlocker@ajay.app" = {
-            install_url = moz "sponsorblock";
-          };
-          "uBlock0@raymondhill.net" = {
-            install_url = moz "ublock-origin";
-          };
-          "{0982b844-4f35-48b7-9811-6832d916f21c}" = {
-            install_url = moz "hcfy";
-            default_area = "navbar";
-          };
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = moz "bitwarden-password-manager";
-            default_area = "navbar";
-          };
-          "{74145f27-f039-47ce-a470-a662b129930a}" = {
-            install_url = moz "clearurls";
-          };
-          "{a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7}" = {
-            install_url = moz "user-agent-string-switcher";
-          };
-          # keep-sorted end
+      ExtensionSettings = {
+        # keep-sorted start block=yes case=no
+        "firefox@tampermonkey.net" = {
+          default_area = "navbar";
         };
+        "{0982b844-4f35-48b7-9811-6832d916f21c}" = {
+          default_area = "navbar";
+        };
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          default_area = "navbar";
+        };
+        # keep-sorted end
+      };
       # keep-sorted start block=yes
+      DNSOverHTTPS = {
+        Enabled = false;
+        Locked = true;
+      };
       DisableFirefoxStudies = true;
       DisableProfileImport = true;
       DisableProfileRefresh = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
+      DisabledCiphers = {
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" = false;
+        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256" = false;
+        "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256" = false;
+        "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256" = false;
+        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384" = false;
+        "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384" = false;
+
+        # Reenabled for breaking many sites
+        "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA" = false;
+        "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA" = false;
+        "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA" = false;
+        "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA" = false;
+        "TLS_DHE_RSA_WITH_AES_128_CBC_SHA" = false;
+        "TLS_DHE_RSA_WITH_AES_256_CBC_SHA" = false;
+        "TLS_RSA_WITH_AES_128_GCM_SHA256" = false;
+        "TLS_RSA_WITH_AES_256_GCM_SHA384" = false;
+        "TLS_RSA_WITH_AES_128_CBC_SHA" = false;
+        "TLS_RSA_WITH_AES_256_CBC_SHA" = false;
+        "TLS_RSA_WITH_3DES_EDE_CBC_SHA" = false;
+      };
       DisplayBookmarksToolbar = "never";
+      DontCheckDefaultBrowser = true;
+      FirefoxHome = {
+        Highlights = false;
+        Locked = true;
+        Pocket = false;
+        Search = true;
+        Snippets = false;
+        SponsoredPocket = false;
+        SponsoredTopSites = false;
+        TopSites = false;
+      };
       HardwareAcceleration = true;
-      Homepage.Locked = true;
-      Homepage.StartPage = "none";
-      Homepage.URL = "chrome://browser/content/blanktab.html";
+      Homepage = {
+        URL = "about:home";
+        Locked = true;
+        StartPage = "homepage";
+      };
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       PasswordManagerEnabled = false;
       Preferences = {
         # keep-sorted start
-        "browser.ai.control.default" = "blocked";
-        "browser.ai.control.linkPreviewKeyPoints" = "blocked";
-        "browser.ai.control.pdfjsAltText" = "blocked";
-        "browser.ai.control.sidebarChatbot" = "blocked";
-        "browser.ai.control.smartTabGroups" = "blocked";
-        "browser.ai.control.translations" = "blocked";
+        "browser.aboutConfig.showWarning" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
-        "browser.ml.chat.enabled" = false;
-        "browser.ml.enable" = false;
-        "browser.ml.linkPreview.enable" = false;
-        "browser.ml.pageAssist.enable" = false;
-        "browser.ml.smartAssist.enable" = false;
-        "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.quitShortcut.disabled" = true;
         "browser.safebrowsing.malware.enabled" = false;
         "browser.safebrowsing.phishing.enabled" = false;
-        "browser.search.separatePrivateDefault" = false;
-        "browser.search.separatePrivateDefault.ui.enabled" = true;
-        "browser.tabs.groups.smart.enabled" = false;
-        "browser.tabs.groups.smart.userEnabled" = false;
+        "browser.tabs.unloadTabInContextMenu" = true;
         "browser.translations.enable" = false;
         "dom.security.https_first" = true;
-        "extensions.autoDisableScopes" = 0;
+        "extensions.autoDisableScopes" = 0; # Auto enable installed extensions
         "extensions.ml.enabled" = false;
         "extensions.update.autoUpdateDefault" = false;
         "extensions.update.enabled" = false;
+        "extensions.webextensions.ExtensionStorageIDB.enabled" = false; # Make home-manager extension config work
+        "gfx.wayland.hdr" = false; # FIXME: causes crashes
+        "gfx.wayland.hdr.force-enabled" = false; # FIXME: causes crashes
         "gfx.webrender.all" = true;
+        "gfx.webrender.compositor.force-enabled" = false; # FIXME: causes crashes
         "gfx.x11-egl.force-enabled" = true;
+        "image.avif.enabled" = true;
+        "image.jxl.enabled" = true;
+        "media.av1.enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
+        "media.hevc.enabled" = true;
+        "media.hls.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
+        "media.videocontrols.picture-in-picture.enabled" = false;
         "pdfjs.enableAltText" = false;
+        "security.insecure_connection_text.enabled" = true;
+        "security.insecure_connection_text.pbmode.enabled" = true;
+        "security.osclientcerts.autoload" = true;
+        "svg.context-properties.content.enabled" = true;
         "widget.dmabuf.force-enabled" = true;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         # keep-sorted end
       };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
+      SearchBar = "unified";
       SearchEngines = {
         "Remove" = ["百度"];
       };
+      SearchSuggestEnabled = true;
+      SecurityDevices = {
+        Add = {
+          p11-kit = "${pkgs.p11-kit}/lib/pkcs11/p11-kit-trust.so";
+        };
+      };
+      ShowHomeButton = false;
+      SupportMenu = {
+        Title = "Renna's Blog";
+        URL = "https://renna.dev";
+        AccessKey = "S";
+      };
+      UseSystemPrintDialog = true;
+      UserMessaging = {
+        WhatsNew = false;
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        UrlbarInterventions = false;
+        SkipOnboarding = true;
+        MoreFromMozilla = false;
+      };
       # keep-sorted end
     };
-    profiles.renna = {
+    profiles.${profileName} = {
       id = 0;
       isDefault = true;
       name = "Renna";
+
+      extensions = {
+        packages = with pkgs.firefox-addons; [
+          # keep-sorted start
+          bewlycat
+          bitwarden-password-manager
+          clearurls
+          code-box
+          cors-everywhere
+          darkreader
+          hcfy
+          header-editor
+          hide-google-ai-overviews
+          redirectnixwiki
+          sponsorblock
+          steam-database
+          tampermonkey
+          ublacklist
+          ublock-origin
+          user-agent-string-switcher
+          # keep-sorted end
+        ];
+        force = true;
+      };
 
       search = {
         force = true;
@@ -212,7 +272,11 @@
       };
     };
   };
-  stylix.targets.firefox.profileNames = [
-    "renna"
-  ];
+  stylix.targets.firefox.profileNames = [profileName];
+
+  home.sessionVariables = {
+    MOZ_X11_EGL = "1";
+    MOZ_USE_XINPUT2 = "1";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+  };
 }

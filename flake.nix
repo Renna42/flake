@@ -42,6 +42,12 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
+    betterfox-nix = {
+      url = "github:HeitorAugustoLN/betterfox-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+    };
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,6 +68,19 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox-addons = {
+      url = "github:petrkozorezov/firefox-addons-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    flat-flake = {
+      url = "github:linyinfeng/flat-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
@@ -104,6 +123,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.flake-compat.follows = "flake-compat";
@@ -138,7 +163,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # keep-sorted end
   };
 
@@ -253,6 +281,8 @@
             # keep-sorted start
             angrr = inputs.angrr.overlays.default;
             chinese-fonts-overlay = inputs.chinese-fonts-overlay.overlays.default;
+            firefox-addons = inputs.firefox-addons.overlays.default;
+            nix-alien = inputs.nix-alien.overlays.default;
             nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
             nix-gaming = inputs.nix-gaming.overlays.default;
             nix4vscode = inputs.nix4vscode.overlays.default;
