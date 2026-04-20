@@ -23,6 +23,7 @@ in {
     ./apps/fcitx5
     ./apps/firefox
     ./apps/kitty
+    ./apps/mpv
     ./apps/obs-studio
     ./apps/obsidian
     ./apps/vscode
