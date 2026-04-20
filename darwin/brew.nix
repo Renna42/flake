@@ -7,7 +7,7 @@ _: {
       autoUpdate = false;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
-      upgrade = true;
+      upgrade = false;
     };
 
     masApps = {
@@ -17,12 +17,14 @@ _: {
     };
 
     taps = [
+      "AnInsomniacy/motrix-next"
       "Renna42/tap"
     ];
     brews = [];
     casks = [
       # keep-sorted start case=no
       "affinity"
+      "AnInsomniacy/motrix-next/motrix-next"
       "arch1t3cht-aegisub"
       "audacity"
       "betterdisplay"
@@ -60,7 +62,6 @@ _: {
       "mediainfo"
       "mkvtoolnix-app"
       "mos@beta"
-      "motrix"
       "musicbrainz-picard"
       "obs"
       "obsidian"
