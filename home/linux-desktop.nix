@@ -49,8 +49,8 @@ in {
       krita
       localsend
       makemkv
-      mediainfo-gui
-      motrix
+      mediainfo
+      motrix-next
       openscreen
       podman-desktop
       qbittorrent-enhanced
