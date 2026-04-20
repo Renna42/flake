@@ -15,6 +15,8 @@
     ../../nixos/hardware/xpad.nix
     ../../nixos/hardware/logitech-wireless.nix
     ../../nixos/hardware/ddcci.nix
+    ../../nixos/hardware/disable-watchdog.nix
+    ../../nixos/hardware/hdr.nix
 
     ../../nixos/services/kmscon.nix
     ../../nixos/services/mdns.nix
@@ -42,9 +44,11 @@
   ];
 
   renna = {
+    kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
+      processorOpt = "x86_64-v3";
+    };
     homeManager.enable = true;
     enableMirrorSubstituter = true;
-    enableCachyosSettings = true;
     enableCompatLibraries = true;
   };
 
@@ -54,8 +58,8 @@
     virt-manager.enable = true;
   };
 
-  boot.binfmt = {
-    emulatedSystems = ["aarch64-linux"];
-    preferStaticEmulators = true; # required to work with podman
+  lantian.qemu-user-static-binfmt = {
+    enable = true;
+    package = pkgs.qemu-user-static;
   };
 }

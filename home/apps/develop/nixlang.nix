@@ -3,5 +3,6 @@
     nixd
     alejandra
     nixfmt-tree
+    nvfetcher
   ];
 }

@@ -1,20 +1,9 @@
 {
   config,
-  inputs,
   lib,
-  pkgs,
   modulesPath,
   ...
-}: let
-  cachyosKernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
-    processorOpt = "x86_64-v3";
-  };
-  cachyosKernelPackage = let
-    # helpers.nix provides a few utilities for building kernel with LTO.
-    helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" {};
-  in
-    helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor cachyosKernel);
-in {
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -39,7 +28,6 @@ in {
     ];
     kernelModules = ["kvm-intel"];
     supportedFilesystems = ["ntfs"];
-    kernelPackages = cachyosKernelPackage;
   };
 
   # To make sops-nix happy

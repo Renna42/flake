@@ -1,0 +1,23 @@
+{
+    "nvidia-patch": {
+        "cargoLock": null,
+        "date": "2026-04-03",
+        "extract": null,
+        "name": "nvidia-patch",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "keylase",
+            "repo": "nvidia-patch",
+            "rev": "80e48e9346beb9407734a090d33c5e79e9113b01",
+            "sha256": "sha256-Lc7XJRWbrzR6c2x8enGHKCJ1hh0NE9cBOgbuoWBBF2Q=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "80e48e9346beb9407734a090d33c5e79e9113b01"
+    }
+}

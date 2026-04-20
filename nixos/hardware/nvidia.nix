@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   hardware.graphics = {
@@ -19,4 +20,24 @@
       package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
+
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    VDPAU_DRIVER = "nvidia";
+
+    # For hwdec to work on firefox
+    NVD_BACKEND = "direct";
+  };
+
+  environment.systemPackages = [
+    pkgs.nvtopPackages.full
+  ];
+
+  programs.firefox.preferences = {
+    "widget.dmabuf.force-enabled" = true;
+  };
+
+  virtualisation.docker.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
 }

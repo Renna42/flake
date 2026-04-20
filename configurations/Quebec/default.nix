@@ -16,7 +16,6 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   services.qemuGuest.enable = true;

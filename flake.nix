@@ -217,24 +217,30 @@
 
           overlayAttrs = {
             flakePackages = lib.recurseIntoAttrs self'.legacyPackages;
+            generated = import ./_sources/generated.nix {
+              inherit (pkgs) fetchgit fetchurl fetchFromGitHub dockerTools;
+            };
           };
 
           checks = deployLib.deployChecks self'.deploy;
 
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              nix
-              alejandra
-              nixd
+              # keep-sorted start
+              config.treefmt.build.wrapper
               deploy-rs
               disko
               just
               nh
+              nix
               nix-output-monitor
-              statix
-              ssh-to-age
+              nixd
+              nvfetcher
               openssh
               sops
+              ssh-to-age
+              statix
+              # keep-sorted end
             ];
             inherit (config.pre-commit) shellHook;
             buildInputs = config.pre-commit.settings.enabledPackages;

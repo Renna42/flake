@@ -117,6 +117,7 @@ in {
       inherit overlays;
       config = {
         allowUnfree = true;
+        android_sdk.accept_license = true;
         permittedInsecurePackages = [
           "ventoy-qt5-1.1.10"
         ];

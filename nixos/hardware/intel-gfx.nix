@@ -1,15 +1,37 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver
-      vpl-gpu-rt
       intel-compute-runtime
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl
+      vpl-gpu-rt
     ];
   };
 
+  hardware.intel-gpu-tools.enable = true;
+
   services.xserver.videoDrivers = ["modesetting"];
 
-  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+  boot.extraModprobeConfig = let
+    enableGucFlag =
+      if config.virtualisation.kvmgt.enable
+      then 0
+      else 3;
+  in ''
+    options i915 enable_fbc=1 enable_guc=${toString enableGucFlag}
+  '';
+
+  environment.variables = {
+    # Default to Intel hardware decoding
+    LIBVA_DRIVER_NAME = lib.mkDefault "iHD";
+    VDPAU_DRIVER = lib.mkDefault "va_gl";
+  };
 }

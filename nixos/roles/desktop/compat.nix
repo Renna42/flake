@@ -8,11 +8,6 @@
     renna.enableCompatLibraries = lib.mkEnableOption "Enable compatibility libraries for nix-ld";
   };
   config = {
-    lantian.qemu-user-static-binfmt = {
-      enable = true;
-      package = pkgs.nur-xddxdd.qemu-user-static;
-    };
-
     programs.nix-ld.libraries = lib.mkIf config.renna.enableCompatLibraries (with pkgs; [
       libxcomposite
       libxtst
