@@ -16,7 +16,8 @@
       modesetting.enable = true;
       powerManagement.enable = true;
       open = true;
-      nvidiaSettings = true;
+      nvidiaSettings = false;
+      nvidiaPersistenced = true;
       package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
@@ -32,10 +33,6 @@
   environment.systemPackages = [
     pkgs.nvtopPackages.full
   ];
-
-  programs.firefox.preferences = {
-    "widget.dmabuf.force-enabled" = true;
-  };
 
   virtualisation.docker.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
