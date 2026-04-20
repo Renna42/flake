@@ -215,9 +215,12 @@
         imports = [
           inputs.flake-parts.flakeModules.easyOverlay
           inputs.home-manager.flakeModules.home-manager
+          inputs.flat-flake.flakeModules.flatFlake
           flakeModules.renna-treefmt
           flakeModules.renna-git-hooks
         ];
+
+        flatFlake.config.allowed = [];
 
         systems = [
           "x86_64-linux"
@@ -284,6 +287,7 @@
             angrr = inputs.angrr.overlays.default;
             chinese-fonts-overlay = inputs.chinese-fonts-overlay.overlays.default;
             firefox-addons = inputs.firefox-addons.overlays.default;
+            flat-flake = inputs.flat-flake.overlays.default;
             nix-alien = inputs.nix-alien.overlays.default;
             nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
             nix-gaming = inputs.nix-gaming.overlays.default;

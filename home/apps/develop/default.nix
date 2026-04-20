@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./common.nix
-    ./nixlang.nix
+    ./nix.nix
     ./reverse.nix
   ];
 }

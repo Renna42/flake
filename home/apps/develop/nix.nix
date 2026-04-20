@@ -4,5 +4,6 @@
     alejandra
     nixfmt-tree
     nvfetcher
+    flat-flake
   ];
 }
