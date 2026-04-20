@@ -1,8 +1,4 @@
-{pkgs, ...}: {
-  services.printing.drivers = [
-    pkgs.epson-escpr2
-  ];
-
+_: {
   hardware.printers = {
     ensurePrinters = [
       {
