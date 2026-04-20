@@ -1,9 +1,12 @@
 {
-  lib,
+  inputs,
   config,
+  lib,
   pkgs,
   ...
 }: {
+  imports = [inputs.nix-index-database.homeModules.nix-index];
+
   home.packages = with pkgs; [
     # keep-sorted start
     asciinema

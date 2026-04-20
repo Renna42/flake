@@ -22,7 +22,6 @@ in {
       sharedModules = [
         inputs.stylix.homeModules.stylix
         inputs.catppuccin.homeModules.catppuccin
-        inputs.nix-index-database.homeModules.nix-index
         inputs.sops-nix.homeManagerModules.sops
       ];
       users."${username}".imports = [
