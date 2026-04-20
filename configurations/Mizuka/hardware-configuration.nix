@@ -30,12 +30,6 @@
     supportedFilesystems = ["ntfs"];
   };
 
-  services.pipewire.lowLatency = {
-    quantum = 64;
-    rate = 192000;
-    alsa.devicePattern = "~alsa_output.usb-SMSL_SMSL_USB_AUDIO-00.*";
-  };
-
   # To make sops-nix happy
   fileSystems."/home".neededForBoot = true;
 

@@ -6,17 +6,19 @@
 }: let
   realtimeLimitUS = 5000000;
 in {
+  imports = [
+    ./pipewire-latency-adjust.nix
+    ./pipewire-rtprio.nix
+    ./pipewire-surround.nix
+    ./wireplumber-bluez.nix
+  ];
+
   # Enable OSS emulation
   boot.kernelModules = ["snd_pcm_oss"];
 
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
-  environment.systemPackages = [
-    pkgs.crosspipe
-    pkgs.pavucontrol
-    pkgs.pulseaudio
-  ];
 
   security.rtkit.enable = true;
   systemd.services.rtkit-daemon.serviceConfig.ExecStart = [
@@ -39,11 +41,6 @@ in {
 
     wireplumber.enable = true;
 
-    lowLatency = {
-      enable = true;
-      alsa.enable = true;
-    };
-
     extraConfig.pipewire = {
       "10-sample-rate" = {
         "context.properties" = {
@@ -62,6 +59,21 @@ in {
           "default.clock.max-quantum" = 2048;
         };
       };
+    };
+  };
+
+  systemd.services.pipewire-auto-start = {
+    description = "Keep PipeWire running";
+    after = ["pipewire.socket"];
+    requires = ["pipewire.socket"];
+    wantedBy = ["multi-user.target"];
+
+    serviceConfig = {
+      ExecStart = "${lib.getExe pkgs.netcat-openbsd} -U /run/pipewire/pipewire-0";
+      User = "pipewire";
+      Group = "pipewire";
+      Restart = "always";
+      RestartSec = "3";
     };
   };
 

@@ -318,7 +318,6 @@
                     inputs.disko.nixosModules.disko
                     inputs.home-manager.nixosModules.home-manager
                     inputs.hyprland.nixosModules.default
-                    inputs.nix-gaming.nixosModules.pipewireLowLatency
                     inputs.nix-gaming.nixosModules.platformOptimizations
                     inputs.nix-gaming.nixosModules.wine
                     inputs.nur-xddxdd.nixosModules.openssl-conf

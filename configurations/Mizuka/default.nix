@@ -18,6 +18,7 @@
     ../../nixos/hardware/disable-watchdog.nix
     ../../nixos/hardware/hdr.nix
 
+    ../../nixos/services/pipewire
     ../../nixos/services/kmscon.nix
     ../../nixos/services/mdns.nix
     ../../nixos/services/proxy.nix
