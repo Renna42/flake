@@ -45,7 +45,6 @@ in {
       cider-2
       dbeaver-bin
       dejavu_fonts
-      flakePackages.aegisub-arch1t3cht
       kdePackages.kleopatra
       krita
       localsend
@@ -56,6 +55,7 @@ in {
       podman-desktop
       qbittorrent-enhanced
       realvnc-vnc-viewer
+      renna.aegisub-arch1t3cht
       teamspeak6-client
       ventoy-full
       vlc

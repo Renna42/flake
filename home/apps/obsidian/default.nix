@@ -41,11 +41,11 @@ in {
       ];
       communityPlugins = [
         {
-          pkg = pkgs.flakePackages.obsidian-livesync;
+          pkg = pkgs.renna.obsidian-livesync;
           enable = true;
         }
         {
-          pkg = pkgs.flakePackages.obsidian-tasks;
+          pkg = pkgs.renna.obsidian-tasks;
           enable = true;
         }
       ];

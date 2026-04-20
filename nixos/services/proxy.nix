@@ -15,7 +15,7 @@
   services.mihomo = {
     enable = true;
     tunMode = true;
-    webui = pkgs.flakePackages.zashboard-bin;
+    webui = pkgs.renna.zashboard-bin;
     configFile = config.sops.secrets.mihomoConfig.path;
   };
 

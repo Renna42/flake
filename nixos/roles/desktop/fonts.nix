@@ -18,8 +18,8 @@
       maple-mono.Normal-NF-CN-unhinted
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
-      flakePackages.misansFonts.misans
-      flakePackages.misansFonts.misans-l3
+      renna.misansFonts.misans
+      renna.misansFonts.misans-l3
     ];
     enableGhostscriptFonts = true;
     enableDefaultPackages = true;

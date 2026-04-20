@@ -244,7 +244,7 @@
           packages = flake-utils.lib.flattenTree self'.legacyPackages;
 
           overlayAttrs = {
-            flakePackages = lib.recurseIntoAttrs self'.legacyPackages;
+            renna = lib.recurseIntoAttrs self'.legacyPackages;
             generated = import ./_sources/generated.nix {
               inherit (pkgs) fetchgit fetchurl fetchFromGitHub dockerTools;
             };

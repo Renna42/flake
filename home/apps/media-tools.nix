@@ -8,8 +8,8 @@
       bchunk
       cuetools
       flac
-      flakePackages.truehdd
       id3v2
+      renna.truehdd
       shntool
       wavpack
       yt-dlp

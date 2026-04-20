@@ -12,8 +12,8 @@
     cdrdao
     cdrtools
     dvdplusrwtools
-    flakePackages.gen-rdk
     libbluray-full
+    renna.gen-rdk
     udftools
     whipper
     # keep-sorted end
