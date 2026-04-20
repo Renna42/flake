@@ -1,4 +1,25 @@
 {
+    "mpv-sockets": {
+        "cargoLock": null,
+        "date": "2024-02-13",
+        "extract": null,
+        "name": "mpv-sockets",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "wis",
+            "repo": "mpvSockets",
+            "rev": "3b3f430074a67c63572a582847ed1fa69330c668",
+            "sha256": "sha256-KFv3imLuiV+APx4A8TSi2LXL5gdHNKc497fRwBubvMk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "3b3f430074a67c63572a582847ed1fa69330c668"
+    },
     "nvidia-patch": {
         "cargoLock": null,
         "date": "2026-04-03",

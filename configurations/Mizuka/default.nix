@@ -61,6 +61,6 @@
 
   lantian.qemu-user-static-binfmt = {
     enable = true;
-    package = pkgs.qemu-user-static;
+    package = pkgs.nur-xddxdd.qemu-user-static;
   };
 }

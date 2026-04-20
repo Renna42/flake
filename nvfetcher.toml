@@ -1,3 +1,7 @@
+[mpv-sockets]
+fetch.github = "wis/mpvSockets"
+src.git = "https://github.com/wis/mpvSockets.git"
+
 [nvidia-patch]
 fetch.github = "keylase/nvidia-patch"
 src.git = "https://github.com/keylase/nvidia-patch.git"

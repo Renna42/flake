@@ -27,24 +27,24 @@
 
                   # apply hrir - HeSuVi 14-channel WAV (not the *-.wav variants) (note: */44/* in HeSuVi are the same, but resampled to 44100)
                   # Reduce gain to prevent clipping
-                  { type = builtin label = convolver name = convFL_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  0 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convFL_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  1 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convSL_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  2 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convSL_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  3 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convRL_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  4 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convRL_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  5 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convFC_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  6 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convFR_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  7 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convFR_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  8 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convSR_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  9 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convSR_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel = 10 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convRR_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel = 11 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convRR_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel = 12 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convFC_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel = 13 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFL_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  0 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFL_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  1 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convSL_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  2 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convSL_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  3 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convRL_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  4 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convRL_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  5 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFC_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  6 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFR_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  7 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFR_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  8 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convSR_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  9 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convSR_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel = 10 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convRR_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel = 11 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convRR_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel = 12 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convFC_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel = 13 gain = ${toString gain} } }
 
                   # treat LFE as FC
-                  { type = builtin label = convolver name = convLFE_L config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel =  6 gain = ${toString gain} } }
-                  { type = builtin label = convolver name = convLFE_R config = { filename = "${pkgs.hesuvi-hrir}/${hrir}.wav" channel = 13 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convLFE_L config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel =  6 gain = ${toString gain} } }
+                  { type = builtin label = convolver name = convLFE_R config = { filename = "${pkgs.nur-xddxdd.hesuvi-hrir}/${hrir}.wav" channel = 13 gain = ${toString gain} } }
 
                   # stereo output
                   { type = builtin label = mixer name = mixL }

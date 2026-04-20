@@ -22,6 +22,32 @@
     # keep-sorted end
   ];
 
+  security.openssl = {
+    oqs-provider = {
+      enable = true;
+      package = pkgs.nur-xddxdd.openssl-oqs-provider;
+      curves = [
+        # Client: use generic curves first before OQS ones
+        "x25519"
+        "prime256v1"
+        "x448"
+        "secp521r1"
+        "secp384r1"
+        # OQS curves
+        "X25519MLKEM768"
+        "SecP256r1MLKEM768"
+        "x25519_frodo640aes"
+        "p256_frodo640aes"
+        "x25519_bikel1"
+        "p256_bikel1"
+      ];
+    };
+    gost-engine = {
+      enable = true;
+      package = pkgs.nur-xddxdd.gost-engine;
+    };
+  };
+
   security.pki.certificateFiles = [
     "${pkgs.dn42-cacert}/etc/ssl/certs/dn42-ca.crt"
   ];

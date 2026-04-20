@@ -6,6 +6,18 @@
   dockerTools,
 }:
 {
+  mpv-sockets = {
+    pname = "mpv-sockets";
+    version = "3b3f430074a67c63572a582847ed1fa69330c668";
+    src = fetchFromGitHub {
+      owner = "wis";
+      repo = "mpvSockets";
+      rev = "3b3f430074a67c63572a582847ed1fa69330c668";
+      fetchSubmodules = false;
+      sha256 = "sha256-KFv3imLuiV+APx4A8TSi2LXL5gdHNKc497fRwBubvMk=";
+    };
+    date = "2024-02-13";
+  };
   nvidia-patch = {
     pname = "nvidia-patch";
     version = "80e48e9346beb9407734a090d33c5e79e9113b01";

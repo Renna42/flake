@@ -182,7 +182,7 @@
     assetsPath = ./assets;
     secretsPath = ./secrets;
 
-    overlays = nixpkgs.lib.attrValues self.overlays;
+    overlays = (nixpkgs.lib.attrValues self.overlays) ++ import ./overlays {};
     globalSpecialArgs = {
       inherit
         inputs
@@ -294,6 +294,7 @@
             nix4vscode = inputs.nix4vscode.overlays.default;
             nixpkgs-wayland = inputs.nixpkgs-wayland.overlay;
             nur = inputs.nur.overlays.default;
+            nur-xddxdd = inputs.nur-xddxdd.overlays.inSubTree-pinnedNixpkgs;
             rust-overlay = inputs.rust-overlay.overlays.default;
             # keep-sorted end
           };
@@ -324,7 +325,6 @@
                     inputs.nur-xddxdd.nixosModules.openssl-gost-engine
                     inputs.nur-xddxdd.nixosModules.openssl-oqs-provider
                     inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
-                    inputs.nur-xddxdd.nixosModules.setupOverlay
                     inputs.sops-nix.nixosModules.sops
                     inputs.stylix.nixosModules.stylix
                     # keep-sorted end
