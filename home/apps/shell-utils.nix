@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     # keep-sorted start
-    aria2
     asciinema
     cachix
     chroma
@@ -23,6 +22,7 @@
     nixpkgs-review
     nurl
     qrencode
+    renna.aria2-mn
     tre-command
     wget
     yq-go
