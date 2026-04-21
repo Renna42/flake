@@ -25,7 +25,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -39,15 +42,16 @@
     # keep-sorted start block=yes
     angrr = {
       url = "github:linyinfeng/angrr";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.nix-darwin.follows = "darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
     betterfox-nix = {
       url = "github:HeitorAugustoLN/betterfox-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
     catppuccin = {
@@ -66,6 +70,7 @@
       url = "github:serokell/deploy-rs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
     };
     disko = {
       url = "github:nix-community/disko";
@@ -73,20 +78,26 @@
     };
     firefox-addons = {
       url = "github:petrkozorezov/firefox-addons-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flat-flake = {
       url = "github:linyinfeng/flat-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
       inputs.systems.follows = "systems";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
       inputs.flake-compat.follows = "flake-compat";
+      inputs.gitignore.follows = "gitignore-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    gitignore-nix = {
+      url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -114,6 +125,7 @@
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.git-hooks.follows = "git-hooks-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -144,8 +156,8 @@
     nur-xddxdd = {
       url = "github:xddxdd/nur-packages";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.nix-index-database.follows = "nix-index-database";
       inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
+      inputs.nix-index-database.follows = "nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks-nix.follows = "git-hooks-nix";
       inputs.treefmt-nix.follows = "treefmt-nix";
