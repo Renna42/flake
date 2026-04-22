@@ -1,4 +1,8 @@
-{git-hooks-nix, ...}: {
+{
+  config,
+  git-hooks-nix,
+  ...
+}: {
   imports = [git-hooks-nix.flakeModule];
 
   perSystem = {pkgs, ...}: {
@@ -39,6 +43,7 @@
             ];
           };
           flynt.enable = true;
+          keep-sorted.enable = true;
           markdownlint.enable = true;
           nixf-diagnose.enable = true;
           pyupgrade.enable = true;
@@ -49,7 +54,10 @@
               "error"
             ];
           };
-          treefmt.enable = true;
+          treefmt = {
+            enable = true;
+            package = config.treefmt.build.wrapper;
+          };
           trim-trailing-whitespace.enable = true;
           # keep-sorted end
         };
