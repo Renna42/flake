@@ -1,11 +1,11 @@
-{
-  config,
-  git-hooks-nix,
-  ...
-}: {
+{git-hooks-nix, ...}: {
   imports = [git-hooks-nix.flakeModule];
 
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
     pre-commit = {
       check.enable = true;
       settings = {
