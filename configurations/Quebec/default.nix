@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ../../nixos/roles/desktop
     ../../nixos/gui/suites/plasma.nix

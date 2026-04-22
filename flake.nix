@@ -262,9 +262,6 @@
 
           overlayAttrs = {
             renna = lib.recurseIntoAttrs self'.legacyPackages;
-            generated = import ./_sources/generated.nix {
-              inherit (pkgs) fetchgit fetchurl fetchFromGitHub dockerTools;
-            };
           };
 
           checks = deployLib.deployChecks self'.deploy;
