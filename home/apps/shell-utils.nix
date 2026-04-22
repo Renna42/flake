@@ -12,6 +12,7 @@
     aria2
     asciinema
     cachix
+    chafa
     chroma
     delta
     duf
