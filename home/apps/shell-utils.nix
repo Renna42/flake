@@ -18,7 +18,6 @@
     duf
     dust
     fastfetch
-    chafa
     git-msgraph
     glow
     moor
