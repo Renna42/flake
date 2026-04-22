@@ -4,9 +4,12 @@
     (python313.withPackages (
       python-pkgs:
         with python-pkgs; [
-          ipython
-          requests
+          # keep-sorted start
           httpx
+          ipython
+          pycryptodome
+          requests
+          # keep-sorted end
         ]
     ))
   ];
