@@ -63,6 +63,9 @@ in {
           Locked = true;
         };
       };
+      Certificates = {
+        ImportEnterpriseRoots = true;
+      };
       DNSOverHTTPS = {
         Enabled = false;
         Locked = true;
@@ -97,6 +100,11 @@ in {
       };
       DisplayBookmarksToolbar = "never";
       DontCheckDefaultBrowser = true;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Category = "standard";
+      };
       FirefoxHome = {
         Highlights = false;
         Locked = true;
@@ -123,20 +131,12 @@ in {
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       PasswordManagerEnabled = false;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Category = "standard";
-      };
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
       SearchBar = "unified";
       SearchEngines = {
         "Remove" = ["百度"];
       };
       SearchSuggestEnabled = true;
-      Certificates = {
-        ImportEnterpriseRoots = true;
-      };
       SecurityDevices = {
         Add = {
           inherit p11-kit-proxy p11-kit-trust;
