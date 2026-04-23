@@ -50,12 +50,12 @@
             (old.postFixup or "")
             + ''
               # Skip patching if latest patch is not available
-              SED_ENCODE=$(cat "${pkgs.generated.nvidia-patch.src}/patch.sh" \
+              SED_ENCODE=$(cat "${pkgs.sources.nvidia-patch.src}/patch.sh" \
                 | grep '"${old.version}"' \
                 | head -n1 \
                 | cut -d"'" -f2 \
                 || echo "")
-              SED_FBC=$(cat "${pkgs.generated.nvidia-patch.src}/patch-fbc.sh" \
+              SED_FBC=$(cat "${pkgs.sources.nvidia-patch.src}/patch-fbc.sh" \
                 | grep '"${old.version}"' \
                 | head -n1 \
                 | cut -d"'" -f2 \

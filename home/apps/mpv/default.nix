@@ -38,7 +38,7 @@
       passthru.scriptName = "mpvSockets.lua";
     }
     ''
-      install -Dm644 ${pkgs.generated.mpv-sockets.src}/mpvSockets.lua $out/share/mpv/scripts/mpvSockets.lua
+      install -Dm644 ${pkgs.sources.mpv-sockets.src}/mpvSockets.lua $out/share/mpv/scripts/mpvSockets.lua
     '';
 in {
   programs.mpv = {
