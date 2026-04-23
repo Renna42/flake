@@ -6,6 +6,15 @@
 }: let
   profileName = "renna";
 
+  p11-kit-proxy =
+    if pkgs.stdenv.isDarwin
+    then "${pkgs.p11-kit}/lib/p11-kit-proxy.dylib"
+    else "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
+  p11-kit-trust =
+    if pkgs.stdenv.isDarwin
+    then "${pkgs.p11-kit}/lib/pkcs11/p11-kit-trust.dylib"
+    else "${pkgs.p11-kit}/lib/pkcs11/p11-kit-trust.so";
+
   redirectnixwiki = inputs.firefox-addons.lib.buildFirefoxAddon rec {
     pname = "RedirectNixWiki";
     version = "1.0";
@@ -47,25 +56,19 @@ in {
       };
     };
     policies = {
-      DisableAppUpdate = true;
-      ExtensionSettings = {
-        # keep-sorted start block=yes case=no
-        "firefox@tampermonkey.net" = {
-          default_area = "navbar";
-        };
-        "{0982b844-4f35-48b7-9811-6832d916f21c}" = {
-          default_area = "navbar";
-        };
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          default_area = "navbar";
-        };
-        # keep-sorted end
-      };
       # keep-sorted start block=yes
+      AIControls = {
+        Default = {
+          Value = "blocked";
+          Locked = true;
+        };
+      };
       DNSOverHTTPS = {
         Enabled = false;
         Locked = true;
       };
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
       DisableFirefoxStudies = true;
       DisableProfileImport = true;
       DisableProfileRefresh = true;
@@ -104,15 +107,67 @@ in {
         SponsoredTopSites = false;
         TopSites = false;
       };
+      GenerativeAI = {
+        Enabled = false;
+        Locked = true;
+      };
       HardwareAcceleration = true;
       Homepage = {
         URL = "about:home";
         Locked = true;
         StartPage = "homepage";
       };
+      IPProtectionAvailable = false;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
+      OverrideFirstRunPage = "";
+      OverridePostUpdatePage = "";
       PasswordManagerEnabled = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Category = "standard";
+      };
+      RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
+      SearchBar = "unified";
+      SearchEngines = {
+        "Remove" = ["百度"];
+      };
+      SearchSuggestEnabled = true;
+      Certificates = {
+        ImportEnterpriseRoots = true;
+      };
+      SecurityDevices = {
+        Add = {
+          inherit p11-kit-proxy p11-kit-trust;
+        };
+      };
+      ShowHomeButton = false;
+      SkipTermsOfUse = true;
+      TranslateEnabled = false;
+      UseSystemPrintDialog = true;
+      UserMessaging = {
+        WhatsNew = false;
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        UrlbarInterventions = false;
+        SkipOnboarding = true;
+        MoreFromMozilla = false;
+      };
+      # keep-sorted end
+      ExtensionSettings = {
+        # keep-sorted start block=yes case=no
+        "firefox@tampermonkey.net" = {
+          default_area = "navbar";
+        };
+        "{0982b844-4f35-48b7-9811-6832d916f21c}" = {
+          default_area = "navbar";
+        };
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          default_area = "navbar";
+        };
+        # keep-sorted end
+      };
       Preferences = {
         # keep-sorted start
         "browser.aboutConfig.showWarning" = false;
@@ -121,7 +176,6 @@ in {
         "browser.safebrowsing.malware.enabled" = false;
         "browser.safebrowsing.phishing.enabled" = false;
         "browser.tabs.unloadTabInContextMenu" = true;
-        "browser.translations.enable" = false;
         "dom.security.https_first" = true;
         "extensions.autoDisableScopes" = 0; # Auto enable installed extensions
         "extensions.ml.enabled" = false;
@@ -142,7 +196,6 @@ in {
         "media.hls.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
         "media.videocontrols.picture-in-picture.enabled" = false;
-        "pdfjs.enableAltText" = false;
         "security.insecure_connection_text.enabled" = true;
         "security.insecure_connection_text.pbmode.enabled" = true;
         "security.osclientcerts.autoload" = true;
@@ -151,33 +204,6 @@ in {
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         # keep-sorted end
       };
-      RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
-      SearchBar = "unified";
-      SearchEngines = {
-        "Remove" = ["百度"];
-      };
-      SearchSuggestEnabled = true;
-      SecurityDevices = {
-        Add = {
-          p11-kit = "${pkgs.p11-kit}/lib/pkcs11/p11-kit-trust.so";
-        };
-      };
-      ShowHomeButton = false;
-      SupportMenu = {
-        Title = "Renna's Blog";
-        URL = "https://renna.dev";
-        AccessKey = "S";
-      };
-      UseSystemPrintDialog = true;
-      UserMessaging = {
-        WhatsNew = false;
-        ExtensionRecommendations = false;
-        FeatureRecommendations = false;
-        UrlbarInterventions = false;
-        SkipOnboarding = true;
-        MoreFromMozilla = false;
-      };
-      # keep-sorted end
     };
     profiles.${profileName} = {
       id = 0;
