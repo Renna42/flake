@@ -209,6 +209,7 @@
         "cweijan.vscode-office"
         "Dart-Code.dart-code"
         "Dart-Code.flutter"
+        "datakurre.devenv"
         "davidanson.vscode-markdownlint"
         "dbaeumer.vscode-eslint"
         "docker.docker"
