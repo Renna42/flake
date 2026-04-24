@@ -1,26 +1,49 @@
 {
   assetsPath,
-  lib,
+  osConfig,
+  config,
   pkgs,
+  lib,
   ...
 }: let
-  rimeConfig = "${assetsPath}/rime/default.custom.yaml";
-  rimeDict = "${assetsPath}/rime/my.dict.yaml";
-  rimeIce = "${assetsPath}/rime/rime_ice.custom.yaml";
+  oh-my-rime = pkgs.callPackage ./oh-my-rime.nix {};
+  rime-moetype = pkgs.callPackage ./rime-moetype.nix {};
+  rime-zhwiki = pkgs.callPackage ./rime-zhwiki.nix {};
+  rime-renna-custom = pkgs.callPackage ./rime-renna-custom.nix {inherit assetsPath config;};
+  rimeDataPkgs = [
+    oh-my-rime
+    rime-moetype
+    rime-zhwiki
+    rime-renna-custom
+  ];
+  rimeConfig =
+    if pkgs.stdenv.isDarwin
+    then "Library/Rime"
+    else if osConfig.i18n.inputMethod.type == "fcitx5"
+    then ".local/share/fcitx5/rime"
+    else if osConfig.i18n.inputMethod.type == "ibus"
+    then ".config/ibus/rime"
+    else throw "unable to determine rime config directory";
+  installationCustom = ''
+    sync_dir: "${config.home.homeDirectory}/.rime-sync"
+    installation_id: "${osConfig.networking.hostName}"
+  '';
 in {
-  home.file =
-    {}
-    // lib.mkIf pkgs.stdenv.isLinux {
-      ".config/ibus/rime/default.custom.yaml".source = rimeConfig;
-      ".local/share/fcitx5/rime/default.custom.yaml".source = rimeConfig;
-      ".config/ibus/rime/my.dict.yaml".source = rimeDict;
-      ".local/share/fcitx5/rime/my.dict.yaml".source = rimeDict;
-      ".config/ibus/rime/rime_ice.custom.yaml".source = rimeIce;
-      ".local/share/fcitx5/rime/rime_ice.custom.yaml".source = rimeIce;
-    }
-    // pkgs.stdenv.isDarwin {
-      "Library/Rime/default.custom.yaml".source = rimeConfig;
-      "Library/Rime/my.dict.yaml".source = rimeDict;
-      "Library/Rime/rime_ice.custom.yaml".source = rimeIce;
-    };
+  home.activation.patchRimeInstallation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    target="${config.home.homeDirectory}/${rimeConfig}/installation.yaml"
+    if [ -e "$target" ]; then
+      ${pkgs.yq-go}/bin/yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' "$target" - --inplace <<EOF
+    ${installationCustom}
+    EOF
+    fi
+  '';
+  home.file.${rimeConfig} = lib.mkIf pkgs.stdenv.isDarwin {
+    source = "${
+      pkgs.symlinkJoin {
+        name = "rime-data";
+        paths = rimeDataPkgs;
+      }
+    }/share/rime-data";
+    recursive = true;
+  };
 }

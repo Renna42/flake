@@ -30,4 +30,32 @@
     };
     date = "2026-04-03";
   };
+  oh-my-rime = {
+    pname = "oh-my-rime";
+    version = "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b";
+    src = fetchFromGitHub {
+      owner = "Mintimate";
+      repo = "oh-my-rime";
+      rev = "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b";
+      fetchSubmodules = false;
+      sha256 = "sha256-9HLfYqiqFQfEmu0fcCpTv5Ezk1J00wlHgNG918vAOiM=";
+    };
+    date = "2026-04-13";
+  };
+  rime-moetype = {
+    pname = "rime-moetype";
+    version = "20260314";
+    src = fetchurl {
+      url = "https://github.com/suiginko/moetype/releases/download/20260314/tone_moe.dict.yaml";
+      sha256 = "sha256-qfm1Iq0+8ZdrSebaDQcNacnCZVr4sHvLlzBIyRfI9/k=";
+    };
+  };
+  rime-zhwiki = {
+    pname = "rime-zhwiki";
+    version = "20260416";
+    src = fetchurl {
+      url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.3.0/zhwiki-20260416.dict.yaml";
+      sha256 = "sha256-XBQORi+cAKEZUAt/7A07kn8Pg5IAAafqQI4mdI0J6gc=";
+    };
+  };
 }

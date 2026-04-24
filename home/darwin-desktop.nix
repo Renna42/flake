@@ -13,6 +13,7 @@
     ./apps/firefox
     ./apps/kitty
     ./apps/obsidian
+    ./apps/rime
     ./apps/syncthing
     ./apps/vscode
     ./apps/wakatime
@@ -26,6 +27,7 @@
 
   renna.syncthing = {
     captureone = true;
+    rime = true;
   };
 
   home.file."Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = "${assetsPath}/mdmdt.css";

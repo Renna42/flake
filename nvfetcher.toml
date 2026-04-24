@@ -5,3 +5,16 @@ src.git = "https://github.com/wis/mpvSockets.git"
 [nvidia-patch]
 fetch.github = "keylase/nvidia-patch"
 src.git = "https://github.com/keylase/nvidia-patch.git"
+
+[oh-my-rime]
+fetch.github = "Mintimate/oh-my-rime"
+src.git = "https://github.com/Mintimate/oh-my-rime.git"
+
+[rime-moetype]
+fetch.url = "https://github.com/suiginko/moetype/releases/download/$ver/tone_moe.dict.yaml"
+src.github = "suiginko/moetype"
+
+[rime-zhwiki]
+fetch.url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.3.0/zhwiki-$ver.dict.yaml"
+src.webpage = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/expanded_assets/0.3.0"
+src.regex = "zhwiki-([0-9]{8})\\.dict\\.yaml"

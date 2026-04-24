@@ -40,5 +40,56 @@
             "type": "github"
         },
         "version": "80e48e9346beb9407734a090d33c5e79e9113b01"
+    },
+    "oh-my-rime": {
+        "cargoLock": null,
+        "date": "2026-04-13",
+        "extract": null,
+        "name": "oh-my-rime",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Mintimate",
+            "repo": "oh-my-rime",
+            "rev": "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b",
+            "sha256": "sha256-9HLfYqiqFQfEmu0fcCpTv5Ezk1J00wlHgNG918vAOiM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b"
+    },
+    "rime-moetype": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rime-moetype",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-qfm1Iq0+8ZdrSebaDQcNacnCZVr4sHvLlzBIyRfI9/k=",
+            "type": "url",
+            "url": "https://github.com/suiginko/moetype/releases/download/20260314/tone_moe.dict.yaml"
+        },
+        "version": "20260314"
+    },
+    "rime-zhwiki": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rime-zhwiki",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-XBQORi+cAKEZUAt/7A07kn8Pg5IAAafqQI4mdI0J6gc=",
+            "type": "url",
+            "url": "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.3.0/zhwiki-20260416.dict.yaml"
+        },
+        "version": "20260416"
     }
 }

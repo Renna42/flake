@@ -7,10 +7,12 @@
 }: let
   stSopsFile = "${secretsPath}/st-${hostname}.yaml";
   captureOnePath = "${config.home.homeDirectory}/Pictures/Capture One Catalog Share";
+  rimePath = "${config.home.homeDirectory}/.rime-sync";
 in {
   options = {
     renna.syncthing = {
       captureone = lib.mkEnableOption "Enable Syncthing folder `Capture One Catalog Share`";
+      rime = lib.mkEnableOption "Enable Syncthing folder `Rime`";
     };
   };
 
@@ -36,6 +38,10 @@ in {
             name = "IzmnAS";
             id = "STXWTMY-JLIKVJV-7CF5KUN-RZNASSQ-APVZNRO-FQQ3MEK-NLXNSIC-F2JK6Q3";
           };
+          TencentCloud = {
+            name = "TencentCloud";
+            id = "3TJZY2G-LHDZR4U-5RZ4N6D-ITYJUA3-VUNMS4G-JXUFK3G-LIWNOGE-CJOFLQD";
+          };
         };
         folders = {
           captureone = lib.mkIf config.renna.syncthing.captureone {
@@ -44,6 +50,15 @@ in {
             path = captureOnePath;
             devices = [
               "IzmnAS"
+            ];
+          };
+          rime = lib.mkIf config.renna.syncthing.rime {
+            id = "rime";
+            label = "Rime";
+            path = rimePath;
+            devices = [
+              "IzmnAS"
+              "TencentCloud"
             ];
           };
         };

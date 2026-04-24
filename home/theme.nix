@@ -18,8 +18,8 @@
         name = "Noto Serif CJK SC";
       };
       sansSerif = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Sans CJK SC";
+        package = pkgs.renna.harmonyos-sans-fonts;
+        name = "HarmonyOS Sans SC";
       };
       monospace = {
         package = pkgs.maple-mono.Normal-NF-CN-unhinted;
