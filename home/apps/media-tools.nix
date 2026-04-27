@@ -1,7 +1,22 @@
 {pkgs, ...}: {
   home.packages = with pkgs;
     [
-      (ffmpeg-full.override {withUnfree = true;})
+      (
+        ffmpeg-full.override (
+          {
+            withUnfree = true;
+          }
+          // (
+            if pkgs.stdenv.isDarwin
+            then {
+              withCdio = false;
+              withChromaprint = false;
+              withKvazaar = false;
+            }
+            else {}
+          )
+        )
+      )
 
       # keep-sorted start case=no
       alac
