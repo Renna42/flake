@@ -77,7 +77,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
-      url = "github:petrkozorezov/firefox-addons-nix";
+      url = "github:xddxdd/firefox-addons-nix";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
