@@ -11,7 +11,6 @@
     # keep-sorted start
     aria2
     asciinema
-    bitwarden-cli
     cachix
     chafa
     chroma
