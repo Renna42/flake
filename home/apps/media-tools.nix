@@ -23,6 +23,7 @@
       bchunk
       cuetools
       flac
+      gpac
       id3v2
       renna.truehdd
       shntool
