@@ -107,7 +107,6 @@ in {
         }
         // lib.mapAttrs (_: flakes: {flake = flakes;}) inputs;
 
-      # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
       channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
 
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
