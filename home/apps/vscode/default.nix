@@ -89,6 +89,8 @@
           "[yaml]" = {
             "editor.defaultFormatter" = "redhat.vscode-yaml";
           };
+          "claudeCode.disableLoginPrompt" = true;
+          "claudeCode.preferredLocation" = "panel";
           "debug.javascript.autoAttachFilter" = "disabled";
           "diffEditor.ignoreTrimWhitespace" = false;
           "docker.extension.enableComposeLanguageServer" = true;
@@ -201,6 +203,7 @@
         # keep-sorted start case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
+        "anthropic.claude-code"
         "astro-build.astro-vscode"
         "bradlc.vscode-tailwindcss"
         "christian-kohler.path-intellisense"

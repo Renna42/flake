@@ -14,6 +14,7 @@ in {
     # keep-sorted start
     ./apps/archives
     ./apps/chromium
+    ./apps/claude-code
     ./apps/develop
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix

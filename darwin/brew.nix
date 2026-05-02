@@ -30,6 +30,7 @@ _: {
       "betterdisplay"
       "bitwarden"
       "clash-verge-rev"
+      "claude-code"
       "coteditor"
       "dbeaver-community"
       "discord"
