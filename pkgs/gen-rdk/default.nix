@@ -1,16 +1,24 @@
 {
   lib,
   stdenvNoCC,
-  fetchurl,
+  makemkv,
+  hexdump,
+  udisks,
+  openssl_3,
+  openssl ? openssl_3,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "gen-rdk";
-  version = "0-unstable-2022-12-02";
+  version = "0-unstable-2022-11-26";
 
-  src = fetchurl {
-    url = "https://www.legroom.net/files/software/gen-rdk.sh";
-    hash = "sha256-a2/DG9ZdSCf0dpE9DQgMnqrRdi7YzFwA82iqq9QnhWk=";
-  };
+  src = ./gen-rdk.sh;
+
+  buildInputs = [
+    makemkv
+    hexdump
+    udisks
+    openssl
+  ];
 
   dontUnpack = true;
   dontConfigure = true;
