@@ -44,19 +44,20 @@ in {
     extraConfig.pipewire = {
       "10-sample-rate" = {
         "context.properties" = {
-          "default.clock.rate" = 44100;
+          "default.clock.rate" = 48000;
           "default.clock.allowed-rates" = [
             44100
             48000
             88200
             96000
             192000
+            384000
+            768000
           ];
 
-          # Fix stuttering
-          "default.clock.quantum" = 512;
-          "default.clock.min-quantum" = 256;
-          "default.clock.max-quantum" = 2048;
+          "default.clock.quantum" = 32;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 32;
         };
       };
     };

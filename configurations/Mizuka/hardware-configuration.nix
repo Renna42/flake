@@ -33,6 +33,18 @@
   # To make sops-nix happy
   fileSystems."/home".neededForBoot = true;
 
+  services.pipewire.wireplumber.extraConfig."smsl-usb-audio" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [{"node.name" = "alsa_output.usb-SMSL_SMSL_USB_AUDIO-00.analog-stereo";}];
+        actions.update-props = {
+          "audio.format" = "S32LE";
+          "audio.rate" = 768000;
+        };
+      }
+    ];
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
