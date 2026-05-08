@@ -216,7 +216,6 @@ in {
           bewlycat
           bitwarden-password-manager
           clearurls
-          code-box
           cors-everywhere
           darkreader
           hcfy
