@@ -3,9 +3,8 @@
   pkgs,
   ...
 }: {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     mutableExtensionsDir = false;
     profiles.default = {
       userSettings =
@@ -199,7 +198,7 @@
         // import ./fonts.nix config.stylix.fonts;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      extensions = pkgs.nix4vscode.forVscodeVersion config.programs.vscode.package.version [
+      extensions = pkgs.nix4vscode.forVscodeVersion config.programs.vscodium.package.version [
         # keep-sorted start case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
@@ -295,7 +294,7 @@
   };
 
   stylix.targets.vscode.enable = false;
-  catppuccin.vscode.profiles."default".enable = true;
+  catppuccin.vscode.profiles.default.enable = true;
 
   home.sessionVariables = {
     EDITOR = "codium -wn";
