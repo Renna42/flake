@@ -8,9 +8,6 @@
       devenv
       just
       just-lsp
-
-      # We often use adb and fastboot
-      android-tools
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux [
       imhex

@@ -22,8 +22,9 @@
     ./apps/zed
     # keep-sorted end
 
-    ./apps/shell-utils.nix
+    ./apps/android.nix
     ./apps/media-tools.nix
+    ./apps/shell-utils.nix
   ];
 
   renna.syncthing = {

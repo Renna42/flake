@@ -33,6 +33,7 @@ in {
     ./apps/zed
     # keep-sorted end
 
+    ./apps/android.nix
     ./apps/game.nix
     ./apps/shell-utils.nix
   ];
