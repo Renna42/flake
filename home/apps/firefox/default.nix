@@ -50,7 +50,6 @@ in {
     betterfox = {
       enable = true;
       profiles.${profileName}.settings = {
-        fastfox.enable = true;
         securefox.enable = true;
         peskyfox.enable = true;
       };
