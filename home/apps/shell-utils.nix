@@ -149,7 +149,7 @@
     '';
     shellAliases = {
       co = "codium .";
-      dt = "date --iso-8601=seconds | tee /dev/stderr | fish_clipboard_copy";
+      dt = "${pkgs.coreutils}/bin/date --iso-8601=seconds | tee /dev/stderr | fish_clipboard_copy";
       tree = "tre";
       issh = "kitten ssh";
       icat = "kitten icat";
