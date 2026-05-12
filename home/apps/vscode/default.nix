@@ -202,7 +202,6 @@
         # keep-sorted start case=no
         "13xforever.language-x86-64-assembly"
         "aaron-bond.better-comments"
-        "anthropic.claude-code"
         "astro-build.astro-vscode"
         "bradlc.vscode-tailwindcss"
         "christian-kohler.path-intellisense"

@@ -6,7 +6,6 @@
 
     # keep-sorted start
     ./apps/archives
-    ./apps/claude-code
     ./apps/develop
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix
