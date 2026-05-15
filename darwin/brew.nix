@@ -23,7 +23,6 @@ _: {
     brews = [];
     casks = [
       # keep-sorted start case=no
-      "affinity"
       "AnInsomniacy/motrix-next/motrix-next"
       "arch1t3cht-aegisub"
       "audacity"
