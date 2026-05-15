@@ -25,6 +25,7 @@
       flac
       gpac
       id3v2
+      libwebp
       renna.truehdd
       shntool
       wavpack
