@@ -5,7 +5,7 @@
   secretsPath,
   ...
 }: let
-  mihomoWebui = pkgs.renna.zashboard-bin;
+  mihomoWebui = pkgs.zashboard;
 in {
   sops.secrets.mihomoConfig = {
     format = "yaml";

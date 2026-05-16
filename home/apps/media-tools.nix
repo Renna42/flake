@@ -26,8 +26,8 @@
       gpac
       id3v2
       libwebp
-      renna.truehdd
       shntool
+      truehdd
       wavpack
       yt-dlp
       # keep-sorted end
