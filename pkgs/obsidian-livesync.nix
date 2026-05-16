@@ -10,18 +10,18 @@ buildNpmPackage (finalAttrs: {
   inherit nodejs;
 
   pname = "obsidian-livesync";
-  version = "0.25.57";
+  version = "0.25.63";
 
   src = fetchFromGitHub {
     owner = "vrtmrz";
     repo = "obsidian-livesync";
     rev = "${finalAttrs.version}";
-    hash = "sha256-1QU5ybeumoym7JJ5lWqY98z2Kv2QqXW7WRHqgfoU14o=";
+    hash = "sha256-CLk7p6Ury3rnUIM5d6z/UbcCTppyhSS6jAxrDcNcVgU=";
 
     fetchSubmodules = true;
   };
 
-  npmDepsHash = "sha256-KLzzTefGbpVN84FHlxn9aeHOll329xo+MqPiMLjE8oI=";
+  npmDepsHash = "sha256-g6cggnJZHVhiSn+FkdoQ7w374d4HmoJgWpu8KR69TFo=";
   npmFlags = ["--ignore-scripts"];
 
   buildPhase = ''
