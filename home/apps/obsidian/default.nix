@@ -51,7 +51,7 @@ in {
       ];
       themes = [
         {
-          pkg = pkgs.nur.repos.Ev357.catppuccin-obsidian;
+          pkg = pkgs.renna.catppuccin-obsidian;
           enable = true;
         }
       ];
