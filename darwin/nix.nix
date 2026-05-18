@@ -41,7 +41,6 @@ in {
 
       # # Determinate Nix specific
       # eval-cores = 0;
-      # max-jobs = "auto";
       # lazy-trees = true;
 
       substituters = [

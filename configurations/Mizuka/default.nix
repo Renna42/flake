@@ -59,6 +59,9 @@
     virt-manager.enable = true;
   };
 
+  # Too much jobs may cause OOM
+  nix.settings.max-jobs = 8;
+
   lantian.qemu-user-static-binfmt = {
     enable = true;
     package = pkgs.nur-xddxdd.qemu-user-static;
