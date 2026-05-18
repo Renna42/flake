@@ -9,6 +9,7 @@ lib.makeScope newScope (
   in {
     # keep-sorted start block=yes
     aegisub-arch1t3cht = callPackage ./aegisub-arch1t3cht.nix {};
+    aria2-next = callPackage ./aria2-next.nix {};
     catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
     gen-rdk = callPackage ./gen-rdk {};
     harmonyos-sans-fonts = callPackage ./harmonyos-sans-fonts.nix {};
