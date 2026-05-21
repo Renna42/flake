@@ -10,6 +10,7 @@
     ./apps/develop/c-family.nix
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
+    ./apps/develop/rust.nix
     ./apps/firefox
     ./apps/kitty
     ./apps/obsidian
