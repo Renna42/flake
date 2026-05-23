@@ -1053,11 +1053,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778903319,
-        "narHash": "sha256-wdHPI1dNC/VEy3n2ILe9pjNCnIuaNWl7+dMeXuPwkC8=",
+        "lastModified": 1779508413,
+        "narHash": "sha256-Sic0ApcD3mb53kvBYtuJjf7vJuM4eklt60Kmxtt+fq0=",
         "owner": "nix-community",
         "repo": "nix4vscode",
-        "rev": "22183203918032416508545bf0053be7c313f686",
+        "rev": "5940ddf31cba9c2d3b01eaad8d1dcbad4312e892",
         "type": "github"
       },
       "original": {
