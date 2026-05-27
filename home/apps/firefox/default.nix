@@ -175,8 +175,7 @@ in {
         "browser.safebrowsing.malware.enabled" = false;
         "browser.safebrowsing.phishing.enabled" = false;
         "browser.tabs.unloadTabInContextMenu" = true;
-        "dom.security.https_first" = false;
-        "dom.security.https_first_pbm" = true;
+        "dom.security.https_only_mode" = false;
         "extensions.autoDisableScopes" = 0; # Auto enable installed extensions
         "extensions.ml.enabled" = false;
         "extensions.update.autoUpdateDefault" = false;
