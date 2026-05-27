@@ -133,7 +133,10 @@ in {
       RequestedLocales = "zh-cn,zh,zh-tw,zh-hk,en-us,en";
       SearchBar = "unified";
       SearchEngines = {
-        "Remove" = ["百度"];
+        Remove = [
+          "百度"
+          "Perplexity"
+        ];
       };
       SearchSuggestEnabled = true;
       SecurityDevices = {
