@@ -33,10 +33,10 @@
   # To make sops-nix happy
   fileSystems."/home".neededForBoot = true;
 
-  services.pipewire.wireplumber.extraConfig."smsl-usb-audio" = {
+  services.pipewire.wireplumber.extraConfig."fosi-audio-zh3" = {
     "monitor.alsa.rules" = [
       {
-        matches = [{"node.name" = "alsa_output.usb-SMSL_SMSL_USB_AUDIO-00.analog-stereo";}];
+        matches = [{"node.name" = "alsa_output.usb-Fosi_Fosi_Audio_ZH3-00.analog-stereo";}];
         actions.update-props = {
           "audio.format" = "S32LE";
           "audio.rate" = 768000;
