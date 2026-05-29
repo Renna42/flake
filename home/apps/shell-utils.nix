@@ -146,6 +146,9 @@
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
       export GITHUB_TOKEN_CMD="gh auth token"
+      export GITHUB_TOKEN="$(gh auth token)"
+      export NIX_CONFIG="extra-access-tokens = github.com=$GITHUB_TOKEN"
+
       export PAGER="moor"
     '';
     shellAliases = {
