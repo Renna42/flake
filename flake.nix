@@ -63,7 +63,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
+      url = "github:nix-darwin/nix-darwin?ref=ae6fbbd4f63d8aa71989f51dc51f73aaf95d4788";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     deploy-rs = {
