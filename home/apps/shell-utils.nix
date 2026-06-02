@@ -27,7 +27,6 @@
     nixpkgs-review
     nurl
     qrencode
-    renna.aria2-next
     tre-command
     wget
     yq-go
