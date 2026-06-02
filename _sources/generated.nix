@@ -4,8 +4,7 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}:
-{
+}: {
   mpv-sockets = {
     pname = "mpv-sockets";
     version = "3b3f430074a67c63572a582847ed1fa69330c668";
@@ -20,27 +19,27 @@
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "80e48e9346beb9407734a090d33c5e79e9113b01";
+    version = "0e665c46a87ba99b41a07169fa3acf6162739648";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "80e48e9346beb9407734a090d33c5e79e9113b01";
+      rev = "0e665c46a87ba99b41a07169fa3acf6162739648";
       fetchSubmodules = false;
-      sha256 = "sha256-Lc7XJRWbrzR6c2x8enGHKCJ1hh0NE9cBOgbuoWBBF2Q=";
+      sha256 = "sha256-iiV67D6+kgZs5y5pYES/3B60OdpdDt97zyPxh2xduxc=";
     };
-    date = "2026-04-03";
+    date = "2026-05-06";
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b";
+    version = "402bd08f78e624b592c6eaadf56c7d57e5110f9a";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b";
+      rev = "402bd08f78e624b592c6eaadf56c7d57e5110f9a";
       fetchSubmodules = false;
-      sha256 = "sha256-9HLfYqiqFQfEmu0fcCpTv5Ezk1J00wlHgNG918vAOiM=";
+      sha256 = "sha256-t6X87zC4lB6H5Y5WAkrjn9iihsfAn6FB67C4G9HNgCA=";
     };
-    date = "2026-04-13";
+    date = "2026-05-29";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
@@ -52,10 +51,10 @@
   };
   rime-moetype = {
     pname = "rime-moetype";
-    version = "20260314";
+    version = "20260517";
     src = fetchurl {
-      url = "https://github.com/suiginko/moetype/releases/download/20260314/tone_moe.dict.yaml";
-      sha256 = "sha256-qfm1Iq0+8ZdrSebaDQcNacnCZVr4sHvLlzBIyRfI9/k=";
+      url = "https://github.com/suiginko/moetype/releases/download/20260517/tone_moe.dict.yaml";
+      sha256 = "sha256-zl7PHyTj3rFDC4ttZMA3z9nn6XtayINfqqLp5mNbWUY=";
     };
   };
   rime-zhwiki = {
