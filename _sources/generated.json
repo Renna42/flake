@@ -62,6 +62,21 @@
         },
         "version": "3aa2ba7278d4116f2a388bbd263e4d2cbeea8f1b"
     },
+    "rime-custom-pinyin-dictionary": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rime-custom-pinyin-dictionary",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OozcuETRrl9dq5djuK0gd6iMS5CydLvbavayKjBJcqg=",
+            "type": "url",
+            "url": "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/download/v20260101/CustomPinyinDictionary_Fcitx.txt"
+        },
+        "version": "v20260101"
+    },
     "rime-moetype": {
         "cargoLock": null,
         "date": null,

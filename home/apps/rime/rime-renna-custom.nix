@@ -53,6 +53,7 @@ in
 
     "share/rime-data/rime_mint.custom.dict.yaml" = makeDict "rime_mint" [
       "dicts/custom_renna"
+      "dicts/CustomPinyinDictionary"
       "dicts/tone_moe"
       "dicts/zhwiki"
       "dicts/rime_mint.chars"

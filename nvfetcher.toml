@@ -10,6 +10,10 @@ src.git = "https://github.com/keylase/nvidia-patch.git"
 fetch.github = "Mintimate/oh-my-rime"
 src.git = "https://github.com/Mintimate/oh-my-rime.git"
 
+[rime-custom-pinyin-dictionary]
+fetch.url = "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/download/$ver/CustomPinyinDictionary_Fcitx.txt"
+src.github = "Renna42/CustomPinyinDictionary_txt"
+
 [rime-moetype]
 fetch.url = "https://github.com/suiginko/moetype/releases/download/$ver/tone_moe.dict.yaml"
 src.github = "suiginko/moetype"

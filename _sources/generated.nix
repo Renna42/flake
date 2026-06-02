@@ -42,6 +42,14 @@
     };
     date = "2026-04-13";
   };
+  rime-custom-pinyin-dictionary = {
+    pname = "rime-custom-pinyin-dictionary";
+    version = "v20260101";
+    src = fetchurl {
+      url = "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/download/v20260101/CustomPinyinDictionary_Fcitx.txt";
+      sha256 = "sha256-OozcuETRrl9dq5djuK0gd6iMS5CydLvbavayKjBJcqg=";
+    };
+  };
   rime-moetype = {
     pname = "rime-moetype";
     version = "20260314";
