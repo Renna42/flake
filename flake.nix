@@ -226,7 +226,6 @@
       in {
         imports = [
           inputs.flake-parts.flakeModules.easyOverlay
-          inputs.home-manager.flakeModules.home-manager
           inputs.flat-flake.flakeModules.flatFlake
           flakeModules.renna-treefmt
           flakeModules.renna-git-hooks
