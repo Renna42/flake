@@ -20,9 +20,9 @@ in {
     };
 
     keybindings = {
-      "${cmd}+d" = "launch --location=hsplit";
-      "${cmd}+r" = "launch --location=vsplit";
-      "${cmd}+w" = "close_window";
+      # "${cmd}+d" = "launch --location=hsplit";
+      # "${cmd}+r" = "launch --location=vsplit";
+      # "${cmd}+w" = "close_window";
       "${cmd}+[" = "previous_window";
       "${cmd}+]" = "next_window";
     };
