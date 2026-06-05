@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   home.packages = with pkgs;
@@ -10,6 +11,6 @@
       just-lsp
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux [
-      imhex
+      unstablePkgs.imhex
     ]);
 }

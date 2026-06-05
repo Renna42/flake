@@ -1,11 +1,15 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  unstablePkgs,
+  ...
+}: let
   readJson = path: builtins.fromJSON (builtins.readFile path);
 in {
   programs.zed-editor = {
     enable = true;
     package =
       if !pkgs.stdenv.isDarwin
-      then pkgs.zed-editor
+      then unstablePkgs.zed-editor
       else null;
     extensions = [
       # keep-sorted start

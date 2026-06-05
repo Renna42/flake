@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: let
   cmd =
@@ -12,7 +13,7 @@ in {
     enable = true;
     package =
       if !pkgs.stdenv.isDarwin
-      then pkgs.kitty
+      then unstablePkgs.kitty
       else null;
     enableGitIntegration = true;
     shellIntegration = {

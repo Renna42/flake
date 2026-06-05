@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: let
   profileName = "renna";
@@ -38,7 +39,7 @@ in {
     enable = true;
     package =
       if pkgs.stdenv.isLinux
-      then pkgs.firefox
+      then unstablePkgs.firefox
       else null;
     languagePacks =
       if pkgs.stdenv.isLinux

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   sops = {
@@ -20,7 +21,7 @@
     enable = true;
     package =
       if !pkgs.stdenv.isDarwin
-      then pkgs.claude-code
+      then unstablePkgs.claude-code
       else null;
     settings = {
       hooks = {

@@ -51,13 +51,6 @@ in {
       # Disable the built-in flake registry to speed up evaluation
       flake-registry = "";
     };
-    # This is important. It locks nixpkgs registry used in nix shell
-    # to the same of flakes. Saves time.
-    registry =
-      {
-        pkgs.flake = inputs.self;
-      }
-      // lib.mapAttrs (_: flakes: {flake = flakes;}) inputs;
 
     channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
 

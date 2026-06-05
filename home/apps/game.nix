@@ -1,9 +1,9 @@
 {
-  pkgs,
+  unstablePkgs,
   osConfig,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = with unstablePkgs; [
     # keep-sorted start
     adwsteamgtk
     osu-lazer-bin
@@ -15,11 +15,11 @@
   programs.lutris = {
     enable = true;
     steamPackage = osConfig.programs.steam.package;
-    defaultWinePackage = pkgs.dwproton-bin;
+    defaultWinePackage = unstablePkgs.dwproton-bin;
     protonPackages = [
-      pkgs.dwproton-bin
+      unstablePkgs.dwproton-bin
     ];
-    extraPackages = with pkgs; [
+    extraPackages = with unstablePkgs; [
       mangohud
     ];
   };

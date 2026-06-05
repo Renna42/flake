@@ -1,6 +1,7 @@
 {
   assetsPath,
   pkgs,
+  unstablePkgs,
   username,
   ...
 }: let
@@ -26,7 +27,7 @@ in {
     ./apps/mpv
     ./apps/obs-studio
     ./apps/obsidian
-    ./apps/vscode
+    ./apps/vscodium
     ./apps/wakatime
     ./apps/yubikey
     ./apps/zed
@@ -38,7 +39,7 @@ in {
   ];
 
   home = {
-    packages = with pkgs; [
+    packages = with unstablePkgs; [
       # keep-sorted start case=no
       angryipscanner
       audacity

@@ -16,7 +16,7 @@
     ./apps/obsidian
     ./apps/rime
     ./apps/syncthing
-    ./apps/vscode
+    ./apps/vscodium
     ./apps/wakatime
     ./apps/yubikey
     ./apps/zed

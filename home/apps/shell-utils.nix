@@ -3,11 +3,12 @@
   config,
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   imports = [inputs.nix-index-database.homeModules.nix-index];
 
-  home.packages = with pkgs; [
+  home.packages = with unstablePkgs; [
     # keep-sorted start
     aria2
     asciinema
@@ -136,7 +137,7 @@
   programs.fish = {
     enable = true;
     plugins = map (x: {inherit (x) name src;}) (
-      with pkgs.fishPlugins; [
+      with unstablePkgs.fishPlugins; [
         plugin-git
         fzf-fish
         puffer

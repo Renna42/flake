@@ -1,5 +1,6 @@
 {
   config,
+  unstablePkgs,
   secretsPath,
   ...
 }: {
@@ -10,6 +11,7 @@
 
   services.tailscale = {
     enable = true;
+    package = unstablePkgs.tailscale;
     authKeyFile = config.sops.secrets.tailscale_authkey.path;
   };
 }

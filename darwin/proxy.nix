@@ -2,10 +2,11 @@
   config,
   lib,
   pkgs,
+  unstablePkgs,
   secretsPath,
   ...
 }: let
-  mihomoWebui = pkgs.zashboard;
+  mihomoWebui = unstablePkgs.zashboard;
 in {
   sops.secrets.mihomoConfig = {
     format = "yaml";

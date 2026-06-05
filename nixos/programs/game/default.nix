@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
   programs.steam = {
     enable = true;
-    package = pkgs.steam;
+    package = unstablePkgs.steam;
     platformOptimizations.enable = true;
-    extraCompatPackages = with pkgs; [
+    extraCompatPackages = with unstablePkgs; [
       dwproton-bin
     ];
     fontPackages = with pkgs; [
@@ -30,7 +34,7 @@
     game-devices-udev-rules
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with unstablePkgs; [
     lutris
   ];
 }

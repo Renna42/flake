@@ -36,6 +36,7 @@ in {
           inputs
           hostname
           overlays
+          unstablePkgs
           secretsPath
           assetsPath
           ;

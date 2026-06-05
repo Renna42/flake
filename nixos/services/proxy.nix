@@ -1,6 +1,6 @@
 {
   lib,
-  pkgs,
+  unstablePkgs,
   config,
   secretsPath,
   ...
@@ -15,7 +15,7 @@
   services.mihomo = {
     enable = true;
     tunMode = true;
-    webui = pkgs.zashboard;
+    webui = unstablePkgs.zashboard;
     configFile = config.sops.secrets.mihomoConfig.path;
   };
 

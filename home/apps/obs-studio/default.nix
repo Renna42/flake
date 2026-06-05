@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{unstablePkgs, ...}: {
   programs.obs-studio = {
     enable = true;
-    package = pkgs.obs-studio.override {
+    package = unstablePkgs.obs-studio.override {
       cudaSupport = true;
     };
-    plugins = with pkgs.obs-studio-plugins; [
+    plugins = with unstablePkgs.obs-studio-plugins; [
       wlrobs
       obs-backgroundremoval
       obs-pipewire-audio-capture

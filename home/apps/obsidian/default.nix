@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstablePkgs,
   ...
 }: let
   vaultName = "Obsidian Vault";
@@ -9,7 +10,7 @@ in {
     enable = true;
     package =
       if pkgs.stdenv.isLinux
-      then pkgs.obsidian
+      then unstablePkgs.obsidian
       else null;
     cli.enable = true;
     defaultSettings = {

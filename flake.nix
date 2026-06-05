@@ -23,7 +23,9 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -64,7 +66,7 @@
     };
     darwin = {
       url = "github:nix-darwin/nix-darwin?ref=ae6fbbd4f63d8aa71989f51dc51f73aaf95d4788";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -100,8 +102,12 @@
       url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    home-manager-darwin = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+    home-manager-nixos = {
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -171,7 +177,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:nix-community/stylix";
+      url = "github:nix-community/stylix/release-26.05";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nur.follows = "nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -310,14 +316,23 @@
           lib = import ./lib {inherit (nixpkgs) lib;};
 
           nixosConfigurations = lib.genAttrs nixosMachines (
-            hostname:
+            hostname: let
+              system =
+                if hostname == "Quebec"
+                then "aarch64-linux"
+                else "x86_64-linux";
+              unstablePkgs = import inputs.nixpkgs-unstable {
+                inherit system overlays;
+                config.allowUnfree = true;
+              };
+            in
               self.lib.withOfflineInstaller {
                 flake = self;
                 nixosConfig = nixpkgs.lib.nixosSystem {
                   specialArgs =
                     globalSpecialArgs
                     // {
-                      inherit hostname;
+                      inherit hostname unstablePkgs;
                     };
                   modules = [
                     ./configurations/${hostname}
@@ -325,7 +340,7 @@
                     # keep-sorted start
                     inputs.angrr.nixosModules.angrr
                     inputs.disko.nixosModules.disko
-                    inputs.home-manager.nixosModules.home-manager
+                    inputs.home-manager-nixos.nixosModules.home-manager
                     inputs.hyprland.nixosModules.default
                     inputs.nix-gaming.nixosModules.platformOptimizations
                     inputs.nix-gaming.nixosModules.wine
@@ -353,16 +368,22 @@
           );
 
           darwinConfigurations = lib.genAttrs darwinMachines (
-            hostname:
+            hostname: let
+              system = "aarch64-darwin";
+              unstablePkgs = import inputs.nixpkgs-unstable {
+                inherit system overlays;
+                config.allowUnfree = true;
+              };
+            in
               inputs.darwin.lib.darwinSystem {
                 specialArgs =
                   globalSpecialArgs
                   // {
-                    inherit hostname;
+                    inherit hostname unstablePkgs;
                   };
                 modules = [
                   ./darwin
-                  inputs.home-manager.darwinModules.home-manager
+                  inputs.home-manager-darwin.darwinModules.home-manager
                   inputs.sops-nix.darwinModules.sops
                 ];
               }

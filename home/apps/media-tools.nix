@@ -1,6 +1,10 @@
-{pkgs, ...}: {
-  home.packages = with pkgs;
-    [
+{
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
+  home.packages =
+    (with pkgs; [
       (
         ffmpeg-full.override (
           {
@@ -28,18 +32,19 @@
       libwebp
       shntool
       truehdd
+      unstablePkgs.yt-dlp
       wavpack
-      yt-dlp
       # keep-sorted end
-    ]
+    ])
     ++ (
-      if pkgs.stdenv.isLinux
-      then [
-        mkvtoolnix
-        picard
-      ]
-      else [
-        mkvtoolnix-cli
-      ]
+      with unstablePkgs;
+        if pkgs.stdenv.isLinux
+        then [
+          mkvtoolnix
+          picard
+        ]
+        else [
+          mkvtoolnix-cli
+        ]
     );
 }

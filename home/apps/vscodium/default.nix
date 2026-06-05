@@ -1,10 +1,12 @@
 {
   config,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   programs.vscodium = {
     enable = true;
+    package = unstablePkgs.vscodium;
     mutableExtensionsDir = false;
     profiles.default = {
       userSettings =
@@ -292,7 +294,7 @@
     };
   };
 
-  stylix.targets.vscode.enable = false;
+  stylix.targets.vscodium.enable = false;
   catppuccin.vscode.profiles.default.enable = true;
 
   home.sessionVariables = {
