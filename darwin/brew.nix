@@ -29,7 +29,6 @@ _: {
       "audacity"
       "betterdisplay"
       "bitwarden"
-      "clash-verge-rev"
       "coteditor"
       "dbeaver-community"
       "discord"
