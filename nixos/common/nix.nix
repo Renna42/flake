@@ -91,7 +91,7 @@ in {
         # lazy-trees = true;
 
         substituters = lib.mkIf config.renna.enableMirrorSubstituter [
-          # "https://mirror.sjtu.edu.cn/nix-channels/store"
+          "https://mirror.sjtu.edu.cn/nix-channels/store"
           "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
           "https://mirrors.ustc.edu.cn/nix-channels/store"
         ];
