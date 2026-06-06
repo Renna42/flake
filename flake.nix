@@ -57,7 +57,7 @@
       inputs.systems.follows = "systems";
     };
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chinese-fonts-overlay = {
