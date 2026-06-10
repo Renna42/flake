@@ -52,8 +52,6 @@ _: {
       "jetbrains-toolbox"
       "jordanbaird-ice"
       "karabiner-elements"
-      "keka"
-      "kekaexternalhelper"
       "kitty"
       "launchcontrol"
       "localsend"
