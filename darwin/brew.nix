@@ -71,6 +71,7 @@ _: {
       "Renna42/tap/makemkv"
       "Renna42/tap/xld"
       "reqable"
+      "shichizip-zs"
       "shottr"
       "squirrel-app"
       "tailscale-app"
