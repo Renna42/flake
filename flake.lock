@@ -19,11 +19,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780678125,
-        "narHash": "sha256-EOqBLRKjzpwDGpYrrNmLj/4FfGtKl856672aZzlcmL0=",
+        "lastModified": 1781283585,
+        "narHash": "sha256-JELElPQzPHxcK6CX/x5M6jkZBCVsy3eNYMD7VKupOP0=",
         "owner": "linyinfeng",
         "repo": "angrr",
-        "rev": "f20f94fbb488bd29ccbebd1bdb13cc428cd48f82",
+        "rev": "1cd3e44186e07cdc86f8b82de1854c4f999eeca4",
         "type": "github"
       },
       "original": {
