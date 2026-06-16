@@ -33,21 +33,21 @@ in
 
     "share/rime-data/rime_mint.custom.yaml" = builtins.toJSON {
       patch = {
-        "speller/algebra" = [
-          "xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/"
-          "xform/^ng$/eng/"
-          "xform/ńg|ňg|ǹg/eng/"
-          "xform/ń|ň|ǹ/en/"
-          "erase/^xx$/"
-          "derive/([aeiou])ng$/$1gn/"
-          "derive/([dtngkhrzcs])o(u|ng)$/$1o/"
-          "derive/ong$/on/"
-          "derive/un$/ong/"
-          "derive/^([zcs]h).+$/$1/"
-          "abbrev/^([a-z]).+$/$1/"
+        "grammar/language" = "wanxiang-lts-zh-hans";
+        "grammar/collocation_max_length" = 8;
+        "grammar/collocation_min_length" = 2;
+        "grammar/collocation_penalty" = -16;
+        "grammar/non_collocation_penalty" = -8;
+        "grammar/weak_collocation_penalty" = -100;
+        "grammar/rear_penalty" = -20;
+        "speller/algebra/+" = [
           "abbrev/^([a-z]{2,}).+$/$1/"
+          "derive/v/u/"
         ];
         "translator/dictionary" = "rime_mint.custom";
+        "translator/contextual_suggestions" = true;
+        "translator/max_homophones" = 7;
+        "translator/max_homographs" = 7;
       };
     };
 

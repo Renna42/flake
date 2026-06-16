@@ -13,6 +13,7 @@
   rime-renna-custom = pkgs.callPackage ./rime-renna-custom.nix {inherit assetsPath config;};
   rimeDataPkgs = [
     oh-my-rime
+    pkgs.nur.repos.jetcookies.rime-lmdg
     rime-custom-pinyin-dictionary
     rime-moetype
     rime-zhwiki
