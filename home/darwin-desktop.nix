@@ -8,6 +8,7 @@
     ./apps/archives
     ./apps/develop
     ./apps/develop/c-family.nix
+    ./apps/develop/golang.nix
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
     ./apps/develop/rust.nix
