@@ -4,7 +4,6 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
-      "https://nixpkgs-wayland.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
       "https://attic.xuyh0120.win/lantian"
@@ -13,7 +12,6 @@
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
@@ -53,6 +51,7 @@
     betterfox-nix = {
       url = "github:HeitorAugustoLN/betterfox-nix";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.import-tree.follows = "import-tree";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
@@ -64,6 +63,7 @@
       url = "github:brsvh/chinese-fonts-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    crane.url = "github:ipetkov/crane";
     darwin = {
       url = "github:nix-darwin/nix-darwin?ref=ae6fbbd4f63d8aa71989f51dc51f73aaf95d4788";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
@@ -73,6 +73,10 @@
       inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
+    };
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
       url = "github:nix-community/disko";
@@ -85,6 +89,7 @@
     };
     flat-flake = {
       url = "github:linyinfeng/flat-flake";
+      inputs.crane.follows = "crane";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,6 +121,7 @@
       inputs.pre-commit-hooks.follows = "git-hooks-nix";
       inputs.systems.follows = "systems";
     };
+    import-tree.url = "github:denful/import-tree";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.flake-compat.follows = "flake-compat";
@@ -150,10 +156,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-nixcord.follows = "nixpkgs";
     };
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.flake-compat.follows = "flake-compat";
+    nixfmt-rs = {
+      url = "github:Mic92/nixfmt-rs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     nur = {
       url = "github:nix-community/NUR";
@@ -162,9 +168,11 @@
     };
     nur-xddxdd = {
       url = "github:xddxdd/nur-packages";
+      inputs.devshell.follows = "devshell";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
       inputs.nix-index-database.follows = "nix-index-database";
+      inputs.nixfmt-rs.follows = "nixfmt-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks-nix.follows = "git-hooks-nix";
       inputs.treefmt-nix.follows = "treefmt-nix";
@@ -238,7 +246,34 @@
           flakeModules.renna-git-hooks
         ];
 
-        flatFlake.config.allowed = [];
+        flatFlake.config.allowed = [
+          # keep-sorted start block=yes
+          ["hyprland" "aquamarine"]
+          ["hyprland" "hyprcursor"]
+          ["hyprland" "hyprgraphics"]
+          ["hyprland" "hyprland-guiutils" "hyprtoolkit"]
+          ["hyprland" "hyprland-guiutils"]
+          ["hyprland" "hyprland-protocols"]
+          ["hyprland" "hyprlang"]
+          ["hyprland" "hyprutils"]
+          ["hyprland" "hyprwayland-scanner"]
+          ["hyprland" "hyprwire"]
+          ["hyprland" "xdph"]
+          ["nix-cachyos-kernel" "cachyos-kernel"]
+          ["nix-cachyos-kernel" "cachyos-kernel-patches"]
+          ["stylix" "base16" "fromYaml"]
+          ["stylix" "base16"]
+          ["stylix" "base16-fish"]
+          ["stylix" "base16-helix"]
+          ["stylix" "base16-vim"]
+          ["stylix" "firefox-gnome-theme"]
+          ["stylix" "gnome-shell"]
+          ["stylix" "tinted-kitty"]
+          ["stylix" "tinted-schemes"]
+          ["stylix" "tinted-tmux"]
+          ["stylix" "tinted-zed"]
+          # keep-sorted end
+        ];
 
         systems = [
           "x86_64-linux"
@@ -307,7 +342,6 @@
             nix-cachyos-kernel = inputs.nix-cachyos-kernel.overlays.pinned;
             nix-gaming = inputs.nix-gaming.overlays.default;
             nix4vscode = inputs.nix4vscode.overlays.default;
-            nixpkgs-wayland = inputs.nixpkgs-wayland.overlay;
             nur = inputs.nur.overlays.default;
             nur-xddxdd = inputs.nur-xddxdd.overlays.inSubTree-pinnedNixpkgs;
             rust-overlay = inputs.rust-overlay.overlays.default;
