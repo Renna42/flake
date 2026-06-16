@@ -1,3 +1,4 @@
+name: Build rime-data
 on:
   workflow_dispatch:
   push:
