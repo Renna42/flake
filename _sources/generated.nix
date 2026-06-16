@@ -4,7 +4,8 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   mpv-sockets = {
     pname = "mpv-sockets";
     version = "3b3f430074a67c63572a582847ed1fa69330c668";
@@ -19,15 +20,15 @@
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "0e665c46a87ba99b41a07169fa3acf6162739648";
+    version = "9f568e61bc6acba41fd9f5d457d9128782bc3e1c";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "0e665c46a87ba99b41a07169fa3acf6162739648";
+      rev = "9f568e61bc6acba41fd9f5d457d9128782bc3e1c";
       fetchSubmodules = false;
-      sha256 = "sha256-iiV67D6+kgZs5y5pYES/3B60OdpdDt97zyPxh2xduxc=";
+      sha256 = "sha256-1LXDrvMk6eW0ub8SmmHZ4bC/irv6jF71EkpiKpktQrg=";
     };
-    date = "2026-05-06";
+    date = "2026-06-15";
   };
   oh-my-rime = {
     pname = "oh-my-rime";
