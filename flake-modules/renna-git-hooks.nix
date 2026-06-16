@@ -17,6 +17,7 @@
           "README\\.md"
           ".envrc"
           ".*\\.age"
+          "\\.dict\\.yaml"
         ];
         hooks = {
           # keep-sorted start block=yes

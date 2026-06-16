@@ -1,10 +1,9 @@
 {
-  assetsPath,
-  config,
   lib,
   linkFarm,
   writeText,
-  ...
+  sansSerifFont ? "Noto Sans CJK SC",
+  monospaceFont ? "Maple Mono Normal NF CN",
 }: let
   makeDict = name: dicts: let
     body = builtins.toJSON {
@@ -65,7 +64,7 @@ in
       "dicts/rime_ice.others"
     ];
 
-    "share/rime-data/dicts/custom_renna.dict.yaml" = builtins.readFile "${assetsPath}/custom_renna.dict.yaml";
+    "share/rime-data/dicts/custom_renna.dict.yaml" = builtins.readFile ./custom_renna.dict.yaml;
 
     "share/rime-data/squirrel.custom.yaml" = builtins.toJSON {
       patch = {
@@ -82,11 +81,11 @@ in
           border_height = 1;
           border_width = 1;
           show_paging = true;
-          font_face = config.stylix.fonts.sansSerif.name;
+          font_face = sansSerifFont;
           font_point = 17;
-          label_font_face = config.stylix.fonts.monospace.name;
+          label_font_face = monospaceFont;
           label_font_point = 13;
-          comment_font_face = config.stylix.fonts.sansSerif.name;
+          comment_font_face = sansSerifFont;
         };
         preset_color_schemes = {
           catppuccin_macchiato = {

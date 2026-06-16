@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "pkgs/rime-data/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pre-build devShell
+        run: |
+          # shellcheck disable=SC2046
+          nix build --no-link .#devShells.$(nix eval --impure --raw --expr 'builtins.currentSystem').default
+      - name: Build rime-data with nix develop
+        shell: "nix develop -c bash -e {0}"
+        run: nix build .#rime-data
+      - uses: actions/upload-artifact@v7
+        with:
+          name: rime-data
+          path: result/share/rime-data/

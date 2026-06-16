@@ -294,7 +294,7 @@
             // {packages' = pkgs.packages;};
 
           pkgs' = import self.inputs.nixpkgs {
-            inherit system;
+            inherit system overlays;
             config.allowUnfree = true;
           };
         in {

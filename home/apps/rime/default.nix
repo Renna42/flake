@@ -1,24 +1,10 @@
 {
-  assetsPath,
   osConfig,
   config,
   pkgs,
   lib,
   ...
 }: let
-  oh-my-rime = pkgs.callPackage ./oh-my-rime.nix {};
-  rime-custom-pinyin-dictionary = pkgs.callPackage ./rime-custom-pinyin-dictionary.nix {};
-  rime-moetype = pkgs.callPackage ./rime-moetype.nix {};
-  rime-zhwiki = pkgs.callPackage ./rime-zhwiki.nix {};
-  rime-renna-custom = pkgs.callPackage ./rime-renna-custom.nix {inherit assetsPath config;};
-  rimeDataPkgs = [
-    oh-my-rime
-    pkgs.nur.repos.jetcookies.rime-lmdg
-    rime-custom-pinyin-dictionary
-    rime-moetype
-    rime-zhwiki
-    rime-renna-custom
-  ];
   rimeConfig =
     if pkgs.stdenv.isDarwin
     then "Library/Rime"
@@ -41,12 +27,7 @@ in {
     fi
   '';
   home.file.${rimeConfig} = lib.mkIf pkgs.stdenv.isDarwin {
-    source = "${
-      pkgs.symlinkJoin {
-        name = "rime-data";
-        paths = rimeDataPkgs;
-      }
-    }/share/rime-data";
+    source = "${pkgs.renna.rime-data}/share/rime-data";
     recursive = true;
   };
 }
