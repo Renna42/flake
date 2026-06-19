@@ -8,8 +8,7 @@
   commonStylix = {
     enable = true;
     image = pkgs.fetchurl {
-      # i.pixiv.cat is not available in China Mainland
-      url = "https://i.pixiv.re/img-original/img/2020/01/24/23/21/01/79075144_p0.jpg";
+      url = "https://i.pixiv.cat/img-original/img/2020/01/24/23/21/01/79075144_p0.jpg";
       hash = "sha256-el4SWrJkQ8aecsRXCJ4S5ZYz1rdGunipQMuC5tgRSK8=";
     };
     polarity = "dark";
