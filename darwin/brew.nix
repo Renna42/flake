@@ -18,8 +18,14 @@ _: {
     };
 
     taps = [
-      "AnInsomniacy/motrix-next"
-      "Renna42/tap"
+      {
+        name = "AnInsomniacy/motrix-next";
+        trusted = true;
+      }
+      {
+        name = "Renna42/tap";
+        trusted = true;
+      }
     ];
     brews = [];
     casks = [

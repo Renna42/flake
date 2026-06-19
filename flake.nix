@@ -65,7 +65,7 @@
     };
     crane.url = "github:ipetkov/crane";
     darwin = {
-      url = "github:nix-darwin/nix-darwin?ref=ae6fbbd4f63d8aa71989f51dc51f73aaf95d4788";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     deploy-rs = {
