@@ -1,9 +1,13 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  sansSerifFont ? "Noto Sans CJK SC",
+  monospaceFont ? "Maple Mono Normal NF CN",
+}: let
   oh-my-rime = pkgs.callPackage ./oh-my-rime.nix {};
   rime-custom-pinyin-dictionary = pkgs.callPackage ./rime-custom-pinyin-dictionary.nix {};
   rime-moetype = pkgs.callPackage ./rime-moetype.nix {};
   rime-zhwiki = pkgs.callPackage ./rime-zhwiki.nix {};
-  rime-renna-custom = pkgs.callPackage ./rime-renna-custom.nix {};
+  rime-renna-custom = pkgs.callPackage ./rime-renna-custom.nix {inherit sansSerifFont monospaceFont;};
 in
   pkgs.symlinkJoin {
     name = "rime-data";
