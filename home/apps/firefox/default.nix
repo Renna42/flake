@@ -199,7 +199,6 @@ in {
         "media.hevc.enabled" = true;
         "media.hls.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
-        "media.videocontrols.picture-in-picture.enabled" = false;
         "security.insecure_connection_text.enabled" = true;
         "security.insecure_connection_text.pbmode.enabled" = true;
         "security.osclientcerts.autoload" = true;
