@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  pkgs,
   overlays,
   ...
 }: let
@@ -11,8 +10,6 @@
   ];
 in {
   nix = {
-    package = pkgs.lixPackageSets.latest.lix;
-
     daemonProcessType = "Background";
     daemonIOLowPriority = true;
 
@@ -26,7 +23,7 @@ in {
       allowed-users = lib.mkForce allowedUsers;
       auto-optimise-store = true;
       connect-timeout = 5;
-      # download-buffer-size = 1024 * 1024 * 1024;  # Removed in Lix
+      download-buffer-size = 1024 * 1024 * 1024;
       experimental-features = lib.mkForce "nix-command flakes";
       extra-experimental-features = lib.mkForce "nix-command flakes";
       fallback = true;

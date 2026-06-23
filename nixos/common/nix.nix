@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  pkgs,
   overlays,
   ...
 }: let
@@ -51,8 +50,6 @@ in {
     };
 
     nix = {
-      package = pkgs.lixPackageSets.latest.lix;
-
       daemonIOSchedClass = lib.mkDefault "idle";
       daemonCPUSchedPolicy = lib.mkDefault "idle";
       daemonIOSchedPriority = 7;
@@ -72,7 +69,7 @@ in {
         build-dir = "/var/cache/nix";
         builders-use-substitutes = true;
         connect-timeout = 5;
-        # download-buffer-size = 1024 * 1024 * 1024;  # Removed in Lix
+        download-buffer-size = 1024 * 1024 * 1024;
         experimental-features = lib.mkForce "nix-command flakes auto-allocate-uids cgroups";
         extra-experimental-features = lib.mkForce "nix-command flakes auto-allocate-uids cgroups";
         fallback = true;
