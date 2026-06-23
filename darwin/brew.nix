@@ -84,6 +84,7 @@ _: {
       "teamspeak-client"
       "tinymediamanager"
       "typora"
+      "uninstallpkg"
       "utm@beta"
       "vnc-viewer"
       "wireshark-app"
