@@ -113,12 +113,12 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "git-hooks-nix";
-      inputs.systems.follows = "systems";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.pre-commit-hooks.follows = "git-hooks-nix";
+    #   inputs.systems.follows = "systems";
+    # };
     import-tree.url = "github:denful/import-tree";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
@@ -374,7 +374,7 @@
                     inputs.angrr.nixosModules.angrr
                     inputs.disko.nixosModules.disko
                     inputs.home-manager-nixos.nixosModules.home-manager
-                    inputs.hyprland.nixosModules.default
+                    # inputs.hyprland.nixosModules.default
                     inputs.nix-gaming.nixosModules.platformOptimizations
                     inputs.nix-gaming.nixosModules.wine
                     inputs.nur-xddxdd.nixosModules.openssl-conf
