@@ -26,11 +26,11 @@ in {
     ./apps/kitty
     ./apps/mpv
     ./apps/obs-studio
-    ./apps/obsidian
+    # ./apps/obsidian
     ./apps/vscodium
     ./apps/wakatime
     ./apps/yubikey
-    ./apps/zed
+    # ./apps/zed
     # keep-sorted end
 
     ./apps/android.nix
@@ -44,14 +44,14 @@ in {
       angryipscanner
       audacity
       ayugram-desktop
-      bitwarden-desktop
+      # bitwarden-desktop
       cider-2
       dbeaver-bin
       dejavu_fonts
       kdePackages.kleopatra
       krita
       localsend
-      makemkv
+      # makemkv
       mediainfo
       motrix-next
       openscreen
@@ -59,7 +59,7 @@ in {
       qbittorrent-enhanced
       renna.aegisub-arch1t3cht
       teamspeak6-client
-      ventoy-full
+      # ventoy-full
       vlc
       # keep-sorted end
     ];
