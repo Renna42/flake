@@ -57,7 +57,6 @@ in {
       openscreen
       podman-desktop
       qbittorrent-enhanced
-      realvnc-vnc-viewer
       renna.aegisub-arch1t3cht
       teamspeak6-client
       ventoy-full
