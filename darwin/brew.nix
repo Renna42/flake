@@ -89,7 +89,6 @@ _: {
       "vnc-viewer"
       "wireshark-app"
       "yubico-authenticator"
-      "zed"
       # keep-sorted end
     ];
   };
