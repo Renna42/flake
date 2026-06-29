@@ -43,6 +43,7 @@ in {
       substituters = [
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
       ];
       # Disable the built-in flake registry to speed up evaluation
       flake-registry = "";
