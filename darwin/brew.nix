@@ -80,6 +80,7 @@ _: {
       "shichizip-zs"
       "shottr"
       "squirrel-app"
+      "steam"
       "tailscale-app"
       "teamspeak-client"
       "tinymediamanager"
