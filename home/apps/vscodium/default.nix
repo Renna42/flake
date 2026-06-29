@@ -182,7 +182,6 @@
           "typescript.suggest.autoImports" = true;
           "typescript.updateImportsOnFileMove.enabled" = "always";
           "update.mode" = "none";
-          "vsicons.dontShowNewVersionMessage" = true;
           "workbench.colorCustomizations" = {
             "terminal.background" = "#00000000";
           };
@@ -215,6 +214,7 @@
         "datakurre.devenv"
         "davidanson.vscode-markdownlint"
         "dbaeumer.vscode-eslint"
+        "dnicolson.binary-plist"
         "docker.docker"
         "donjayamanne.python-environment-manager"
         "DrBlury.protobuf-vsc"
@@ -230,7 +230,6 @@
         "IBM.output-colorizer"
         "JHeilingbrunner.vscode-gnupg-tool"
         "jnoortheen.nix-ide"
-        "k--kato.intellij-idea-keybindings"
         "keroc.hex-fmt"
         "KevinRose.vsc-python-indent"
         "llvm-vs-code-extensions.vscode-clangd"
