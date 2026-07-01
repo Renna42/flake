@@ -18,7 +18,7 @@
       open = true;
       nvidiaSettings = false;
       nvidiaPersistenced = true;
-      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
     };
   };
 
