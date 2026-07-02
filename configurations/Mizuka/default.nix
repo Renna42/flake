@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./epson_l8168.nix
@@ -34,15 +38,18 @@
     ../../nixos/programs/evolution.nix
     ../../nixos/programs/odd.nix
     ../../nixos/programs/wireshark.nix
-    ../../nixos/programs/bitwarden.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    ciel
-    squashfsTools
-    gparted-full
-    nvme-cli
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      ciel
+      squashfsTools
+      gparted-full
+      nvme-cli
+    ]
+    ++ (with unstablePkgs; [
+      bitwarden-desktop
+    ]);
 
   renna = {
     kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
