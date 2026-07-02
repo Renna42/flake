@@ -52,6 +52,7 @@ in
 
     "share/rime-data/rime_mint.custom.dict.yaml" = makeDict "rime_mint" [
       "dicts/custom_renna"
+      "dicts/canton_places"
       "dicts/CustomPinyinDictionary"
       "dicts/tone_moe"
       "dicts/zhwiki"
@@ -65,6 +66,8 @@ in
     ];
 
     "share/rime-data/dicts/custom_renna.dict.yaml" = builtins.readFile ./custom_renna.dict.yaml;
+
+    "share/rime-data/dicts/canton_places.dict.yaml" = builtins.readFile ./canton_places.dict.yaml;
 
     "share/rime-data/squirrel.custom.yaml" = builtins.toJSON {
       patch = {
