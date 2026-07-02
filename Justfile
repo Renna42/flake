@@ -20,23 +20,23 @@ generate-hardware-config hostname target:
 build-disko-image hostname:
   nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#nixosConfigurations.{{ hostname }}.config.system.build.diskoImages --log-format internal-json |& nom --json
 
-build:
-  nixos-rebuild build --flake .# --sudo --log-format internal-json |& nom --json
+build *FLAGS:
+  nixos-rebuild build --flake .# --sudo --log-format internal-json {{ FLAGS }} |& nom --json
 
-deploy:
-  nixos-rebuild switch --flake .# --sudo --log-format internal-json |& nom --json
+deploy *FLAGS:
+  nixos-rebuild switch --flake .# --sudo --log-format internal-json {{ FLAGS }} |& nom --json
 
-boot:
-  nixos-rebuild boot --flake .# --sudo --log-format internal-json |& nom --json
+boot *FLAGS:
+  nixos-rebuild boot --flake .# --sudo --log-format internal-json {{ FLAGS }} |& nom --json
 
-dryrun:
-  nixos-rebuild dry-run --flake .# --sudo --log-format internal-json |& nom --json
+dryrun *FLAGS:
+  nixos-rebuild dry-run --flake .# --sudo --log-format internal-json {{ FLAGS }} |& nom --json
 
 darwin-bootstrap:
   sudo nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake .#
 
-darwin-deploy:
-  nh darwin switch .#
+darwin-deploy *FLAGS:
+  nh darwin switch .# {{ FLAGS }}
 
 gc:
   # remove all generations older than 7 days
