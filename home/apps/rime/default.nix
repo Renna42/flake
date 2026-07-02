@@ -21,7 +21,6 @@
       librime = pkgs.nur-xddxdd.lantianCustomized.librime-with-plugins;
       rimeDataPkgs = with pkgs; [
         renna.rime-data
-        rime-data
       ];
     }).overrideAttrs
     (old: {

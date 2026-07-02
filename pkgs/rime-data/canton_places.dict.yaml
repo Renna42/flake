@@ -6,50 +6,50 @@ version: "1.0"
 sort: by_weight
 ...
 # 广东特殊发音地名
-黄陂	huang bei	100
-西塱	xi lang	100
-柯木塱	ke mu lang	100
-东涌	dong chong	100
-低涌	di chong	100
-大涌	da chong	100
-棠涌	tang chong	100
-东濠涌	dong hao chong	100
-沙河涌	sha he chong	100
-猎德涌	lie de chong	100
-荔枝湾涌	li zhi wan chong	100
-上涌	shang chong	100
-下涌	xia chong	100
-西涌	xi chong	100
-东涌	dong chong	100
-葵涌	kui chong	100
-溪涌	xi chong	100
-泥涌	ni chong	100
-沙鱼涌	sha yu chong	100
-沙涌	sha chong	100
-福涌	fu chong	100
-曲涌	qu chong	100
-黄鱼涌	huang yu chong	100
-麻涌镇	ma chong zheng	100
-黎涌	li chong	100
-河清涌	he qing chong	100
-吉利涌	ji li chong	100
-鲗鱼涌	ce yu chong	100
-大榄涌	da lan chong	100
-深涌	shen chong	100
-涌尾	chong wei	100
-蠔涌	hao chong	100
-黎涌	li chong	100
-大榄涌	da lan chong	100
-南涌	nan chong	100
-鸭涌河	ya chong he	100
-菜园涌	cai yuan chong	100
-仙涌	xian chong	100
-沥滘	li jiao	100
-滘口	jiao kou	100
-滘心	jiao xin	100
-石碁	shi qi	100
-杨箕	yang ji	100
-长湴	chang ban	100
+黄陂	huang bei	99
+西塱	xi lang	99
+柯木塱	ke mu lang	99
+东涌	dong chong	99
+低涌	di chong	99
+大涌	da chong	99
+棠涌	tang chong	99
+东濠涌	dong hao chong	99
+沙河涌	sha he chong	99
+猎德涌	lie de chong	99
+荔枝湾涌	li zhi wan chong	99
+上涌	shang chong	99
+下涌	xia chong	99
+西涌	xi chong	99
+东涌	dong chong	99
+葵涌	kui chong	99
+溪涌	xi chong	99
+泥涌	ni chong	99
+沙鱼涌	sha yu chong	99
+沙涌	sha chong	99
+福涌	fu chong	99
+曲涌	qu chong	99
+黄鱼涌	huang yu chong	99
+麻涌镇	ma chong zheng	99
+黎涌	li chong	99
+河清涌	he qing chong	99
+吉利涌	ji li chong	99
+鲗鱼涌	ce yu chong	99
+大榄涌	da lan chong	99
+深涌	shen chong	99
+涌尾	chong wei	99
+蠔涌	hao chong	99
+黎涌	li chong	99
+大榄涌	da lan chong	99
+南涌	nan chong	99
+鸭涌河	ya chong he	99
+菜园涌	cai yuan chong	99
+仙涌	xian chong	99
+沥滘	li jiao	99
+滘口	jiao kou	99
+滘心	jiao xin	99
+石碁	shi qi	99
+杨箕	yang ji	99
+长湴	chang ban	99
 
 涌	chong	99
 碁	qi	99
