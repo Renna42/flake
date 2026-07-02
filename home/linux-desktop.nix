@@ -26,7 +26,9 @@ in {
     ./apps/kitty
     ./apps/mpv
     ./apps/obs-studio
-    # ./apps/obsidian
+    ./apps/obsidian
+    ./apps/rime
+    ./apps/syncthing
     ./apps/vscodium
     ./apps/wakatime
     ./apps/yubikey
@@ -36,6 +38,8 @@ in {
     ./apps/game.nix
     ./apps/shell-utils.nix
   ];
+
+  renna.syncthing.rime = true;
 
   home = {
     packages = with unstablePkgs; [
