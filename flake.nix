@@ -365,6 +365,7 @@
                     inputs.home-manager-nixos.nixosModules.home-manager
                     inputs.nix-gaming.nixosModules.platformOptimizations
                     inputs.nix-gaming.nixosModules.wine
+                    inputs.nix-index-database.nixosModules.default
                     inputs.nur-xddxdd.nixosModules.openssl-conf
                     inputs.nur-xddxdd.nixosModules.openssl-gost-engine
                     inputs.nur-xddxdd.nixosModules.openssl-oqs-provider

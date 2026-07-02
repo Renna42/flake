@@ -1,13 +1,10 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
   unstablePkgs,
   ...
 }: {
-  imports = [inputs.nix-index-database.homeModules.nix-index];
-
   home.packages = with unstablePkgs; [
     # keep-sorted start
     aria2
@@ -172,14 +169,6 @@
   #   enable = true;
   #   enableFishIntegration = true;
   # };
-
-  # Replace command-not-found with nix-index and comma
-  programs.nix-index-database.comma.enable = true;
-  programs.command-not-found.enable = false;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
 
   programs.lsd = {
     enable = true;

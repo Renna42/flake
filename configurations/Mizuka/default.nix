@@ -64,6 +64,7 @@
     nexttrace.enable = true;
     obs-studio.enableVirtualCamera = true;
     virt-manager.enable = true;
+    nix-index-database.comma.enable = true;
   };
 
   # Too much jobs may cause OOM
