@@ -348,32 +348,29 @@
                 };
               };
             in
-              self.lib.withOfflineInstaller {
-                flake = self;
-                nixosConfig = nixpkgs.lib.nixosSystem {
-                  specialArgs =
-                    globalSpecialArgs
-                    // {
-                      inherit hostname unstablePkgs;
-                    };
-                  modules = [
-                    ./configurations/${hostname}
-                    ./nixos/common
-                    # keep-sorted start
-                    inputs.angrr.nixosModules.angrr
-                    inputs.disko.nixosModules.disko
-                    inputs.home-manager-nixos.nixosModules.home-manager
-                    inputs.nix-gaming.nixosModules.platformOptimizations
-                    inputs.nix-gaming.nixosModules.wine
-                    inputs.nur-xddxdd.nixosModules.openssl-conf
-                    inputs.nur-xddxdd.nixosModules.openssl-gost-engine
-                    inputs.nur-xddxdd.nixosModules.openssl-oqs-provider
-                    inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
-                    inputs.sops-nix.nixosModules.sops
-                    inputs.stylix.nixosModules.stylix
-                    # keep-sorted end
-                  ];
-                };
+              nixpkgs.lib.nixosSystem {
+                specialArgs =
+                  globalSpecialArgs
+                  // {
+                    inherit hostname unstablePkgs;
+                  };
+                modules = [
+                  ./configurations/${hostname}
+                  ./nixos/common
+                  # keep-sorted start
+                  inputs.angrr.nixosModules.angrr
+                  inputs.disko.nixosModules.disko
+                  inputs.home-manager-nixos.nixosModules.home-manager
+                  inputs.nix-gaming.nixosModules.platformOptimizations
+                  inputs.nix-gaming.nixosModules.wine
+                  inputs.nur-xddxdd.nixosModules.openssl-conf
+                  inputs.nur-xddxdd.nixosModules.openssl-gost-engine
+                  inputs.nur-xddxdd.nixosModules.openssl-oqs-provider
+                  inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
+                  inputs.sops-nix.nixosModules.sops
+                  inputs.stylix.nixosModules.stylix
+                  # keep-sorted end
+                ];
               }
           );
 
