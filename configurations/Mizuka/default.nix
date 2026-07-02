@@ -5,7 +5,6 @@
     ../../nixos/disk-layouts/root-data-separate.nix
 
     ../../nixos/roles/desktop
-    # ../../nixos/gui/suites/hyprland.nix
     ../../nixos/gui/suites/plasma.nix
 
     ../../nixos/hardware/nvidia.nix

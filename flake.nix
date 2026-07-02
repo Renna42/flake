@@ -113,12 +113,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.pre-commit-hooks.follows = "git-hooks-nix";
-    #   inputs.systems.follows = "systems";
-    # };
     import-tree.url = "github:denful/import-tree";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
@@ -246,17 +240,6 @@
 
         flatFlake.config.allowed = [
           # keep-sorted start block=yes
-          ["hyprland" "aquamarine"]
-          ["hyprland" "hyprcursor"]
-          ["hyprland" "hyprgraphics"]
-          ["hyprland" "hyprland-guiutils" "hyprtoolkit"]
-          ["hyprland" "hyprland-guiutils"]
-          ["hyprland" "hyprland-protocols"]
-          ["hyprland" "hyprlang"]
-          ["hyprland" "hyprutils"]
-          ["hyprland" "hyprwayland-scanner"]
-          ["hyprland" "hyprwire"]
-          ["hyprland" "xdph"]
           ["nix-cachyos-kernel" "cachyos-kernel"]
           ["nix-cachyos-kernel" "cachyos-kernel-patches"]
           ["stylix" "base16" "fromYaml"]
@@ -380,7 +363,6 @@
                     inputs.angrr.nixosModules.angrr
                     inputs.disko.nixosModules.disko
                     inputs.home-manager-nixos.nixosModules.home-manager
-                    # inputs.hyprland.nixosModules.default
                     inputs.nix-gaming.nixosModules.platformOptimizations
                     inputs.nix-gaming.nixosModules.wine
                     inputs.nur-xddxdd.nixosModules.openssl-conf
