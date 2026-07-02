@@ -44,6 +44,7 @@ in {
       audacity
       ayugram-desktop
       bitwarden-desktop
+      celluloid
       dbeaver-bin
       dejavu_fonts
       kdePackages.kleopatra
@@ -56,6 +57,7 @@ in {
       podman-desktop
       qbittorrent-enhanced
       renna.aegisub-arch1t3cht
+      strawberry
       teamspeak6-client
       ventoy-full
       vlc
