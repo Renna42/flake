@@ -9,7 +9,6 @@ in {
   imports = [
     ./pipewire-latency-adjust.nix
     ./pipewire-rtprio.nix
-    ./pipewire-surround.nix
     ./wireplumber-bluez.nix
   ];
 
