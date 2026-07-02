@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   nativeBuildInputs = with pkgs; [
-    nodejs
+    nodejs-slim
     pnpmConfigHook
     pnpm
   ];
