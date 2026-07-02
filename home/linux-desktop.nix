@@ -43,7 +43,6 @@ in {
       angryipscanner
       audacity
       ayugram-desktop
-      bitwarden-desktop
       celluloid
       dbeaver-bin
       dejavu_fonts

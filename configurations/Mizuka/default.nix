@@ -35,6 +35,7 @@
     ../../nixos/programs/evolution.nix
     ../../nixos/programs/odd.nix
     ../../nixos/programs/wireshark.nix
+    ../../nixos/programs/bitwarden.nix
   ];
 
   environment.systemPackages = with pkgs; [
