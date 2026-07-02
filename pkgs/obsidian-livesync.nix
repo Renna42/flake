@@ -2,9 +2,9 @@
   lib,
   buildNpmPackage,
   fetchFromGitHub,
-  nodejs_24,
+  nodejs-slim_24,
   nix-update-script,
-  nodejs ? nodejs_24,
+  nodejs ? nodejs-slim_24,
 }:
 buildNpmPackage (finalAttrs: {
   inherit nodejs;

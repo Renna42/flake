@@ -5,9 +5,9 @@
   fetchYarnDeps,
   yarnConfigHook,
   yarnBuildHook,
-  nodejs_20,
+  nodejs-slim_20,
   nix-update-script,
-  nodejs ? nodejs_20,
+  nodejs-slim ? nodejs-slim_20,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "obsidian-tasks";
@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     yarnConfigHook
     yarnBuildHook
-    nodejs
+    nodejs-slim
   ];
 
   offlineCache = fetchYarnDeps {
