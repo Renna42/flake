@@ -44,7 +44,6 @@ in {
       audacity
       ayugram-desktop
       bitwarden-desktop
-      cider-2
       dbeaver-bin
       dejavu_fonts
       kdePackages.kleopatra
