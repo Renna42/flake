@@ -12,6 +12,11 @@
   services.tailscale = {
     enable = true;
     package = unstablePkgs.tailscale;
+    disableUpstreamLogging = true;
     authKeyFile = config.sops.secrets.tailscale_authkey.path;
+    extraSetFlags = [
+      "--operator=renna"
+      "--ssh"
+    ];
   };
 }
