@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   unstablePkgs,
   ...
@@ -21,24 +20,35 @@ in {
     };
 
     keybindings = {
-      # "${cmd}+d" = "launch --location=hsplit";
-      # "${cmd}+r" = "launch --location=vsplit";
-      # "${cmd}+w" = "close_window";
       "${cmd}+[" = "previous_window";
       "${cmd}+]" = "next_window";
+      "${cmd}+shift+n" = "new_os_window_with_cwd";
+      "${cmd}+shift+w" = "close_window";
+      "${cmd}+shift+]" = "next_window";
+      "${cmd}+shift+[" = "previous_window";
+      "${cmd}+shift+d" = "launch --location=vsplit";
+      "${cmd}+shift+r" = "launch --location=hsplit";
     };
-
     mouseBindings = {
       "left click" = "ungrabbed no-op";
       "${cmd}+left click" = "grabbed,ungrabbed mouse_click_url";
     };
 
     settings = {
-      "shell" = lib.getExe pkgs.fish;
-      "window_padding_width" = 10;
-      "dynamic_background_opacity" = true;
-      "strip_trailing_spaces" = "smart";
-      "enabled_layouts" = "grid";
+      # keep-sorted start
+      confirm_os_window_close = 0;
+      dynamic_background_opacity = true;
+      enabled_layouts = "splits";
+      input_delay = 0;
+      repaint_delay = 6; # Handle 165 Hz display
+      resize_in_steps = true;
+      strip_trailing_spaces = "smart";
+      sync_to_monitor = true;
+      touch_scroll_multiplier = 10;
+      wheel_scroll_min_lines = 1;
+      wheel_scroll_multiplier = 10;
+      window_padding_width = 10;
+      # keep-sorted end
     };
   };
 }
