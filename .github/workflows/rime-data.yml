@@ -13,12 +13,7 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Pre-build devShell
-        run: |
-          # shellcheck disable=SC2046
-          nix build --no-link .#devShells.$(nix eval --impure --raw --expr 'builtins.currentSystem').default
-      - name: Build rime-data with nix develop
-        shell: "nix develop -c bash -e {0}"
+      - name: Build rime-data
         run: nix build .#rime-data
       - uses: actions/upload-artifact@v7
         with:
