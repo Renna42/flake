@@ -33,6 +33,7 @@ _: {
       "AnInsomniacy/motrix-next/motrix-next"
       "arch1t3cht-aegisub"
       "audacity"
+      "balenaetcher"
       "betterdisplay"
       "bitwarden"
       "coteditor"
