@@ -33,8 +33,8 @@
       rsgain
       shntool
       truehdd
-      unstablePkgs.yt-dlp
       wavpack
+      yt-dlp
       # keep-sorted end
     ])
     ++ (
