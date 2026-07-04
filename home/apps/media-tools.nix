@@ -30,6 +30,7 @@
       gpac
       id3v2
       libwebp
+      rsgain
       shntool
       truehdd
       unstablePkgs.yt-dlp
