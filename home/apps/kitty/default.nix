@@ -44,9 +44,6 @@ in {
       resize_in_steps = true;
       strip_trailing_spaces = "smart";
       sync_to_monitor = true;
-      touch_scroll_multiplier = 10;
-      wheel_scroll_min_lines = 1;
-      wheel_scroll_multiplier = 10;
       window_padding_width = 10;
       # keep-sorted end
     };
