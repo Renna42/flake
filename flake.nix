@@ -98,7 +98,6 @@
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
       inputs.flake-compat.follows = "flake-compat";
-      inputs.gitignore.follows = "gitignore-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     gitignore-nix = {
@@ -128,6 +127,7 @@
     };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
+      inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
       inputs.git-hooks.follows = "git-hooks-nix";
       inputs.nixpkgs.follows = "nixpkgs";
