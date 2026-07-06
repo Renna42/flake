@@ -18,8 +18,9 @@
       maple-mono.Normal-NF-CN-unhinted
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
-      renna.misansFonts.misans
-      renna.misansFonts.misans-l3
+      huaweiPackages.harmonyos-sans-sc-vf
+      xiaomiPackages.misans
+      xiaomiPackages.misans-l3
     ];
     enableGhostscriptFonts = true;
     enableDefaultPackages = true;

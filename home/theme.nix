@@ -20,7 +20,7 @@
         name = "Noto Serif CJK SC";
       };
       sansSerif = {
-        package = pkgs.renna.harmonyos-sans-fonts;
+        package = pkgs.huaweiPackages.harmonyos-sans-sc-vf;
         name = "HarmonyOS Sans SC";
       };
       monospace = {
