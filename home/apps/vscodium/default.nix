@@ -230,6 +230,7 @@
         "IBM.output-colorizer"
         "JHeilingbrunner.vscode-gnupg-tool"
         "jnoortheen.nix-ide"
+        "k--kato.intellij-idea-keybindings"
         "keroc.hex-fmt"
         "KevinRose.vsc-python-indent"
         "llvm-vs-code-extensions.vscode-clangd"
