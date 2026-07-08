@@ -56,7 +56,6 @@ in {
       makemkv
       mediainfo
       motrix-next
-      openscreen
       podman-desktop
       qbittorrent-enhanced
       renna.aegisub-arch1t3cht
