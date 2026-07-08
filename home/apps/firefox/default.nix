@@ -224,6 +224,7 @@ in {
           hcfy
           header-editor
           hide-google-ai-overviews
+          motrix-next-extension
           redirectnixwiki
           sponsorblock
           steam-database
