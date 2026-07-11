@@ -15,7 +15,6 @@
     cachix
     chafa
     chroma
-    delta
     duf
     dust
     fastfetch
