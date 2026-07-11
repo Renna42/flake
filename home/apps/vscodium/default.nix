@@ -92,6 +92,7 @@
           };
           "claudeCode.disableLoginPrompt" = true;
           "claudeCode.preferredLocation" = "panel";
+          "database-client.telemetry.usesOnlineServices" = false;
           "debug.javascript.autoAttachFilter" = "disabled";
           "diffEditor.ignoreTrimWhitespace" = false;
           "docker.extension.enableComposeLanguageServer" = true;
@@ -208,6 +209,7 @@
         "christian-kohler.path-intellisense"
         "clinyong.vscode-css-modules"
         "csstools.postcss"
+        "cweijan.vscode-database-client2"
         "cweijan.vscode-office"
         "Dart-Code.dart-code"
         "Dart-Code.flutter"
@@ -263,7 +265,6 @@
         "naumovs.color-highlight"
         "nefrob.vscode-just-syntax"
         "oderwat.indent-rainbow"
-        "qwtel.sqlite-viewer"
         "redhat.java"
         "redhat.vscode-xml"
         "redhat.vscode-yaml"
