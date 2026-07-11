@@ -116,11 +116,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778074663,
-        "narHash": "sha256-tKPbQx+DPHtknvo2I8nquXJZQ+jcRTwpQ/HUxp0pq9k=",
+        "lastModified": 1783360235,
+        "narHash": "sha256-o830TyiQRg9yl8jmoCIPUcA5wdOALETPSnrUAC63XwY=",
         "owner": "HeitorAugustoLN",
         "repo": "betterfox-nix",
-        "rev": "f8f5d6d3359abe1c979551ca18ee6496907607e8",
+        "rev": "bb2405b45e8b7a44ec23915a7993ea5a25dc70c8",
         "type": "github"
       },
       "original": {
