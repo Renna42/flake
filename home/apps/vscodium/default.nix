@@ -189,6 +189,22 @@
           "workbench.productIconTheme" = "fluent-icons";
           "workbench.startupEditor" = "none";
           "workbench.tree.enableStickyScroll" = true;
+          "yaml.disableSchemaDetection" = [
+            "**/docker-compose.yml"
+            "**/docker-compose.yaml"
+            "**/docker-compose.*.yml"
+            "**/docker-compose.*.yaml"
+            "**/compose.yml"
+            "**/compose.yaml"
+            "**/compose.*.yml"
+            "**/compose.*.yaml"
+            "**/.github/workflows/*.yml"
+            "**/.github/workflows/*.yaml"
+            "**/.gitea/workflows/*.yml"
+            "**/.gitea/workflows/*.yaml"
+            "**/.forgejo/workflows/*.yml"
+            "**/.forgejo/workflows/*.yaml"
+          ];
           "yaml.schemas" = {
             "https://raw.githubusercontent.com/docker/vscode-extension/6a88caada42b57090df7ce91ec2a6561b422afe1/misc/empty.json" = [
               "compose*y*ml"
