@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   unstablePkgs,
   secretsPath,
   ...
@@ -24,7 +23,7 @@ in {
       ProgramArguments = [
         "/bin/sh"
         "-c"
-        "/bin/wait4path /nix/store && exec ${lib.getExe pkgs.mihomo} -d \"/Library/Application Support/mihomo\" -f ${config.sops.secrets.mihomoConfig.path} -ext-ui ${mihomoWebui}"
+        "/bin/wait4path /nix/store && exec ${lib.getExe unstablePkgs.mihomo} -d \"/Library/Application Support/mihomo\" -f ${config.sops.secrets.mihomoConfig.path} -ext-ui ${mihomoWebui}"
       ];
       WorkingDirectory = "/Library/Application Support/mihomo/";
       StandardOutPath = "/Library/Application Support/mihomo/log.out";

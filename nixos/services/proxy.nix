@@ -14,6 +14,7 @@
 
   services.mihomo = {
     enable = true;
+    package = unstablePkgs.mihomo;
     tunMode = true;
     webui = unstablePkgs.zashboard;
     configFile = config.sops.secrets.mihomoConfig.path;
