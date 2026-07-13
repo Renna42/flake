@@ -5,7 +5,7 @@
 }: {
   programs.steam = {
     enable = true;
-    package = unstablePkgs.steam;
+    package = pkgs.steam;
     platformOptimizations.enable = true;
     extraCompatPackages = with unstablePkgs; [
       dwproton-bin
@@ -34,7 +34,7 @@
     game-devices-udev-rules
   ];
 
-  environment.systemPackages = with unstablePkgs; [
+  environment.systemPackages = with pkgs; [
     lutris
   ];
 }

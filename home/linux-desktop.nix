@@ -1,7 +1,6 @@
 {
   assetsPath,
   pkgs,
-  unstablePkgs,
   username,
   ...
 }: let
@@ -42,7 +41,7 @@ in {
   renna.syncthing.rime = true;
 
   home = {
-    packages = with unstablePkgs; [
+    packages = with pkgs; [
       # keep-sorted start case=no
       angryipscanner
       audacity
