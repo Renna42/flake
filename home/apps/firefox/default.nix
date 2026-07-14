@@ -242,58 +242,6 @@ in {
         privateDefault = "google";
 
         engines = {
-          mynixos = {
-            name = "MyNixOS";
-            urls = [
-              {
-                template = "https://mynixos.com/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
-            definedAliases = ["@mn"];
-          };
-
-          nixos-wiki = {
-            name = "NixOS Wiki";
-            urls = [
-              {
-                template = "https://wiki.nixos.org/w/index.php";
-                params = [
-                  {
-                    name = "search";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@nw"];
-          };
-
-          noogle = {
-            name = "Noogle";
-            urls = [
-              {
-                template = "https://noogle.dev/q";
-                params = [
-                  {
-                    name = "term";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@no"];
-          };
-
           bing.metaData.hidden = true;
           google.metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
