@@ -70,7 +70,6 @@ in {
     sessionVariables = {
       "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
       "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland
-      "MOZ_WEBRENDER" = "1";
       # enable native Wayland support for most Electron apps
       "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
 
