@@ -50,6 +50,7 @@ in {
       celluloid
       dbeaver-bin
       dejavu_fonts
+      imhex
       kdePackages.kleopatra
       krita
       localsend
