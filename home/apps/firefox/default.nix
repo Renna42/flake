@@ -163,10 +163,10 @@ in {
         "firefox@tampermonkey.net" = {
           default_area = "navbar";
         };
-        "{0982b844-4f35-48b7-9811-6832d916f21c}" = {
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           default_area = "navbar";
         };
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+        "{5efceaa7-f3a2-4e59-a54b-85319448e305}" = {
           default_area = "navbar";
         };
         # keep-sorted end
@@ -221,9 +221,9 @@ in {
           clearurls
           cors-everywhere
           darkreader
-          hcfy
           header-editor
           hide-google-ai-overviews
+          immersive-translate
           redirectnixwiki
           sponsorblock
           steam-database
