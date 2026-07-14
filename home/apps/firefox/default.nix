@@ -221,6 +221,7 @@ in {
           clearurls
           cors-everywhere
           darkreader
+          devtools-media-panel
           hide-google-ai-overviews
           immersive-translate
           redirectnixwiki
