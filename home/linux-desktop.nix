@@ -46,7 +46,6 @@ in {
       angryipscanner
       audacity
       ayugram-desktop
-      celluloid
       dbeaver-bin
       dejavu_fonts
       imhex
