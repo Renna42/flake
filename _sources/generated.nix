@@ -20,27 +20,27 @@
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "9f568e61bc6acba41fd9f5d457d9128782bc3e1c";
+    version = "ad462e42c97fea52c0d58ce0507fe6dc36da675b";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "9f568e61bc6acba41fd9f5d457d9128782bc3e1c";
+      rev = "ad462e42c97fea52c0d58ce0507fe6dc36da675b";
       fetchSubmodules = false;
-      sha256 = "sha256-1LXDrvMk6eW0ub8SmmHZ4bC/irv6jF71EkpiKpktQrg=";
+      sha256 = "sha256-3qoGL7/S6W47fZfSr20giiFxXisdLQ323le38iQIJMI=";
     };
-    date = "2026-06-15";
+    date = "2026-07-13";
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "1d93351a15f8b9dd66847ee887374c962bea4764";
+    version = "99bb172709d2f51146eca6d3860107f0ebfa145a";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "1d93351a15f8b9dd66847ee887374c962bea4764";
+      rev = "99bb172709d2f51146eca6d3860107f0ebfa145a";
       fetchSubmodules = false;
-      sha256 = "sha256-hDWJBBZQsROD5qp8XNqChgJhLODLAjg819/Y5q3dlIc=";
+      sha256 = "sha256-itbEBukcBR1l7l2GnGiuN9bqCSe4iF1y9XimJ+TjFaA=";
     };
-    date = "2026-06-29";
+    date = "2026-07-15";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
