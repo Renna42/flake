@@ -51,6 +51,8 @@
   };
 in {
   catppuccin = {
+    enable = true;
+    autoEnable = false;
     flavor = "macchiato";
     cache.enable = true;
   };

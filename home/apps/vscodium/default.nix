@@ -312,7 +312,7 @@
   };
 
   stylix.targets.vscodium.enable = false;
-  catppuccin.vscode.profiles.default.enable = true;
+  catppuccin.vscodium.profiles.default.enable = true;
 
   home.sessionVariables = {
     EDITOR = "codium -wn";
