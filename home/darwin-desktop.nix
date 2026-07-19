@@ -27,6 +27,9 @@
     ./apps/shell-utils.nix
   ];
 
+  # man.package default to null on darwin
+  programs.man.generateCaches = false;
+
   renna.syncthing = {
     captureone = true;
     rime = true;
