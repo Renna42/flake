@@ -3,18 +3,24 @@
 
   nixConfig = {
     extra-substituters = [
+      # keep-sorted start
+      "https://attic.xuyh0120.win/lantian"
+      "https://cache.nixos-cuda.org"
+      "https://catppuccin.cachix.org"
       "https://nix-community.cachix.org"
       "https://nix-gaming.cachix.org"
-      "https://cache.nixos-cuda.org"
-      "https://attic.xuyh0120.win/lantian"
       "https://renna42.cachix.org"
+      # keep-sorted end
     ];
     extra-trusted-public-keys = [
+      # keep-sorted start case=no
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
+      # keep-sorted end
     ];
   };
 

@@ -54,7 +54,6 @@ in {
     enable = true;
     autoEnable = false;
     flavor = "macchiato";
-    cache.enable = true;
   };
 
   stylix =
