@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./lumen.nix
+  ];
+
   sops.secrets."idapro.hexlic" = {
     format = "json";
     sopsFile = "${secretsPath}/idapro.hexlic";
@@ -19,6 +23,9 @@
           repo = "ida-debugger";
           rev = "22f43b265c03f4b77fe6bcd9b09dcc3705e3092d";
           hash = "sha256-aFTEgZ8eWlOOqoQsiQ5d/eqbkMGSjb5ImZPlFhlh/2g=";
+          sparseCheckout = [
+            "catppuccin-${config.catppuccin.flavor}"
+          ];
         }
         + "/catppuccin-${config.catppuccin.flavor}";
       recursive = true;
