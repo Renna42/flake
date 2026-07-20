@@ -32,15 +32,15 @@
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "99bb172709d2f51146eca6d3860107f0ebfa145a";
+    version = "2f589dde0ffbfbdac671a38b16a978b74a3ee63c";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "99bb172709d2f51146eca6d3860107f0ebfa145a";
+      rev = "2f589dde0ffbfbdac671a38b16a978b74a3ee63c";
       fetchSubmodules = false;
-      sha256 = "sha256-itbEBukcBR1l7l2GnGiuN9bqCSe4iF1y9XimJ+TjFaA=";
+      sha256 = "sha256-1shSoR/ClatBQGw3b/geWCDRi2Wt1jAXtY3tnMF7zPI=";
     };
-    date = "2026-07-15";
+    date = "2026-07-21";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
