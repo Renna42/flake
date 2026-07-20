@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out/share/rime-data/dicts
-    cp $src $out/share/rime-data/dicts/tone_moe.dict.yaml
+    cp $src $out/share/rime-data/dicts/moe.dict.yaml
 
     runHook postInstall
   '';

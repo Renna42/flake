@@ -15,7 +15,7 @@ fetch.url = "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/down
 src.github = "Renna42/CustomPinyinDictionary_txt"
 
 [rime-moetype]
-fetch.url = "https://github.com/suiginko/moetype/releases/download/$ver/tone_moe.dict.yaml"
+fetch.url = "https://github.com/suiginko/moetype/releases/download/$ver/moe.dict.yaml"
 src.github = "suiginko/moetype"
 
 [rime-zhwiki]

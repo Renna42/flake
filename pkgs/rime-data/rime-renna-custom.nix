@@ -54,7 +54,7 @@ in
       "dicts/custom_renna"
       "dicts/canton_places"
       "dicts/CustomPinyinDictionary"
-      "dicts/tone_moe"
+      "dicts/moe"
       "dicts/zhwiki"
       "dicts/rime_mint.chars"
       "dicts/rime_mint.base"

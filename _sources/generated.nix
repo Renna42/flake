@@ -52,10 +52,10 @@
   };
   rime-moetype = {
     pname = "rime-moetype";
-    version = "20260517";
+    version = "20260720";
     src = fetchurl {
-      url = "https://github.com/suiginko/moetype/releases/download/20260517/tone_moe.dict.yaml";
-      sha256 = "sha256-zl7PHyTj3rFDC4ttZMA3z9nn6XtayINfqqLp5mNbWUY=";
+      url = "https://github.com/suiginko/moetype/releases/download/20260720/moe.dict.yaml";
+      sha256 = "sha256-20sXJzixe3id0VUqWbaZbOOw++cblcwkY9/c7HduBJQ=";
     };
   };
   rime-zhwiki = {

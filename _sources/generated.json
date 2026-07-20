@@ -86,11 +86,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-zl7PHyTj3rFDC4ttZMA3z9nn6XtayINfqqLp5mNbWUY=",
+            "sha256": "sha256-20sXJzixe3id0VUqWbaZbOOw++cblcwkY9/c7HduBJQ=",
             "type": "url",
-            "url": "https://github.com/suiginko/moetype/releases/download/20260517/tone_moe.dict.yaml"
+            "url": "https://github.com/suiginko/moetype/releases/download/20260720/moe.dict.yaml"
         },
-        "version": "20260517"
+        "version": "20260720"
     },
     "rime-zhwiki": {
         "cargoLock": null,
