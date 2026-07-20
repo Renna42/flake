@@ -222,6 +222,7 @@ in {
           cors-everywhere
           darkreader
           devtools-media-panel
+          firefox-color
           hide-google-ai-overviews
           immersive-translate
           redirectnixwiki
@@ -248,7 +249,8 @@ in {
       };
     };
   };
-  stylix.targets.firefox.profileNames = [profileName];
+  stylix.targets.firefox.enable = false;
+  catppuccin.firefox.enable = true;
 
   home.sessionVariables = {
     MOZ_X11_EGL = "1";
