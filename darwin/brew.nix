@@ -11,10 +11,14 @@ _: {
     };
 
     masApps = {
-      WeChat = 836500024;
-      QQ = 451108668;
-      Infuse = 1136220934;
+      # keep-sorted start case=no
+      APTV = 1630403500;
       ESTKme = 6738199509;
+      Infuse = 1136220934;
+      QQ = 451108668;
+      WeChat = 836500024;
+      Xcode = 497799835;
+      # keep-sorted end
     };
 
     taps = [
