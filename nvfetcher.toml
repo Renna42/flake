@@ -1,3 +1,20 @@
+[ffmpeg_9]
+fetch.git = "https://git.ffmpeg.org/ffmpeg.git"
+src.git = "https://git.ffmpeg.org/ffmpeg.git"
+src.branch = "release/9.0"
+
+[mpv]
+fetch.github = "mpv-player/mpv"
+src.git = "https://github.com/mpv-player/mpv.git"
+
+[mpv-config]
+fetch.github = "dyphire/mpv-config"
+src.git = "https://github.com/dyphire/mpv-config.git"
+
+[mpv-omniphony]
+fetch.github = "mgth/mpv-omniphony"
+src.git = "https://github.com/mgth/mpv-omniphony.git"
+
 [mpv-sockets]
 fetch.github = "wis/mpvSockets"
 src.git = "https://github.com/wis/mpvSockets.git"

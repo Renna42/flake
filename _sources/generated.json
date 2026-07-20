@@ -1,4 +1,87 @@
 {
+    "ffmpeg_9": {
+        "cargoLock": null,
+        "date": "2026-07-19",
+        "extract": null,
+        "name": "ffmpeg_9",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "3abec89a4535fd564a179be8387ea0df6a4f4ab0",
+            "sha256": "sha256-TFW8IAWLYFDRNoN+rnUXpIX330JbuxSxNA9HbiGmvhA=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://git.ffmpeg.org/ffmpeg.git"
+        },
+        "version": "3abec89a4535fd564a179be8387ea0df6a4f4ab0"
+    },
+    "mpv": {
+        "cargoLock": null,
+        "date": "2026-07-14",
+        "extract": null,
+        "name": "mpv",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mpv-player",
+            "repo": "mpv",
+            "rev": "94335ab87ab225ca3e36e0faeac831639d3e1d4e",
+            "sha256": "sha256-UggUsEiO0xEGNy63iEb+qt/lYNce8TvRFj86riSekh8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "94335ab87ab225ca3e36e0faeac831639d3e1d4e"
+    },
+    "mpv-config": {
+        "cargoLock": null,
+        "date": "2026-06-06",
+        "extract": null,
+        "name": "mpv-config",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "dyphire",
+            "repo": "mpv-config",
+            "rev": "def3fc1eaeabf439ea867134f1d663f11dd3a343",
+            "sha256": "sha256-14TyMgcVFtLwqlBwWLzsUodA8c74+KX850WbTvkuWRE=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "def3fc1eaeabf439ea867134f1d663f11dd3a343"
+    },
+    "mpv-omniphony": {
+        "cargoLock": null,
+        "date": "2026-07-18",
+        "extract": null,
+        "name": "mpv-omniphony",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mgth",
+            "repo": "mpv-omniphony",
+            "rev": "ce43a35944d93e999a8d43582c92d5f063d76009",
+            "sha256": "sha256-B6VBKIuJCfbDwN6LMKX5pVnFX6mnUhxBywMo1A+6beM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "ce43a35944d93e999a8d43582c92d5f063d76009"
+    },
     "mpv-sockets": {
         "cargoLock": null,
         "date": "2024-02-13",

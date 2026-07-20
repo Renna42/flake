@@ -1,6 +1,8 @@
 {
   osConfig,
+  lib,
   pkgs,
+  unstablePkgs,
   ...
 }: let
   anime4K_LowEnd = ''
@@ -32,7 +34,7 @@
     then anime4K_LowEnd
     else anime4K_HighEnd;
 
-  mpvSockets =
+  mpv-sockets =
     pkgs.runCommand "mpv-sockets"
     {
       passthru.scriptName = "mpvSockets.lua";
@@ -43,26 +45,89 @@
 in {
   programs.mpv = {
     enable = true;
-    package = pkgs.nur-xddxdd.svp-mpv.override {
-      # Workaround wrapper override of svp-mpv
+    package = pkgs.mpv.override {
       mpv-unwrapped =
-        pkgs.mpv-unwrapped
-        // {
-          wrapper = args:
-            pkgs.mpv-unwrapped.wrapper (
-              args
-              // {
-                scripts = [
-                  mpvSockets
-                  pkgs.mpvScripts.dynamic-crop
-                  pkgs.mpvScripts.modernz
-                  pkgs.mpvScripts.mpris
-                  pkgs.mpvScripts.thumbfast
+        (pkgs.mpv-unwrapped.override {
+          ffmpeg =
+            (unstablePkgs.ffmpeg.override {
+              withUnfree = true;
+            }).overrideAttrs (old: {
+              inherit (pkgs.sources.ffmpeg_9) src;
+              version = "9.0-unstable-${pkgs.sources.ffmpeg_9.date}";
+
+              patches =
+                (old.patches or [])
+                ++ [
+                  # https://github.com/nilaoda/Blog/discussions/81
+                  # https://gitee.com/openharmony/third_party_ffmpeg/pulls/49/files
+                  ./ffmpeg-libavcodec-av3a.patch
+                  # https://gitee.com/openharmony/third_party_ffmpeg/pulls/128/files
+                  ./ffmpeg-libavformat-av3a.patch
                 ];
-              }
-            );
-        };
+
+              configureFlags = let
+                # FFmpeg 9.0 dropped these flags
+                removedFlags = [
+                  "libcelt"
+                  "libshaderc"
+                ];
+              in
+                builtins.filter (x: !(lib.any (f: lib.hasSuffix f x) removedFlags)) old.configureFlags;
+
+              doCheck = false;
+              doInstallCheck = false;
+            });
+
+          cddaSupport = true;
+          vapoursynthSupport = true;
+        }).overrideAttrs (old_: {
+          inherit (pkgs.sources.mpv) src;
+          version = "0.41.0-unstable-${pkgs.sources.mpv.date}";
+
+          patches = let
+            patchesDir = "${pkgs.sources.mpv-omniphony.src}/patches-master";
+          in
+            (old_.patches or [])
+            ++ lib.mapAttrsToList (name: _: "${patchesDir}/${name}") (builtins.readDir patchesDir);
+
+          postPatch = lib.concatStringsSep "\n" [
+            # Don't reference compile time dependencies or create a build outputs cycle
+            # between out and dev
+            ''
+              substituteInPlace meson.build \
+                --replace-fail "conf_data.set_quoted('CONFIGURATION', meson.build_options().strip().replace('\\\\', '\\\\\\\\'))" \
+                               "conf_data.set_quoted('CONFIGURATION', '<omitted>')"
+            ''
+            # A trick to patchShebang everything except mpv_identify.sh
+            ''
+              pushd TOOLS
+              mv mpv_identify.sh mpv_identify
+              patchShebangs *.py *.sh
+              mv mpv_identify mpv_identify.sh
+              popd
+            ''
+          ];
+
+          dontVersionCheck = true;
+        });
+
+      scripts = with pkgs.mpvScripts; [
+        mpv-sockets
+        dynamic-crop
+        modernz
+        mpris
+        thumbfast
+      ];
+
+      extraMakeWrapperArgs = [
+        # Add paths to required libraries
+        "--prefix"
+        "LD_LIBRARY_PATH"
+        ":"
+        "/run/opengl-driver/lib:${lib.makeLibraryPath [pkgs.ocl-icd]}"
+      ];
     };
+
     config = {
       # HDR on supported displays
       vo = "gpu-next";

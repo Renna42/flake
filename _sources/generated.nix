@@ -6,6 +6,56 @@
   dockerTools,
 }:
 {
+  ffmpeg_9 = {
+    pname = "ffmpeg_9";
+    version = "3abec89a4535fd564a179be8387ea0df6a4f4ab0";
+    src = fetchgit {
+      url = "https://git.ffmpeg.org/ffmpeg.git";
+      rev = "3abec89a4535fd564a179be8387ea0df6a4f4ab0";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-TFW8IAWLYFDRNoN+rnUXpIX330JbuxSxNA9HbiGmvhA=";
+    };
+    date = "2026-07-19";
+  };
+  mpv = {
+    pname = "mpv";
+    version = "94335ab87ab225ca3e36e0faeac831639d3e1d4e";
+    src = fetchFromGitHub {
+      owner = "mpv-player";
+      repo = "mpv";
+      rev = "94335ab87ab225ca3e36e0faeac831639d3e1d4e";
+      fetchSubmodules = false;
+      sha256 = "sha256-UggUsEiO0xEGNy63iEb+qt/lYNce8TvRFj86riSekh8=";
+    };
+    date = "2026-07-14";
+  };
+  mpv-config = {
+    pname = "mpv-config";
+    version = "def3fc1eaeabf439ea867134f1d663f11dd3a343";
+    src = fetchFromGitHub {
+      owner = "dyphire";
+      repo = "mpv-config";
+      rev = "def3fc1eaeabf439ea867134f1d663f11dd3a343";
+      fetchSubmodules = false;
+      sha256 = "sha256-14TyMgcVFtLwqlBwWLzsUodA8c74+KX850WbTvkuWRE=";
+    };
+    date = "2026-06-06";
+  };
+  mpv-omniphony = {
+    pname = "mpv-omniphony";
+    version = "ce43a35944d93e999a8d43582c92d5f063d76009";
+    src = fetchFromGitHub {
+      owner = "mgth";
+      repo = "mpv-omniphony";
+      rev = "ce43a35944d93e999a8d43582c92d5f063d76009";
+      fetchSubmodules = false;
+      sha256 = "sha256-B6VBKIuJCfbDwN6LMKX5pVnFX6mnUhxBywMo1A+6beM=";
+    };
+    date = "2026-07-18";
+  };
   mpv-sockets = {
     pname = "mpv-sockets";
     version = "3b3f430074a67c63572a582847ed1fa69330c668";
