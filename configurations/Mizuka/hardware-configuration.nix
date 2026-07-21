@@ -27,11 +27,36 @@
       "sr_mod"
     ];
     kernelModules = ["kvm-intel"];
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [
+      "nfs"
+      "ntfs"
+    ];
   };
 
-  # To make sops-nix happy
-  fileSystems."/home".neededForBoot = true;
+  fileSystems = {
+    # To make sops-nix happy
+    "/home".neededForBoot = true;
+
+    "/mnt/nas-downloads" = {
+      device = "10.22.0.114:/Downloads";
+      fsType = "nfs";
+      options = [
+        "x-systemd.idle-timeout=600"
+        "x-systemd.automount"
+        "noauto"
+      ];
+    };
+
+    "/mnt/nas-multimedia" = {
+      device = "10.22.0.114:/Multimedia";
+      fsType = "nfs";
+      options = [
+        "x-systemd.idle-timeout=600"
+        "x-systemd.automount"
+        "noauto"
+      ];
+    };
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
