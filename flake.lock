@@ -2,28 +2,16 @@
   "nodes": {
     "angrr": {
       "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nix-darwin": [
-          "darwin"
-        ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "treefmt-nix": [
-          "treefmt-nix"
         ]
       },
       "locked": {
-        "lastModified": 1784308004,
-        "narHash": "sha256-LZ4c1msj6C2Rs6bTP3GUjJv2Jrzu17H9j8is+l3tPgc=",
+        "lastModified": 1784902878,
+        "narHash": "sha256-/J8bL7xbGEdgdmaCPLGjsoGQISZfaxjKXeEppm7XwbM=",
         "owner": "linyinfeng",
         "repo": "angrr",
-        "rev": "a66aa239575576fb1ee994a2cdb3928b7cedc13b",
+        "rev": "968f426691b1940f62ce62d61e466b38b94e8bb6",
         "type": "github"
       },
       "original": {
