@@ -57,7 +57,6 @@ in {
       allowUnfree = true;
       android_sdk.accept_license = true;
       permittedInsecurePackages = [
-        "bzip2-unstable-2020-08-11"
       ];
     };
   };

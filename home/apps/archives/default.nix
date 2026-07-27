@@ -3,7 +3,7 @@
     # keep-sorted start
     _7zip-zstd-rar
     brotli
-    bzip2_1_1
+    bzip2
     cpio
     gnutar
     gzip

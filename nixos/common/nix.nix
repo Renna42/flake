@@ -108,7 +108,6 @@ in {
         android_sdk.accept_license = true;
         cudaSupport = config.hardware.nvidia.enabled;
         permittedInsecurePackages = [
-          "bzip2-unstable-2020-08-11"
           "ventoy-1.1.12"
         ];
       };
