@@ -9,6 +9,11 @@
     "root"
   ];
 in {
+  services.angrr = {
+    enable = true;
+    period = "14d";
+  };
+
   nix = {
     gc = {
       automatic = true;

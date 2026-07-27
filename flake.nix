@@ -7,6 +7,7 @@
       "https://attic.xuyh0120.win/lantian"
       "https://cache.nixos-cuda.org"
       "https://catppuccin.cachix.org"
+      "https://linyinfeng.cachix.org"
       "https://nix-community.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://renna42.cachix.org"
@@ -17,6 +18,7 @@
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "linyinfeng.cachix.org-1:sPYQXcNrnCf7Vr7T0YmjXz5dMZ7aOKG3EqLja0xr9MM="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "renna42.cachix.org-1:AqHSiL2lFKYHYJ0U2YFiW1kjItvFMmyyc6loFZR3/X8="
@@ -46,11 +48,7 @@
     # keep-sorted start block=yes
     angrr = {
       url = "github:linyinfeng/angrr";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nix-darwin.follows = "darwin";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     betterfox-nix = {
       url = "github:HeitorAugustoLN/betterfox-nix";
@@ -407,6 +405,7 @@
                 modules = [
                   ./darwin
                   inputs.home-manager-darwin.darwinModules.home-manager
+                  inputs.angrr.darwinModules.angrr
                   inputs.sops-nix.darwinModules.sops
                 ];
               }
