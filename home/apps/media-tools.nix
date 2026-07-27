@@ -2,26 +2,25 @@
   pkgs,
   unstablePkgs,
   ...
-}: {
+}: let
+  myffmpeg =
+    if pkgs.stdenv.isDarwin
+    then pkgs.ffmpeg-full
+    else
+      (
+        (pkgs.ffmpeg-full.override {
+          withRtmp = true;
+          # only metal is unfree on darwin
+          withUnfree = true;
+        }).overrideAttrs
+        {
+          doCheck = false;
+          doInstallCheck = false;
+        }
+      );
+in {
   home.packages =
     (with pkgs; [
-      (
-        ffmpeg-full.override (
-          {
-            withUnfree = true;
-          }
-          // (
-            if pkgs.stdenv.isDarwin
-            then {
-              withCdio = false;
-              withChromaprint = false;
-              withKvazaar = false;
-            }
-            else {}
-          )
-        )
-      )
-
       # keep-sorted start case=no
       alac
       bchunk
@@ -30,6 +29,7 @@
       gpac
       id3v2
       libwebp
+      myffmpeg
       rsgain
       shntool
       truehdd
