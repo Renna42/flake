@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     uv
+    isort
+    black
     (python313.withPackages (
       python-pkgs:
         with python-pkgs; [
