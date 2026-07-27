@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   unstablePkgs,
   ...
@@ -75,6 +76,9 @@
           "[shellscript]" = {
             "editor.defaultFormatter" = "foxundermoon.shell-format";
           };
+          "[svelte]" = {
+            "editor.defaultFormatter" = "svelte.svelte-vscode";
+          };
           "[typescript]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
@@ -96,11 +100,16 @@
           "debug.javascript.autoAttachFilter" = "disabled";
           "diffEditor.ignoreTrimWhitespace" = false;
           "docker.extension.enableComposeLanguageServer" = true;
+          "docker.lsp.telemetry" = "off";
           "editor.acceptSuggestionOnEnter" = "smart";
           "editor.accessibilitySupport" = "off";
           "editor.bracketPairColorization.enabled" = true;
           "editor.guides.bracketPairs" = "active";
           "editor.inlineSuggest.enabled" = true;
+          "editor.quickSuggestions" = {
+            "strings" = "on";
+          };
+          "editor.semanticHighlighting.enabled" = true;
           "editor.smoothScrolling" = false;
           "editor.stickyScroll.enabled" = true;
           "explorer.confirmDelete" = false;
@@ -120,10 +129,13 @@
             "*.s3db" = "\${capture}.\${extname}-*";
           };
           "files.associations" = {
+            "*.css" = "tailwindcss";
             "LICENSE" = "plaintext";
+            "Untitled-*" = "txt";
           };
           "files.autoGuessEncoding" = true;
           "files.autoSaveWhenNoErrors" = true;
+          "files.defaultLanguage" = "txt";
           "files.exclude" = {
             "**/.classpath" = true;
             "**/.project" = true;
@@ -137,6 +149,11 @@
           "git.confirmSync" = false;
           "git.enableSmartCommit" = true;
           "git.replaceTagsWhenPull" = true;
+          "gopls" = {
+            "ui.semanticTokens" = true;
+          };
+          "isort.args" = ["--profile" "black"];
+          "javascript.suggest.paths" = false;
           "json.schemaDownload.trustedDomains" = {
             "https://schemastore.azurewebsites.net/" = true;
             "https://raw.githubusercontent.com/microsoft/vscode/" = true;
@@ -176,13 +193,21 @@
           "redhat.telemetry.enabled" = false;
           "search.smartCase" = true;
           "security.workspace.trust.untrustedFiles" = "open";
+          "shellcheck.executablePath" = "${lib.getBin pkgs.shellcheck}";
+          "shellformat.path" = "${lib.getBin pkgs.shfmt}";
           "svelte.enable-ts-plugin" = true;
+          "telemetry.feedback.enabled" = false;
+          "telemetry.telemetryLevel" = "off";
           "terminal.integrated.initialHint" = false;
+          "terminal.integrated.minimumContrastRatio" = 1;
           "typescript.locale" = "en";
           "typescript.preferences.importModuleSpecifier" = "non-relative";
           "typescript.suggest.autoImports" = true;
+          "typescript.suggest.paths" = false;
           "typescript.updateImportsOnFileMove.enabled" = "always";
           "update.mode" = "none";
+          "vscode-office.enableTelemetry" = false;
+          "window.titleBarStyle" = "custom";
           "workbench.colorCustomizations" = {
             "terminal.background" = "#00000000";
           };
@@ -234,7 +259,6 @@
         "dbaeumer.vscode-eslint"
         "dnicolson.binary-plist"
         "docker.docker"
-        "donjayamanne.python-environment-manager"
         "DrBlury.protobuf-vsc"
         "dustypomerleau.rust-syntax"
         "EditorConfig.EditorConfig"
@@ -265,8 +289,6 @@
         "ms-python.isort"
         "ms-python.python"
         "ms-python.vscode-pylance"
-        "ms-python.vscode-python-envs"
-        "ms-vscode-remote.remote-containers"
         "ms-vscode-remote.remote-ssh"
         "ms-vscode-remote.remote-ssh-edit"
         "ms-vscode.cmake-tools"
@@ -276,16 +298,14 @@
         "ms-vscode.remote-repositories"
         "ms-vscode.remote-server"
         "ms-vscode.vscode-js-profile-flame"
-        "ms-vscode.vscode-typescript-next"
         "ms-vsliveshare.vsliveshare"
+        "naco-siren.gradle-language"
         "naumovs.color-highlight"
         "nefrob.vscode-just-syntax"
         "oderwat.indent-rainbow"
         "redhat.java"
         "redhat.vscode-xml"
         "redhat.vscode-yaml"
-        "richardwillis.vscode-gradle-extension-pack"
-        "rubbersheep.gi"
         "rust-lang.rust-analyzer"
         "sibiraj-s.vscode-scss-formatter"
         "signageos.signageos-vscode-sops"
@@ -298,6 +318,7 @@
         "timonwong.shellcheck"
         "unifiedjs.vscode-mdx"
         "voldemortensen.rainbow-tags"
+        "vscjava.vscode-gradle"
         "vscjava.vscode-maven"
         "Vue.volar"
         "WakaTime.vscode-wakatime"
