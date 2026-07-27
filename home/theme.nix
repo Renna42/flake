@@ -8,8 +8,8 @@
   commonStylix = {
     enable = true;
     image = pkgs.fetchurl {
-      url = "https://i.pixiv.cat/img-original/img/2020/01/24/23/21/01/79075144_p0.jpg";
-      hash = "sha256-el4SWrJkQ8aecsRXCJ4S5ZYz1rdGunipQMuC5tgRSK8=";
+      url = "https://i.pixiv.cat/img-original/img/2023/12/21/19/24/55/114414442_p0.png";
+      hash = "sha256-a2AULPcPcfrpe2SjHk0e4nA1+qGkzFQUDjl33TjqDHo=";
     };
     polarity = "dark";
     opacity.terminal = 0.8;
