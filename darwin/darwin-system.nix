@@ -127,10 +127,7 @@
   };
 
   security = {
-    pam.services.sudo_local = {
-      touchIdAuth = true;
-      watchIdAuth = true;
-    };
+    pam.services.sudo_local.touchIdAuth = true;
     pki.certificateFiles = [
       "${pkgs.dn42-cacert}/etc/ssl/certs/dn42-ca.crt"
     ];
