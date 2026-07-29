@@ -63,14 +63,35 @@ in {
 
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      if [ ! -f "${config.stylix.image}" ]; then
-        echo Wallpaper file "${config.stylix.image}" not found.
-        exit -1
+      WALLPAPER_PATH="${config.stylix.image}"
+
+      if [ ! -f "$WALLPAPER_PATH" ]; then
+        echo "Wallpaper file $WALLPAPER_PATH not found."
+        exit 1
       fi
-      /usr/bin/osascript <<EOF
+
+      echo "Applying wallpaper to all macOS screens via Swift API..."
+
+      ${pkgs.swift}/bin/swift - "$WALLPAPER_PATH" <<'SWIFT' || /usr/bin/osascript <<EOF
+        import AppKit
+
+        let args = CommandLine.arguments
+        if args.count > 1 {
+            let path = args[1]
+            let url = URL(fileURLWithPath: path)
+            let workspace = NSWorkspace.shared
+            for screen in NSScreen.screens {
+                do {
+                    try workspace.setWallpaperImageURL(url, for: screen, options: [:])
+                } catch {
+                    print("Failed to set wallpaper for a screen: \(error)")
+                }
+            }
+        }
+      SWIFT
         tell application "System Events"
           tell every desktop
-            set picture to "${config.stylix.image}"
+            set picture to "$WALLPAPER_PATH"
           end tell
         end tell
       EOF
