@@ -5,6 +5,7 @@
     ./theme.nix
 
     # keep-sorted start
+    ./apps/ai-coding
     ./apps/archives
     ./apps/develop
     ./apps/develop/c-family.nix

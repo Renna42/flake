@@ -303,6 +303,7 @@
         "naumovs.color-highlight"
         "nefrob.vscode-just-syntax"
         "oderwat.indent-rainbow"
+        "openai.chatgpt"
         "redhat.java"
         "redhat.vscode-xml"
         "redhat.vscode-yaml"
