@@ -57,8 +57,9 @@ in {
 
     settings = {
       analytics.enabled = false;
+      feedback.enabled = false;
       check_for_update_on_startup = false;
-      default_permissions = ":workspace";
+      default_permissions = "workspace_filtered";
 
       model_provider = "ksm";
       model = "gpt-5.6-sol";
@@ -73,6 +74,25 @@ in {
         wire_api = "responses";
         request_max_retries = 99;
         stream_max_retries = 99;
+      };
+
+      permissions = {
+        workspace_filtered = {
+          extends = ":workspace";
+          filesystem = {
+            glob_scan_max_depth = 6;
+            ":workspace_roots" = {
+              ".env" = "deny";
+              "**/.env" = "deny";
+              ".decrypted*" = "deny";
+            };
+          };
+        };
+      };
+
+      tui = {
+        show_tooltips = false;
+        theme = "catppuccin-macchiato";
       };
     };
   };
