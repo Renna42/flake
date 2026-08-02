@@ -145,10 +145,10 @@
     };
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-nixcord.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     nixfmt-rs = {
       url = "github:Mic92/nixfmt-rs";
