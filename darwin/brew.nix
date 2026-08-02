@@ -55,6 +55,7 @@ _: {
       "font-source-han-serif-vf"
       "font-symbols-only-nerd-font"
       "foobar2000"
+      "freecad"
       "google-chrome"
       "gpg-suite"
       "handbrake-app"
