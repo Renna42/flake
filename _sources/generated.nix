@@ -6,20 +6,6 @@
   dockerTools,
 }:
 {
-  ffmpeg_9 = {
-    pname = "ffmpeg_9";
-    version = "d32b387f2b0a484599d4587d651891f0c63c4238";
-    src = fetchgit {
-      url = "https://git.ffmpeg.org/ffmpeg.git";
-      rev = "d32b387f2b0a484599d4587d651891f0c63c4238";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-LbHwxvylAPh5lb/H+o+9eMVTB9X+tphrxYYX0cqAL0k=";
-    };
-    date = "2026-08-03";
-  };
   mpv = {
     pname = "mpv";
     version = "21277b0ccf15c43bda0cb24b1ec24859a23391df";

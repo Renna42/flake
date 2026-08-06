@@ -49,12 +49,9 @@ in {
       mpv-unwrapped =
         (pkgs.mpv-unwrapped.override {
           ffmpeg =
-            (unstablePkgs.ffmpeg.override {
+            (unstablePkgs.ffmpeg_9.override {
               withUnfree = true;
             }).overrideAttrs (old: {
-              inherit (pkgs.sources.ffmpeg_9) src;
-              version = "9.0-unstable-${pkgs.sources.ffmpeg_9.date}";
-
               patches =
                 (old.patches or [])
                 ++ [
@@ -64,15 +61,6 @@ in {
                   # https://gitee.com/openharmony/third_party_ffmpeg/pulls/128/files
                   ./ffmpeg-libavformat-av3a.patch
                 ];
-
-              configureFlags = let
-                # FFmpeg 9.0 dropped these flags
-                removedFlags = [
-                  "libcelt"
-                  "libshaderc"
-                ];
-              in
-                builtins.filter (x: !(lib.any (f: lib.hasSuffix f x) removedFlags)) old.configureFlags;
 
               doCheck = false;
               doInstallCheck = false;

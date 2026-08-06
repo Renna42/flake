@@ -1,8 +1,3 @@
-[ffmpeg_9]
-fetch.git = "https://git.ffmpeg.org/ffmpeg.git"
-src.git = "https://git.ffmpeg.org/ffmpeg.git"
-src.branch = "release/9.0"
-
 [mpv]
 fetch.github = "mpv-player/mpv"
 src.git = "https://github.com/mpv-player/mpv.git"

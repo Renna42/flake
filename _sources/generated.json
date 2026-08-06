@@ -1,24 +1,4 @@
 {
-    "ffmpeg_9": {
-        "cargoLock": null,
-        "date": "2026-08-03",
-        "extract": null,
-        "name": "ffmpeg_9",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "d32b387f2b0a484599d4587d651891f0c63c4238",
-            "sha256": "sha256-LbHwxvylAPh5lb/H+o+9eMVTB9X+tphrxYYX0cqAL0k=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://git.ffmpeg.org/ffmpeg.git"
-        },
-        "version": "d32b387f2b0a484599d4587d651891f0c63c4238"
-    },
     "mpv": {
         "cargoLock": null,
         "date": "2026-08-05",
