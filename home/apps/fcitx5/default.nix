@@ -15,6 +15,7 @@
       settings = {
         globalOptions = {
           Hotkey = {
+            AltTriggerKeys = "";
             EnumerateWithTriggerKeys = true;
             EnumerateSkipFirst = false;
           };
