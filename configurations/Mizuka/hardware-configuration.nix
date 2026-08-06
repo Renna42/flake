@@ -39,21 +39,43 @@
 
     "/mnt/nas-downloads" = {
       device = "10.22.0.114:/Downloads";
-      fsType = "nfs";
+      fsType = "nfs4";
       options = [
-        "x-systemd.idle-timeout=600"
-        "x-systemd.automount"
+        # keep-sorted start
+        "_netdev"
+        "nconnect=4"
+        "nfsvers=4.1"
         "noauto"
+        "noresvport"
+        "retrans=2"
+        "rsize=1048576"
+        "timeo=30"
+        "wsize=1048576"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=10min"
+        "x-systemd.mount-timeout=5s"
+        # keep-sorted end
       ];
     };
 
     "/mnt/nas-multimedia" = {
       device = "10.22.0.114:/Multimedia";
-      fsType = "nfs";
+      fsType = "nfs4";
       options = [
-        "x-systemd.idle-timeout=600"
-        "x-systemd.automount"
+        # keep-sorted start
+        "_netdev"
+        "nconnect=4"
+        "nfsvers=4.1"
         "noauto"
+        "noresvport"
+        "retrans=2"
+        "rsize=1048576"
+        "timeo=30"
+        "wsize=1048576"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=10min"
+        "x-systemd.mount-timeout=5s"
+        # keep-sorted end
       ];
     };
   };
