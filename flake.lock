@@ -157,6 +157,27 @@
         "type": "github"
       }
     },
+    "chinese-fonts-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nur-xddxdd",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783394282,
+        "narHash": "sha256-aHKHSvTLProiVzyMKOo+nbRff9Ts3dTX9PpxlYcc084=",
+        "owner": "brsvh",
+        "repo": "chinese-fonts-overlay",
+        "rev": "da90d47fa1a6f8fbfcc5795bc9351c98142f37ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "brsvh",
+        "repo": "chinese-fonts-overlay",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1785782307,
@@ -775,6 +796,7 @@
     },
     "nur-xddxdd": {
       "inputs": {
+        "chinese-fonts-overlay": "chinese-fonts-overlay_2",
         "devshell": [
           "devshell"
         ],
@@ -801,11 +823,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784789609,
-        "narHash": "sha256-McEchf5n1oeefecAJelVqAAodX6vOTbWaB/yPsJ3NQE=",
+        "lastModified": 1786149992,
+        "narHash": "sha256-PsL5aWUEV0SkBSqXfYqqTa1L4nqTllDB0h3B75/SmuA=",
         "owner": "xddxdd",
         "repo": "nur-packages",
-        "rev": "b56ada74d54bf80931b08ed186f31b087536e6f9",
+        "rev": "2038bdf2237031c5a2002bfd85438b1e323bafc0",
         "type": "github"
       },
       "original": {
