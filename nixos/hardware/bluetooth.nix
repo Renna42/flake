@@ -5,7 +5,7 @@ _: {
     enable = true;
     powerOnBoot = true;
     settings.General = {
-      experimental = true; # show battery
+      Experimental = true; # show battery
 
       # https://www.reddit.com/r/NixOS/comments/1ch5d2p/comment/lkbabax/
       # for pairing bluetooth controller

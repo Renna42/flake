@@ -16,6 +16,7 @@ in {
 
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
+    options usbcore autosuspend=-1
   '';
 
   security.rtkit.enable = true;
@@ -23,6 +24,11 @@ in {
     "" # Override command in rtkit package's service file
     "${pkgs.rtkit}/libexec/rtkit-daemon --rttime-usec-max=${toString realtimeLimitUS}"
   ];
+
+  musnix = {
+    enable = true;
+    rtcqs.enable = true;
+  };
 
   services.pipewire = {
     enable = true;
@@ -39,23 +45,36 @@ in {
 
     wireplumber.enable = true;
 
-    extraConfig.pipewire = {
-      "10-sample-rate" = {
-        "context.properties" = {
-          "default.clock.rate" = 48000;
-          "default.clock.allowed-rates" = [
-            44100
-            48000
-            88200
-            96000
-            192000
-            384000
-            768000
-          ];
+    extraConfig = {
+      pipewire = {
+        "10-sample-rate" = {
+          "context.properties" = {
+            "default.clock.rate" = 44100;
+            "default.clock.allowed-rates" = [
+              44100
+              48000
+              88200
+              96000
+              176400
+              192000
+              352800
+              384000
+            ];
 
-          "default.clock.quantum" = 32;
-          "default.clock.min-quantum" = 32;
-          "default.clock.max-quantum" = 32;
+            "default.clock.quantum" = 128;
+            "default.clock.min-quantum" = 64;
+            "default.clock.max-quantum" = 512;
+          };
+        };
+        "11-resample-quality" = {
+          "stream.properties" = {
+            "resample.quality" = 14;
+          };
+        };
+      };
+      client."10-no-resample" = {
+        "stream.properties" = {
+          "resample.disable" = true;
         };
       };
     };

@@ -115,6 +115,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.flake-compat.follows = "flake-compat";
@@ -363,6 +367,7 @@
                   inputs.angrr.nixosModules.angrr
                   inputs.disko.nixosModules.disko
                   inputs.home-manager-nixos.nixosModules.home-manager
+                  inputs.musnix.nixosModules.musnix
                   inputs.nix-gaming.nixosModules.platformOptimizations
                   inputs.nix-gaming.nixosModules.wine
                   inputs.nur-xddxdd.nixosModules.openssl-conf
