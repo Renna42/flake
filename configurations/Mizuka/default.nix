@@ -52,9 +52,7 @@
     ]);
 
   renna = {
-    kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto.override {
-      processorOpt = "x86_64-v3";
-    };
+    kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v3;
     homeManager.enable = true;
     enableMirrorSubstituter = true;
     enableCompatLibraries = true;
