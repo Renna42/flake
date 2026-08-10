@@ -113,6 +113,7 @@
           "editor.smoothScrolling" = false;
           "editor.stickyScroll.enabled" = true;
           "explorer.confirmDelete" = false;
+          "explorer.confirmPasteNative" = false;
           "explorer.fileNesting.patterns" = {
             "*.ts" = "\${capture}.js";
             "*.js" = "\${capture}.js.map, \${capture}.min.js, \${capture}.d.ts";
