@@ -7,7 +7,6 @@
   realtimeLimitUS = 5000000;
 in {
   imports = [
-    ./pipewire-latency-adjust.nix
     ./pipewire-rtprio.nix
     ./wireplumber-bluez.nix
   ];
