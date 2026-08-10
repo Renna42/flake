@@ -162,6 +162,7 @@
     };
     nur-xddxdd = {
       url = "github:xddxdd/nur-packages";
+      inputs.chinese-fonts-overlay.follows = "chinese-fonts-overlay";
       inputs.devshell.follows = "devshell";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
