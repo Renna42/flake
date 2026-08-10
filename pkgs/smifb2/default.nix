@@ -31,9 +31,9 @@ stdenv.mkDerivation (finalAttrs: {
     ];
 
   patches = [
-    ./fix-drm-helper.patch
-    ./fix-smi-pwm-remove.patch
-    ./fix-linux-6.17-build.patch
+    ../../patches/smifb2-fix-drm-helper.patch
+    ../../patches/smifb2-fix-smi-pwm-remove.patch
+    ../../patches/smifb2-fix-linux-6.17-build.patch
   ];
 
   meta = {
