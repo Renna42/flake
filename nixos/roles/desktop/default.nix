@@ -5,5 +5,6 @@ _: {
     ./fonts.nix
     ./compat.nix
     ./renna.nix
+    ./pcsclite-polkit.nix
   ];
 }
