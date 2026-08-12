@@ -305,6 +305,15 @@
       ];
       armor = true;
     };
+    scdaemonSettings = {
+      disable-ccid = true;
+      pcsc-shared = true;
+    };
+    dirmngrSettings = {
+      keyserver = "hkps://keyserver.ubuntu.com";
+      # https://github.com/rvm/rvm/issues/4215#issuecomment-435228758
+      disable-ipv6 = true;
+    };
   };
 
   services.gpg-agent = {
@@ -312,20 +321,4 @@
     enableFishIntegration = true;
     pinentry.package = pkgs.pinentry-qt;
   };
-
-  home.file.".gnupg/dirmngr.conf".text =
-    lib.generators.toKeyValue
-    {
-      mkKeyValue = key: value: (
-        if lib.isString value
-        then "${key} ${value}"
-        else lib.optionalString value key
-      );
-      listsAsDuplicateKeys = true;
-    }
-    {
-      keyserver = "hkps://keyserver.ubuntu.com";
-      # https://github.com/rvm/rvm/issues/4215#issuecomment-435228758
-      disable-ipv6 = true;
-    };
 }
