@@ -23,8 +23,8 @@ fetch.github = "Mintimate/oh-my-rime"
 src.git = "https://github.com/Mintimate/oh-my-rime.git"
 
 [rime-custom-pinyin-dictionary]
-fetch.url = "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/download/$ver/CustomPinyinDictionary_Fcitx.txt"
-src.github = "Renna42/CustomPinyinDictionary_txt"
+fetch.url = "https://github.com/Renna42/CustomPinyinDictionary_rime/releases/download/$ver/CustomPinyinDictionary.dict.yaml"
+src.github = "Renna42/CustomPinyinDictionary_rime"
 
 [rime-moetype]
 fetch.url = "https://github.com/suiginko/moetype/releases/download/$ver/moe.dict.yaml"

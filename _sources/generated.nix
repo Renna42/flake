@@ -82,8 +82,8 @@
     pname = "rime-custom-pinyin-dictionary";
     version = "v20260101";
     src = fetchurl {
-      url = "https://github.com/Renna42/CustomPinyinDictionary_txt/releases/download/v20260101/CustomPinyinDictionary_Fcitx.txt";
-      sha256 = "sha256-OozcuETRrl9dq5djuK0gd6iMS5CydLvbavayKjBJcqg=";
+      url = "https://github.com/Renna42/CustomPinyinDictionary_rime/releases/download/v20260101/CustomPinyinDictionary.dict.yaml";
+      sha256 = "sha256-WHF+PICzT7IAaxkkyVn0p7/7690dltmSvBk7NRQmZjk=";
     };
   };
   rime-moetype = {
