@@ -247,8 +247,6 @@
 
         flatFlake.config.allowed = [
           # keep-sorted start block=yes
-          ["nix-cachyos-kernel" "cachyos-kernel"]
-          ["nix-cachyos-kernel" "cachyos-kernel-patches"]
           ["stylix" "base16" "fromYaml"]
           ["stylix" "base16"]
           ["stylix" "base16-fish"]
