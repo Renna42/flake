@@ -795,9 +795,6 @@
     },
     "nur-xddxdd": {
       "inputs": {
-        "chinese-fonts-overlay": [
-          "chinese-fonts-overlay"
-        ],
         "devshell": [
           "devshell"
         ],
@@ -824,11 +821,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786149992,
-        "narHash": "sha256-PsL5aWUEV0SkBSqXfYqqTa1L4nqTllDB0h3B75/SmuA=",
+        "lastModified": 1787345712,
+        "narHash": "sha256-cx4lQybcoy4HLU1vVMJaMT6e0nOBUcw9X634smnbAAk=",
         "owner": "xddxdd",
         "repo": "nur-packages",
-        "rev": "2038bdf2237031c5a2002bfd85438b1e323bafc0",
+        "rev": "981c486d4a2db1f5c4dea6e64d7b56b7f209d305",
         "type": "github"
       },
       "original": {
