@@ -14,6 +14,7 @@
       ];
       settings = {
         globalOptions = {
+          "Hotkey/TriggerKeys"."0" = "Super+space";
           Hotkey = {
             AltTriggerKeys = "";
             EnumerateWithTriggerKeys = true;
