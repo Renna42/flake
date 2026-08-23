@@ -190,6 +190,8 @@
             };
           };
           "prettier.tabWidth" = 2;
+          "python.analysis.diagnosticsSource" = "Pylance + Pyrefly";
+          "python.analysis.pyreflyVersion" = "${unstablePkgs.pyrefly}/bin/pyrefly";
           "python.languageServer" = "Pylance";
           "redhat.telemetry.enabled" = false;
           "search.smartCase" = true;
@@ -290,6 +292,7 @@
         "ms-python.isort"
         "ms-python.python"
         "ms-python.vscode-pylance"
+        "ms-python.vscode-python-envs"
         "ms-vscode-remote.remote-ssh"
         "ms-vscode-remote.remote-ssh-edit"
         "ms-vscode.cmake-tools"
