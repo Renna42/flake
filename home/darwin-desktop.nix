@@ -36,13 +36,8 @@
     rime = true;
   };
 
-  home = {
-    sessionVariables = {
-      HOMEBREW_NO_AUTO_UPDATE = "1";
-    };
-    file = {
-      "Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = "${assetsPath}/mdmdt.css";
-      "Library/ColorSync/Profiles/TCL R32U81.icc".source = "${assetsPath}/R32U81.icc";
-    };
+  home.file = {
+    "Library/Application Support/abnerworks.Typora/themes/mdmdt.css".source = "${assetsPath}/mdmdt.css";
+    "Library/ColorSync/Profiles/TCL R32U81.icc".source = "${assetsPath}/R32U81.icc";
   };
 }
