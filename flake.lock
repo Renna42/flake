@@ -821,11 +821,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787345712,
-        "narHash": "sha256-cx4lQybcoy4HLU1vVMJaMT6e0nOBUcw9X634smnbAAk=",
+        "lastModified": 1787691849,
+        "narHash": "sha256-VgCZ+1IGCSbcBGtUrotfZqr5vugLTZ9DQWg5Cutiqvc=",
         "owner": "xddxdd",
         "repo": "nur-packages",
-        "rev": "981c486d4a2db1f5c4dea6e64d7b56b7f209d305",
+        "rev": "fa6dca36855750d1ac6904d114968e5c676be2a2",
         "type": "github"
       },
       "original": {
