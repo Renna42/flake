@@ -79,6 +79,14 @@
           passthru =
             old.passthru
             // {
+              open = old.passthru.open.overrideAttrs (old: {
+                patches =
+                  (old.patches or [])
+                  ++ [
+                    # https://github.com/Red-Flake/red-flake-nix/commit/18fefe296db099b77e2b4d6be9d2b8e45546bc48
+                    ../../patches/nvidia-open-gpio-device-const.patch
+                  ];
+              });
               settings = old.passthru.settings.overrideAttrs (old: {
                 buildInputs = (old.buildInputs or []) ++ (with pkgs; [llvmPackages.libunwind]);
               });
