@@ -87,6 +87,12 @@
               });
             };
         });
+
+      # Helper to wrap mkDriver so it outputs a patched derivation when called
+      patchIfDerivation = v:
+        if lib.isDerivation v
+        then patch v
+        else v;
     in
       kernelPackages_:
         kernelPackages_.extend (
@@ -99,7 +105,11 @@
               )
               prev)
             // {
-              nvidiaPackages = lib.mapAttrs (n: patch) prev.nvidiaPackages;
+              nvidiaPackages =
+                (lib.mapAttrs (n: patchIfDerivation) prev.nvidiaPackages)
+                // {
+                  mkDriver = args: patch (prev.nvidiaPackages.mkDriver args);
+                };
             }
         );
 
