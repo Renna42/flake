@@ -225,10 +225,37 @@
     };
   };
 
-  # programs.tirith = {
-  #   enable = true;
-  #   enableFishIntegration = true;
-  # };
+  programs.tirith = {
+    enable = true;
+    enableFishIntegration = true;
+    allowlist = [
+      "raw.githubusercontent.com"
+      "homebrew.bintray.com"
+      "get.docker.com"
+    ];
+    # https://github.com/sheeki03/tirith/blob/main/crates/tirith/assets/policy_templates/individual.yaml
+    policy = {
+      fail_mode = "open";
+      paranoia = 1;
+      allow_bypass_env = true;
+      allow_bypass_env_noninteractive = false;
+      strict_warn = false;
+      severity_overrides = {
+        shortened_url = "HIGH";
+      };
+      package_policy = {
+        block_not_found = false;
+        block_install_scripts_for_unknown_packages = false;
+        block_aggregate_score = 76;
+        warn_aggregate_score = 51;
+        block_osv_min_cvss = 7.0;
+        block_repo_mismatch = false;
+        warn_install_script_network_call = true;
+        block_dependency_confusion = true;
+        repo_mismatch_check_max_packages = 50;
+      };
+    };
+  };
 
   # Replace command-not-found with nix-index and comma
   programs.nix-index-database.comma.enable = true;
