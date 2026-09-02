@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -18,7 +17,7 @@
       open = true;
       nvidiaSettings = false;
       nvidiaPersistenced = true;
-      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
+      branch = "bleeding_edge";
     };
   };
 
@@ -40,6 +39,25 @@
   ];
 
   virtualisation.docker.enableNvidia = true;
-  hardware.nvidia-container-toolkit.enable = true;
-  hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
+  hardware.nvidia-container-toolkit = {
+    enable = true;
+    suppressNvidiaDriverAssertion = true;
+  };
+
+  systemd.services.nvidia-mps = {
+    description = "NVIDIA CUDA Multi-Process Service";
+    after = ["nvidia-persistenced.service"];
+    requires = ["nvidia-persistenced.service"];
+    wantedBy = ["multi-user.target"];
+    path = [config.hardware.nvidia.package.bin];
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${config.hardware.nvidia.package.bin}/bin/nvidia-cuda-mps-control -d";
+      ExecStop = "${pkgs.writeShellScript "nvidia-mps-stop" ''
+        echo quit | ${config.hardware.nvidia.package.bin}/bin/nvidia-cuda-mps-control
+      ''}";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
 }
