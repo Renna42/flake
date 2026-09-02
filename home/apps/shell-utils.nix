@@ -14,6 +14,7 @@
     cachix
     chafa
     chroma
+    devenv
     duf
     dust
     fastfetch
@@ -207,6 +208,8 @@
       export NIX_CONFIG="extra-access-tokens = github.com=$GITHUB_TOKEN"
 
       export PAGER="moor"
+
+      ${lib.getExe pkgs.devenv} hook fish | source
     '';
     shellAliases = {
       co = "codium .";
