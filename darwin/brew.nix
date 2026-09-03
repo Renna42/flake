@@ -74,6 +74,7 @@ _: {
       "obs"
       "obsidian"
       "orbstack"
+      "raspberry-pi-imager"
       "Renna42/tap/angry-ip-scanner"
       "Renna42/tap/imhex"
       "Renna42/tap/makemkv"
