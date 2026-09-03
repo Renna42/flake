@@ -20,4 +20,14 @@ _: final: prev: {
     doCheck = false;
     doInstallCheck = false;
   });
+
+  rsgain = prev.rsgain.overrideAttrs (new: old: {
+    version = "3.8";
+    src = prev.fetchFromGitHub {
+      owner = "complexlogic";
+      repo = "rsgain";
+      rev = "v${new.version}";
+      hash = "sha256-BhjsTGSxemFX0MYSDUgKqX9W8ScLyq8Y6OhagMO6m70=";
+    };
+  });
 }
