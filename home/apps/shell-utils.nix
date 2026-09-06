@@ -238,25 +238,38 @@
     ];
     # https://github.com/sheeki03/tirith/blob/main/crates/tirith/assets/policy_templates/individual.yaml
     policy = {
-      fail_mode = "open";
-      paranoia = 1;
+      # keep-sorted start block=yes
       allow_bypass_env = true;
       allow_bypass_env_noninteractive = false;
-      strict_warn = false;
-      severity_overrides = {
-        shortened_url = "HIGH";
-      };
+      fail_mode = "open";
       package_policy = {
-        block_not_found = false;
-        block_install_scripts_for_unknown_packages = false;
+        # keep-sorted start
         block_aggregate_score = 76;
-        warn_aggregate_score = 51;
+        block_dependency_confusion = true;
+        block_install_scripts_for_unknown_packages = true;
+        block_not_found = false;
         block_osv_min_cvss = 7.0;
         block_repo_mismatch = false;
-        warn_install_script_network_call = true;
-        block_dependency_confusion = true;
+        block_typosquat_distance = 1;
         repo_mismatch_check_max_packages = 50;
+        warn_aggregate_score = 51;
+        warn_install_script_network_call = true;
+        warn_low_downloads_below = 100;
+        warn_newer_than_days = 14;
+        # keep-sorted end
       };
+      paranoia = 1;
+      severity_overrides = {
+        # keep-sorted start
+        curl_pipe_shell = "INFO";
+        mass_file_deletion = "MEDIUM";
+        pipe_to_interpreter = "INFO";
+        shortened_url = "HIGH";
+        wget_pipe_shell = "INFO";
+        # keep-sorted end
+      };
+      strict_warn = false;
+      # keep-sorted end
     };
   };
 
