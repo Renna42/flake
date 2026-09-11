@@ -63,7 +63,7 @@ in {
         "-c"
         ''
           ${lib.concatMapAttrsStringSep "\n" (n: v: "launchctl setenv ${n} '${v}'") luminaVariables}
-          ${pkgs.stunnel}/bin/stunnel "${stunnelCfg}"
+          ${pkgs.stunnel}/bin/stunnel ${stunnelCfg}
         ''
       ];
       KeepAlive = {
