@@ -54,6 +54,7 @@
 
   renna = {
     kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v3;
+    sample-rate = 192000;
     homeManager.enable = true;
     enableMirrorSubstituter = true;
     enableCompatLibraries = true;

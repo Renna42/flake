@@ -6,102 +6,105 @@
 }: let
   realtimeLimitUS = 5000000;
 in {
-  imports = [
-    ./pipewire-rtprio.nix
-    ./wireplumber-bluez.nix
-  ];
-
-  # Enable OSS emulation
-  boot.kernelModules = ["snd_pcm_oss"];
-
-  boot.extraModprobeConfig = ''
-    options snd_hda_intel power_save=0 power_save_controller=N
-    options usbcore autosuspend=-1
-  '';
-
-  security.rtkit.enable = true;
-  systemd.services.rtkit-daemon.serviceConfig.ExecStart = [
-    "" # Override command in rtkit package's service file
-    "${pkgs.rtkit}/libexec/rtkit-daemon --rttime-usec-max=${toString realtimeLimitUS}"
-  ];
-
-  musnix = {
-    enable = true;
-    rtcqs.enable = true;
+  option = {
+    renna.sample-rate = lib.mkOption {
+      type = lib.types.number;
+      default = 48000;
+    };
   };
+  config = {
+    imports = [
+      ./pipewire-rtprio.nix
+      ./wireplumber-bluez.nix
+    ];
 
-  services.pipewire = {
-    enable = true;
-    # Fix for ROC sink bug: https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/4070
-    package = pkgs.pipewire.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [../../../patches/pipewire-fix-roc-sink.patch];
-    });
-    systemWide = true;
+    # Enable OSS emulation
+    boot.kernelModules = ["snd_pcm_oss"];
 
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    jack.enable = true;
-    pulse.enable = true;
+    boot.extraModprobeConfig = ''
+      options snd_hda_intel power_save=0 power_save_controller=N
+      options usbcore autosuspend=-1
+    '';
 
-    wireplumber.enable = true;
+    security.rtkit.enable = true;
+    systemd.services.rtkit-daemon.serviceConfig.ExecStart = [
+      "" # Override command in rtkit package's service file
+      "${pkgs.rtkit}/libexec/rtkit-daemon --rttime-usec-max=${toString realtimeLimitUS}"
+    ];
 
-    extraConfig = {
-      pipewire = {
-        "10-sample-rate" = {
-          "context.properties" = {
-            "default.clock.rate" = 44100;
-            "default.clock.allowed-rates" = [
-              44100
-              48000
-              88200
-              96000
-              176400
-              192000
-              352800
-              384000
-            ];
+    musnix = {
+      enable = true;
+      rtcqs.enable = true;
+    };
 
-            "default.clock.quantum" = 128;
-            "default.clock.min-quantum" = 64;
-            "default.clock.max-quantum" = 512;
+    services.pipewire = {
+      enable = true;
+      # Fix for ROC sink bug: https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/4070
+      package = pkgs.pipewire.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [../../../patches/pipewire-fix-roc-sink.patch];
+      });
+      systemWide = true;
+
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      jack.enable = true;
+      pulse.enable = true;
+
+      wireplumber.enable = true;
+
+      extraConfig = {
+        pipewire = {
+          "10-sample-rate" = {
+            "context.properties" = {
+              "default.clock.rate" = config.renna.sample-rate;
+              "default.clock.allowed-rates" = [
+                44100
+                48000
+                88200
+                96000
+                176400
+                192000
+                352800
+                384000
+              ];
+
+              "default.clock.quantum" = 128;
+              "default.clock.min-quantum" = 64;
+              "default.clock.max-quantum" = 512;
+            };
           };
-        };
-        "11-resample-quality" = {
-          "stream.properties" = {
-            "resample.quality" = 14;
+          "11-resample-quality" = {
+            "stream.properties" = {
+              "resample.quality" = 10;
+            };
           };
         };
       };
-      client."10-no-resample" = {
-        "stream.properties" = {
-          "resample.disable" = true;
-        };
+    };
+
+    systemd.services.pipewire-auto-start = {
+      description = "Keep PipeWire running";
+      after = ["pipewire.socket"];
+      requires = ["pipewire.socket"];
+      wantedBy = ["multi-user.target"];
+
+      serviceConfig = {
+        ExecStart = "${lib.getExe pkgs.netcat-openbsd} -U /run/pipewire/pipewire-0";
+        User = "pipewire";
+        Group = "pipewire";
+        Restart = "always";
+        RestartSec = "3";
       };
     };
+
+    users.users.renna.extraGroups =
+      [
+        "audio"
+      ]
+      ++ lib.optionals config.services.pipewire.systemWide ["pipewire"];
+
+    environment.systemPackages = with pkgs; [
+      alsa-utils
+    ];
   };
-
-  systemd.services.pipewire-auto-start = {
-    description = "Keep PipeWire running";
-    after = ["pipewire.socket"];
-    requires = ["pipewire.socket"];
-    wantedBy = ["multi-user.target"];
-
-    serviceConfig = {
-      ExecStart = "${lib.getExe pkgs.netcat-openbsd} -U /run/pipewire/pipewire-0";
-      User = "pipewire";
-      Group = "pipewire";
-      Restart = "always";
-      RestartSec = "3";
-    };
-  };
-
-  users.users.renna.extraGroups =
-    [
-      "audio"
-    ]
-    ++ lib.optionals config.services.pipewire.systemWide ["pipewire"];
-
-  environment.systemPackages = with pkgs; [
-    alsa-utils
-  ];
 }
