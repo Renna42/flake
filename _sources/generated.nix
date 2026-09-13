@@ -8,15 +8,15 @@
 {
   mpv = {
     pname = "mpv";
-    version = "02a595ddc1b9b39aa7b0366cab58be3734a4a4eb";
+    version = "13a4bfbc1a184c0576ca69c2de486a972aeb2407";
     src = fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
-      rev = "02a595ddc1b9b39aa7b0366cab58be3734a4a4eb";
+      rev = "13a4bfbc1a184c0576ca69c2de486a972aeb2407";
       fetchSubmodules = false;
-      sha256 = "sha256-rHgHCB/you20Djnw6LXSlaA8LMdwHRg+Z8J4xSD7bWA=";
+      sha256 = "sha256-kEVC2Qd0mt7/JsRPFyj+UHZxpV673S3UL20E8ZUPnvk=";
     };
-    date = "2026-08-31";
+    date = "2026-09-13";
   };
   mpv-config = {
     pname = "mpv-config";
@@ -56,27 +56,27 @@
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "7406cb6fb0a4fc17fcfccbb3662a90a92fd3d35c";
+    version = "9e4f1cd723c89e58715de2d56c8cf8db2da4a34b";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "7406cb6fb0a4fc17fcfccbb3662a90a92fd3d35c";
+      rev = "9e4f1cd723c89e58715de2d56c8cf8db2da4a34b";
       fetchSubmodules = false;
-      sha256 = "sha256-4VV0h4i/h7l6xqOv/zke28RVbINjZo0Bd8+09LDzgwo=";
+      sha256 = "sha256-cJP4BL8cgvk539Qa+adnRHAxmqVrdk/4564fEK77aog=";
     };
-    date = "2026-08-29";
+    date = "2026-09-07";
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "a453cb81b00eb5a8ed05f14c7a6952bca832cb2e";
+    version = "660471510ac3625734a8991947e2a800de68cbe0";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "a453cb81b00eb5a8ed05f14c7a6952bca832cb2e";
+      rev = "660471510ac3625734a8991947e2a800de68cbe0";
       fetchSubmodules = false;
-      sha256 = "sha256-UGESU5+7sVbGb0q3JLw4K0qZENkmIoCdFSvsS84RMJI=";
+      sha256 = "sha256-TSxIEzSmARxDnqnVoShY8MbVK8rTBoNTeE90YFBML6Q=";
     };
-    date = "2026-08-29";
+    date = "2026-09-08";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
@@ -88,10 +88,10 @@
   };
   rime-moetype = {
     pname = "rime-moetype";
-    version = "20260818";
+    version = "20260912";
     src = fetchurl {
-      url = "https://github.com/suiginko/moetype/releases/download/20260818/moe.dict.yaml";
-      sha256 = "sha256-3suh4gHufDuxGGueEV614Ur7NKoBeNoi95XMBGnHUdI=";
+      url = "https://github.com/suiginko/moetype/releases/download/20260912/moe.dict.yaml";
+      sha256 = "sha256-YtM3zwt0PstYMW8vHto6x1ea7UKHB0CjZ5KjhxNXLbQ=";
     };
   };
   rime-zhwiki = {

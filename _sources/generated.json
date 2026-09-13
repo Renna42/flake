@@ -1,7 +1,7 @@
 {
     "mpv": {
         "cargoLock": null,
-        "date": "2026-08-31",
+        "date": "2026-09-13",
         "extract": null,
         "name": "mpv",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "mpv-player",
             "repo": "mpv",
-            "rev": "02a595ddc1b9b39aa7b0366cab58be3734a4a4eb",
-            "sha256": "sha256-rHgHCB/you20Djnw6LXSlaA8LMdwHRg+Z8J4xSD7bWA=",
+            "rev": "13a4bfbc1a184c0576ca69c2de486a972aeb2407",
+            "sha256": "sha256-kEVC2Qd0mt7/JsRPFyj+UHZxpV673S3UL20E8ZUPnvk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "02a595ddc1b9b39aa7b0366cab58be3734a4a4eb"
+        "version": "13a4bfbc1a184c0576ca69c2de486a972aeb2407"
     },
     "mpv-config": {
         "cargoLock": null,
@@ -85,7 +85,7 @@
     },
     "nvidia-patch": {
         "cargoLock": null,
-        "date": "2026-08-29",
+        "date": "2026-09-07",
         "extract": null,
         "name": "nvidia-patch",
         "passthru": null,
@@ -97,16 +97,16 @@
             "name": null,
             "owner": "keylase",
             "repo": "nvidia-patch",
-            "rev": "7406cb6fb0a4fc17fcfccbb3662a90a92fd3d35c",
-            "sha256": "sha256-4VV0h4i/h7l6xqOv/zke28RVbINjZo0Bd8+09LDzgwo=",
+            "rev": "9e4f1cd723c89e58715de2d56c8cf8db2da4a34b",
+            "sha256": "sha256-cJP4BL8cgvk539Qa+adnRHAxmqVrdk/4564fEK77aog=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7406cb6fb0a4fc17fcfccbb3662a90a92fd3d35c"
+        "version": "9e4f1cd723c89e58715de2d56c8cf8db2da4a34b"
     },
     "oh-my-rime": {
         "cargoLock": null,
-        "date": "2026-08-29",
+        "date": "2026-09-08",
         "extract": null,
         "name": "oh-my-rime",
         "passthru": null,
@@ -118,12 +118,12 @@
             "name": null,
             "owner": "Mintimate",
             "repo": "oh-my-rime",
-            "rev": "a453cb81b00eb5a8ed05f14c7a6952bca832cb2e",
-            "sha256": "sha256-UGESU5+7sVbGb0q3JLw4K0qZENkmIoCdFSvsS84RMJI=",
+            "rev": "660471510ac3625734a8991947e2a800de68cbe0",
+            "sha256": "sha256-TSxIEzSmARxDnqnVoShY8MbVK8rTBoNTeE90YFBML6Q=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a453cb81b00eb5a8ed05f14c7a6952bca832cb2e"
+        "version": "660471510ac3625734a8991947e2a800de68cbe0"
     },
     "rime-custom-pinyin-dictionary": {
         "cargoLock": null,
@@ -149,11 +149,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-3suh4gHufDuxGGueEV614Ur7NKoBeNoi95XMBGnHUdI=",
+            "sha256": "sha256-YtM3zwt0PstYMW8vHto6x1ea7UKHB0CjZ5KjhxNXLbQ=",
             "type": "url",
-            "url": "https://github.com/suiginko/moetype/releases/download/20260818/moe.dict.yaml"
+            "url": "https://github.com/suiginko/moetype/releases/download/20260912/moe.dict.yaml"
         },
-        "version": "20260818"
+        "version": "20260912"
     },
     "rime-zhwiki": {
         "cargoLock": null,
