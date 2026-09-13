@@ -10,6 +10,7 @@ lib.makeScope newScope (
     # keep-sorted start block=yes
     aegisub-arch1t3cht = callPackage ./aegisub-arch1t3cht.nix {};
     catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
+    fsdecrypt = callPackage ./fsdecrypt.nix {};
     gen-rdk = callPackage ./gen-rdk {};
     linuxPackages_xanmod_latest = {
       smifb2 = pkgs.linuxPackages_xanmod_latest.callPackage ./smifb2 {};
