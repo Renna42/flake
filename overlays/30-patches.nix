@@ -1,14 +1,14 @@
 _: final: prev: {
   tirith = prev.tirith.overrideAttrs (new: _old: {
-    version = "0.4.1";
+    version = "0.4.2";
     src = prev.fetchFromGitHub {
       owner = "sheeki03";
       repo = "tirith";
       tag = "v${new.version}";
-      hash = "sha256-RUGiWQ0+xC2gFz6B1PN+eUwD6bhRE0q7eLa7aw9Phdc=";
+      hash = "sha256-5feylgprI/k+Y3dNeEdl3/TpNBdvjRA6u8RjD4eMQP4=";
     };
 
-    cargoHash = "sha256-MYYAltyAFFt1BSkOwWpMEKw5rzQfduzDG7JcBEzKbOg=";
+    cargoHash = "sha256-J58LW86QbSU4us6MCq8I0Oh8+uSHsSigEQwsXVNu4LU=";
     ## workaround for overrideAttrs on buildRustPackage
     ## see https://discourse.nixos.org/t/is-it-possible-to-override-cargosha256-in-buildrustpackage/4393/3
     cargoDeps = prev.rustPlatform.fetchCargoVendor {
