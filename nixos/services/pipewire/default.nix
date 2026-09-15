@@ -69,10 +69,6 @@ in {
                 384000
                 768000
               ];
-
-              "default.clock.quantum" = 128;
-              "default.clock.min-quantum" = 64;
-              "default.clock.max-quantum" = 1024;
             };
           };
         };
@@ -93,6 +89,9 @@ in {
         RestartSec = "3";
       };
     };
+
+    # EasyEffects require this
+    programs.dconf.enable = true;
 
     users.users.renna.extraGroups =
       [

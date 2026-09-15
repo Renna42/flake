@@ -19,6 +19,7 @@ in {
     ./apps/develop/nodejs.nix
     ./apps/develop/python.nix
     ./apps/discord
+    ./apps/easyeffects
     ./apps/element
     ./apps/fcitx5
     ./apps/firefox
