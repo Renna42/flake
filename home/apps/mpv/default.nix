@@ -1,61 +1,35 @@
 {
-  osConfig,
   lib,
   pkgs,
   unstablePkgs,
   ...
 }: let
-  anime4K_LowEnd = ''
-    # Optimized shaders for lower-end GPU:
-    CTRL+1 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode A (Fast)"
-    CTRL+2 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode B (Fast)"
-    CTRL+3 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Upscale_Denoise_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode C (Fast)"
-    CTRL+4 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_S.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode A+A (Fast)"
-    CTRL+5 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_S.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode B+B (Fast)"
-    CTRL+6 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Upscale_Denoise_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_S.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode C+A (Fast)"
+  inherit (pkgs.sources) mpv-config;
 
-    CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
-  '';
+  ffmpeg =
+    (unstablePkgs.ffmpeg_9.override {
+      withUnfree = true;
+    }).overrideAttrs (old: {
+      patches =
+        (old.patches or [])
+        ++ [
+          # https://github.com/nilaoda/Blog/discussions/81
+          # https://gitee.com/openharmony/third_party_ffmpeg/pulls/49/files
+          ../../../patches/ffmpeg-libavcodec-av3a.patch
+          # https://gitee.com/openharmony/third_party_ffmpeg/pulls/128/files
+          ../../../patches/ffmpeg-libavformat-av3a.patch
+        ];
 
-  anime4K_HighEnd = ''
-    # Optimized shaders for higher-end GPU:
-    CTRL+1 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_VL.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode A (HQ)"
-    CTRL+2 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_VL.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode B (HQ)"
-    CTRL+3 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Upscale_Denoise_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode C (HQ)"
-    CTRL+4 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_VL.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode A+A (HQ)"
-    CTRL+5 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_VL.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode B+B (HQ)"
-    CTRL+6 no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Upscale_Denoise_CNN_x2_VL.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode C+A (HQ)"
-
-    CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
-  '';
-
-  anime4KInputs =
-    if osConfig.networking.hostName != "high_end_not_used_for_now"
-    then anime4K_LowEnd
-    else anime4K_HighEnd;
+      doCheck = false;
+      doInstallCheck = false;
+    });
 in {
   programs.mpv = {
     enable = true;
     package = pkgs.mpv.override {
       mpv-unwrapped =
         (pkgs.mpv-unwrapped.override {
-          ffmpeg =
-            (unstablePkgs.ffmpeg_9.override {
-              withUnfree = true;
-            }).overrideAttrs (old: {
-              patches =
-                (old.patches or [])
-                ++ [
-                  # https://github.com/nilaoda/Blog/discussions/81
-                  # https://gitee.com/openharmony/third_party_ffmpeg/pulls/49/files
-                  ../../../patches/ffmpeg-libavcodec-av3a.patch
-                  # https://gitee.com/openharmony/third_party_ffmpeg/pulls/128/files
-                  ../../../patches/ffmpeg-libavformat-av3a.patch
-                ];
-
-              doCheck = false;
-              doInstallCheck = false;
-            });
+          inherit ffmpeg;
 
           cddaSupport = true;
           vapoursynthSupport = true;
@@ -92,10 +66,16 @@ in {
 
       scripts = with unstablePkgs.mpvScripts; [
         # keep-sorted start
+        autosubsync-mpv
         dynamic-crop
+        eisa01.simplebookmark
+        eisa01.simplehistory
+        eisa01.undoredo
         modernz
         mpris
         mpv-sub-select
+        quality-menu
+        sponsorblock-minimal
         thumbfast
         # keep-sorted end
       ];
@@ -109,6 +89,36 @@ in {
       ];
     };
 
+    scriptOpts = {
+      # keep-sorted start block=yes
+      autosubsync = {
+        ffmpeg_path = "${lib.getExe ffmpeg}";
+        ffsubsync_path = "${lib.getExe pkgs.ffsubsync}";
+        audio_subsync_tool = "ffsubsync";
+        altsub_subsync_tool = "ffsubsync";
+        unload_old_sub = false;
+      };
+      dynamic_crop = {
+        mode = 3;
+        start_delay = 0;
+        prevent_change_timer = 30;
+        prevent_change_mode = 0;
+        fix_windowed_behavior = 0;
+        linked_tolerance = 2;
+        ratios = "2.76 2.55 24/9 2.4 2.39 2.35 2.2 2.1 2 1.9 1.85 16/9 5/3 1.5 1.43 4/3 1.25 9/16 9/18 9/21";
+        segmentation = 0.5;
+        detect_limit = 26;
+        detect_round = 2;
+      };
+      ytdl_hook = {
+        try_ytdl_first = true;
+        exclude = "%.avi$|%.flac$|%.flv$|%.mp3$|%.m3u$|%.m3u8$|%.m4a$|%.m4v$|%.mkv$|%.mp4$|%.ts$|%.VOB$|%.wav$|%.webm$|%.wmw$";
+        include = "^%w+%.youtube%.com/|^youtube%.com/|^youtu%.be/|^%w+%.twitch%.tv/|^twitch%.tv/";
+        ytdl_path = "${lib.getExe pkgs.yt-dlp}";
+      };
+      # keep-sorted end
+    };
+
     config = {
       # HDR on supported displays
       vo = "gpu-next";
@@ -118,16 +128,17 @@ in {
       hwdec = "auto-copy-safe";
       hwdec-codecs = "all";
 
+      osc = false;
       window-maximized = true;
       autofit-smaller = "40%x30%";
-      idle = "yes";
-      hr-seek = "yes";
+      idle = true;
+      hr-seek = true;
       hr-seek-framedrop = false;
-      save-position-on-quit = "yes";
-      write-filename-in-watch-later-config = "yes";
-      resume-playback-check-mtime = "yes";
+      save-position-on-quit = true;
+      write-filename-in-watch-later-config = true;
+      resume-playback-check-mtime = true;
       watch-later-options = "start,vid,aid,sid";
-      save-watch-history = "yes";
+      save-watch-history = true;
       reset-on-next-file = "vid,aid,sid,secondary-sid,vf,af,loop-file,deinterlace,contrast,brightness,gamma,saturation,hue,video-zoom,video-rotate,video-pan-x,video-pan-y,panscan,speed,audio-delay,sub-pos,sub-scale,sub-delay,sub-speed,sub-visibility,secondary-sub-visibility";
       demuxer-max-bytes = "500MiB";
       demuxer-readahead-secs = 20;
@@ -135,8 +146,14 @@ in {
       directory-filter-types = "video,audio";
       autocreate-playlist = "same";
 
+      osd-fonts-dir = "${unstablePkgs.mpvScripts.modernz}/share/fonts/truetype";
+
+      icc-profile-auto = true;
+      inverse-tone-mapping = true;
       scale = "ewa_lanczossharp";
-      cscale = "ewa_lanczossharp";
+      cscale = "${mpv-config}/shaders/igv/KrigBilateral.glsl";
+      dscale = "ewa_robidouxsharp";
+      linear-downscaling = false;
 
       ao = "alsa";
       alsa-resample = false;
@@ -149,9 +166,12 @@ in {
       sub-codepage = "gb18030";
       slang = "chs,sc,zh-Hans,zh-CN,cht,tc,zh-Hant,zh-HK,zh-TW,chi,zho,zh";
       sub-ass-vsfilter-color-compat = "full";
-      sub-ass-style-overrides-append = "Encoding=-1";
+      sub-ass-style-overrides-append = [
+        "Encoding=-1"
+        "ScaledBorderAndShadow=no"
+      ];
       sub-font-size = 50;
-      sub-bold = "yes";
+      sub-bold = true;
       sub-color = "#FFFFFF";
       sub-outline-size = 0.5;
       sub-outline-color = "#000000";
@@ -161,9 +181,23 @@ in {
       sub-blur = 0.5;
       sub-margin-x = 25;
       sub-margin-y = 22;
-      sub-use-margins = "yes";
+      sub-use-margins = true;
       sub-justify = "left";
+
+      load-osd-console = false;
+      load-context-menu = true;
+      ytdl-format = "bestvideo*+bestaudio/best";
+      ytdl-raw-options-append = [
+        "sub-langs=\"zh.*\""
+        "write-subs="
+        "write-auto-subs="
+        "yes-playlist="
+        "cookies-from-browser=Firefox"
+      ];
+
+      glsl-shaders-append = [
+        "${mpv-config}/shaders/igv/SSimDownscaler.glsl"
+      ];
     };
-    extraInput = anime4KInputs;
   };
 }
