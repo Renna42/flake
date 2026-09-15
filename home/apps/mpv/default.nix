@@ -33,15 +33,6 @@
     if osConfig.networking.hostName != "high_end_not_used_for_now"
     then anime4K_LowEnd
     else anime4K_HighEnd;
-
-  mpv-sockets =
-    pkgs.runCommand "mpv-sockets"
-    {
-      passthru.scriptName = "mpvSockets.lua";
-    }
-    ''
-      install -Dm644 ${pkgs.sources.mpv-sockets.src}/mpvSockets.lua $out/share/mpv/scripts/mpvSockets.lua
-    '';
 in {
   programs.mpv = {
     enable = true;
@@ -70,7 +61,7 @@ in {
           vapoursynthSupport = true;
         }).overrideAttrs (old_: {
           inherit (pkgs.sources.mpv) src;
-          version = "0.41.0-unstable-${pkgs.sources.mpv.date}";
+          version = "0.41.0-unstable-${pkgs.sources.mpv.date or pkgs.sources.mpv.version}"; # sometimes may not have the date
 
           patches = let
             patchesDir = "${pkgs.sources.mpv-omniphony.src}/patches-master";
@@ -99,12 +90,14 @@ in {
           dontVersionCheck = true;
         });
 
-      scripts = with pkgs.mpvScripts; [
-        mpv-sockets
+      scripts = with unstablePkgs.mpvScripts; [
+        # keep-sorted start
         dynamic-crop
         modernz
         mpris
+        mpv-sub-select
         thumbfast
+        # keep-sorted end
       ];
 
       extraMakeWrapperArgs = [
@@ -122,19 +115,54 @@ in {
       target-colorspace-hint = true;
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
-      window-maximized = true;
-
-      # High quality scaling
-      cscale = "ewa_lanczossharp";
-      hr-seek-framedrop = false;
-      hwdec = "auto-copy";
+      hwdec = "auto-copy-safe";
       hwdec-codecs = "all";
-      resume-playback = false;
-      scale = "ewa_lanczossharp";
 
-      # Prefer subtitles and audios: Chinese > English
-      alang = "chi,zho,cmn,zh,eng,en";
-      slang = "chi,zho,cmn,zh,eng,en";
+      window-maximized = true;
+      autofit-smaller = "40%x30%";
+      idle = "yes";
+      hr-seek = "yes";
+      hr-seek-framedrop = false;
+      save-position-on-quit = "yes";
+      write-filename-in-watch-later-config = "yes";
+      resume-playback-check-mtime = "yes";
+      watch-later-options = "start,vid,aid,sid";
+      save-watch-history = "yes";
+      reset-on-next-file = "vid,aid,sid,secondary-sid,vf,af,loop-file,deinterlace,contrast,brightness,gamma,saturation,hue,video-zoom,video-rotate,video-pan-x,video-pan-y,panscan,speed,audio-delay,sub-pos,sub-scale,sub-delay,sub-speed,sub-visibility,secondary-sub-visibility";
+      demuxer-max-bytes = "500MiB";
+      demuxer-readahead-secs = 20;
+      directory-mode = "ignore";
+      directory-filter-types = "video,audio";
+      autocreate-playlist = "same";
+
+      scale = "ewa_lanczossharp";
+      cscale = "ewa_lanczossharp";
+
+      ao = "alsa";
+      alsa-resample = false;
+      replaygain = "album";
+      audio-format = "s32";
+      audio-display = "embedded-first";
+      gapless-audio = "weak";
+      audio-file-auto = "exact";
+
+      sub-codepage = "gb18030";
+      slang = "chs,sc,zh-Hans,zh-CN,cht,tc,zh-Hant,zh-HK,zh-TW,chi,zho,zh";
+      sub-ass-vsfilter-color-compat = "full";
+      sub-ass-style-overrides-append = "Encoding=-1";
+      sub-font-size = 50;
+      sub-bold = "yes";
+      sub-color = "#FFFFFF";
+      sub-outline-size = 0.5;
+      sub-outline-color = "#000000";
+      sub-shadow-offset = 0.5;
+      sub-back-color = "#000000";
+      sub-spacing = 1;
+      sub-blur = 0.5;
+      sub-margin-x = 25;
+      sub-margin-y = 22;
+      sub-use-margins = "yes";
+      sub-justify = "left";
     };
     extraInput = anime4KInputs;
   };

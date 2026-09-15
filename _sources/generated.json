@@ -1,7 +1,7 @@
 {
     "mpv": {
         "cargoLock": null,
-        "date": "2026-09-13",
+        "date": null,
         "extract": null,
         "name": "mpv",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "mpv-player",
             "repo": "mpv",
-            "rev": "13a4bfbc1a184c0576ca69c2de486a972aeb2407",
-            "sha256": "sha256-kEVC2Qd0mt7/JsRPFyj+UHZxpV673S3UL20E8ZUPnvk=",
+            "rev": "f5bcfb195412e0ca733eac2e850879cd3b1ded18",
+            "sha256": "sha256-f+CuOd/SJEXCqDzF/g0rgqMB6Yd6xyUPd2F8iNJrW/o=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "13a4bfbc1a184c0576ca69c2de486a972aeb2407"
+        "version": "f5bcfb195412e0ca733eac2e850879cd3b1ded18"
     },
     "mpv-config": {
         "cargoLock": null,
@@ -61,27 +61,6 @@
             "type": "github"
         },
         "version": "6b474e387d30fabec8927880a25075f288d675d3"
-    },
-    "mpv-sockets": {
-        "cargoLock": null,
-        "date": "2024-02-13",
-        "extract": null,
-        "name": "mpv-sockets",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "wis",
-            "repo": "mpvSockets",
-            "rev": "3b3f430074a67c63572a582847ed1fa69330c668",
-            "sha256": "sha256-KFv3imLuiV+APx4A8TSi2LXL5gdHNKc497fRwBubvMk=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "3b3f430074a67c63572a582847ed1fa69330c668"
     },
     "nvidia-patch": {
         "cargoLock": null,

@@ -8,15 +8,14 @@
 {
   mpv = {
     pname = "mpv";
-    version = "13a4bfbc1a184c0576ca69c2de486a972aeb2407";
+    version = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
     src = fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
-      rev = "13a4bfbc1a184c0576ca69c2de486a972aeb2407";
+      rev = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
       fetchSubmodules = false;
-      sha256 = "sha256-kEVC2Qd0mt7/JsRPFyj+UHZxpV673S3UL20E8ZUPnvk=";
+      sha256 = "sha256-f+CuOd/SJEXCqDzF/g0rgqMB6Yd6xyUPd2F8iNJrW/o=";
     };
-    date = "2026-09-13";
   };
   mpv-config = {
     pname = "mpv-config";
@@ -41,18 +40,6 @@
       sha256 = "sha256-pd8yAQwK/splODyBWoxfXvjVYkHmFAlphgw+0QuGll0=";
     };
     date = "2026-08-22";
-  };
-  mpv-sockets = {
-    pname = "mpv-sockets";
-    version = "3b3f430074a67c63572a582847ed1fa69330c668";
-    src = fetchFromGitHub {
-      owner = "wis";
-      repo = "mpvSockets";
-      rev = "3b3f430074a67c63572a582847ed1fa69330c668";
-      fetchSubmodules = false;
-      sha256 = "sha256-KFv3imLuiV+APx4A8TSi2LXL5gdHNKc497fRwBubvMk=";
-    };
-    date = "2024-02-13";
   };
   nvidia-patch = {
     pname = "nvidia-patch";

@@ -1,6 +1,8 @@
 [mpv]
 fetch.github = "mpv-player/mpv"
-src.git = "https://github.com/mpv-player/mpv.git"
+# mpv-omniphony has no updates for the latest revision
+# src.git = "https://github.com/mpv-player/mpv.git"
+src.manual = "f5bcfb195412e0ca733eac2e850879cd3b1ded18"
 
 [mpv-config]
 fetch.github = "dyphire/mpv-config"
@@ -9,10 +11,6 @@ src.git = "https://github.com/dyphire/mpv-config.git"
 [mpv-omniphony]
 fetch.github = "mgth/mpv-omniphony"
 src.git = "https://github.com/mgth/mpv-omniphony.git"
-
-[mpv-sockets]
-fetch.github = "wis/mpvSockets"
-src.git = "https://github.com/wis/mpvSockets.git"
 
 [nvidia-patch]
 fetch.github = "keylase/nvidia-patch"
