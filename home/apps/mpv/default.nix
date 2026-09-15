@@ -4,7 +4,7 @@
   unstablePkgs,
   ...
 }: let
-  inherit (pkgs.sources) mpv-config;
+  mpvConfig = pkgs.sources.mpv-config.src;
 
   ffmpeg =
     (unstablePkgs.ffmpeg_9.override {
@@ -151,14 +151,14 @@ in {
       icc-profile-auto = true;
       inverse-tone-mapping = true;
       scale = "ewa_lanczossharp";
-      cscale = "${mpv-config}/shaders/igv/KrigBilateral.glsl";
+      cscale = "bilinear";
       dscale = "ewa_robidouxsharp";
       linear-downscaling = false;
 
-      ao = "alsa";
-      alsa-resample = false;
+      ao = "pipewire";
+      audio-exclusive = true;
       replaygain = "album";
-      audio-format = "s32";
+      audio-format = "floatp";
       audio-display = "embedded-first";
       gapless-audio = "weak";
       audio-file-auto = "exact";
@@ -184,7 +184,6 @@ in {
       sub-use-margins = true;
       sub-justify = "left";
 
-      load-osd-console = false;
       load-context-menu = true;
       ytdl-format = "bestvideo*+bestaudio/best";
       ytdl-raw-options-append = [
@@ -196,7 +195,7 @@ in {
       ];
 
       glsl-shaders-append = [
-        "${mpv-config}/shaders/igv/SSimDownscaler.glsl"
+        "${mpvConfig}/shaders/igv/SSimDownscaler.glsl"
       ];
     };
   };
