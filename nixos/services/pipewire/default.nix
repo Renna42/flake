@@ -6,18 +6,19 @@
 }: let
   realtimeLimitUS = 5000000;
 in {
-  option = {
+  imports = [
+    ./pipewire-rtprio.nix
+    ./wireplumber-bluez.nix
+  ];
+
+  options = {
     renna.sample-rate = lib.mkOption {
       type = lib.types.number;
       default = 48000;
     };
   };
-  config = {
-    imports = [
-      ./pipewire-rtprio.nix
-      ./wireplumber-bluez.nix
-    ];
 
+  config = {
     # Enable OSS emulation
     boot.kernelModules = ["snd_pcm_oss"];
 
@@ -66,16 +67,12 @@ in {
                 192000
                 352800
                 384000
+                768000
               ];
 
               "default.clock.quantum" = 128;
               "default.clock.min-quantum" = 64;
-              "default.clock.max-quantum" = 512;
-            };
-          };
-          "11-resample-quality" = {
-            "stream.properties" = {
-              "resample.quality" = 10;
+              "default.clock.max-quantum" = 1024;
             };
           };
         };
