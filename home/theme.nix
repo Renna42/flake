@@ -2,19 +2,29 @@
   config,
   lib,
   pkgs,
-  osConfig,
   ...
-}: let
-  commonStylix = {
+}: {
+  catppuccin = {
     enable = true;
+    autoEnable = false;
+    flavor = "macchiato";
+  };
+
+  stylix = {
+    enable = true;
+    overlays.enable = !pkgs.stdenv.isDarwin;
     image = pkgs.fetchurl {
-      url = "https://i.pixiv.cat/img-original/img/2023/12/21/19/24/55/114414442_p0.png";
+      url = "https://pixiv.cat/114414442.png";
       hash = "sha256-a2AULPcPcfrpe2SjHk0e4nA1+qGkzFQUDjl33TjqDHo=";
     };
     polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-${config.catppuccin.flavor}.yaml";
     opacity.terminal = 0.8;
     fonts = {
-      sizes.terminal = 10;
+      sizes = {
+        applications = 14;
+        terminal = 12;
+      };
       serif = {
         package = pkgs.noto-fonts-cjk-serif;
         name = "Noto Serif CJK SC";
@@ -32,34 +42,13 @@
         name = "Noto Color Emoji";
       };
     };
-  };
-  darwinStylix = lib.recursiveUpdate commonStylix {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    overlays.enable = false;
-    fonts.sizes = {
-      applications = 10;
-    };
-  };
-  linuxStylix = lib.recursiveUpdate commonStylix {
-    inherit (osConfig.stylix) base16Scheme;
     icons = {
-      enable = true;
+      enable = pkgs.stdenv.isLinux;
       package = pkgs.fluent-icon-theme;
       dark = "Fluent";
       light = "Fluent";
     };
   };
-in {
-  catppuccin = {
-    enable = true;
-    autoEnable = false;
-    flavor = "macchiato";
-  };
-
-  stylix =
-    if pkgs.stdenv.isDarwin
-    then darwinStylix
-    else linuxStylix;
 
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
     "setWallpaper" = lib.hm.dag.entryAfter ["writeBoundary"] ''
