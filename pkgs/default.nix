@@ -12,6 +12,7 @@ lib.makeScope newScope (
     catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
     fsdecrypt = callPackage ./fsdecrypt.nix {};
     gen-rdk = callPackage ./gen-rdk {};
+    harletty-bridge = callPackage ./harletty-bridge.nix {};
     ilass = callPackage ./ilass.nix {};
     lapse = callPackage ./lapse.nix {};
     lapse-silero = callPackage ./lapse.nix {

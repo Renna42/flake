@@ -31,11 +31,11 @@ in {
       id3v2
       libwebp
       myffmpeg
+      renna.harletty-bridge
       renna.ilass
       renna.lapse-silero
       rsgain
       shntool
-      truehdd
       wavpack
       yt-dlp
       # keep-sorted end
