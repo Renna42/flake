@@ -27,6 +27,7 @@
     nixpkgs-review
     nurl
     qrencode
+    renna.fsdecrypt
     tre-command
     wget
     yq-go
