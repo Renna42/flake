@@ -14,7 +14,7 @@
       meson
       nasm
       ninja
-      pkg-config
+      pkgconf
       # keep-sorted end
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux [
