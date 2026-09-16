@@ -13,6 +13,11 @@ lib.makeScope newScope (
     fsdecrypt = callPackage ./fsdecrypt.nix {};
     gen-rdk = callPackage ./gen-rdk {};
     ilass = callPackage ./ilass.nix {};
+    lapse = callPackage ./lapse.nix {};
+    lapse-silero = callPackage ./lapse.nix {
+      withSilero = true;
+    };
+    libfvad = callPackage ./libfvad.nix {};
     linuxPackages_xanmod_latest = {
       smifb2 = pkgs.linuxPackages_xanmod_latest.callPackage ./smifb2 {};
     };

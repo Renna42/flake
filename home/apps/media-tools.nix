@@ -32,6 +32,7 @@ in {
       libwebp
       myffmpeg
       renna.ilass
+      renna.lapse-silero
       rsgain
       shntool
       truehdd
