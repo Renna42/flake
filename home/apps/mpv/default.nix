@@ -94,8 +94,9 @@ in {
       autosubsync = {
         ffmpeg_path = "${lib.getExe ffmpeg}";
         ffsubsync_path = "${lib.getExe pkgs.ffsubsync}";
-        audio_subsync_tool = "ffsubsync";
-        altsub_subsync_tool = "ffsubsync";
+        alass_path = "${lib.getExe pkgs.renna.ilass}";
+        audio_subsync_tool = "alass";
+        altsub_subsync_tool = "alass";
         unload_old_sub = false;
       };
       dynamic_crop = {

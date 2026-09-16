@@ -12,6 +12,7 @@ lib.makeScope newScope (
     catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
     fsdecrypt = callPackage ./fsdecrypt.nix {};
     gen-rdk = callPackage ./gen-rdk {};
+    ilass = callPackage ./ilass.nix {};
     linuxPackages_xanmod_latest = {
       smifb2 = pkgs.linuxPackages_xanmod_latest.callPackage ./smifb2 {};
     };

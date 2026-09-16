@@ -25,11 +25,13 @@ in {
       alac
       bchunk
       cuetools
+      ffsubsync
       flac
       gpac
       id3v2
       libwebp
       myffmpeg
+      renna.ilass
       rsgain
       shntool
       truehdd
