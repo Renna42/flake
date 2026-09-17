@@ -25,9 +25,11 @@ in {
       alac
       bchunk
       cuetools
+      dovi-tool
       ffsubsync
       flac
       gpac
+      hdr10plus_tool
       id3v2
       libwebp
       myffmpeg
