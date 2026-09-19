@@ -12,7 +12,8 @@
 
   stylix = {
     enable = true;
-    overlays.enable = !pkgs.stdenv.isDarwin;
+    # Will be confilcting when defined in osConfig
+    overlays.enable = lib.mkForce (!pkgs.stdenv.isDarwin);
     image = pkgs.fetchurl {
       url = "https://pixiv.cat/114414442.png";
       hash = "sha256-a2AULPcPcfrpe2SjHk0e4nA1+qGkzFQUDjl33TjqDHo=";
