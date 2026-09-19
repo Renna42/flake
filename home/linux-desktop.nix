@@ -48,7 +48,6 @@ in {
         # keep-sorted start case=no
         angryipscanner
         audacity
-        ayugram-desktop
         dbeaver-bin
         dejavu_fonts
         imhex
@@ -61,6 +60,7 @@ in {
         podman-desktop
         qbittorrent-enhanced
         renna.aegisub-arch1t3cht
+        renna.ayugram-irena
         strawberry
         teamspeak6-client
         ventoy-full
