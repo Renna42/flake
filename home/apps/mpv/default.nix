@@ -159,7 +159,7 @@ in {
       ao = "pipewire";
       audio-exclusive = true;
       replaygain = "album";
-      audio-format = "floatp";
+      audio-format = "s32";
       audio-display = "embedded-first";
       gapless-audio = "weak";
       audio-file-auto = "exact";
