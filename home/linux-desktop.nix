@@ -9,7 +9,6 @@
 in {
   imports = [
     ./base.nix
-    ./nix.nix
     ./theme.nix
 
     # keep-sorted start
