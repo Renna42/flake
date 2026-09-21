@@ -7,6 +7,28 @@
 }: {
   imports = [inputs.nix-index-database.homeModules.nix-index];
 
+  sops = {
+    secrets = {
+      nvchecker_github_token = {};
+      cachix_auth_token = {};
+    };
+    templates = {
+      "nvchecker-keys.toml" = {
+        content = ''
+          [keys]
+          github = "${config.sops.placeholder.nvchecker_github_token}"
+        '';
+      };
+      "cachix.dhall" = {
+        content = lib.generators.toDhall {} {
+          authToken = config.sops.placeholder.cachix_auth_token;
+          hostname = "https://cachix.org";
+        };
+        path = "${config.home.homeDirectory}/.config/cachix/cachix.dhall";
+      };
+    };
+  };
+
   home.packages = with pkgs; [
     # keep-sorted start
     aria2
@@ -209,7 +231,7 @@
       export GITHUB_TOKEN_CMD="gh auth token"
       # for nix
       export NIX_CONFIG="extra-access-tokens = github.com=$GITHUB_TOKEN"
-      # for nvchecker & nvfetcher
+      # for nvchecker
       export NVCHECKER_GITHUB_TOKEN="$GITHUB_TOKEN"
 
       export PAGER="moor"
@@ -217,11 +239,14 @@
       ${lib.getExe pkgs.devenv} hook fish | source
     '';
     shellAliases = {
+      # keep-sorted start
       co = "codium .";
       dt = "${pkgs.coreutils}/bin/date --iso-8601=seconds | tee /dev/stderr | fish_clipboard_copy";
-      tree = "tre";
-      issh = "kitten ssh";
       icat = "kitten icat";
+      issh = "kitten ssh";
+      nvfetcher = "nvfetcher -k ${config.sops.templates."nvchecker-keys.toml".path}";
+      tree = "tre";
+      # keep-sorted end
     };
   };
 
@@ -325,16 +350,6 @@
   };
 
   programs.tealdeer.enable = true;
-
-  # Cachix
-  sops.secrets.cachix_auth_token = {};
-  sops.templates."cachix.dhall" = {
-    content = lib.generators.toDhall {} {
-      authToken = config.sops.placeholder.cachix_auth_token;
-      hostname = "https://cachix.org";
-    };
-    path = "${config.home.homeDirectory}/.config/cachix/cachix.dhall";
-  };
 
   # programs.zellij = {
   #   enable = true;
