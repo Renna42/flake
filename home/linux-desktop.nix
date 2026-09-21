@@ -58,6 +58,7 @@
         podman-desktop
         qbittorrent-enhanced
         renna.aegisub-arch1t3cht
+        roomeqwizard
         strawberry
         teamspeak6-client
         ventoy-full
