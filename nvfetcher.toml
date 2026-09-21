@@ -1,8 +1,6 @@
 [mpv]
 fetch.github = "mpv-player/mpv"
-# mpv-omniphony has no updates for the latest revision
-# src.git = "https://github.com/mpv-player/mpv.git"
-src.manual = "f5bcfb195412e0ca733eac2e850879cd3b1ded18"
+src.git = "https://github.com/mpv-player/mpv.git"
 
 [mpv-config]
 fetch.github = "dyphire/mpv-config"

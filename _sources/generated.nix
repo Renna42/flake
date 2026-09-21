@@ -8,14 +8,15 @@
 {
   mpv = {
     pname = "mpv";
-    version = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
+    version = "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae";
     src = fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
-      rev = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
+      rev = "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae";
       fetchSubmodules = false;
-      sha256 = "sha256-f+CuOd/SJEXCqDzF/g0rgqMB6Yd6xyUPd2F8iNJrW/o=";
+      sha256 = "sha256-zTL+b21ANJfhyraf61iAw2UaYARbQaZBTzdfVr+AQJ8=";
     };
+    date = "2026-09-18";
   };
   mpv-config = {
     pname = "mpv-config";
