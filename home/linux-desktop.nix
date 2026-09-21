@@ -59,6 +59,7 @@
         podman-desktop
         qbittorrent-enhanced
         renna.aegisub-arch1t3cht
+        renna.exactaudiocopy
         roomeqwizard
         strawberry
         teamspeak6-client

@@ -10,6 +10,7 @@ lib.makeScope newScope (
     # keep-sorted start block=yes
     aegisub-arch1t3cht = callPackage ./aegisub-arch1t3cht.nix {};
     catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
+    exactaudiocopy = callPackage ./exactaudiocopy.nix {};
     fsdecrypt = callPackage ./fsdecrypt.nix {};
     gen-rdk = callPackage ./gen-rdk {};
     harletty-bridge = callPackage ./harletty-bridge.nix {};
