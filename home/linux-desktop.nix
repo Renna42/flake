@@ -4,9 +4,7 @@
   unstablePkgs,
   username,
   ...
-}: let
-  toml = pkgs.formats.toml {};
-in {
+}: {
   imports = [
     ./base.nix
     ./theme.nix
@@ -109,12 +107,6 @@ in {
     enable = true;
     createDirectories = true;
     setSessionVariables = true;
-  };
-
-  xdg.configFile."containers/registries.conf" = {
-    source = toml.generate "registries.conf" {
-      "registries.search".registries = ["docker.io"];
-    };
   };
 
   fonts.fontconfig.enable = true;
