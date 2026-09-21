@@ -12,8 +12,15 @@
       PROTON_ENABLE_HDR = 1;
     };
     systemPackages = with pkgs; [
-      wineWow64Packages.fonts
       winetricks
     ];
   };
+
+  fonts.packages = with pkgs; [
+    wineWow64Packages.fonts
+    corefonts
+    vista-fonts
+    vista-fonts-chs
+    vista-fonts-cht
+  ];
 }
