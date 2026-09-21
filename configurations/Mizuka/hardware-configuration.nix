@@ -25,6 +25,7 @@
       "usb_storage"
       "sd_mod"
       "sr_mod"
+      "sg"
     ];
     kernelModules = ["kvm-intel"];
     supportedFilesystems = [
