@@ -31,6 +31,7 @@ in {
       gpac
       hdr10plus_tool
       id3v2
+      lame
       libwebp
       myffmpeg
       renna.harletty-bridge

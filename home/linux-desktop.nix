@@ -34,6 +34,7 @@
 
     ./apps/android.nix
     ./apps/game.nix
+    ./apps/media-tools.nix
     ./apps/shell-utils.nix
   ];
 
