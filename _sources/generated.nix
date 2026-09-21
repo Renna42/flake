@@ -6,18 +6,6 @@
   dockerTools,
 }:
 {
-  ayugram-irena = {
-    pname = "ayugram-irena";
-    version = "8a57e688e7fc5f1608690734e637063fd63ef4bf";
-    src = fetchFromGitHub {
-      owner = "re-zero001";
-      repo = "AyuGramDesktop";
-      rev = "8a57e688e7fc5f1608690734e637063fd63ef4bf";
-      fetchSubmodules = false;
-      sha256 = "sha256-tO9Rk+OYeOL8ye5RdsgbJ8zuyykcpkOrLcYjjdVjDlM=";
-    };
-    date = "2026-08-26";
-  };
   mpv = {
     pname = "mpv";
     version = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
@@ -43,15 +31,15 @@
   };
   mpv-omniphony = {
     pname = "mpv-omniphony";
-    version = "6b474e387d30fabec8927880a25075f288d675d3";
+    version = "8ea8145584577c6f3badfaaaf19ea023aaa54eea";
     src = fetchFromGitHub {
       owner = "mgth";
       repo = "mpv-omniphony";
-      rev = "6b474e387d30fabec8927880a25075f288d675d3";
+      rev = "8ea8145584577c6f3badfaaaf19ea023aaa54eea";
       fetchSubmodules = false;
-      sha256 = "sha256-pd8yAQwK/splODyBWoxfXvjVYkHmFAlphgw+0QuGll0=";
+      sha256 = "sha256-wdp2ea4zi/IdL8QOqGlsohH0QFFW+Q1zv6qjKeAFous=";
     };
-    date = "2026-08-22";
+    date = "2026-09-20";
   };
   nvidia-patch = {
     pname = "nvidia-patch";

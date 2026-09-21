@@ -1,25 +1,4 @@
 {
-    "ayugram-irena": {
-        "cargoLock": null,
-        "date": "2026-08-26",
-        "extract": null,
-        "name": "ayugram-irena",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "re-zero001",
-            "repo": "AyuGramDesktop",
-            "rev": "8a57e688e7fc5f1608690734e637063fd63ef4bf",
-            "sha256": "sha256-tO9Rk+OYeOL8ye5RdsgbJ8zuyykcpkOrLcYjjdVjDlM=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "8a57e688e7fc5f1608690734e637063fd63ef4bf"
-    },
     "mpv": {
         "cargoLock": null,
         "date": null,
@@ -64,7 +43,7 @@
     },
     "mpv-omniphony": {
         "cargoLock": null,
-        "date": "2026-08-22",
+        "date": "2026-09-20",
         "extract": null,
         "name": "mpv-omniphony",
         "passthru": null,
@@ -76,12 +55,12 @@
             "name": null,
             "owner": "mgth",
             "repo": "mpv-omniphony",
-            "rev": "6b474e387d30fabec8927880a25075f288d675d3",
-            "sha256": "sha256-pd8yAQwK/splODyBWoxfXvjVYkHmFAlphgw+0QuGll0=",
+            "rev": "8ea8145584577c6f3badfaaaf19ea023aaa54eea",
+            "sha256": "sha256-wdp2ea4zi/IdL8QOqGlsohH0QFFW+Q1zv6qjKeAFous=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "6b474e387d30fabec8927880a25075f288d675d3"
+        "version": "8ea8145584577c6f3badfaaaf19ea023aaa54eea"
     },
     "nvidia-patch": {
         "cargoLock": null,

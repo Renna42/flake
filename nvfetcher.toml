@@ -1,7 +1,3 @@
-[ayugram-irena]
-fetch.github = "re-zero001/AyuGramDesktop"
-src.git = "https://github.com/re-zero001/AyuGramDesktop.git"
-
 [mpv]
 fetch.github = "mpv-player/mpv"
 # mpv-omniphony has no updates for the latest revision
