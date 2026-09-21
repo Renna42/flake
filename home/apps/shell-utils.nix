@@ -204,9 +204,13 @@
     );
     shellInit = "set -g fish_greeting";
     interactiveShellInit = ''
+      set GITHUB_TOKEN "$(gh auth token)"
+      # for nixpkgs-review
       export GITHUB_TOKEN_CMD="gh auth token"
-      export GITHUB_TOKEN="$(gh auth token)"
+      # for nix
       export NIX_CONFIG="extra-access-tokens = github.com=$GITHUB_TOKEN"
+      # for nvchecker & nvfetcher
+      export NVCHECKER_GITHUB_TOKEN="$GITHUB_TOKEN"
 
       export PAGER="moor"
 
