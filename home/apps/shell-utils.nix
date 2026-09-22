@@ -42,14 +42,17 @@
     fastfetch
     git-msgraph
     glow
+    inetutils
     moor
     nexttrace
     nix-output-monitor
     nix-update
     nixpkgs-review
+    nmap
     nurl
     qrencode
     renna.fsdecrypt
+    rustscan
     tre-command
     wget
     yq-go
