@@ -17,12 +17,12 @@
       {
         enable = true;
       }
-      // (lib.mkIf config.renna.enableScxConfig {
+      // lib.optionalAttrs config.renna.enableScxConfig {
         package = pkgs.scx.rustscheds;
         scheduler = "scx_lavd";
         extraArgs = [
           "--performance"
         ];
-      });
+      };
   };
 }
