@@ -39,6 +39,7 @@ _: {
       "arch1t3cht-aegisub"
       "audacity"
       "balenaetcher"
+      "bambu-studio"
       "betterdisplay"
       "bitwarden"
       "coteditor"
