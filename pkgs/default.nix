@@ -28,7 +28,7 @@ lib.makeScope newScope (
       rime-data = callPackage ./rime-data {};
       # keep-sorted end
     }
-    // pkgs.hostPlatform.isx86 {
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isx86 {
       exactaudiocopy = callPackage ./exactaudiocopy.nix {};
     }
 )
