@@ -24,10 +24,6 @@ _: {
 
     taps = [
       {
-        name = "AnInsomniacy/motrix-next";
-        trusted = true;
-      }
-      {
         name = "Renna42/tap";
         trusted = true;
       }
@@ -35,7 +31,6 @@ _: {
     brews = [];
     casks = [
       # keep-sorted start case=no
-      "AnInsomniacy/motrix-next/motrix-next"
       "arch1t3cht-aegisub"
       "audacity"
       "balenaetcher"
@@ -72,6 +67,7 @@ _: {
       "maccy"
       "mediainfo"
       "mkvtoolnix-app"
+      "motrix@beta"
       "musicbrainz-picard"
       "obs"
       "obsidian"
