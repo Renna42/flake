@@ -10,6 +10,8 @@
     "root"
   ];
 in {
+  imports = [inputs.angrr.nixosModules.angrr];
+
   options = {
     renna.enableMirrorSubstituter = lib.mkEnableOption "Enable mirror for cache.nixos.org";
   };

@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.nix-gaming.nixosModules.wine];
+
   programs.wine = {
     enable = true;
     package = pkgs.wineWow64Packages.waylandFull;

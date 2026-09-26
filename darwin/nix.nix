@@ -9,6 +9,8 @@
     "root"
   ];
 in {
+  imports = [inputs.angrr.darwinModules.angrr];
+
   services.angrr = {
     enable = true;
     period = "14d";

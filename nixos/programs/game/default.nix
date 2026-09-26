@@ -1,8 +1,11 @@
 {
+  inputs,
   pkgs,
   unstablePkgs,
   ...
 }: {
+  imports = [inputs.nix-gaming.nixosModules.platformOptimizations];
+
   programs.steam = {
     enable = true;
     package = pkgs.steam;

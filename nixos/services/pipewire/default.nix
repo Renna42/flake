@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -7,6 +8,7 @@
   realtimeLimitUS = 5000000;
 in {
   imports = [
+    inputs.musnix.nixosModules.musnix
     ./pipewire-rtprio.nix
     ./wireplumber-bluez.nix
   ];
