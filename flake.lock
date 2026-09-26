@@ -356,34 +356,16 @@
     },
     "flat-flake": {
       "inputs": {
-        "crane": [
-          "crane"
-        ],
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "rust-overlay": [
-          "rust-overlay"
-        ],
-        "systems": [
-          "systems"
-        ],
-        "treefmt-nix": [
-          "treefmt-nix"
         ]
       },
       "locked": {
-        "lastModified": 1788548023,
-        "narHash": "sha256-BA8qHrT5wku55hVGQCTqVtV09pIkVYdaif2Y93DdjMU=",
+        "lastModified": 1790129321,
+        "narHash": "sha256-ccy/qaUB/pehL5TI3A19x7X+r/99jHCzTAK4jrTZ8jE=",
         "owner": "linyinfeng",
         "repo": "flat-flake",
-        "rev": "92ad9e788dd52bc80f1dd3b166a144bfe31725d2",
+        "rev": "1b2125849f351f8b0bf7fc33b0246894c7e9e600",
         "type": "github"
       },
       "original": {
