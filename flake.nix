@@ -89,13 +89,7 @@
     };
     flat-flake = {
       url = "github:linyinfeng/flat-flake";
-      inputs.crane.follows = "crane";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-      inputs.systems.follows = "systems";
-      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
@@ -149,9 +143,10 @@
     };
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager-nixos";
+      inputs.nix-darwin.follows = "darwin";
       inputs.nixpkgs-nixcord.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
     nixfmt-rs = {
@@ -319,7 +314,6 @@
         flake = {
           overlays = {
             # keep-sorted start
-            angrr = inputs.angrr.overlays.default;
             chinese-fonts-overlay = inputs.chinese-fonts-overlay.overlays.default;
             firefox-addons = inputs.firefox-addons.overlays.default;
             flat-flake = inputs.flat-flake.overlays.default;
@@ -361,15 +355,8 @@
                   ./configurations/${hostname}
                   ./nixos/common
                   # keep-sorted start
-                  inputs.angrr.nixosModules.angrr
                   inputs.disko.nixosModules.disko
                   inputs.home-manager-nixos.nixosModules.home-manager
-                  inputs.musnix.nixosModules.musnix
-                  inputs.nix-gaming.nixosModules.platformOptimizations
-                  inputs.nix-gaming.nixosModules.wine
-                  inputs.nur-xddxdd.nixosModules.openssl-conf
-                  inputs.nur-xddxdd.nixosModules.openssl-gost-engine
-                  inputs.nur-xddxdd.nixosModules.openssl-oqs-provider
                   inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
                   inputs.sops-nix.nixosModules.sops
                   inputs.stylix.nixosModules.stylix
@@ -406,7 +393,6 @@
                 modules = [
                   ./darwin
                   inputs.home-manager-darwin.darwinModules.home-manager
-                  inputs.angrr.darwinModules.angrr
                   inputs.sops-nix.darwinModules.sops
                 ];
               }
