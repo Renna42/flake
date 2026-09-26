@@ -3,8 +3,8 @@
   fetchFromGitHub,
   rustPlatform,
 }: let
-  harlettyBridgeVersion = "0.7.4";
-  omniphonyVersion = "0.5.2";
+  harlettyBridgeVersion = "0.8.0";
+  omniphonyVersion = "0.6.0";
 in
   rustPlatform.buildRustPackage (finalAttrs: {
     pname = "harletty-bridge";
@@ -16,20 +16,20 @@ in
         owner = "harletty";
         repo = "harletty-bridge";
         tag = "v${harlettyBridgeVersion}";
-        hash = "sha256-ZjtBam0wdIGbM6dqYymezHH0cKY/MXRN9UUtxLgOf30=";
+        hash = "sha256-TaBBc+Mei1g+PoDIROTgoO5/YjqdeQ3t/SWeqAIYlNw=";
       })
       (fetchFromGitHub {
         name = "Omniphony";
         owner = "mgth";
         repo = "Omniphony";
         tag = "v${omniphonyVersion}";
-        hash = "sha256-kldkxnYR27Rnxa4UEqUh9e1HLp6x5XSsA+s33KinKlY=";
+        hash = "sha256-u3BXSdgP766ao9IVmh4N6h1/GRg6Uatt/dlzU0W+fII=";
       })
     ];
 
     sourceRoot = finalAttrs.pname;
 
-    cargoHash = "sha256-qce6EA6Ltk0fzL7aT0Zy4O08nXU9A9XIMl4La3QhPOU=";
+    cargoHash = "sha256-+Pe4przofxcwoVsvf4Pj8Y1M1ZrSFIjjYv8QVnpIr8c=";
 
     env.VERGEN_GIT_DESCRIBE = finalAttrs.version;
 
