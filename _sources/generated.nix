@@ -8,15 +8,15 @@
 {
   mpv = {
     pname = "mpv";
-    version = "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae";
+    version = "35af06172be5199212e0406878bd0fde532d080d";
     src = fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
-      rev = "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae";
+      rev = "35af06172be5199212e0406878bd0fde532d080d";
       fetchSubmodules = false;
-      sha256 = "sha256-zTL+b21ANJfhyraf61iAw2UaYARbQaZBTzdfVr+AQJ8=";
+      sha256 = "sha256-NJVAc4xkhsWtfA+C3OlCSe2zSkogRaXKZaqnTmHTVfw=";
     };
-    date = "2026-09-18";
+    date = "2026-09-26";
   };
   mpv-config = {
     pname = "mpv-config";
@@ -44,15 +44,15 @@
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "b68d0ed0c19d20a2c336879be18804b08bb63e89";
+    version = "bf2965a1269639363e3d59148964583d3d027c73";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "b68d0ed0c19d20a2c336879be18804b08bb63e89";
+      rev = "bf2965a1269639363e3d59148964583d3d027c73";
       fetchSubmodules = false;
-      sha256 = "sha256-gPDcYTAZRhxMl5Tb2SPoPmj/Jv38+5bPHoKMVFqlk6k=";
+      sha256 = "sha256-owI6rlCTjdzG50V3ZLXy7Be9MnrW/+rqdZyz++3q3io=";
     };
-    date = "2026-09-15";
+    date = "2026-09-24";
   };
   oh-my-rime = {
     pname = "oh-my-rime";

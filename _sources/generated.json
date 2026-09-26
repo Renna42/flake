@@ -1,7 +1,7 @@
 {
     "mpv": {
         "cargoLock": null,
-        "date": "2026-09-18",
+        "date": "2026-09-26",
         "extract": null,
         "name": "mpv",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "mpv-player",
             "repo": "mpv",
-            "rev": "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae",
-            "sha256": "sha256-zTL+b21ANJfhyraf61iAw2UaYARbQaZBTzdfVr+AQJ8=",
+            "rev": "35af06172be5199212e0406878bd0fde532d080d",
+            "sha256": "sha256-NJVAc4xkhsWtfA+C3OlCSe2zSkogRaXKZaqnTmHTVfw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e76a35ec95b27f5cf2d27b043b5e2e0d90e468ae"
+        "version": "35af06172be5199212e0406878bd0fde532d080d"
     },
     "mpv-config": {
         "cargoLock": null,
@@ -64,7 +64,7 @@
     },
     "nvidia-patch": {
         "cargoLock": null,
-        "date": "2026-09-15",
+        "date": "2026-09-24",
         "extract": null,
         "name": "nvidia-patch",
         "passthru": null,
@@ -76,12 +76,12 @@
             "name": null,
             "owner": "keylase",
             "repo": "nvidia-patch",
-            "rev": "b68d0ed0c19d20a2c336879be18804b08bb63e89",
-            "sha256": "sha256-gPDcYTAZRhxMl5Tb2SPoPmj/Jv38+5bPHoKMVFqlk6k=",
+            "rev": "bf2965a1269639363e3d59148964583d3d027c73",
+            "sha256": "sha256-owI6rlCTjdzG50V3ZLXy7Be9MnrW/+rqdZyz++3q3io=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b68d0ed0c19d20a2c336879be18804b08bb63e89"
+        "version": "bf2965a1269639363e3d59148964583d3d027c73"
     },
     "oh-my-rime": {
         "cargoLock": null,
