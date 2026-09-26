@@ -22,13 +22,13 @@
 in
   stdenv.mkDerivation (finalAttrs: {
     pname = "lapse" + lib.optionalString withSilero "-silero";
-    version = "2.2.1";
+    version = "2.2.3";
 
     src = fetchFromGitHub {
       owner = "Schwponaco-org";
       repo = "lapse";
       rev = "v${finalAttrs.version}";
-      hash = "sha256-QhJhSfsmhs+Nqqy3NaPmLMEWaF/B18B5GC87SW10MHc=";
+      hash = "sha256-Hr7TlCMXMkWNhVhhNHuRiU32Ug6QdD17eNEA+XMXCPE=";
     };
 
     nativeBuildInputs = [
