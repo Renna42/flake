@@ -37,7 +37,6 @@ in {
       renna.harletty-bridge
       renna.ilass
       renna.lapse-silero
-      rsgain
       shntool
       wavpack
       yt-dlp
@@ -45,13 +44,18 @@ in {
     ])
     ++ (
       with unstablePkgs;
-        if pkgs.stdenv.isLinux
-        then [
-          mkvtoolnix
-          picard
+        [
+          rsgain
         ]
-        else [
-          mkvtoolnix-cli
-        ]
+        ++ (
+          if pkgs.stdenv.isLinux
+          then [
+            mkvtoolnix
+            picard
+          ]
+          else [
+            mkvtoolnix-cli
+          ]
+        )
     );
 }

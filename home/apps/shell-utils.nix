@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   imports = [inputs.nix-index-database.homeModules.nix-index];
@@ -263,6 +264,7 @@
 
   programs.tirith = {
     enable = true;
+    package = unstablePkgs.tirith;
     enableFishIntegration = true;
     allowlist = [
       "raw.githubusercontent.com"
