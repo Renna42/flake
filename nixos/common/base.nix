@@ -35,6 +35,7 @@
   security.openssl = {
     oqs-provider = {
       enable = true;
+      package = pkgs.nur-xddxdd.openssl-oqs-provider;
       curves = [
         # Client: use generic curves first before OQS ones
         "x25519"
@@ -51,7 +52,10 @@
         "p256_bikel1"
       ];
     };
-    gost-engine.enable = true;
+    gost-engine = {
+      enable = true;
+      package = pkgs.nur-xddxdd.gost-engine;
+    };
   };
 
   security.pki.certificateFiles = [
