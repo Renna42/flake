@@ -1,18 +1,18 @@
 _: final: prev: {
   splayer-next = prev.splayer-next.overrideAttrs (
     new: old: {
-      version = "1.2.0-unstable-2026-09-19";
+      version = "1.2.0-alpha.1";
 
       src = prev.fetchFromGitHub {
         owner = "SPlayer-Dev";
         repo = "SPlayer-Next";
-        rev = "d3dd84df99333f19b04a2faef1972a89f35aee0f";
-        hash = "sha256-cbHZZYq+/DNJ3+xF1SVWlTsh22el/nOp45uHjPGnL/k=";
+        tag = "v${new.version}";
+        hash = "sha256-Xa395CzMVymwNxeL3oBoTVFfe+8fs8SgZJHHq59Nk7Q=";
       };
 
       pnpmDeps = old.pnpmDeps.override {
         inherit (new) version src;
-        hash = "sha256-wYQnp76oCjpirj5VOQKmPmXxkyraJAFcShUQK7cCXY0=";
+        hash = "sha256-4Q5aiTjqU1W+NP5atV9cCsmjIMBGc+9bqhVQ8/TvDkc=";
       };
     }
   );
