@@ -1,7 +1,7 @@
 {
     "mpv": {
         "cargoLock": null,
-        "date": "2026-09-26",
+        "date": "2026-10-04",
         "extract": null,
         "name": "mpv",
         "passthru": null,
@@ -13,12 +13,12 @@
             "name": null,
             "owner": "mpv-player",
             "repo": "mpv",
-            "rev": "35af06172be5199212e0406878bd0fde532d080d",
-            "sha256": "sha256-NJVAc4xkhsWtfA+C3OlCSe2zSkogRaXKZaqnTmHTVfw=",
+            "rev": "c1529642089bfebfc928a1c1664638a7a5d219ba",
+            "sha256": "sha256-6XWeFT3RfoFaunr2gSV6Lh/y5c12dYLV5ajG1fk+Rao=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "35af06172be5199212e0406878bd0fde532d080d"
+        "version": "c1529642089bfebfc928a1c1664638a7a5d219ba"
     },
     "mpv-config": {
         "cargoLock": null,
@@ -43,7 +43,7 @@
     },
     "mpv-omniphony": {
         "cargoLock": null,
-        "date": "2026-09-20",
+        "date": "2026-10-04",
         "extract": null,
         "name": "mpv-omniphony",
         "passthru": null,
@@ -55,12 +55,12 @@
             "name": null,
             "owner": "mgth",
             "repo": "mpv-omniphony",
-            "rev": "8ea8145584577c6f3badfaaaf19ea023aaa54eea",
-            "sha256": "sha256-wdp2ea4zi/IdL8QOqGlsohH0QFFW+Q1zv6qjKeAFous=",
+            "rev": "6f37c2ebe4b1d14e66e81a91da446f7ede3d1f99",
+            "sha256": "sha256-o5g+eBlkGz9MPXUdWb4GZ+cTGWoJJEfqTdqY3/G/Sl0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8ea8145584577c6f3badfaaaf19ea023aaa54eea"
+        "version": "6f37c2ebe4b1d14e66e81a91da446f7ede3d1f99"
     },
     "nvidia-patch": {
         "cargoLock": null,
@@ -85,7 +85,7 @@
     },
     "oh-my-rime": {
         "cargoLock": null,
-        "date": "2026-09-08",
+        "date": "2026-09-29",
         "extract": null,
         "name": "oh-my-rime",
         "passthru": null,
@@ -97,12 +97,12 @@
             "name": null,
             "owner": "Mintimate",
             "repo": "oh-my-rime",
-            "rev": "660471510ac3625734a8991947e2a800de68cbe0",
-            "sha256": "sha256-TSxIEzSmARxDnqnVoShY8MbVK8rTBoNTeE90YFBML6Q=",
+            "rev": "0b1d78474f5c11bdca78593b525bc2186be6c111",
+            "sha256": "sha256-h2sjPV0+x7LtJIEIKXc9pCfpncWcZNOW9J3h/9cCK1g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "660471510ac3625734a8991947e2a800de68cbe0"
+        "version": "0b1d78474f5c11bdca78593b525bc2186be6c111"
     },
     "rime-custom-pinyin-dictionary": {
         "cargoLock": null,

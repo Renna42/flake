@@ -8,15 +8,15 @@
 {
   mpv = {
     pname = "mpv";
-    version = "35af06172be5199212e0406878bd0fde532d080d";
+    version = "c1529642089bfebfc928a1c1664638a7a5d219ba";
     src = fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
-      rev = "35af06172be5199212e0406878bd0fde532d080d";
+      rev = "c1529642089bfebfc928a1c1664638a7a5d219ba";
       fetchSubmodules = false;
-      sha256 = "sha256-NJVAc4xkhsWtfA+C3OlCSe2zSkogRaXKZaqnTmHTVfw=";
+      sha256 = "sha256-6XWeFT3RfoFaunr2gSV6Lh/y5c12dYLV5ajG1fk+Rao=";
     };
-    date = "2026-09-26";
+    date = "2026-10-04";
   };
   mpv-config = {
     pname = "mpv-config";
@@ -32,15 +32,15 @@
   };
   mpv-omniphony = {
     pname = "mpv-omniphony";
-    version = "8ea8145584577c6f3badfaaaf19ea023aaa54eea";
+    version = "6f37c2ebe4b1d14e66e81a91da446f7ede3d1f99";
     src = fetchFromGitHub {
       owner = "mgth";
       repo = "mpv-omniphony";
-      rev = "8ea8145584577c6f3badfaaaf19ea023aaa54eea";
+      rev = "6f37c2ebe4b1d14e66e81a91da446f7ede3d1f99";
       fetchSubmodules = false;
-      sha256 = "sha256-wdp2ea4zi/IdL8QOqGlsohH0QFFW+Q1zv6qjKeAFous=";
+      sha256 = "sha256-o5g+eBlkGz9MPXUdWb4GZ+cTGWoJJEfqTdqY3/G/Sl0=";
     };
-    date = "2026-09-20";
+    date = "2026-10-04";
   };
   nvidia-patch = {
     pname = "nvidia-patch";
@@ -56,15 +56,15 @@
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "660471510ac3625734a8991947e2a800de68cbe0";
+    version = "0b1d78474f5c11bdca78593b525bc2186be6c111";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "660471510ac3625734a8991947e2a800de68cbe0";
+      rev = "0b1d78474f5c11bdca78593b525bc2186be6c111";
       fetchSubmodules = false;
-      sha256 = "sha256-TSxIEzSmARxDnqnVoShY8MbVK8rTBoNTeE90YFBML6Q=";
+      sha256 = "sha256-h2sjPV0+x7LtJIEIKXc9pCfpncWcZNOW9J3h/9cCK1g=";
     };
-    date = "2026-09-08";
+    date = "2026-09-29";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
