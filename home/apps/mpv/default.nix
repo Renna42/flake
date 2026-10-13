@@ -26,9 +26,9 @@
 in {
   programs.mpv = {
     enable = true;
-    package = pkgs.mpv.override {
+    package = unstablePkgs.mpv.override {
       mpv-unwrapped =
-        (pkgs.mpv-unwrapped.override {
+        (unstablePkgs.mpv-unwrapped.override {
           inherit ffmpeg;
 
           cddaSupport = true;
