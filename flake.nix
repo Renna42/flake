@@ -145,7 +145,8 @@
       url = "github:kaylorben/nixcord";
       inputs.home-manager.follows = "home-manager-nixos";
       inputs.nix-darwin.follows = "darwin";
-      inputs.nixpkgs-nixcord.follows = "nixpkgs";
+      inputs.nixpkgs-ci.follows = "nixpkgs";
+      inputs.nixpkgs-packages.follows = "nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
