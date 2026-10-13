@@ -27,10 +27,15 @@ _: {
         name = "Renna42/tap";
         trusted = true;
       }
+      {
+        name = "AnInsomniacy/rayburst";
+        trusted = true;
+      }
     ];
     brews = [];
     casks = [
       # keep-sorted start case=no
+      "AnInsomniacy/rayburst/rayburst"
       "arch1t3cht-aegisub"
       "audacity"
       "balenaetcher"
@@ -67,14 +72,12 @@ _: {
       "maccy"
       "mediainfo"
       "mkvtoolnix-app"
-      "motrix@beta"
       "musicbrainz-picard"
       "obs"
       "obsidian"
       "orbstack"
       "raspberry-pi-imager"
       "Renna42/tap/angry-ip-scanner"
-      "Renna42/tap/c0re100-qbittorrent"
       "Renna42/tap/imhex"
       "Renna42/tap/makemkv"
       "Renna42/tap/orcastudio"
