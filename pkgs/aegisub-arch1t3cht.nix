@@ -4,8 +4,8 @@
   aegisub,
   libportal-gtk3,
 }: let
-  programVersion = "3.4.1";
-  tag = "migration04-01";
+  programVersion = "3.5.0";
+  tag = "migration05-01";
 in
   aegisub.overrideAttrs (
     finalAttrs: previousAttrs: {
@@ -16,7 +16,7 @@ in
         inherit tag;
         owner = "arch1t3cht";
         repo = "Aegisub";
-        hash = "sha256-sLPVPspyY++FLq5Q72Ij4JiKBKGzVEY1JxUswcuZhN8=";
+        hash = "sha256-olI3bX5jIZZvX39ZSkZV2glwbkeQDUti5dzpJ8M+Cmk=";
       };
 
       buildInputs =
