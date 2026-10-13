@@ -11,13 +11,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "obsidian-tasks";
-  version = "8.4.0";
+  version = "8.5.0";
 
   src = fetchFromGitHub {
     owner = "obsidian-tasks-group";
     repo = "obsidian-tasks";
     rev = "${finalAttrs.version}";
-    hash = "sha256-8At6j4MuE08unH5ic90JqBl5y3R0/ply3M2nSUQwvBY=";
+    hash = "sha256-vQm+Mv/5ZEXd9DhktpbTw+g86FGqU9n6pTChzb2hONc=";
   };
 
   nativeBuildInputs = [
@@ -28,7 +28,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   offlineCache = fetchYarnDeps {
     inherit (finalAttrs) src;
-    hash = "sha256-gdM+5S8u76HaGgXsaezXxibg4/p+OfXcuu3lZx9kvIk=";
+    hash = "sha256-Q/J1VOs6er+Kr7paHjmp+BwAgTDvg8nk+7kgLuP7KeA=";
   };
 
   buildPhase = ''
