@@ -8,8 +8,8 @@
   pnpm,
   ...
 }: let
-  version = "2.0.4";
-  commitHash = "1316e03af5c31964116661ab08e7784bfa1d00b3";
+  version = "0.4.51";
+  commitHash = "7ebbd577464d6ef8a18cb02811983bee623f30d6";
 in
   stdenv.mkDerivation (finalAttrs: {
     pname = "catppuccin-obsidian";
@@ -19,7 +19,7 @@ in
       owner = "catppuccin";
       repo = "obsidian";
       rev = commitHash;
-      hash = "sha256-UM2/5CkG75ABGlMI7r5sMbF0HlfMB161KyRdAHVBDrE=";
+      hash = "sha256-9IwQsXFf63/R27xazFKzkVhPSgTnlYtNzb9uUY3WRa8=";
     };
 
     nativeBuildInputs = [
@@ -45,7 +45,7 @@ in
     pnpmDeps = fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
       fetcherVersion = 3;
-      hash = "sha256-hoZeU2XMYnuW8Y9uossDfs6XPEweGa4suU7dDbSyOIk=";
+      hash = "sha256-H5cYntTaP28RclCGAM3nRrUJIt6NFOwBW+kC1KWLEHU=";
     };
 
     meta = {
