@@ -24,6 +24,7 @@ in {
       # keep-sorted start case=no
       alac
       bchunk
+      chromaprint
       cuetools
       dovi-tool
       ffsubsync
