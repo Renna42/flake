@@ -68,7 +68,11 @@
         # keep-sorted end
       ]
       ++ (with unstablePkgs; [
+        # keep-sorted start case=no
+        nur-xddxdd.wechat-uos-sandboxed
+        qq
         splayer-next
+        # keep-sorted end
       ]);
 
     sessionVariables = {
