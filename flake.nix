@@ -145,8 +145,8 @@
       url = "github:kaylorben/nixcord";
       inputs.home-manager.follows = "home-manager-nixos";
       inputs.nix-darwin.follows = "darwin";
-      inputs.nixpkgs-ci.follows = "nixpkgs";
-      inputs.nixpkgs-packages.follows = "nixpkgs";
+      inputs.nixpkgs-ci.follows = "nixpkgs-unstable";
+      inputs.nixpkgs-packages.follows = "nixpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
@@ -158,7 +158,7 @@
     nur = {
       url = "github:nix-community/NUR";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nur-xddxdd = {
       url = "github:xddxdd/nur-packages";
@@ -167,7 +167,7 @@
       inputs.nix-cachyos-kernel.follows = "nix-cachyos-kernel";
       inputs.nix-index-database.follows = "nix-index-database";
       inputs.nixfmt-rs.follows = "nixfmt-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.pre-commit-hooks-nix.follows = "git-hooks-nix";
       inputs.treefmt-nix.follows = "treefmt-nix";
     };

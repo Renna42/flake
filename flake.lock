@@ -664,10 +664,10 @@
           "nixpkgs"
         ],
         "nixpkgs-ci": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "nixpkgs-packages": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "treefmt-nix": [
           "treefmt-nix"
@@ -764,7 +764,7 @@
           "flake-parts"
         ],
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ]
       },
       "locked": {
@@ -799,7 +799,7 @@
           "nixfmt-rs"
         ],
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "pre-commit-hooks-nix": [
           "git-hooks-nix"
