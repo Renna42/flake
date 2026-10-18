@@ -32,6 +32,23 @@
       };
     };
   } {inherit lib pkgs;};
+
+  widevineproxy2 = inputs.firefox-addons.lib.buildFirefoxAddon rec {
+    pname = "WidevineProxy2";
+    version = "1.2.7";
+    addonId = "DevLARLEY@larley.dev";
+    derivationArgs = {
+      src = pkgs.fetchurl {
+        url = "https://github.com/DevLARLEY/WidevineProxy2/releases/download/v1.2.7/WidevineProxy2-1.2.7.xpi";
+        hash = "sha256-/24n9eRL5h2LQ1oi+TX+R9K2u4Y02pjYvaB3RTmXDhc=";
+      };
+      meta = {
+        addonName = pname;
+        platform = lib.platforms.all;
+        license = lib.licenses.gpl3Plus;
+      };
+    };
+  } {inherit lib pkgs;};
 in {
   imports = [inputs.betterfox-nix.homeModules.betterfox];
 
@@ -232,6 +249,7 @@ in {
           ublacklist
           ublock-origin
           user-agent-string-switcher
+          widevineproxy2
           # keep-sorted end
         ];
         force = true;
