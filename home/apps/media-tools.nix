@@ -35,6 +35,7 @@ in {
       lame
       libwebp
       myffmpeg
+      n-m3u8dl-re
       renna.harletty-bridge
       renna.ilass
       renna.lapse-silero
