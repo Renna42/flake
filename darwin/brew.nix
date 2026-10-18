@@ -93,7 +93,6 @@ _: {
       "typora"
       "uninstallpkg"
       "utm@beta"
-      "vnc-viewer"
       "wireshark-app"
       "yubico-authenticator"
       # keep-sorted end
