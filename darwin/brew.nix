@@ -89,6 +89,7 @@ _: {
       "squirrel-app"
       "steam"
       "tailscale-app"
+      "tencent-meeting"
       "tinymediamanager"
       "typora"
       "uninstallpkg"
