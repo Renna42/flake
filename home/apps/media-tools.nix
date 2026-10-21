@@ -38,6 +38,7 @@ in {
       n-m3u8dl-re
       renna.harletty-bridge
       renna.ilass
+      renna.justonecacophony
       renna.lapse-silero
       shntool
       wavpack

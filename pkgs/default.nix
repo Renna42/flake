@@ -15,6 +15,7 @@ lib.makeScope newScope (
       gen-rdk = callPackage ./gen-rdk {};
       harletty-bridge = callPackage ./harletty-bridge.nix {};
       ilass = callPackage ./ilass.nix {};
+      justonecacophony = callPackage ./justonecacophony.nix {};
       lapse = callPackage ./lapse.nix {};
       lapse-silero = callPackage ./lapse.nix {
         withSilero = true;
