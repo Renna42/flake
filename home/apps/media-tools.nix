@@ -2,7 +2,13 @@
   pkgs,
   unstablePkgs,
   ...
-}: {
+}: let
+  mysox =
+    unstablePkgs.sox.override
+    {
+      enableLame = true;
+    };
+in {
   home.packages =
     (with pkgs; [
       # keep-sorted start case=no
@@ -32,7 +38,8 @@
     ++ (
       with unstablePkgs;
         [
-          rsgain
+          mysox # amrwb in stable nixpkgs not working
+          rsgain # rsgain 3.8 added support for DSD format
         ]
         ++ (
           if pkgs.stdenv.isLinux
