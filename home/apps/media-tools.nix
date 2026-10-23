@@ -24,6 +24,7 @@ in {
       id3v2
       lame
       libwebp
+      loudgain
       n-m3u8dl-re
       renna.ffmpeg-renna-full
       renna.harletty-bridge
