@@ -49,8 +49,6 @@ in {
         "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
       ];
-      # Disable the built-in flake registry to speed up evaluation
-      flake-registry = "";
     };
 
     channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
