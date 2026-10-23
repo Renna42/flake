@@ -68,7 +68,6 @@ _: {
       "kitty"
       "launchcontrol"
       "localsend"
-      "lulu"
       "maccy"
       "mediainfo"
       "mkvtoolnix-app"
