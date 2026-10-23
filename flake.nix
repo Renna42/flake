@@ -274,7 +274,7 @@
             lib.attrsets.removeAttrs pkgs ["packages"]
             // {packages' = pkgs.packages;};
 
-          pkgs' = import self.inputs.nixpkgs {
+          pkgs' = import self.inputs.nixpkgs-unstable {
             inherit system overlays;
             config.allowUnfree = true;
           };

@@ -44,8 +44,8 @@ in
 
     pnpmDeps = fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
-      fetcherVersion = 3;
-      hash = "sha256-H5cYntTaP28RclCGAM3nRrUJIt6NFOwBW+kC1KWLEHU=";
+      fetcherVersion = 4;
+      hash = "sha256-yDN/tjuMIF6Izt/R7tYEroZmk8P+z+4GQPYua1LkvqE=";
     };
 
     meta = {

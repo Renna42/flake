@@ -18,7 +18,7 @@
     if stdenv.isDarwin
     then "${onnxruntime}/lib/libonnxruntime.dylib"
     else "${onnxruntime}/lib/libonnxruntime.so";
-  sileroModel = "${python3Packages.silero-vad}/${python3Packages.python.sitePackages}/silero_vad/data/silero_vad.onnx";
+  sileroModel = "${python3Packages.silero-vad.src}/data/silero_vad.onnx";
 in
   stdenv.mkDerivation (finalAttrs: {
     pname = "lapse" + lib.optionalString withSilero "-silero";
