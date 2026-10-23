@@ -6,23 +6,7 @@
 }: let
   mpvConfig = pkgs.sources.mpv-config.src;
 
-  ffmpeg =
-    (unstablePkgs.ffmpeg_9.override {
-      withUnfree = true;
-    }).overrideAttrs (old: {
-      patches =
-        (old.patches or [])
-        ++ [
-          # https://github.com/nilaoda/Blog/discussions/81
-          # https://gitee.com/openharmony/third_party_ffmpeg/pulls/49/files
-          ../../../patches/ffmpeg-libavcodec-av3a.patch
-          # https://gitee.com/openharmony/third_party_ffmpeg/pulls/128/files
-          ../../../patches/ffmpeg-libavformat-av3a.patch
-        ];
-
-      doCheck = false;
-      doInstallCheck = false;
-    });
+  ffmpeg = pkgs.renna.ffmpeg-renna;
 in {
   programs.mpv = {
     enable = true;
