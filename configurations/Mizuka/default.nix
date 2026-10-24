@@ -18,7 +18,7 @@
     ../../nixos/hardware/tpm.nix
     ../../nixos/hardware/xpad.nix
     ../../nixos/hardware/logitech-wireless.nix
-    ../../nixos/hardware/ddcci.nix
+    # ../../nixos/hardware/ddcci.nix
     ../../nixos/hardware/disable-watchdog.nix
     ../../nixos/hardware/hdr.nix
 
