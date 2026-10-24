@@ -5,6 +5,7 @@
   ...
 }: let
   mpvConfig = pkgs.sources.mpv-config.src;
+  mpvFork = pkgs.sources.mpv-fork.src;
 
   ffmpeg = pkgs.renna.ffmpeg-renna;
 in {
@@ -21,11 +22,13 @@ in {
           inherit (pkgs.sources.mpv) src;
           version = "0.41.0-unstable-${pkgs.sources.mpv.date or pkgs.sources.mpv.version}"; # sometimes may not have the date
 
-          patches = let
-            patchesDir = "${pkgs.sources.mpv-omniphony.src}/patches-master";
-          in
-            (old_.patches or [])
-            ++ lib.mapAttrsToList (name: _: "${patchesDir}/${name}") (builtins.readDir patchesDir);
+          nativeBuildInputs = (old_.nativeBuildInputs or []) ++ [pkgs.git];
+
+          prePatch = ''
+            git fetch --quiet --no-tags ${mpvFork} HEAD
+            git -c user.name=makepkg -c user.email=makepkg@localhost \
+                merge --quiet --no-edit FETCH_HEAD
+          '';
 
           postPatch = lib.concatStringsSep "\n" [
             # Don't reference compile time dependencies or create a build outputs cycle

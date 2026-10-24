@@ -1,14 +1,20 @@
 [mpv]
 fetch.github = "mpv-player/mpv"
-src.git = "https://github.com/mpv-player/mpv.git"
+git.leaveDotGit = true
+# https://github.com/mgth/mpv-omniphony/blob/v0.7.0/mpv-fork.env
+# src.git = "https://github.com/mpv-player/mpv.git"
+src.manual = "413ff0b1cd4585294803308a1a14be2fad30cede"
 
 [mpv-config]
 fetch.github = "dyphire/mpv-config"
 src.git = "https://github.com/dyphire/mpv-config.git"
 
-[mpv-omniphony]
-fetch.github = "mgth/mpv-omniphony"
-src.git = "https://github.com/mgth/mpv-omniphony.git"
+[mpv-fork]
+fetch.github = "mgth/mpv"
+git.leaveDotGit = true
+# https://github.com/mgth/mpv-omniphony/blob/v0.7.0/mpv-fork.env
+# src.git = "https://github.com/mgth/mpv-omniphony.git"
+src.manual = "e4ef2fb55c17954fe564ca83f40091d8000b4518"
 
 [nvidia-patch]
 fetch.github = "keylase/nvidia-patch"

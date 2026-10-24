@@ -1,7 +1,7 @@
 {
     "mpv": {
         "cargoLock": null,
-        "date": "2026-10-11",
+        "date": null,
         "extract": null,
         "name": "mpv",
         "passthru": null,
@@ -9,16 +9,16 @@
         "src": {
             "deepClone": false,
             "fetchSubmodules": false,
-            "leaveDotGit": false,
+            "leaveDotGit": true,
             "name": null,
             "owner": "mpv-player",
             "repo": "mpv",
-            "rev": "88eb9f2e73945d8bc9c133a2f67babaa9af34680",
-            "sha256": "sha256-u7vrJPwXrSxEawqpGxEV11i0tqd5XRcT+SLm6SEBCMk=",
+            "rev": "413ff0b1cd4585294803308a1a14be2fad30cede",
+            "sha256": "sha256-bSfT658VR85uNPMll/fgbMFX1Er/51qOxnBAYF+lBqc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "88eb9f2e73945d8bc9c133a2f67babaa9af34680"
+        "version": "413ff0b1cd4585294803308a1a14be2fad30cede"
     },
     "mpv-config": {
         "cargoLock": null,
@@ -41,30 +41,30 @@
         },
         "version": "132e1982ef47269118bd125b20aefd87dc646ab1"
     },
-    "mpv-omniphony": {
+    "mpv-fork": {
         "cargoLock": null,
-        "date": "2026-10-10",
+        "date": null,
         "extract": null,
-        "name": "mpv-omniphony",
+        "name": "mpv-fork",
         "passthru": null,
         "pinned": false,
         "src": {
             "deepClone": false,
             "fetchSubmodules": false,
-            "leaveDotGit": false,
+            "leaveDotGit": true,
             "name": null,
             "owner": "mgth",
-            "repo": "mpv-omniphony",
-            "rev": "11f1c7b727c817260fcf597c07ae0a04c3b85488",
-            "sha256": "sha256-G8SKW/sQZgrVNKRYWWenPJ6joWyjqlUWZSk70FX/xuA=",
+            "repo": "mpv",
+            "rev": "e4ef2fb55c17954fe564ca83f40091d8000b4518",
+            "sha256": "sha256-4kCJX5qwmaz8QEd9aXscqJQeaibIt29Jkrcf5uBhzvY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "11f1c7b727c817260fcf597c07ae0a04c3b85488"
+        "version": "e4ef2fb55c17954fe564ca83f40091d8000b4518"
     },
     "nvidia-patch": {
         "cargoLock": null,
-        "date": "2026-10-10",
+        "date": "2026-10-23",
         "extract": null,
         "name": "nvidia-patch",
         "passthru": null,
@@ -76,16 +76,16 @@
             "name": null,
             "owner": "keylase",
             "repo": "nvidia-patch",
-            "rev": "39ec4491737751265777bebabd9d3adc852f192a",
-            "sha256": "sha256-uf8z1DGKbLAhOL3SvaW7wFsYsHsxhKGnsLIztKr1558=",
+            "rev": "9b487a584ab02fd87ee1955ff9ae09522e452fd0",
+            "sha256": "sha256-RUhAFqgK3ngXmYIcPg4pem9Iy0eKSQupMty2aQuU02s=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "39ec4491737751265777bebabd9d3adc852f192a"
+        "version": "9b487a584ab02fd87ee1955ff9ae09522e452fd0"
     },
     "oh-my-rime": {
         "cargoLock": null,
-        "date": "2026-10-08",
+        "date": "2026-10-19",
         "extract": null,
         "name": "oh-my-rime",
         "passthru": null,
@@ -97,12 +97,12 @@
             "name": null,
             "owner": "Mintimate",
             "repo": "oh-my-rime",
-            "rev": "361b5c0ec2e6fb18e1b34ab32651fdc132e78f10",
-            "sha256": "sha256-ie5ZkjHSZinGs684UahJOXGmVtYh5tzjDKG7NeZT4hQ=",
+            "rev": "5fca6ae067fd666b5ec4f119c5147efd629cc76d",
+            "sha256": "sha256-cIP64LNODINZI/0ya+ZsVH4xrmYV4zKfBq5Y2b4VSjg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "361b5c0ec2e6fb18e1b34ab32651fdc132e78f10"
+        "version": "5fca6ae067fd666b5ec4f119c5147efd629cc76d"
     },
     "rime-custom-pinyin-dictionary": {
         "cargoLock": null,
