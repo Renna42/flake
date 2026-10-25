@@ -15,8 +15,8 @@
     # Will be confilcting when defined in osConfig
     overlays.enable = lib.mkForce (!pkgs.stdenv.isDarwin);
     image = pkgs.fetchurl {
-      url = "https://pixiv.cat/114414442.png";
-      hash = "sha256-a2AULPcPcfrpe2SjHk0e4nA1+qGkzFQUDjl33TjqDHo=";
+      url = "https://pixiv.cat/134506443.png";
+      hash = "sha256-ddDh9emHkiga0KUw7JlZyG/C4k9kKe5M9l9b/0YhMrg=";
     };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-${config.catppuccin.flavor}.yaml";
