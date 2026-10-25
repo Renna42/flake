@@ -15,9 +15,9 @@
   withSilero ? false,
 }: let
   onnxLib =
-    if stdenv.isDarwin
-    then "${onnxruntime}/lib/libonnxruntime.dylib"
-    else "${onnxruntime}/lib/libonnxruntime.so";
+    if stdenv.hostPlatform.isDarwin
+    then "${onnxruntime.out}/lib/libonnxruntime.dylib"
+    else "${onnxruntime.out}/lib/libonnxruntime.so";
   sileroModel = "${python3Packages.silero-vad.src}/data/silero_vad.onnx";
 in
   stdenv.mkDerivation (finalAttrs: {
