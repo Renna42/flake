@@ -5,7 +5,7 @@
   nodejs-slim,
   pnpmConfigHook,
   fetchPnpmDeps,
-  pnpm,
+  pnpm_10,
   ...
 }: let
   version = "0.4.51";
@@ -25,7 +25,7 @@ in
     nativeBuildInputs = [
       nodejs-slim
       pnpmConfigHook
-      pnpm
+      pnpm_10
     ];
 
     buildPhase = ''
@@ -44,8 +44,9 @@ in
 
     pnpmDeps = fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
-      fetcherVersion = 4;
-      hash = "sha256-vCtmcckjgGGOO6GUCRQzaimo7X3KykZQ9fIPUZUw9F0=";
+      pnpm = pnpm_10;
+      fetcherVersion = 3;
+      hash = "sha256-vz/hBfGb+4gcGvA6ZdC+Xwp50VA6iC1QQwt2hmWKWAA=";
     };
 
     meta = {
