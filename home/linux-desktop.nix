@@ -81,14 +81,6 @@
       # enable native Wayland support for most Electron apps
       "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
 
-      # fcitx5
-      GLFW_IM_MODULE = "ibus";
-      XMODIFIERS = "@im=fcitx";
-      # Not everywhere needs these environments
-      # GTK_IM_MODULE = "fcitx";
-      # QT_IM_MODULE = "fcitx";
-      # SDL_IM_MODULE = "fcitx";
-
       # misc
       "_JAVA_AWT_WM_NONREPARENTING" = "1";
       "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
