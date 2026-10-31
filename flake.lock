@@ -514,11 +514,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791575145,
-        "narHash": "sha256-A4dB6Yv1Q3ygHgYWefX2DLdbELN//mB+PbCxRMdjTeg=",
+        "lastModified": 1793044712,
+        "narHash": "sha256-IS/JCnL1wIyJK/2vTAvcTr2BSDZrrvWf/GFmcHgjQeU=",
         "owner": "musnix",
         "repo": "musnix",
-        "rev": "6e86730c235db14e8cac6605dfc33f300ce9105e",
+        "rev": "18abb4b12032a1b7040af74cda90d01268d67024",
         "type": "github"
       },
       "original": {
