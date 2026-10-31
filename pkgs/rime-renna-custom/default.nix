@@ -5,21 +5,17 @@
   sansSerifFont ? "Noto Sans CJK SC",
   monospaceFont ? "Maple Mono Normal NF CN",
 }: let
-  makeDict = name: dicts: let
-    body = builtins.toJSON {
-      inherit name;
-      version = "1.0";
-      sort = "by_weight";
-      use_preset_vocabulary = false;
-      import_tables = dicts;
-    };
-  in ''
+  makeDict = name: dicts: ''
     # Rime dictionary
     # encoding: utf-8
 
     ---
-    ${body}
-
+    name: ${name}
+    version: "1.0"
+    sort: by_weight
+    use_preset_vocabulary: false
+    import_tables:
+    ${lib.concatMapStringsSep "\n" (d: "  - ${d}") dicts}
     ...
   '';
 in
@@ -50,7 +46,7 @@ in
       };
     };
 
-    "share/rime-data/rime_mint.custom.dict.yaml" = makeDict "rime_mint" [
+    "share/rime-data/rime_mint.custom.dict.yaml" = makeDict "rime_mint.custom" [
       "dicts/custom_renna"
       "dicts/canton_places"
       "dicts/CustomPinyinDictionary"
@@ -126,4 +122,7 @@ in
         };
       };
     };
+
+    # placeholder
+    "share/rime-data/essay.txt" = "";
   })

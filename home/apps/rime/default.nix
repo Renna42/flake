@@ -16,23 +16,35 @@
     installation_id: "${osConfig.networking.hostName}"
   '';
 
+  rimeDataPkgs = with pkgs; [
+    # keep-sorted start
+    nur.repos.jetcookies.rime-lmdg
+    renna.oh-my-rime
+    renna.rime-custom-pinyin-dictionary
+    renna.rime-moetype
+    renna.rime-renna-custom
+    renna.rime-zhwiki
+    # keep-sorted end
+  ];
+
+  rime-data = pkgs.symlinkJoin {
+    name = "rime-data";
+    paths = rimeDataPkgs;
+  };
+
   fcitx5-rime-with-addons =
-    (pkgs.fcitx5-rime.override {
-      librime = pkgs.nur-xddxdd.lantianCustomized.librime-with-plugins;
-      rimeDataPkgs = with pkgs; [
-        renna.rime-data
-      ];
-    }).overrideAttrs
+    (pkgs.fcitx5-rime.override {inherit rimeDataPkgs;}).overrideAttrs
     (old: {
       # Prebuild schema data
       nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.parallel];
       postInstall =
         (old.postInstall or "")
         + ''
+          export GLOG_logtostderr=1
+
           for F in $out/share/rime-data/*.schema.yaml; do
-            echo "rime_deployer --compile "$F" $out/share/rime-data $out/share/rime-data $out/share/rime-data/build" >> parallel.lst
+            rime_deployer --compile "$F" $out/share/rime-data $out/share/rime-data $out/share/rime-data/build
           done
-          parallel -j$(nproc) < parallel.lst || true
         '';
     });
 in {
@@ -49,7 +61,7 @@ in {
     fi
   '';
   home.file.${rimeConfig} = lib.mkIf pkgs.stdenv.isDarwin {
-    source = "${pkgs.renna.rime-data}/share/rime-data";
+    source = "${rime-data}/share/rime-data";
     recursive = true;
   };
 }

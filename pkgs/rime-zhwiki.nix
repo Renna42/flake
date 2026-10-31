@@ -11,6 +11,7 @@ stdenvNoCC.mkDerivation {
 
     mkdir -p $out/share/rime-data/dicts
     cp $src $out/share/rime-data/dicts/zhwiki.dict.yaml
+    sed -i -e '/^--/d' -e '/^——/d' $out/share/rime-data/dicts/zhwiki.dict.yaml
 
     runHook postInstall
   '';

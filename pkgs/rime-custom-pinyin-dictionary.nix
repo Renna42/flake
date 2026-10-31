@@ -2,7 +2,7 @@
   sources,
   stdenvNoCC,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   inherit (sources.rime-custom-pinyin-dictionary) pname version src;
 
   dontUnpack = true;
@@ -13,8 +13,15 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
 
     mkdir -p $out/share/rime-data/dicts
-    cp $src $out/share/rime-data/dicts/CustomPinyinDictionary.dict.yaml
+    cat - $src > $out/share/rime-data/dicts/CustomPinyinDictionary.dict.yaml <<EOF
+    ---
+    name: CustomPinyinDictionary
+    version: "${finalAttrs.version}"
+    sort: by_weight
+    ...
+
+    EOF
 
     runHook postInstall
   '';
-}
+})
