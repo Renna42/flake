@@ -11,13 +11,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "obsidian-tasks";
-  version = "8.5.0";
+  version = "8.6.0";
 
   src = fetchFromGitHub {
     owner = "obsidian-tasks-group";
     repo = "obsidian-tasks";
     rev = "${finalAttrs.version}";
-    hash = "sha256-vQm+Mv/5ZEXd9DhktpbTw+g86FGqU9n6pTChzb2hONc=";
+    hash = "sha256-oN/7xX+jvrCxeKxgJ8ZLdtgkU0rbz7onX+ZmimNaYqE=";
   };
 
   nativeBuildInputs = [
