@@ -11,6 +11,7 @@ lib.makeScope newScope (
       # keep-sorted start block=yes
       aegisub-arch1t3cht = callPackage ./aegisub-arch1t3cht.nix {};
       catppuccin-obsidian = callPackage ./catppuccin-obsidian.nix {};
+      discscape = callPackage ./discscape.nix {};
       ffmpeg-renna = callPackage ./ffmpeg-renna.nix {
         ffmpegVariant = "small";
       };
