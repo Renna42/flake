@@ -38,6 +38,7 @@ jobs:
         run: nix build .#rime-data
 
       - uses: actions/upload-artifact@v7
+        if: steps.cache.outputs.cache-hit != 'true'
         with:
           name: rime-data-${{ steps.nix-hash.outputs.hash }}
           path: result/share/rime-data/
