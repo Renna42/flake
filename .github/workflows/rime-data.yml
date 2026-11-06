@@ -3,19 +3,39 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "pkgs/rime-data/**"
+      - "flake.lock"
+      - "_sources/generated.json"
+      - "pkgs/oh-my-rime.nix"
+      - "pkgs/rime-*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
+
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculate Nix Hash
+        id: nix-hash
+        run: |
+          HASH=$(nix eval --raw .#rime-data.outPath | cut -d'-' -f1 | cut -d'/' -f4)
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
+      - name: Check Artifact Cache
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: result
+          key: rime-data-${{ steps.nix-hash.outputs.hash }}
+
       - name: Build rime-data
+        if: steps.cache.outputs.cache-hit != 'true'
         run: nix build .#rime-data
+
       - uses: actions/upload-artifact@v7
         with:
-          name: rime-data
+          name: rime-data-${{ steps.nix-hash.outputs.hash }}
           path: result/share/rime-data/

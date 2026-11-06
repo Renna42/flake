@@ -38,6 +38,7 @@ lib.makeScope newScope (
       obsidian-tasks = callPackage ./obsidian-tasks.nix {};
       oh-my-rime = callPackage ./oh-my-rime.nix {};
       rime-custom-pinyin-dictionary = callPackage ./rime-custom-pinyin-dictionary.nix {};
+      rime-data = callPackage ./rime-data.nix {};
       rime-moetype = callPackage ./rime-moetype.nix {};
       rime-renna-custom = callPackage ./rime-renna-custom {};
       rime-zhwiki = callPackage ./rime-zhwiki.nix {};

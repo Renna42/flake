@@ -16,24 +16,8 @@
     installation_id: "${osConfig.networking.hostName}"
   '';
 
-  rimeDataPkgs = with pkgs; [
-    # keep-sorted start
-    nur.repos.jetcookies.rime-lmdg
-    renna.oh-my-rime
-    renna.rime-custom-pinyin-dictionary
-    renna.rime-moetype
-    renna.rime-renna-custom
-    renna.rime-zhwiki
-    # keep-sorted end
-  ];
-
-  rime-data = pkgs.symlinkJoin {
-    name = "rime-data";
-    paths = rimeDataPkgs;
-  };
-
   fcitx5-rime-with-addons =
-    (pkgs.fcitx5-rime.override {inherit rimeDataPkgs;}).overrideAttrs
+    (pkgs.fcitx5-rime.override {inherit (pkgs.renna.rime-data) rimeDataPkgs;}).overrideAttrs
     (old: {
       # Prebuild schema data
       nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.parallel];
@@ -61,7 +45,7 @@ in {
     fi
   '';
   home.file.${rimeConfig} = lib.mkIf pkgs.stdenv.isDarwin {
-    source = "${rime-data}/share/rime-data";
+    source = "${pkgs.renna.rime-data}/share/rime-data";
     recursive = true;
   };
 }
