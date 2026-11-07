@@ -56,7 +56,6 @@
         makemkv
         mediainfo
         motrix-next
-        podman-desktop
         qbittorrent-enhanced
         renna.aegisub-arch1t3cht
         renna.exactaudiocopy
@@ -70,6 +69,7 @@
       ++ (with unstablePkgs; [
         # keep-sorted start case=no
         nur-xddxdd.wechat-uos-sandboxed
+        podman-desktop
         qq
         splayer-next
         # keep-sorted end

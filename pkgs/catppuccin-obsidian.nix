@@ -6,53 +6,49 @@
   pnpmConfigHook,
   fetchPnpmDeps,
   pnpm_10,
-  ...
-}: let
-  version = "0.4.51";
-  commitHash = "7ebbd577464d6ef8a18cb02811983bee623f30d6";
-in
-  stdenv.mkDerivation (finalAttrs: {
-    pname = "catppuccin-obsidian";
-    version = "${version}-${builtins.substring 0 7 commitHash}";
+}:
+stdenv.mkDerivation (finalAttrs: {
+  pname = "catppuccin-obsidian";
+  version = "0.4.52";
 
-    src = fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "obsidian";
-      rev = commitHash;
-      hash = "sha256-9IwQsXFf63/R27xazFKzkVhPSgTnlYtNzb9uUY3WRa8=";
-    };
+  src = fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "obsidian";
+    tag = "${finalAttrs.version}";
+    hash = "sha256-9IwQsXFf63/R27xazFKzkVhPSgTnlYtNzb9uUY3WRa8=";
+  };
 
-    nativeBuildInputs = [
-      nodejs-slim
-      pnpmConfigHook
-      pnpm_10
-    ];
+  nativeBuildInputs = [
+    nodejs-slim
+    pnpmConfigHook
+    pnpm_10
+  ];
 
-    buildPhase = ''
-      runHook preBuild
+  buildPhase = ''
+    runHook preBuild
 
-      pnpm run build
+    pnpm run build
 
-      runHook postBuild
-    '';
+    runHook postBuild
+  '';
 
-    installPhase = ''
-      mkdir -p $out/
-      cp manifest.json $out/
-      cp dist/catppuccin.css $out/theme.css
-    '';
+  installPhase = ''
+    mkdir -p $out/
+    cp manifest.json $out/
+    cp dist/catppuccin.css $out/theme.css
+  '';
 
-    pnpmDeps = fetchPnpmDeps {
-      inherit (finalAttrs) pname version src;
-      pnpm = pnpm_10;
-      fetcherVersion = 3;
-      hash = "sha256-vz/hBfGb+4gcGvA6ZdC+Xwp50VA6iC1QQwt2hmWKWAA=";
-    };
+  pnpmDeps = fetchPnpmDeps {
+    inherit (finalAttrs) pname version src;
+    pnpm = pnpm_10;
+    fetcherVersion = 3;
+    hash = "sha256-vz/hBfGb+4gcGvA6ZdC+Xwp50VA6iC1QQwt2hmWKWAA=";
+  };
 
-    meta = {
-      description = "Catppuccin for Obsidian";
-      homepage = "https://github.com/catppuccin/obsidian";
-      changelog = "https://github.com/catppuccin/obsidian/releases/tag/v${version}";
-      license = lib.licenses.mit;
-    };
-  })
+  meta = {
+    description = "Catppuccin for Obsidian";
+    homepage = "https://github.com/catppuccin/obsidian";
+    changelog = "https://github.com/catppuccin/obsidian/releases/tag/v${finalAttrs.version}";
+    license = lib.licenses.mit;
+  };
+})
