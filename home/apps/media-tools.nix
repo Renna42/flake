@@ -25,7 +25,6 @@ in {
       lame
       libwebp
       loudgain
-      n-m3u8dl-re
       renna.ffmpeg-renna-full
       renna.harletty-bridge
       renna.ilass
@@ -46,10 +45,11 @@ in {
           if pkgs.stdenv.isLinux
           then [
             mkvtoolnix
+            n-m3u8dl-re # building dotnet packages on macOS too slow...
             picard
           ]
           else [
-            mkvtoolnix-cli
+            mkvtoolnix-cli # already installed a GUI version with brew
           ]
         )
     );
