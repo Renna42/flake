@@ -3,8 +3,8 @@
   fetchFromGitHub,
   rustPlatform,
 }: let
-  commitDate = "2026-11-08";
-  commitHash = "8200ec08ab10f2b1eabdbb904fb34239796c3116";
+  commitDate = "2026-11-09";
+  commitHash = "a6151612071fabc1ea2c30dedd4a55ecf7d79a1c";
 in
   rustPlatform.buildRustPackage (finalAttrs: {
     pname = "discscape";
@@ -14,7 +14,7 @@ in
       owner = "Isoheptane";
       repo = "discscape";
       rev = commitHash;
-      hash = "sha256-/iaWY1h4AaG4VTIluEy7Yam1Q2//cv8BFTKkLaAzsfI=";
+      hash = "sha256-cjD6yteazoByPMTSkhw4+3L/FQANlJtCNHdyCZbYQOs=";
     };
 
     cargoHash = "sha256-xRm/nHvRm+TJG2YAueGkVLavyI7wJ7Ot8DzFzK4yzmE=";
