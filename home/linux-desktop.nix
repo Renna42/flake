@@ -1,80 +1,14 @@
 {
   assetsPath,
-  pkgs,
-  unstablePkgs,
   username,
   ...
 }: {
   imports = [
     ./base.nix
     ./theme.nix
-
-    # keep-sorted start
-    ./apps/archives
-    ./apps/chromium
-    ./apps/develop
-    ./apps/develop/c-family.nix
-    ./apps/develop/nodejs.nix
-    ./apps/develop/python.nix
-    ./apps/discord
-    ./apps/easyeffects
-    ./apps/element
-    ./apps/fcitx5
-    ./apps/firefox
-    ./apps/kitty
-    ./apps/mpv
-    ./apps/obs-studio
-    ./apps/obsidian
-    ./apps/rime
-    ./apps/syncthing
-    ./apps/vscodium
-    ./apps/wakatime
-    ./apps/yubikey
-    # keep-sorted end
-
-    ./apps/android.nix
-    ./apps/game.nix
-    ./apps/media-tools.nix
-    ./apps/shell-utils.nix
   ];
 
-  renna.syncthing.rime = true;
-
   home = {
-    packages = with pkgs;
-      [
-        # keep-sorted start case=no
-        angryipscanner
-        audacity
-        ayugram-desktop
-        dbeaver-bin
-        dejavu_fonts
-        imhex
-        kdePackages.kleopatra
-        krita
-        localsend
-        makemkv
-        mediainfo
-        motrix-next
-        qbittorrent-enhanced
-        renna.aegisub-arch1t3cht
-        renna.exactaudiocopy
-        roomeqwizard
-        strawberry
-        teamspeak6-client
-        ventoy-full
-        vlc
-        # keep-sorted end
-      ]
-      ++ (with unstablePkgs; [
-        # keep-sorted start case=no
-        nur-xddxdd.wechat-uos-sandboxed
-        podman-desktop
-        qq
-        splayer-next
-        # keep-sorted end
-      ]);
-
     sessionVariables = {
       "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
       "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland
@@ -99,8 +33,6 @@
 
     file.".face.icon".source = "${assetsPath}/${username}.png";
   };
-
-  services.tailscale-systray.enable = true;
 
   xdg.userDirs = {
     enable = true;

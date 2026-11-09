@@ -10,6 +10,11 @@ in {
   options = {
     renna.homeManager = {
       enable = lib.mkEnableOption "Enable home-manager for Renna Z.";
+      modules = lib.mkOption {
+        type = with lib.types; listOf raw;
+        default = [];
+        description = "home-manager modules for Renna Z.";
+      };
     };
   };
 
@@ -49,9 +54,11 @@ in {
         inputs.catppuccin.homeModules.catppuccin
         inputs.sops-nix.homeManagerModules.sops
       ];
-      users."${username}".imports = [
-        ../../../home/linux-desktop.nix
-      ];
+      users."${username}".imports =
+        [
+          ../../../home/linux-desktop.nix
+        ]
+        ++ config.renna.homeManager.modules;
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "hm-bak";

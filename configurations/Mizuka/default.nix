@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./home.nix
     ./epson_l8168.nix
     ../../nixos/disk-layouts/root-data-separate.nix
 
@@ -55,7 +56,6 @@
   renna = {
     kernel = pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v3;
     sample-rate = 192000;
-    homeManager.enable = true;
     enableMirrorSubstituter = true;
     enableCompatLibraries = true;
   };
