@@ -809,11 +809,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793753221,
-        "narHash": "sha256-2COYUmNJFEnp4FnmSAeKkLRBRB1/wq8kDpH2XLHubp4=",
+        "lastModified": 1794358023,
+        "narHash": "sha256-LZjeGyfgMgMklaTNSwpT3p6I8cNQmlwJG6gZCkIcq7Q=",
         "owner": "xddxdd",
         "repo": "nur-packages",
-        "rev": "8a15c7c2072078cafe6b6f120029d1e5d8645035",
+        "rev": "dfd96555d61f53f7a55ce71271bd659d74788d04",
         "type": "github"
       },
       "original": {
