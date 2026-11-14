@@ -240,7 +240,6 @@ in {
           darkreader
           devtools-media-panel
           firefox-color
-          hide-google-ai-overviews
           immersive-translate
           redirectnixwiki
           sponsorblock
