@@ -10,16 +10,16 @@ buildNpmPackage (finalAttrs: {
   inherit nodejs;
 
   pname = "obsidian-livesync";
-  version = "1.0.46";
+  version = "1.0.50";
 
   src = fetchFromGitHub {
     owner = "vrtmrz";
     repo = "obsidian-livesync";
     rev = "${finalAttrs.version}";
-    hash = "sha256-vb1dINFMsOeQBqA2tALRNokvsSuy2ozi32T67fuuL30=";
+    hash = "sha256-LR3dHYgg0CeixEJs2gPTSXoMrrndaodayDyZ+XWeIzU=";
   };
 
-  npmDepsHash = "sha256-CLy+o2hT+Y0n2wRp6zYU8KCbEXlHe+8YkCX3Z+BEL2k=";
+  npmDepsHash = "sha256-cOIobacyPqmLL4EuPczJxHmK5iqiEM+MvKhr25ZwhUU=";
   npmFlags = ["--ignore-scripts"];
 
   buildPhase = ''
@@ -39,7 +39,12 @@ buildNpmPackage (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script {};
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version-regex"
+      "^(\\d+\\.\\d+\\.\\d+)$"
+    ];
+  };
 
   meta = {
     description = "Community implementation of self-hosted livesync for Obsidian";

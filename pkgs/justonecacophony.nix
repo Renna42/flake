@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "justonecacophony";
-  version = "1.2.0";
+  version = "1.3.3";
 
   src = fetchFromGitHub {
     owner = "TheM14";
     repo = "JustOneCacophony";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-m0Z8H4As+2pKG9Rgfp4XhvPAItpCXPzX4U937pKsWa4=";
+    hash = "sha256-o/DfEL8VYCw5YDUjpsOjYc6GpgJVKcyw1AomBhIvExU=";
   };
 
   nativeBuildInputs = [

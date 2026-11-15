@@ -25,11 +25,13 @@ in {
       lame
       libwebp
       loudgain
+      mysox
       renna.ffmpeg-renna-full
       renna.harletty-bridge
       renna.ilass
       renna.justonecacophony
       renna.lapse-silero
+      renna.orender
       shntool
       wavpack
       yt-dlp
@@ -38,7 +40,6 @@ in {
     ++ (
       with unstablePkgs;
         [
-          mysox # amrwb in stable nixpkgs not working
           rsgain # rsgain 3.8 added support for DSD format
         ]
         ++ (

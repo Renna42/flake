@@ -191,7 +191,7 @@
           };
           "prettier.tabWidth" = 2;
           "python.analysis.diagnosticsSource" = "Pylance + Pyrefly";
-          "python.analysis.pyreflyVersion" = "${unstablePkgs.pyrefly}/bin/pyrefly";
+          "python.analysis.pyreflyVersion" = "${pkgs.pyrefly}/bin/pyrefly";
           "python.languageServer" = "Pylance";
           "redhat.telemetry.enabled" = false;
           "search.smartCase" = true;

@@ -17,20 +17,20 @@
       deepClone = false;
       leaveDotGit = true;
       sparseCheckout = [ ];
-      sha256 = "sha256-bSfT658VR85uNPMll/fgbMFX1Er/51qOxnBAYF+lBqc=";
+      sha256 = "sha256-4cNUDiVdlbzk2ESGG9M46SDvZBWaBeqdVOxA3nuda7M=";
     };
   };
   mpv-config = {
     pname = "mpv-config";
-    version = "e235480f28674ee507ac87d2d0c8e79ac1fa0682";
+    version = "89490fdc84c42d79da3e9430f8a99bd244fd46d5";
     src = fetchFromGitHub {
       owner = "dyphire";
       repo = "mpv-config";
-      rev = "e235480f28674ee507ac87d2d0c8e79ac1fa0682";
+      rev = "89490fdc84c42d79da3e9430f8a99bd244fd46d5";
       fetchSubmodules = false;
-      sha256 = "sha256-w73SZE8tSmEsgKUZf0+ESiF1WNtfeu9IKNg5obLFPzc=";
+      sha256 = "sha256-CUF6/imLhOBBCUKZ+2ViU4YHa8F9675URN9P8HLW7Io=";
     };
-    date = "2026-10-26";
+    date = "2026-11-14";
   };
   mpv-fork = {
     pname = "mpv-fork";
@@ -43,32 +43,32 @@
       deepClone = false;
       leaveDotGit = true;
       sparseCheckout = [ ];
-      sha256 = "sha256-4kCJX5qwmaz8QEd9aXscqJQeaibIt29Jkrcf5uBhzvY=";
+      sha256 = "sha256-h+U1ws7d55o4PcnVpQnOcXMF4rYlcZImhTZf1cE9Q/g=";
     };
   };
   nvidia-patch = {
     pname = "nvidia-patch";
-    version = "809fa4add10a0ab44f872096c0d787275e210cb4";
+    version = "7f30a61d159fa4c9644a7bf9d71a679c07062f5f";
     src = fetchFromGitHub {
       owner = "keylase";
       repo = "nvidia-patch";
-      rev = "809fa4add10a0ab44f872096c0d787275e210cb4";
+      rev = "7f30a61d159fa4c9644a7bf9d71a679c07062f5f";
       fetchSubmodules = false;
-      sha256 = "sha256-78oNxCCgw4zRKIaMkT/4pQz9hQfyUX0YIKJQhShrXTA=";
+      sha256 = "sha256-lyD4TqgaWE0YwfauX7o8PdxVxQmai4LBckqXopN+m8s=";
     };
-    date = "2026-11-05";
+    date = "2026-11-15";
   };
   oh-my-rime = {
     pname = "oh-my-rime";
-    version = "cb4f7dda2fb74332cda0a7712ffc89ea5ded856f";
+    version = "0cf3d63c61d07a84834c031bad4ef8ac39b322d0";
     src = fetchFromGitHub {
       owner = "Mintimate";
       repo = "oh-my-rime";
-      rev = "cb4f7dda2fb74332cda0a7712ffc89ea5ded856f";
+      rev = "0cf3d63c61d07a84834c031bad4ef8ac39b322d0";
       fetchSubmodules = false;
-      sha256 = "sha256-JTHGHeY+2Zv4z/TCoaRypHWfcMqqzagyKwxtWRVFzL8=";
+      sha256 = "sha256-vi9JMdSN3vdkHwVowTsJ1EEvYcaH92cb/VM47m8kRfY=";
     };
-    date = "2026-10-29";
+    date = "2026-11-14";
   };
   rime-custom-pinyin-dictionary = {
     pname = "rime-custom-pinyin-dictionary";
