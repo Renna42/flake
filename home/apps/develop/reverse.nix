@@ -16,5 +16,6 @@
     ]
     ++ (lib.optionals (!pkgs.stdenv.isDarwin) [
       detect-it-easy
+      renna.ida-pro
     ]);
 }
